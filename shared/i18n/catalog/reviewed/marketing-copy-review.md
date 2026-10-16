@@ -362,7 +362,6 @@ The same keys differ in every reviewed locale because the translation still uses
 - mobile.gpsBody
 - mobile.earningsBody
 - mobile.ecosystemDescription
-- mobile.downloadDescription
 - security.roleBody
 - security.privacyBody
 - security.enterpriseBody

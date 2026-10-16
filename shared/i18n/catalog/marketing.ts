@@ -328,7 +328,7 @@ export const marketing = {
     downloadEyebrow: "Download",
     downloadTitle: "Get HADRO on iOS and Android.",
     downloadDescription:
-      "Store links are centralized in marketing configuration. Swap placeholders for live listings when published.",
+      "Employees use the HADRO app on iOS and Android for attendance, leave, and self-service.",
     ctaTitle: "Ready to equip your workforce with HADRO mobile?",
     ctaDescription:
       "Request access for your organization. Onboarding includes getting teams onto the right web and mobile experiences.",

@@ -2,14 +2,14 @@ import { BRAND, LEGAL_ROUTES } from "@/lib/branding";
 import { translate } from "@/lib/i18n";
 import { marketingText } from "@/lib/marketing/text";
 
-/** Central marketing / distribution configuration — update placeholders here. */
+/** Central marketing / distribution configuration — set live store URLs when published. */
 export const MARKETING = {
   siteUrl: BRAND.siteUrl,
   contactEmail: BRAND.supportEmail,
-  /** Replace with live App Store URL when published. */
-  appStoreUrl: "https://apps.apple.com/app/hadro/id0000000000",
-  /** Replace with live Play Store URL when published. */
-  playStoreUrl: "https://play.google.com/store/apps/details?id=com.hadro.mobile",
+  /** Live App Store listing URL. Leave empty until published. */
+  appStoreUrl: "",
+  /** Live Play Store listing URL. Leave empty until published. */
+  playStoreUrl: "",
   social: {
     instagram: "https://instagram.com/hadro",
     tiktok: "https://tiktok.com/@hadro",

@@ -373,6 +373,27 @@ describe("i18n foundation", () => {
     expectReviewed("marketing.cta.requestAccess", "ar");
   });
 
+  test("marketing download copy never exposes store-link developer instructions", () => {
+    const forbidden = [
+      /Store links are centralized/i,
+      /Swap placeholders for live listings/i,
+      /centralized in marketing configuration/i,
+      /configuration marketing/i,
+      /configuração de marketing/i,
+      /configuración de marketing/i,
+      /إعداد التسويق/i,
+      /usanidi wa uuzaji/i,
+    ];
+    const locales = ["en", "fr", "pt", "es", "ar", "sw"] as const;
+    for (const locale of locales) {
+      const value = translate("marketing.mobile.downloadDescription", { locale });
+      expect(value.trim().length).toBeGreaterThan(0);
+      for (const pattern of forbidden) {
+        expect(value).not.toMatch(pattern);
+      }
+    }
+  });
+
   test("language selector locales stay explicit and fall back to English", () => {
     expect([...SUPPORTED_LOCALES]).toEqual(["en", "fr", "pt", "ar", "sw", "es"]);
     expect(LOCALE_META.en.nativeName).toBe("English");
