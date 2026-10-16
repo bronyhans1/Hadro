@@ -1,0 +1,13 @@
+{
+  "roles": {
+    "admin": "Admin",
+    "company_admin": "Administrador de la empresa",
+    "manager": "Responsable",
+    "hr": "HR",
+    "employee": "Empleado",
+    "platform_admin": "Administrador de la plataforma",
+    "receptionist": "Recepcionista",
+    "housekeeping": "Limpieza"
+  },
+  "user": "Usuario"
+}

@@ -1,0 +1,11 @@
+{
+  "contact": "Contacto",
+  "launcher": "Soporte",
+  "contactSupport": "Contactar con soporte",
+  "closePanel": "Cerrar el panel de soporte",
+  "loadingDetails": "Cargando detalles de soporte…",
+  "failedLoad": "No se pudieron cargar los detalles de soporte",
+  "unavailable": "Los detalles de soporte aún no están disponibles.",
+  "whatsapp": "WhatsApp",
+  "chatWhatsApp": "Chatear por WhatsApp"
+}

@@ -1,0 +1,83 @@
+import { Router } from "express";
+import { authMiddleware } from "../../middleware/auth.middleware";
+import { enforceAccountNotBlocked } from "../../middleware/accountAccess.middleware";
+import { platformAdminStack } from "../../middleware/standardGuards";
+import { requireRole } from "../../middleware/role.middleware";
+import { createRateLimit } from "../../middleware/rateLimit.middleware";
+import * as platformController from "./platform.controller";
+
+const router = Router();
+
+const platformAdminGuard = [...platformAdminStack, requireRole(["PLATFORM_ADMIN"])];
+
+router.get(
+  "/support-settings",
+  authMiddleware,
+  enforceAccountNotBlocked,
+  platformController.getSupportSettings
+);
+
+router.post(
+  "/companies",
+  ...platformAdminGuard,
+  createRateLimit({ keyPrefix: "platform:provision-company", windowMs: 60_000, max: 3 }),
+  platformController.provisionCompany
+);
+
+router.get(
+  "/dashboard",
+  ...platformAdminGuard,
+  platformController.getDashboard
+);
+
+router.get(
+  "/audit",
+  ...platformAdminGuard,
+  platformController.listAuditLogs
+);
+
+router.get(
+  "/companies",
+  ...platformAdminGuard,
+  platformController.listCompanies
+);
+
+router.get(
+  "/companies/:companyId/profile",
+  ...platformAdminGuard,
+  platformController.getCompanyProfile
+);
+
+router.patch(
+  "/companies/:companyId/profile",
+  ...platformAdminGuard,
+  platformController.patchCompanyProfile
+);
+
+router.patch(
+  "/companies/:companyId",
+  ...platformAdminGuard,
+  platformController.patchCompany
+);
+
+router.delete(
+  "/companies/:companyId",
+  ...platformAdminGuard,
+  createRateLimit({ keyPrefix: "platform:delete-company", windowMs: 60_000, max: 3 }),
+  platformController.deleteCompany
+);
+
+router.delete(
+  "/users/:userId",
+  ...platformAdminGuard,
+  createRateLimit({ keyPrefix: "platform:delete-user", windowMs: 60_000, max: 5 }),
+  platformController.deleteUser
+);
+
+router.patch(
+  "/support-settings",
+  ...platformAdminGuard,
+  platformController.patchSupportSettings
+);
+
+export default router;

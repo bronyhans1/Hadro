@@ -1,0 +1,1059 @@
+{
+  "nav": {
+    "why": "Por qué HADRO",
+    "features": "Funciones",
+    "solutions": "Soluciones",
+    "mobile": "Móvil",
+    "security": "Seguridad",
+    "faqs": "FAQs",
+    "about": "Acerca de",
+    "marketing": "Marketing",
+    "comingSoon": "Próximamente",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "homeLink": "Inicio de {{brand}}"
+  },
+  "cta": {
+    "requestAccess": "Solicitar acceso",
+    "requestAccessTitle": "Solicitar acceso",
+    "signIn": "Iniciar sesión",
+    "explorePlatform": "Explorar la plataforma",
+    "exploreSolutions": "Explorar soluciones",
+    "exploreAllFeatures": "Explorar todas las funciones",
+    "whyHadro": "Por qué HADRO",
+    "contact": "Contacto",
+    "contactUs": "Contáctenos",
+    "support": "Soporte",
+    "emailSupport": "Soporte por correo",
+    "goToSupport": "Ir a Soporte",
+    "browseFeatures": "Explorar funciones",
+    "industrySolutions": "Soluciones por sector",
+    "mobileApp": "Aplicación móvil",
+    "backToHome": "Volver al inicio",
+    "returnToHome": "Volver al inicio",
+    "submitRequest": "Enviar solicitud",
+    "submitting": "Enviando…",
+    "submitAnother": "Enviar otra solicitud",
+    "nextStep": "Siguiente paso",
+    "exploreFeatures": "Explorar funciones",
+    "viewSolutions": "Ver soluciones",
+    "seeMobile": "Ver la aplicación móvil",
+    "sendEmail": "Enviar un correo",
+    "visitSupport": "Visitar soporte",
+    "allSolutions": "Todas las soluciones",
+    "viewAllSolutions": "Ver todas las soluciones"
+  },
+  "footer": {
+    "blurb": "Gestión de plantilla empresarial para asistencia, ausencias, visibilidad de nómina y operaciones multi-sucursal.",
+    "navigate": "Navegar",
+    "legalContact": "Legal y contacto",
+    "privacy": "Privacidad",
+    "terms": "Términos",
+    "downloadSocial": "Descarga y redes",
+    "social": "Redes sociales",
+    "rights": "Todos los derechos reservados.",
+    "instagram": "Instagram",
+    "tiktok": "TikTok",
+    "linkedin": "LinkedIn",
+    "x": "X",
+    "youtube": "YouTube"
+  },
+  "stores": {
+    "appStore": "Descargar en el App Store",
+    "playStore": "Disponible en Google Play"
+  },
+  "theme": {
+    "button": "Tema: {{label}}. Haga clic para cambiar",
+    "title": "Tema: {{label}}",
+    "current": "Preferencia de tema actual: {{label}}. Resuelto: {{resolved}}.",
+    "dark": "oscuro",
+    "light": "claro"
+  },
+  "showcase": {
+    "eyebrow": "Capacidad destacada",
+    "problem": "Problema",
+    "solution": "Solución",
+    "businessValue": "Valor de negocio"
+  },
+  "mockup": {
+    "dashboardTitle": "Panel de plantilla de HADRO",
+    "chrome": "HADRO · Web",
+    "screens": "Pantallas del panel",
+    "heroDashboard": "Panel de plantilla en tiempo real",
+    "operationalDashboard": "Panel operativo de HADRO",
+    "featureOverview": "Resumen de funciones de HADRO",
+    "whyHero": "Plataforma de plantilla conectada",
+    "employeeApp": "Aplicación de empleados de HADRO",
+    "workflow": "Flujo de trabajo de plantilla conectada",
+    "team": "Equipo de HADRO",
+    "mission": "Misión de HADRO",
+    "contact": "Contactar a HADRO",
+    "securityOverview": "Resumen de seguridad de HADRO",
+    "industrySolutions": "Soluciones por sector de HADRO",
+    "faqs": "FAQs de HADRO",
+    "industryWorkforce": "Plantilla de {{label}}",
+    "mobileTitle": "HADRO móvil",
+    "highlights": "Aspectos destacados del producto",
+    "problemsIllustration": "Ilustración de problemas de negocio",
+    "companyLogo": "Logotipo de la empresa",
+    "organizationLogo": "Logotipo de {{organization}}"
+  },
+  "metrics": {
+    "title": "Diseñado para la claridad operativa",
+    "eyebrow": "Aspectos destacados de la plataforma",
+    "attendanceValue": "QR + GPS",
+    "attendanceLabel": "Modos de asistencia",
+    "attendanceHint": "Para equipos en sitio y de campo",
+    "branchesValue": "Multi-sucursal",
+    "branchesLabel": "Administración unificada",
+    "branchesHint": "Una plataforma en todas las ubicaciones",
+    "earningsValue": "En vivo",
+    "earningsLabel": "Visibilidad de ingresos",
+    "earningsHint": "Transparencia mientras se trabaja",
+    "ecosystemValue": "Web + Móvil",
+    "ecosystemLabel": "Productos conectados",
+    "ecosystemHint": "Liderazgo y plantilla sincronizados"
+  },
+  "workflow": {
+    "employee": "Empleado",
+    "employeeHint": "Identidad y perfil de la plantilla",
+    "attendance": "Asistencia",
+    "attendanceHint": "Registrar entrada y salida",
+    "gps": "Verificación GPS",
+    "gpsHint": "Confirmación con ubicación",
+    "dashboard": "Panel",
+    "dashboardHint": "Visibilidad operativa en vivo",
+    "payroll": "Nómina",
+    "payrollHint": "Lógica de ingresos alineada a la política",
+    "liveEarnings": "Ingresos en vivo",
+    "liveEarningsHint": "Pago transparente día a día",
+    "reports": "Informes",
+    "reportsHint": "Supervisión y apoyo a la decisión",
+    "title": "Un recorrido de plantilla conectado",
+    "description": "HADRO conecta personas, asistencia, verificación, supervisión e ingresos en un solo flujo operativo."
+  },
+  "home": {
+    "title": "Simplifique la gestión de plantilla en cada sitio y turno.",
+    "description": "HADRO es una plataforma Intelligent Workforce Management construida en torno a la gestión moderna de la asistencia. Los empleados registran la entrada y la salida con una aplicación móvil sencilla, con opciones de GPS y QR. Los líderes usan la plataforma web para gestionar la asistencia, seguir las llegadas tarde, supervisar las ausencias, consultar la información de nómina y gestionar equipos en departamentos y sucursales. Los empleados también pueden consultar sus registros de asistencia y otras herramientas de autoservicio en el teléfono.",
+    "problemsEyebrow": "Problemas de negocio",
+    "problemsTitle": "La complejidad de la plantilla frena a las organizaciones.",
+    "problemsDescription": "Cuando asistencia, nómina, ausencias y operaciones de sucursal viven en lugares distintos, los líderes pierden tiempo—y confianza.",
+    "problemAttendance": "Asistencia sin confianza",
+    "problemAttendanceBody": "Los registros manuales y las herramientas fragmentadas dejan a los responsables sin certeza de quién estuvo realmente presente—y dónde.",
+    "problemPayroll": "Disputas de nómina a posteriori",
+    "problemPayrollBody": "Los empleados descubren problemas de pago demasiado tarde, generando conflictos evitables y sobrecarga administrativa.",
+    "problemRemote": "Equipos remotos y de campo excluidos",
+    "problemRemoteBody": "Cuando los trabajadores remotos no pueden registrar entrada de forma segura, las organizaciones pierden control y trazabilidad, y los empleados se sienten desconectados de los procesos de nómina y plantilla.",
+    "whyEyebrow": "Por qué HADRO",
+    "whyTitle": "Una experiencia completa de plantilla—no un montón de módulos.",
+    "whyDescription": "Cada capacidad existe para simplificar cómo las organizaciones gestionan a las personas en el trabajo.",
+    "whyConnected": "Una plataforma conectada",
+    "whyConnectedBody": "Asistencia, ausencias, visibilidad de nómina y administración comparten la misma verdad operativa—para empleados de oficina y remotos por igual.",
+    "whyWorkplaces": "Diseñado para lugares de trabajo reales",
+    "whyWorkplacesBody": "Pensado para oficinas, fábricas, hospitales, obras, equipos remotos y organizaciones multi-sucursal—no solo para HR de escritorio.",
+    "whyWebMobile": "Web para el liderazgo, móvil para los equipos",
+    "whyWebMobileBody": "Los responsables de decisión gestionan la organización en la web. Los empleados se mantienen productivos en sitio o de forma remota desde el campo.",
+    "visibilityEyebrow": "Visibilidad en tiempo real",
+    "visibilityTitle": "Vea su plantilla con claridad—mientras se trabaja.",
+    "visibilityDescription": "El panel de HADRO ofrece a los responsables una visión inmediata de asistencia, actividad y salud operativa en toda la organización.",
+    "capabilitiesEyebrow": "Capacidades destacadas",
+    "capabilitiesTitle": "Lo que hace diferente a HADRO.",
+    "capabilitiesDescription": "Estas son experiencias insignia—no mosaicos de funciones ordinarios.",
+    "exploreEyebrow": "Explorar soluciones",
+    "exploreTitle": "Vea HADRO para su sector.",
+    "exploreDescription": "Desde escuelas y hospitales hasta fábricas, hoteles, logística y equipos gubernamentales—explore cómo HADRO se adapta a los lugares donde realmente se trabaja.",
+    "problemsCaption": "Los procesos manuales crean carga de trabajo innecesaria"
+  },
+  "industries": {
+    "schools": "Escuelas",
+    "hospitals": "Hospitales",
+    "factories": "Fábricas",
+    "warehouses": "Almacenes",
+    "construction": "Construcción",
+    "hotels": "Hoteles",
+    "retail": "Comercio minorista",
+    "offices": "Oficinas",
+    "logistics": "Logística",
+    "government": "Gobierno"
+  },
+  "signature": {
+    "gpsTitle": "Asistencia GPS",
+    "gpsProblem": "Los equipos de campo registran entrada sin una verificación fiable de ubicación.",
+    "gpsSolution": "Verifique la asistencia con conciencia de ubicación para plantillas distribuidas.",
+    "gpsBenefit": "Reduzca el fichaje por terceros y mejore el control y la trazabilidad entre sitios.",
+    "remoteTitle": "Gestión de plantilla remota",
+    "remoteProblem": "Los empleados remotos y de campo quedan fuera de las herramientas tradicionales de asistencia de oficina—así los líderes pierden confianza y los equipos se sienten desconectados.",
+    "remoteSolution": "Permita que los empleados registren entrada y salida de forma remota y segura mientras permanecen conectados a asistencia, visibilidad de nómina, informes y administración de plantilla en una sola plataforma.",
+    "remoteBenefit": "Gestione juntos a trabajadores de oficina y remotos—con trazabilidad GPS donde importa la ubicación.",
+    "qrTitle": "Asistencia QR",
+    "qrProblem": "Los sitios con mucho movimiento necesitan un registro de entrada rápido y seguro sin fricción.",
+    "qrSolution": "Use códigos QR para una captura de asistencia rápida y controlada.",
+    "qrBenefit": "Acelere la entrada manteniendo la asistencia fiable.",
+    "earningsTitle": "Ingresos en vivo",
+    "earningsProblem": "Los empleados esperan al día de pago para entender lo que han ganado.",
+    "earningsSolution": "Muestre los ingresos a medida que avanza el trabajo con seguimiento en vivo transparente.",
+    "earningsBenefit": "Genere confianza y reduzca las disputas de nómina antes de que empiecen.",
+    "multiTitle": "Gestión de plantilla multi-sucursal",
+    "multiProblem": "Las organizaciones en crecimiento tienen dificultades para gestionar personas en varias ubicaciones.",
+    "multiSolution": "Opere varias sucursales desde un panel administrativo unificado.",
+    "multiBenefit": "Escale operaciones sin perder visibilidad ni control.",
+    "selfTitle": "Autoservicio del empleado",
+    "selfProblem": "Los equipos de HR dedican tiempo a solicitudes rutinarias de empleados.",
+    "selfSolution": "Permita que los empleados gestionen ausencias, perfil y tareas de asistencia en autoservicio.",
+    "selfBenefit": "Libere capacidad de HR para decisiones de plantilla de mayor valor.",
+    "dashboardTitle": "Panel de plantilla en tiempo real",
+    "dashboardProblem": "Los responsables carecen de visión inmediata de la actividad de la plantilla.",
+    "dashboardSolution": "Ofrezca visibilidad operativa en vivo de asistencia y actividad.",
+    "dashboardBenefit": "Actúe el mismo día—no después del cierre del mes."
+  },
+  "features": {
+    "eyebrow": "Funciones",
+    "title": "Todo lo que líderes y empleados necesitan en una plataforma.",
+    "description": "Desde asistencia verificada y gestión de plantilla remota hasta ingresos en vivo y administración multi-sucursal, HADRO lleva las operaciones de plantilla a una experiencia web y móvil conectada—dondequiera que trabajen los empleados.",
+    "attendanceTitle": "Seguimiento de asistencia",
+    "attendanceBody": "Registro de entrada con QR y GPS para equipos en sitio, y registro de entrada remoto seguro para empleados que trabajan fuera de la oficina, cuando esas opciones están habilitadas. Identifique las llegadas tarde comparando las horas de registro de entrada de los empleados con sus horarios de trabajo aplicables, para que los responsables vean la puntualidad y los patrones de asistencia.",
+    "remoteTitle": "Gestión de plantilla remota",
+    "remoteBody": "Gestione trabajadores remotos y de campo con la misma plataforma que los equipos de oficina—conectados a asistencia, visibilidad de nómina e informes.",
+    "payrollTitle": "Nómina e ingresos en vivo",
+    "payrollBody": "Información transparente de nómina y visibilidad de ingresos en tiempo real para su plantilla. Los ingresos en vivo muestran la remuneración a medida que avanza el trabajo; no son el registro de nómina aprobado. Cuando el seguimiento de llegadas tarde y la deducción por retraso están habilitados, y solo a partir de la fecha de vigencia de la deducción, los minutos de retraso registrados pueden calcularse en la nómina en borrador y mostrarse en el recibo de nómina. La compensación configurada de horas extra, las ausencias pagadas y los festivos pagados también pueden seguir las reglas de nómina de la empresa.",
+    "leaveTitle": "Gestión de ausencias",
+    "leaveBody": "Los empleados solicitan ausencias; los responsables revisan y aprueban con una alineación clara a la política. Las ausencias pagadas y no pagadas pueden tratarse de forma distinta cuando se calcula la nómina.",
+    "reportsTitle": "Informes y supervisión",
+    "reportsBody": "Resúmenes de asistencia, registros de auditoría e informes operativos en un solo lugar, incluidas las llegadas tarde y las faltas de asistencia. Las faltas de asistencia se identifican para quienes debían trabajar, no tienen registro de asistencia y no están en una ausencia aprobada. Cuando la opción está habilitada, el tiempo trabajado puede determinar si un día cuenta por completo, en parte o no cuenta.",
+    "coreEyebrow": "Plataforma principal",
+    "coreTitle": "La base operativa.",
+    "coreDescription": "Capacidades esenciales de plantilla para asistencia, ausencias, visibilidad de nómina y supervisión.",
+    "signatureEyebrow": "Capacidades destacadas",
+    "signatureTitle": "Problema → solución → valor de negocio.",
+    "signatureDescription": "Las capacidades que definen cómo HADRO crea confianza y control en lugares de trabajo reales.",
+    "contextEyebrow": "Véalo en contexto",
+    "contextTitle": "Explore por sector o por experiencia móvil.",
+    "ctaTitle": "Ponga estas funciones a trabajar en su organización.",
+    "ctaDescription": "Solicite acceso y cuéntenos sobre su plantilla. Le guiaremos en los siguientes pasos."
+  },
+  "why": {
+    "eyebrow": "Por qué HADRO",
+    "title": "Diseñado para cómo operan realmente las plantillas.",
+    "description": "HADRO es una plataforma Intelligent Workforce Management construida en torno a la gestión de la asistencia, que conecta ausencias, visibilidad de nómina y administración en web y móvil para que líderes y empleados compartan una sola verdad operativa, ya sea que los equipos trabajen en sitio, en el campo o de forma remota.",
+    "connectedTitle": "Una plataforma conectada",
+    "connectedBody": "Asistencia, ausencias, visibilidad de nómina y administración comparten los mismos registros—así empleados de oficina y remotos permanecen en un solo sistema de plantilla, no en hojas de cálculo conflictivas.",
+    "workplacesTitle": "Diseñado para lugares de trabajo reales",
+    "workplacesBody": "Pensado para oficinas, fábricas, hospitales, obras, hoteles, logística, equipos remotos y organizaciones multi-sucursal—no software de HR solo de escritorio.",
+    "webMobileTitle": "Web para el liderazgo, móvil para los equipos",
+    "webMobileBody": "Los administradores gestionan la organización en la web. Los empleados se mantienen productivos desde el campo o ubicaciones remotas con registro de entrada, ausencias, ingresos y autoservicio.",
+    "problemAttendanceTitle": "Asistencia sin confianza",
+    "problemAttendanceBody": "Los registros manuales y las herramientas fragmentadas dejan a los responsables sin certeza de quién estuvo realmente presente—y dónde.",
+    "problemRemoteTitle": "Equipos remotos y de campo excluidos",
+    "problemRemoteBody": "Cuando los trabajadores remotos no pueden registrar entrada de forma segura, las organizaciones pierden control y trazabilidad, y los empleados se sienten desconectados de los procesos de nómina y plantilla.",
+    "problemPayrollTitle": "Disputas de nómina a posteriori",
+    "problemPayrollBody": "Los empleados descubren problemas de pago demasiado tarde, generando conflictos evitables y sobrecarga administrativa.",
+    "problemBranchesTitle": "Operaciones entre sucursales",
+    "problemBranchesBody": "Las organizaciones en crecimiento pierden visibilidad cuando cada sitio ejecuta su propio proceso.",
+    "diffVerifyTitle": "Verificación donde importa",
+    "diffVerifyBody": "Las opciones de asistencia con QR y GPS ayudan a capturar la presencia con menos ambigüedad—incluidos registros de entrada remotos y de campo.",
+    "diffPlatformTitle": "Una plataforma para cada lugar de trabajo",
+    "diffPlatformBody": "Gestione juntos a empleados de oficina y trabajadores remotos, con los mismos controles de asistencia, informes y administración.",
+    "diffTrustTitle": "Transparencia que reduce el conflicto",
+    "diffTrustBody": "Los ingresos en vivo y los flujos claros de ausencias ayudan a los empleados a entender el progreso antes de las sorpresas del día de pago.",
+    "diffScaleTitle": "Escale sin perder el control",
+    "diffScaleBody": "La administración multi-sucursal mantiene las redes en expansión bajo un modelo operativo responsable.",
+    "differenceEyebrow": "La diferencia HADRO",
+    "differenceTitle": "Tres razones por las que las organizaciones eligen una plataforma conectada.",
+    "problemsEyebrow": "Los problemas que resolvemos",
+    "problemsTitle": "Fricción de plantilla que cuesta tiempo, confianza y control.",
+    "problemsDescription": "HADRO está diseñado en torno a los problemas operativos que los responsables de decisión enfrentan cada día.",
+    "approachEyebrow": "Cómo lo abordamos",
+    "approachTitle": "Verificación, transparencia y escala.",
+    "ctaTitle": "¿Listo para ver HADRO en su organización?",
+    "ctaDescription": "Solicite acceso y nuestro equipo de incorporación hará seguimiento con un siguiente paso claro."
+  },
+  "mobile": {
+    "eyebrow": "Móvil",
+    "title": "La aplicación del empleado para el trabajo lejos del escritorio.",
+    "description": "HADRO móvil mantiene productivos a los equipos de campo, en sitio y remotos—registre entrada y salida de forma segura, solicite ausencias, consulte el historial, vea ingresos en vivo y gestione el perfil en autoservicio sin esperar a HR para tareas rutinarias.",
+    "clockTitle": "Registrar entrada / salida",
+    "clockBody": "Captura rápida de asistencia para inicios de turno, entradas al sitio y trabajo remoto—para que los empleados puedan registrar entrada de forma segura desde ubicaciones aprobadas.",
+    "gpsTitle": "Asistencia GPS y QR",
+    "gpsBody": "Elija patrones de verificación que se adapten a su lugar de trabajo—registros de entrada remotos o de campo con ubicación, o flujos QR rápidos en sitio.",
+    "leaveTitle": "Solicitudes de ausencia y estado",
+    "leaveBody": "Los empleados envían ausencias y siguen el progreso sin cadenas de correo.",
+    "earningsTitle": "Ingresos en vivo",
+    "earningsBody": "Vea el progreso de los ingresos a medida que se acumula el trabajo—generando confianza antes del día de pago.",
+    "notificationsTitle": "Notificaciones y perfil",
+    "notificationsBody": "Manténgase informado y conserve los datos personales actualizados mediante autoservicio.",
+    "historyTitle": "Historial de asistencia",
+    "historyBody": "Revise la actividad pasada para que las preguntas no dependan de registros en papel o de la memoria.",
+    "experienceEyebrow": "Experiencia del empleado",
+    "experienceTitle": "Lo que los equipos pueden hacer desde el teléfono.",
+    "experienceDescription": "El móvil está diseñado para la plantilla. La web sigue siendo el centro de control para HR, responsables y administradores.",
+    "ecosystemEyebrow": "Ecosistema conectado",
+    "ecosystemTitle": "Móvil para empleados. Web para el liderazgo.",
+    "ecosystemDescription": "Asistencia, ausencias e ingresos permanecen alineados en ambas experiencias—así la actividad de campo y las decisiones administrativas comparten una sola verdad.",
+    "employeesTitle": "Móvil para empleados",
+    "downloadEyebrow": "Descargar",
+    "downloadTitle": "Obtenga HADRO en iOS y Android.",
+    "downloadDescription": "Los enlaces de las tiendas están centralizados en la configuración de marketing—sustituya los marcadores de posición por listados en vivo cuando se publiquen.",
+    "ctaTitle": "¿Listo para equipar a su plantilla con HADRO móvil?",
+    "ctaDescription": "Solicite acceso para su organización. La alta incluye poner a los equipos en las experiencias web y móvil adecuadas."
+  },
+  "security": {
+    "eyebrow": "Seguridad",
+    "title": "La confianza forma parte del producto.",
+    "description": "Los responsables de decisión necesitan confianza en que los sistemas de plantilla son seguros, responsables y preparados para el crecimiento. HADRO está diseñado con acceso alineado a roles, autenticación protegida y supervisión amigable con la auditoría.",
+    "roleTitle": "Acceso basado en roles",
+    "roleBody": "Permisos alineados a cómo funciona realmente su organización—para que las personas vean lo que necesitan, no todo.",
+    "authTitle": "Autenticación segura",
+    "authBody": "Inicio de sesión protegido para administradores y empleados en experiencias web y móvil.",
+    "auditTitle": "Supervisión amigable con la auditoría",
+    "auditBody": "La actividad trazable respalda la trazabilidad, la revisión y la confianza operativa.",
+    "privacyTitle": "Diseño con privacidad en mente",
+    "privacyBody": "Los datos de plantilla se tratan con expectativas empresariales—minimizar la exposición, maximizar la claridad del control.",
+    "leastTitle": "Mínimo privilegio por diseño",
+    "leastBody": "Las experiencias administrativas y de empleados están separadas para que el poder operativo permanezca en los roles correctos.",
+    "accountabilityTitle": "Responsabilidad operativa",
+    "accountabilityBody": "Las acciones de asistencia, ausencias y administración dejan un rastro que el liderazgo puede revisar cuando sea necesario.",
+    "enterpriseTitle": "Postura preparada para la empresa",
+    "enterpriseBody": "Construido como plataforma para organizaciones que necesitan fiabilidad—no un reloj de fichaje solo de consumo.",
+    "pillarsEyebrow": "Pilares de seguridad",
+    "pillarsTitle": "Lo que los compradores empresariales esperan de una plataforma de plantilla.",
+    "practicesEyebrow": "Prácticas operativas",
+    "practicesTitle": "Diseñado para la responsabilidad—no solo para el control de acceso.",
+    "practicesDescription": "La seguridad en HADRO se expresa a través de roles, autenticación y rastros operativos que respaldan organizaciones reales.",
+    "ctaTitle": "Evalúe HADRO con confianza.",
+    "ctaDescription": "Solicite acceso o contacte a nuestro equipo para hablar sobre cómo HADRO encaja en sus requisitos de seguridad y operación."
+  },
+  "about": {
+    "eyebrow": "Acerca de",
+    "title": "Acerca de {{brand}}",
+    "description": "HADRO existe para hacer más clara la gestión de plantilla en organizaciones que operan en varios sitios, turnos y lugares de trabajo reales—no solo equipos de escritorio.",
+    "mission": "Ayudamos a los líderes a gestionar asistencia, ausencias, visibilidad de nómina y administración desde una plataforma conectada—mientras los empleados se mantienen productivos en el móvil.",
+    "clarityTitle": "La claridad supera a la complejidad",
+    "clarityBody": "Las herramientas de plantilla deben reducir la ambigüedad para responsables y empleados—no crear otro sistema desconectado.",
+    "operationsTitle": "Las operaciones merecen atención de producto",
+    "operationsBody": "La asistencia y los ingresos no son un pensamiento secundario de la oficina administrativa. Dan forma a la confianza, la nómina y la ejecución diaria.",
+    "togetherTitle": "Web y móvil juntos",
+    "togetherBody": "El liderazgo necesita un panel potente. La plantilla necesita una aplicación fiable. Ambos deben compartir la misma verdad.",
+    "missionEyebrow": "Misión",
+    "missionTitle": "Por qué construimos HADRO.",
+    "beliefsEyebrow": "En lo que creemos",
+    "beliefsTitle": "Principios que dan forma al producto.",
+    "learnEyebrow": "Saber más",
+    "learnTitle": "Siga explorando HADRO.",
+    "ctaTitle": "Hablemos de su plantilla.",
+    "ctaDescription": "Solicite acceso o escríbanos a través de Contacto—nuestro equipo guiará la conversación desde ahí."
+  },
+  "contact": {
+    "eyebrow": "Contacto",
+    "title": "Hable con el equipo de HADRO.",
+    "description": "Ya sea que esté evaluando HADRO para su organización o necesite una línea directa con nuestro equipo, estamos aquí para ayudar.",
+    "requestTitle": "Solicitar acceso",
+    "requestBody": "El mejor punto de partida para nuevas organizaciones. Cuéntenos sobre su empresa y nuestro equipo de incorporación hará seguimiento.",
+    "emailTitle": "Correo electrónico",
+    "emailBody": "Escríbanos directamente para consultas generales, alianzas o preguntas que no encajan en el formulario de acceso.",
+    "supportTitle": "Soporte",
+    "supportBody": "¿Ya usa HADRO o necesita ayuda para encontrar respuestas? Visite Soporte para orientación y opciones de contacto.",
+    "pathsEyebrow": "Formas de contactarnos",
+    "pathsTitle": "Elija el camino que se ajuste a su pregunta.",
+    "directEyebrow": "Correo directo",
+    "directDescription": "Para consultas generales, incluya el nombre de su organización y cómo podemos ayudar.",
+    "newOrgs": "Nuevas organizaciones",
+    "startingTitle": "¿Empieza con HADRO?",
+    "startingDescription": "Use Solicitar acceso para que nuestro equipo de incorporación reciba los datos de su empresa en el flujo de trabajo existente."
+  },
+  "support": {
+    "eyebrow": "Soporte",
+    "title": "Ayuda cuando la necesite.",
+    "description": "Encuentre respuestas sobre HADRO, contacte a nuestro equipo y obtenga orientación para el alta o preguntas cotidianas del producto.",
+    "quickEyebrow": "Ayuda rápida",
+    "quickTitle": "Puntos de partida habituales.",
+    "onboardingTitle": "Incorporación",
+    "onboardingBody": "Las nuevas organizaciones deben empezar con Solicitar acceso para que nuestro equipo pueda revisar los datos de la empresa en el flujo de Administrador de la plataforma.",
+    "productTitle": "Preguntas sobre el producto",
+    "productBody": "Explore Funciones, Móvil y Soluciones para contexto del producto antes de escalar a correo.",
+    "emailTitle": "Escríbanos",
+    "emailBody": "Escriba a {{email}} con el nombre de su organización y una breve descripción del problema.",
+    "faqEyebrow": "FAQs",
+    "faqTitle": "Respuestas antes de escribirnos.",
+    "legalEyebrow": "Legal",
+    "legalTitle": "Políticas y términos.",
+    "qRequest": "¿Cómo solicito acceso para mi organización?",
+    "aRequest": "Use la página Solicitar acceso de este sitio web. Nuestro equipo de incorporación revisa su envío y hace seguimiento con los siguientes pasos.",
+    "qAgain": "Ya envié una solicitud. ¿Debo enviarla de nuevo?",
+    "aAgain": "Si su solicitud sigue activa, no necesita enviarla de nuevo. Verá una confirmación amable si ya tenemos su correo laboral registrado.",
+    "qDownload": "¿Dónde descargan los empleados la aplicación móvil?",
+    "aDownload": "HADRO está disponible mediante los enlaces de App Store y Google Play en nuestra página Móvil y en el pie del sitio. Sustituya las URL de tienda de marcador de posición cuando se publiquen sus listados en vivo.",
+    "qAccount": "¿A quién contactar por problemas de cuenta o producto?",
+    "aAccount": "Escriba a {{email}} con el nombre de su organización y una breve descripción del problema. Incluya capturas de pantalla relevantes cuando sea posible.",
+    "qMore": "¿Dónde puedo encontrar más FAQs?",
+    "aMore": "Visite la página de FAQs para respuestas categorizadas sobre el producto, acceso y alta, web y móvil, y soporte.",
+    "qLegal": "¿Dónde puedo revisar Privacidad y Términos?",
+    "aLegal": "Los documentos legales están enlazados en el pie del sitio bajo Privacidad y Términos."
+  },
+  "faq": {
+    "eyebrow": "FAQs",
+    "title": "Respuestas para responsables de decisión y operadores.",
+    "description": "Respuestas claras sobre HADRO—qué es, para quién es, cómo funciona el acceso y cómo encajan web y móvil.",
+    "productTitle": "Producto",
+    "productDescription": "Qué es HADRO y a quién sirve.",
+    "qWhat": "¿Qué es HADRO?",
+    "aWhat": "HADRO es una plataforma Intelligent Workforce Management construida en torno a la gestión moderna de la asistencia. Los empleados registran la entrada y la salida con una aplicación móvil sencilla, con opciones de GPS y QR. Los líderes usan la plataforma web para gestionar la asistencia, seguir las llegadas tarde, supervisar las ausencias, consultar la información de nómina y gestionar equipos en departamentos y sucursales. Los empleados también pueden consultar sus registros de asistencia y otras herramientas de autoservicio en el teléfono.",
+    "qWho": "¿Para quién es HADRO?",
+    "aWho": "Propietarios de negocio, líderes de HR, responsables de operaciones y administradores que necesitan una visibilidad fiable de la plantilla en sitios, turnos, roles remotos y sucursales.",
+    "qRemote": "¿HADRO admite empleados remotos?",
+    "aRemote": "Sí. Los empleados pueden registrar entrada y salida de forma remota y segura, con asistencia GPS para conciencia de ubicación cuando se necesite. Trabajadores remotos y de oficina permanecen en una plataforma unificada de plantilla conectada a visibilidad de nómina, asistencia e informes.",
+    "qClock": "¿En qué se diferencia HADRO de un simple reloj de fichaje?",
+    "aClock": "HADRO está diseñado como plataforma conectada—asistencia, gestión de plantilla remota, ausencias, ingresos en vivo, administración multi-sucursal y autoservicio del empleado comparten una sola verdad operativa para líderes y equipos.",
+    "accessTitle": "Acceso y alta",
+    "accessDescription": "Cómo las organizaciones empiezan con HADRO.",
+    "qStart": "¿Cómo empezamos?",
+    "aStart": "Solicite acceso desde el sitio web. Nuestro equipo de incorporación revisa su organización y guía los siguientes pasos de configuración y lanzamiento.",
+    "qAgain": "Ya envié una solicitud. ¿Debo enviarla de nuevo?",
+    "aAgain": "Si su solicitud sigue activa, no necesita enviarla de nuevo. Verá una confirmación amable si ya tenemos su correo laboral registrado.",
+    "qAccount": "¿Solicitar acceso es lo mismo que crear una cuenta?",
+    "aAccount": "No. Enviar una solicitud inicia una conversación con nuestro equipo de incorporación. El acceso es guiado—no un registro automatizado de autoservicio.",
+    "platformTitle": "Web y móvil",
+    "platformDescription": "Cómo funcionan juntos la aplicación del empleado y la experiencia web de administración.",
+    "qApp": "¿HADRO incluye una aplicación móvil?",
+    "aApp": "Sí. Los empleados usan el móvil para registrar entrada/salida, asistencia GPS y QR, ausencias, ingresos en vivo, notificaciones y autoservicio de perfil—mientras los líderes gestionan las operaciones en la web.",
+    "qDownload": "¿Dónde descargan los empleados la aplicación móvil?",
+    "aDownload": "HADRO está disponible mediante los enlaces de App Store y Google Play en nuestra página Móvil y en el pie del sitio.",
+    "qBranches": "¿Podemos gestionar varias sucursales?",
+    "aBranches": "Sí. La administración multi-sucursal es una parte central de HADRO, para que las organizaciones en crecimiento mantengan visibilidad y control entre ubicaciones.",
+    "supportTitle": "Soporte y políticas",
+    "supportDescription": "Cómo obtener ayuda y encontrar información legal.",
+    "qContact": "¿A quién contactar por preguntas de producto o cuenta?",
+    "aContact": "Escriba a {{email}} con el nombre de su organización y una breve descripción del problema. Incluya capturas de pantalla relevantes cuando sea posible.",
+    "qLegal": "¿Dónde puedo revisar Privacidad y Términos?",
+    "aLegal": "Los documentos legales están enlazados en el pie del sitio bajo Privacidad y Términos.",
+    "qSecurity": "¿Dónde puedo saber más sobre seguridad?",
+    "aSecurity": "Visite la página de Seguridad para un resumen de acceso basado en roles, autenticación, supervisión amigable con la auditoría y diseño con privacidad en mente.",
+    "stillExploring": "¿Sigue explorando?",
+    "ctaTitle": "¿Listo para hablar con nuestro equipo de incorporación?",
+    "ctaDescription": "Solicite acceso y cuéntenos sobre su organización. Haremos seguimiento con un siguiente paso claro."
+  },
+  "requestAccess": {
+    "eyebrow": "Solicitar acceso",
+    "title": "Obtenga HADRO para su organización",
+    "description": "Cuéntenos un poco sobre su empresa. Nuestro equipo de incorporación hará seguimiento para entender las necesidades de su plantilla y guiarle en el inicio con {{brand}}.",
+    "formEyebrow": "Solicitud de acceso",
+    "formTitle": "Datos de la empresa",
+    "formDescription": "Los campos obligatorios nos ayudan a contactar a la persona correcta. Rol, número de empleados y mensaje son opcionales.",
+    "companyName": "Nombre de la empresa",
+    "fullName": "Nombre completo",
+    "workEmail": "Correo laboral",
+    "phone": "Número de teléfono",
+    "country": "País",
+    "selectCountry": "Seleccione su país",
+    "role": "Rol",
+    "rolePlaceholder": "p. ej. Director de HR",
+    "employeeCount": "Número de empleados",
+    "selectRange": "Seleccione un rango",
+    "message": "Mensaje",
+    "messagePlaceholder": "Cuéntenos sobre sus sitios, turnos o calendario de implementación.",
+    "optional": "(opcional)",
+    "submitError": "No se pudo enviar su solicitud. Inténtelo de nuevo.",
+    "alreadyExists": "Ya tenemos su solicitud. Nuestro equipo de incorporación se pondrá en contacto—no es necesario enviarla de nuevo.",
+    "received": "Hemos recibido su solicitud y nuestro equipo la revisará en breve.",
+    "sentTitle": "Solicitud enviada correctamente",
+    "alreadyTitle": "Solicitud ya recibida",
+    "thanks": "Gracias por su interés en {{brand}}.",
+    "receivedDetail": "Su solicitud se ha recibido correctamente y ahora está con nuestro equipo de incorporación para su revisión.",
+    "followUp": "Le contactaremos con el correo electrónico o número de teléfono que proporcionó si necesitamos información adicional o para programar su demostración personalizada del producto.",
+    "inbox": "Esté atento a su bandeja de entrada y responda las llamadas de nuestro equipo.",
+    "nextEyebrow": "Qué ocurre a continuación",
+    "stepReview": "Revisamos la solicitud de su organización.",
+    "stepContact": "Le contactamos para entender las necesidades de su plantilla.",
+    "stepDemo": "Programamos una demostración personalizada del producto.",
+    "stepOnboarding": "Guiamos a su organización en el alta y la configuración.",
+    "pathEyebrow": "¿Qué ocurre a continuación?",
+    "pathTitle": "Un camino claro tras el envío",
+    "pathDescription": "Enviar una solicitud inicia una conversación—no una cuenta automatizada. Esto es lo que puede esperar.",
+    "stepLabel": "Paso {{n}}",
+    "reviewTitle": "Revisamos su solicitud",
+    "reviewBody": "Nuestro equipo de incorporación lee los datos de su empresa y se pone en contacto para entender la configuración de su plantilla.",
+    "fitTitle": "Alineamos el encaje",
+    "fitBody": "Juntos hablamos de sitios, roles, necesidades de asistencia y cómo HADRO debe respaldar a su organización.",
+    "guideTitle": "Guiamos el alta",
+    "guideBody": "Cuando esté listo, le ayudamos a pasar del interés a una configuración estructurada—sin empezar solo desde cero.",
+    "seoDescription": "Solicite acceso a HADRO para su organización. Nuestro equipo de incorporación revisará sus datos y guiará los siguientes pasos.",
+    "preferEmail": "¿Prefiere el correo? Escríbanos a"
+  },
+  "solutions": {
+    "eyebrow": "Soluciones",
+    "title": "Gestión de plantilla para todo tipo de lugar de trabajo.",
+    "description": "HADRO se adapta a cómo trabajan realmente sus equipos—en campus, plantas, plantas de producción, obras, oficinas y ubicaciones remotas—sin imponer un proceso único para todos.",
+    "industriesEyebrow": "Sectores",
+    "industriesTitle": "Elija el lugar de trabajo que se parece al suyo.",
+    "industriesDescription": "Cada página de solución cubre los desafíos del sector, cómo responde HADRO, las capacidades relevantes y los beneficios de negocio.",
+    "approachEyebrow": "Nuestro enfoque",
+    "approachTitle": "Una plataforma. Resultados conscientes del sector.",
+    "approachDescription": "La misma base de HADRO—asistencia, ausencias, ingresos en vivo, administración multi-sucursal y autoservicio del empleado—enmarcada para cada entorno operativo.",
+    "pillarChallenges": "Primero los desafíos del sector",
+    "pillarChallengesBody": "Cada página empieza con las presiones operativas que los líderes del sector realmente enfrentan.",
+    "pillarResponse": "HADRO como respuesta",
+    "pillarResponseBody": "Mapeamos asistencia, ausencias, visibilidad y administración a cómo funciona ese lugar de trabajo.",
+    "pillarNext": "Siguiente paso claro",
+    "pillarNextBody": "Cada solución termina con un camino contextual de Solicitar acceso hacia el flujo de alta existente.",
+    "solutionEyebrow": "Solución para {{label}}",
+    "struggleTitle": "Con qué luchan los equipos de {{label}}.",
+    "capabilitiesTitle": "Capacidades que más importan para {{label}}.",
+    "seoTitle": "Soluciones de plantilla para {{label}}",
+    "ctaTitle": "¿Listo para ver HADRO en su sector?",
+    "ctaDescription": "Solicite acceso y cuéntenos sobre su organización. Nuestro equipo de incorporación hará seguimiento con un siguiente paso claro.",
+    "allSolutions": "Todas las soluciones",
+    "viewAll": "Ver todas las soluciones",
+    "challengesEyebrow": "Desafíos del sector",
+    "challengesDescription": "Estas son las presiones operativas que HADRO está diseñado para abordar.",
+    "howEyebrow": "Cómo ayuda HADRO",
+    "howTitle": "Una respuesta práctica a restricciones reales del lugar de trabajo.",
+    "howDescription": "Conecte asistencia, ausencias, visibilidad y administración en torno a cómo trabajan realmente sus equipos.",
+    "recommendedEyebrow": "Funciones recomendadas",
+    "recommendedDescription": "Un conjunto centrado de fortalezas del producto HADRO para este sector—mantenido en el contenido centralizado de soluciones.",
+    "benefitsEyebrow": "Beneficios de negocio",
+    "benefitsTitle": "Resultados que importan a los líderes.",
+    "benefitsDescription": "Más allá de las funciones—qué mejora para operaciones, HR y equipos de primera línea.",
+    "moreEyebrow": "Más sectores",
+    "relatedTitle": "Explore soluciones de plantilla relacionadas."
+  },
+  "recommended": {
+    "gpsTitle": "Asistencia GPS",
+    "gpsBody": "Verifique los registros de entrada con conciencia de ubicación para equipos distribuidos y basados en sitio.",
+    "qrTitle": "Asistencia QR",
+    "qrBody": "Registro de entrada rápido y controlado para campus, sitios e inicios de turno con mucho movimiento.",
+    "shiftTitle": "Gestión de turnos",
+    "shiftBody": "Mantenga responsables a los equipos por turnos con una asistencia clara alineada a los horarios operativos.",
+    "earningsTitle": "Ingresos en vivo",
+    "earningsBody": "Muestre el progreso de los ingresos a medida que se acumula el trabajo, reduciendo las sorpresas del día de pago. Refleja la remuneración a medida que se trabaja, no la nómina aprobada.",
+    "multiTitle": "Multi-sucursal",
+    "multiBody": "Opere varias ubicaciones desde una plataforma administrativa con supervisión compartida.",
+    "selfTitle": "Autoservicio del empleado",
+    "selfBody": "Permita que los empleados gestionen ausencias, perfil y tareas rutinarias de plantilla sin cuellos de botella de HR.",
+    "leaveTitle": "Gestión de ausencias",
+    "leaveBody": "Solicitudes y aprobaciones de ausencia estructuradas con un rastro operativo claro.",
+    "reportsTitle": "Informes",
+    "reportsBody": "Resúmenes de asistencia e informes operativos sobre los que los líderes pueden actuar.",
+    "announcementsTitle": "Anuncios",
+    "announcementsBody": "Mantenga informados a los equipos con una comunicación organizacional clara donde se trabaja.",
+    "mobileTitle": "Aplicación móvil",
+    "mobileBody": "Registre entrada, solicite ausencias, vea ingresos y manténgase productivo desde el campo.",
+    "dashboardTitle": "Panel en tiempo real",
+    "dashboardBody": "Visibilidad operativa en vivo de asistencia y actividad de la plantilla.",
+    "remoteTitle": "Gestión de plantilla remota",
+    "remoteBody": "Registro de entrada y salida remoto seguro para que empleados de campo y remotos permanezcan conectados a asistencia, visibilidad de nómina e informes."
+  },
+  "notFound": {
+    "eyebrow": "Página no encontrada",
+    "title": "Esta página no está disponible.",
+    "description": "El enlace puede estar desactualizado, o la página puede haberse movido. Use uno de los caminos siguientes para seguir explorando HADRO.",
+    "help": "¿Busca ayuda del producto? Visite",
+    "or": "o"
+  },
+  "seo": {
+    "homeTitle": "{{brand}} — Intelligent Workforce Management",
+    "homeDescription": "HADRO — Intelligent Workforce Management para asistencia, ausencias, ingresos en vivo y operaciones multi-sucursal en web y móvil.",
+    "mobileTitle": "Aplicación móvil",
+    "jsonLdDescription": "Plataforma empresarial de gestión de plantilla para asistencia, ausencias, ingresos en vivo y operaciones multi-sucursal."
+  },
+  "industryPages": {
+    "schools": {
+      "label": "Escuelas",
+      "summary": "Claridad de asistencia y ausencias para docentes, personal y administración multi-campus.",
+      "headline": "Claridad de plantilla para escuelas y campus.",
+      "description": "Las instituciones educativas necesitan asistencia fiable, flujos predecibles de ausencias y visibilidad entre campus—sin sobrecargar a los administradores con seguimiento manual.",
+      "challenges": [
+        {
+          "title": "Asistencia del personal fragmentada",
+          "body": "Los registros en papel y las herramientas desconectadas dificultan confirmar quién estuvo presente entre campus y turnos."
+        },
+        {
+          "title": "Ausencias que interrumpen la cobertura",
+          "body": "Los horarios docentes y de apoyo sufren cuando las solicitudes de ausencia llegan tarde, son poco claras o difíciles de aprobar a tiempo."
+        },
+        {
+          "title": "Sobrecarga administrativa",
+          "body": "Los equipos de HR y de la oficina escolar pasan horas conciliando asistencia y respondiendo preguntas rutinarias del personal."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Captura de asistencia fiable",
+          "body": "Use registro de entrada con QR o GPS para que la presencia en el campus sea verificable y lista para informes."
+        },
+        {
+          "title": "Flujos estructurados de ausencias",
+          "body": "El personal solicita ausencias en la aplicación; los administradores revisan y aprueban con un rastro operativo claro."
+        },
+        {
+          "title": "Una vista administrativa",
+          "body": "Gestione el personal entre campus desde un panel unificado en lugar de hojas de cálculo dispersas."
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Menos disputas de asistencia",
+          "body": "Sustituya registros ambiguos por registros digitales coherentes en los que su liderazgo puede confiar."
+        },
+        {
+          "title": "Mejor planificación de cobertura en el aula",
+          "body": "Un estado claro de ausencias ayuda a los administradores a organizar sustitutos antes de que los huecos se conviertan en crisis."
+        },
+        {
+          "title": "Menos fricción administrativa",
+          "body": "El autoservicio reduce interrupciones rutinarias para que los equipos de oficina puedan centrarse en el calendario escolar."
+        }
+      ],
+      "ctaTitle": "¿Listo para modernizar las operaciones de plantilla escolar?",
+      "ctaDescription": "Solicite acceso y cuéntenos sobre sus campus, roles del personal y necesidades de asistencia. Nuestro equipo de incorporación guiará los siguientes pasos."
+    },
+    "hospitals": {
+      "label": "Hospitales",
+      "summary": "Visibilidad de turnos y asistencia responsable para equipos clínicos y de apoyo.",
+      "headline": "Visibilidad operativa para plantillas hospitalarias.",
+      "description": "Los hospitales funcionan con turnos, cobertura y responsabilidad. HADRO ayuda a los equipos clínicos y de apoyo a registrar entrada de forma fiable mientras los administradores mantienen una vista en vivo de la actividad de la plantilla.",
+      "challenges": [
+        {
+          "title": "Cobertura de turnos compleja",
+          "body": "La dotación de plantas y departamentos cambia con rapidez; los líderes necesitan saber quién está de servicio sin perseguir registros en papel."
+        },
+        {
+          "title": "Riesgo de fichaje por terceros",
+          "body": "Los entornos clínicos ajetreados pueden facilitar—y encarecer—los registros informales sin verificación."
+        },
+        {
+          "title": "Presión de ausencias y horas extra",
+          "body": "Un estado poco claro de ausencias y preguntas sobre ingresos crean carga evitable de HR durante operaciones ya intensas."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Asistencia verificada para turnos",
+          "body": "Las opciones con QR y GPS ayudan a confirmar la presencia del personal clínico y de apoyo entre instalaciones."
+        },
+        {
+          "title": "Visión operativa en vivo",
+          "body": "Los responsables ven la actividad de la plantilla en tiempo real para que los problemas de cobertura surjan el mismo día."
+        },
+        {
+          "title": "Ingresos y ausencias transparentes",
+          "body": "Los empleados pueden seguir solicitudes de ausencia e ingresos en vivo, reduciendo la confusión de nómina a posteriori."
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Mayor responsabilidad en los turnos",
+          "body": "Sepa quién estuvo presente y cuándo—respaldando decisiones de dotación más seguras."
+        },
+        {
+          "title": "Respuesta más rápida a huecos de cobertura",
+          "body": "La visibilidad en tiempo real ayuda a los supervisores a actuar antes de que la falta de personal afecte la atención."
+        },
+        {
+          "title": "Menos fricción de nómina",
+          "body": "Los ingresos en vivo y un historial claro de ausencias reducen disputas que distraen al liderazgo clínico."
+        }
+      ],
+      "ctaTitle": "Aporte claridad a las operaciones de plantilla hospitalaria.",
+      "ctaDescription": "Comparta la estructura de su instalación y los patrones de turnos. Le ayudaremos a evaluar HADRO para equipos clínicos y de apoyo."
+    },
+    "factories": {
+      "label": "Fábricas",
+      "summary": "Asistencia en planta, supervisión multi-turno y registros de plantilla listos para nómina.",
+      "headline": "Asistencia en la que puede confiar en la planta de producción.",
+      "description": "Las fábricas necesitan un registro de entrada rápido, responsabilidad de turnos y registros limpios para la nómina—entre líneas, plantas y cuadrillas rotativas.",
+      "challenges": [
+        {
+          "title": "Registros de entrada de alto volumen",
+          "body": "Los inicios de turno crean cuellos de botella cuando la captura de asistencia es lenta o poco fiable."
+        },
+        {
+          "title": "Supervisión de producción multi-sitio",
+          "body": "Los responsables de planta tienen dificultades para comparar asistencia y actividad entre instalaciones en un solo lugar."
+        },
+        {
+          "title": "Disputas de nómina por horas poco claras",
+          "body": "El control horario manual deja margen a desacuerdos que retrasan el cierre de nómina."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Asistencia QR rápida",
+          "body": "Haga pasar a las cuadrillas por el registro de entrada con rapidez manteniendo un rastro digital controlado."
+        },
+        {
+          "title": "Visibilidad de planta y línea",
+          "body": "Use un panel en tiempo real y administración multi-sucursal para ubicaciones de producción."
+        },
+        {
+          "title": "Transparencia de ingresos",
+          "body": "Ofrezca a los empleados visión de ingresos en vivo para que las preguntas sobre horas no esperen al día de pago."
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Inicios de turno más fluidos",
+          "body": "Reduzca retrasos en puerta y planta causados por procesos de asistencia obsoletos."
+        },
+        {
+          "title": "Entradas de nómina más limpias",
+          "body": "Registros de asistencia coherentes respaldan ciclos de nómina más rápidos y con mayor confianza."
+        },
+        {
+          "title": "Control entre plantas",
+          "body": "Escale operaciones sin perder visibilidad al añadir líneas o instalaciones."
+        }
+      ],
+      "ctaTitle": "Modernice la asistencia de plantilla en fábrica.",
+      "ctaDescription": "Solicite acceso y describa sus plantas, turnos y tamaño de plantilla. Nuestro equipo le ayudará a mapear HADRO a sus operaciones."
+    },
+    "warehouses": {
+      "label": "Almacenes",
+      "summary": "Control de asistencia de muelle a pasillo para equipos de almacén de alto rendimiento.",
+      "headline": "Control de plantilla para operaciones de almacén.",
+      "description": "Los almacenes se mueven rápido. HADRO ayuda a verificar quién está en sitio, respaldar redes multi-ubicación y mantener la asistencia alineada con las expectativas de nómina.",
+      "challenges": [
+        {
+          "title": "Congestión en horas pico",
+          "body": "Los picos de entrada y salida exigen un registro de entrada rápido y fiable sin sacrificar el control."
+        },
+        {
+          "title": "Mano de obra temporal y rotativa",
+          "body": "Las cuadrillas cambiantes hacen que el control horario informal sea arriesgado y difícil de auditar."
+        },
+        {
+          "title": "Redes multi-almacén",
+          "body": "Los operadores regionales necesitan un sistema que funcione en todos los centros de distribución."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Registro de entrada rápido y controlado",
+          "body": "La asistencia QR mantiene en movimiento a los equipos de alto rendimiento preservando la verificación."
+        },
+        {
+          "title": "Opciones con ubicación",
+          "body": "La asistencia con GPS respalda roles distribuidos, de patio o remotos cuando el trabajo ocurre fuera del muelle."
+        },
+        {
+          "title": "Administración a escala de red",
+          "body": "Gestione almacenes como sucursales bajo un panel operativo—manteniendo conectados los roles en sitio y remotos."
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Visibilidad laboral fiable",
+          "body": "Sepa quién está en el piso—y en roles de patio o remotos—durante los picos, no después de que llegue el informe del turno."
+        },
+        {
+          "title": "Asistencia lista para auditoría",
+          "body": "Los registros digitales reducen disputas sobre horas del personal permanente y rotativo."
+        },
+        {
+          "title": "Escala multi-sitio más fácil",
+          "body": "Añada almacenes sin reinventar el proceso de asistencia en cada sitio."
+        }
+      ],
+      "ctaTitle": "Refuerce el control de la plantilla de almacén.",
+      "ctaDescription": "Cuéntenos sobre sus sitios y patrones de turnos. Le mostraremos cómo HADRO respalda las operaciones de distribución."
+    },
+    "construction": {
+      "label": "Construcción",
+      "summary": "Asistencia en obra y remota para cuadrillas en proyectos y roles de campo.",
+      "headline": "Diseñado para cuadrillas que se mueven entre obras.",
+      "description": "Los equipos de construcción trabajan en proyectos, patios y ubicaciones de campo. HADRO aporta asistencia con GPS, gestión de plantilla remota, autoservicio móvil y supervisión central para el liderazgo del proyecto.",
+      "challenges": [
+        {
+          "title": "Obras de proyecto distribuidas",
+          "body": "Las cuadrillas no están en una sola oficina—la asistencia debe funcionar donde ocurre el trabajo, incluidos roles remotos y de campo."
+        },
+        {
+          "title": "Presencia difícil de verificar",
+          "body": "Sin conciencia de ubicación, la asistencia en obra y remota puede ser incompleta o cuestionada."
+        },
+        {
+          "title": "Fricción administrativa de campo",
+          "body": "Las solicitudes de ausencia y las actualizaciones rutinarias se pierden entre supervisores de obra y la oficina."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Asistencia con GPS",
+          "body": "Verifique los registros de entrada con conciencia de ubicación diseñada para trabajo de campo, remoto y en obra."
+        },
+        {
+          "title": "Conectividad de plantilla remota",
+          "body": "Las cuadrillas registran entrada y salida de forma segura desde el campo mientras permanecen conectadas a ausencias, ingresos y registros de plantilla."
+        },
+        {
+          "title": "Supervisión de proyectos y sucursales",
+          "body": "Los administradores monitorean la actividad entre obras desde un panel web."
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Mayor responsabilidad en obra",
+          "body": "Reduzca la incertidumbre sobre quién estuvo en qué proyecto y cuándo—incluidos roles de campo remotos."
+        },
+        {
+          "title": "Menos ida y vuelta con la oficina",
+          "body": "El autoservicio mantiene las tareas rutinarias de plantilla fuera de la pila de papeleo del tráiler de obra."
+        },
+        {
+          "title": "Conversaciones de nómina más claras",
+          "body": "Los ingresos en vivo ayudan a las cuadrillas a entender el progreso antes de que las disputas escalen."
+        }
+      ],
+      "ctaTitle": "Lleve HADRO a sus obras de construcción.",
+      "ctaDescription": "Solicite acceso y comparta cómo están organizados sus proyectos y cuadrillas. Le ayudaremos a evaluar el encaje para operaciones en obra y de campo."
+    },
+    "hotels": {
+      "label": "Hoteles",
+      "summary": "Asistencia de housekeeping, F&B y recepción entre propiedades.",
+      "headline": "Gestión de plantilla hotelera al ritmo de la propiedad.",
+      "description": "Los hoteles funcionan con turnos programados entre departamentos y propiedades. HADRO ayuda a verificar la asistencia, agilizar las ausencias y dar a los responsables claridad operativa en tiempo real.",
+      "challenges": [
+        {
+          "title": "Complejidad de turnos por departamento",
+          "body": "Housekeeping, F&B, seguridad y recepción necesitan cada uno una asistencia fiable sin ralentizar el servicio."
+        },
+        {
+          "title": "Marcas multi-propiedad",
+          "body": "Los operadores que gestionan varios hoteles necesitan un proceso coherente sin perder el control local."
+        },
+        {
+          "title": "Variaciones estacionales de personal",
+          "body": "Los cambios de plantilla hacen frágiles el control horario informal y el seguimiento de ausencias."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Registro de entrada rápido por departamento",
+          "body": "La asistencia QR respalda cambios de turno ajetreados entre departamentos del hotel."
+        },
+        {
+          "title": "Administración de red de propiedades",
+          "body": "Trate los hoteles como sucursales bajo una plataforma con supervisión compartida."
+        },
+        {
+          "title": "Autoservicio del empleado",
+          "body": "El personal gestiona ausencias y tareas de perfil sin interrumpir a los responsables de turno."
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Entregas de turno más fluidas",
+          "body": "Sepa quién tiene la entrada registrada antes de las ventanas pico de fichaje y servicio."
+        },
+        {
+          "title": "Operaciones multi-propiedad coherentes",
+          "body": "Estandarice el proceso de plantilla gestionando cada hotel con claridad."
+        },
+        {
+          "title": "Mejor comunicación en primera línea",
+          "body": "Ausencias e ingresos transparentes reducen interrupciones evitables de HR en la propiedad."
+        }
+      ],
+      "ctaTitle": "Mejore las operaciones de plantilla hotelera.",
+      "ctaDescription": "Cuéntenos sobre sus propiedades y departamentos. Nuestro equipo de incorporación le ayudará a explorar HADRO para hoteles."
+    },
+    "retail": {
+      "label": "Comercio minorista",
+      "summary": "Asistencia a nivel de tienda, roles de campo y visibilidad multi-sucursal para redes minoristas.",
+      "headline": "Visibilidad de plantilla minorista desde la tienda insignia hasta cada tienda.",
+      "description": "Los equipos minoristas necesitan asistencia fiable en tienda, apoyo a roles de campo y remotos, gestión clara de ausencias y supervisión regional—especialmente a medida que crecen las redes.",
+      "challenges": [
+        {
+          "title": "Inconsistencia a nivel de tienda",
+          "body": "Cada ubicación inventa su propio hábito de asistencia, haciendo poco fiable la información regional."
+        },
+        {
+          "title": "Cobertura de apertura y cierre",
+          "body": "Los responsables necesitan confianza de que los equipos programados llegaron realmente en las horas clave de venta."
+        },
+        {
+          "title": "Roles de campo y ambulantes",
+          "body": "Responsables de zona, merchandisers y otros roles fuera de piso necesitan asistencia remota segura sin salir del sistema de plantilla de la red minorista."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Asistencia estandarizada en tienda",
+          "body": "Las opciones con QR o GPS crean un registro de entrada coherente entre ubicaciones."
+        },
+        {
+          "title": "Plantilla remota para roles de campo",
+          "body": "Respalde roles minoristas ambulantes y remotos con registro de entrada seguro manteniéndolos conectados a visibilidad de nómina e informes."
+        },
+        {
+          "title": "Control minorista multi-sucursal",
+          "body": "Opere la red de tiendas desde una plataforma administrativa."
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Cobertura coherente en horas de venta",
+          "body": "Vea problemas de asistencia a tiempo para proteger la experiencia del cliente."
+        },
+        {
+          "title": "Información regional útil",
+          "body": "Compare tiendas—y roles de campo—con una verdad compartida de asistencia en lugar de registros fragmentados."
+        },
+        {
+          "title": "Escale sin caos de procesos",
+          "body": "Añada ubicaciones sin rediseñar las operaciones de plantilla cada vez."
+        }
+      ],
+      "ctaTitle": "Unifique la gestión de plantilla minorista.",
+      "ctaDescription": "Solicite acceso y comparta su huella de tiendas. Le ayudaremos a mapear HADRO a su red minorista."
+    },
+    "offices": {
+      "label": "Oficinas",
+      "summary": "Flujos modernos de asistencia, ausencias y plantilla remota para equipos de oficina e híbridos.",
+      "headline": "Operaciones profesionales de plantilla para organizaciones de oficina.",
+      "description": "Los equipos de oficina e híbridos necesitan asistencia responsable para personas en el edificio y trabajando de forma remota—más flujos limpios de ausencias y un panel en el que el liderazgo pueda confiar.",
+      "challenges": [
+        {
+          "title": "Ambigüedad de presencia híbrida",
+          "body": "No está claro quién está en la oficina, quién está remoto y cómo debe registrarse la asistencia de forma coherente en ambos casos."
+        },
+        {
+          "title": "Cuellos de botella de ausencias",
+          "body": "Las solicitudes de ausencia por correo crean retrasos y registros incompletos para los responsables."
+        },
+        {
+          "title": "Tiempo de HR en tareas rutinarias",
+          "body": "Las actualizaciones de perfil y las preguntas de asistencia consumen capacidad que debería ir a la estrategia de personas."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Asistencia unificada de oficina y remota",
+          "body": "Use patrones con QR o GPS en sitio, y registro de entrada remoto seguro para empleados híbridos y remotos—en una sola plataforma de plantilla."
+        },
+        {
+          "title": "Administración clara de ausencias",
+          "body": "Los empleados solicitan; los responsables aprueban; los registros permanecen alineados en un solo sistema."
+        },
+        {
+          "title": "Autoservicio del empleado",
+          "body": "Reduzca el volumen de tickets de tareas rutinarias de plantilla."
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Operaciones híbridas más limpias",
+          "body": "Sustituya hábitos ad hoc de asistencia por un solo proceso para empleados de oficina y remotos."
+        },
+        {
+          "title": "Mayor capacidad productiva de HR",
+          "body": "El autoservicio devuelve tiempo al trabajo de plantilla de mayor valor."
+        },
+        {
+          "title": "Visibilidad para el liderazgo",
+          "body": "Un panel en tiempo real respalda decisiones el mismo día entre equipos en sitio y remotos."
+        }
+      ],
+      "ctaTitle": "Mejore la administración de plantilla de oficina.",
+      "ctaDescription": "Cuéntenos sobre sus equipos y ubicaciones. Le mostraremos cómo HADRO respalda operaciones modernas de oficina y remotas."
+    },
+    "logistics": {
+      "label": "Logística",
+      "summary": "Asistencia de campo, remota y de depósito para conductores, manipuladores y equipos de despacho.",
+      "headline": "Visibilidad de plantilla para operaciones logísticas y de flota.",
+      "description": "La logística depende de personas que se mueven a tiempo. HADRO respalda asistencia de depósito, campo y remota, transparencia de ingresos en vivo y control operativo multi-sitio en una sola plataforma.",
+      "challenges": [
+        {
+          "title": "Dispersión de la plantilla de campo",
+          "body": "Conductores y manipuladores no siempre están en un escritorio—la asistencia debe viajar con el equipo, incluidos registros de entrada remotos entre depósitos y rutas."
+        },
+        {
+          "title": "Congestión pico en el depósito",
+          "body": "Las ventanas de despacho matutino necesitan un registro de entrada rápido sin perder verificación."
+        },
+        {
+          "title": "Disputas de horas e ingresos",
+          "body": "Los horarios variables hacen más probables las sorpresas del día de pago sin visibilidad en vivo."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Asistencia de campo con GPS",
+          "body": "Respalde roles distribuidos y remotos con opciones de registro de entrada con ubicación."
+        },
+        {
+          "title": "Conectividad de plantilla remota",
+          "body": "Mantenga a conductores y personal de campo conectados a asistencia, ingresos y administración de plantilla mientras están lejos del depósito."
+        },
+        {
+          "title": "Flujos QR de depósito",
+          "body": "Mantenga eficientes y auditables los inicios de depósito de alto volumen."
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Mayor confianza en el despacho",
+          "body": "Sepa quién está disponible antes de que las rutas salgan del patio."
+        },
+        {
+          "title": "Menos interrupciones de nómina",
+          "body": "Los ingresos transparentes reducen disputas reactivas que ralentizan las operaciones."
+        },
+        {
+          "title": "Control a escala de red",
+          "body": "Administre depósitos, sucursales y roles de campo remotos desde una plataforma conectada."
+        }
+      ],
+      "ctaTitle": "Conecte las operaciones de plantilla logística.",
+      "ctaDescription": "Solicite acceso y describa sus depósitos, rutas y estructura de equipo. Le ayudaremos a evaluar HADRO para logística."
+    },
+    "government": {
+      "label": "Gobierno",
+      "summary": "Asistencia responsable para plantillas del sector público de oficina, campo y remotas.",
+      "headline": "Gestión de plantilla responsable para equipos gubernamentales.",
+      "description": "Las organizaciones del sector público necesitan registros claros de asistencia para roles de oficina, campo y remotos—más administración alineada a roles y procesos que respalden la supervisión entre departamentos y ubicaciones.",
+      "challenges": [
+        {
+          "title": "Expectativas de responsabilidad",
+          "body": "La asistencia y las ausencias deben ser defendibles para auditoría, informes y confianza pública—incluidos empleados que trabajan fuera de una sola oficina."
+        },
+        {
+          "title": "Fragmentación departamental",
+          "body": "Herramientas separadas y procesos en papel dificultan la supervisión consolidada."
+        },
+        {
+          "title": "Presión de continuidad del servicio",
+          "body": "Los huecos de ausencias y personal afectan los servicios al ciudadano cuando la visibilidad se retrasa."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Asistencia digital verificable",
+          "body": "Sustituya registros ambiguos por registros coherentes con QR o GPS para trabajo en sitio y remoto."
+        },
+        {
+          "title": "Gestión de plantilla remota",
+          "body": "Respalde a servidores públicos de campo y remotos con registro de entrada seguro manteniéndolos conectados a informes y administración."
+        },
+        {
+          "title": "Panel de supervisión central",
+          "body": "Ofrezca a los administradores visibilidad en tiempo real entre equipos y ubicaciones."
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Mayor postura de auditoría",
+          "body": "Mantenga registros de plantilla más claros para necesidades de revisión e informes—entre roles de oficina y remotos."
+        },
+        {
+          "title": "Operaciones departamentales más coherentes",
+          "body": "Reduzca la deriva de procesos entre oficinas, unidades de campo y ubicaciones."
+        },
+        {
+          "title": "Conciencia temprana de personal",
+          "body": "Actúe ante problemas de asistencia y ausencias antes de que se vea afectada la prestación del servicio."
+        }
+      ],
+      "ctaTitle": "Modernice las operaciones de plantilla del sector público.",
+      "ctaDescription": "Solicite acceso y comparta su estructura departamental. Nuestro equipo de incorporación guiará una conversación cuidadosa sobre el siguiente paso."
+    }
+  }
+}

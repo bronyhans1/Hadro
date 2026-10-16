@@ -1,0 +1,8 @@
+{
+  "generic": "Algo correu mal",
+  "unableToLoad": "Não foi possível carregar",
+  "unableToLoadData": "Não foi possível carregar estes dados.",
+  "unavailableForRole": "Estas informações não estão disponíveis para o seu perfil.",
+  "noSectionAccess": "Não tem acesso a esta secção.",
+  "noSectionAccessBody": "Esta função não está disponível para o seu perfil. Se precisar de acesso, contacte o administrador da empresa."
+}

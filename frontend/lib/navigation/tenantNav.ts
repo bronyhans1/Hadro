@@ -1,0 +1,60 @@
+import type { NavEntry } from "./types";
+
+/** Tenant navigation — order and hierarchy must not change without explicit approval. */
+export const TENANT_NAV_ITEMS: NavEntry[] = [
+  { type: "link", href: "/dashboard", label: "Dashboard", labelKey: "navigation.dashboard", section: "Overview", sectionKey: "navigation.sections.overview" },
+  { type: "link", href: "/employees", label: "Employees", labelKey: "navigation.employees", section: "People", sectionKey: "navigation.sections.people", managerOnly: true },
+  {
+    type: "group",
+    id: "attendance",
+    label: "Attendance",
+    labelKey: "navigation.attendance",
+    section: "Attendance",
+    sectionKey: "navigation.sections.attendance",
+    iconHref: "/attendance",
+    children: [
+      { href: "/attendance", label: "Overview", labelKey: "navigation.overview" },
+      { href: "/attendance/history", label: "History", labelKey: "navigation.history" },
+      { href: "/attendance/remote-review", label: "Remote Review", labelKey: "navigation.remoteReview", managerOnly: true },
+      { href: "/attendance/lateness", label: "Lateness Summary", labelKey: "navigation.latenessSummary", managerOnly: true },
+      { href: "/attendance/flags", label: "Attendance Flags", labelKey: "navigation.attendanceFlags", managerOnly: true },
+      { href: "/attendance/absence", label: "Absence Summary", labelKey: "navigation.absenceSummary", managerOnly: true },
+    ],
+  },
+  {
+    type: "group",
+    id: "leave",
+    label: "Leave",
+    labelKey: "navigation.leave",
+    section: "Leave",
+    sectionKey: "navigation.sections.leave",
+    iconHref: "/leave",
+    children: [
+      { href: "/leave", label: "Overview", labelKey: "navigation.overview" },
+      { href: "/leave/requests", label: "Leave Requests", labelKey: "navigation.leaveRequests" },
+      { href: "/leave/calendar", label: "Leave Calendar", labelKey: "navigation.leaveCalendar" },
+      { href: "/leave/balance", label: "Leave Balance & Analytics", labelKey: "navigation.leaveBalance" },
+    ],
+  },
+  {
+    type: "group",
+    id: "payroll",
+    label: "Payroll",
+    labelKey: "navigation.payroll",
+    section: "Payroll",
+    sectionKey: "navigation.sections.payroll",
+    iconHref: "/payroll",
+    children: [
+      { href: "/payroll", label: "Overview", labelKey: "navigation.overview" },
+      { href: "/payroll/records", label: "Payroll Records", labelKey: "navigation.payrollRecords", payrollOnly: true },
+      { href: "/payroll/manual-overtime", label: "Manual Overtime", labelKey: "navigation.manualOvertime", managerOnly: true, payrollOnly: true },
+    ],
+  },
+  { type: "link", href: "/branches", label: "Branches", labelKey: "navigation.branches", section: "Organization", sectionKey: "navigation.sections.organization", adminOnly: true },
+  { type: "link", href: "/departments", label: "Departments", labelKey: "navigation.departments", section: "Organization", sectionKey: "navigation.sections.organization", adminManagerOnly: true },
+  { type: "link", href: "/shifts", label: "Shifts", labelKey: "navigation.shifts", section: "Organization", sectionKey: "navigation.sections.organization", adminManagerOnly: true },
+  { type: "link", href: "/reports", label: "Reports & Exports", labelKey: "navigation.reports", section: "Insights", sectionKey: "navigation.sections.insights", managerOnly: true },
+  { type: "link", href: "/audit", label: "Audit / Activity", labelKey: "navigation.audit", section: "Compliance", sectionKey: "navigation.sections.compliance", managerOnly: true },
+  { type: "link", href: "/company-profile", label: "Company Profile", labelKey: "navigation.companyProfile", section: "System", sectionKey: "navigation.sections.system", adminHrOnly: true },
+  { type: "link", href: "/settings", label: "Settings", labelKey: "navigation.settings", section: "System", sectionKey: "navigation.sections.system" },
+];

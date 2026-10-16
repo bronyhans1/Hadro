@@ -1,0 +1,13 @@
+{
+  "roles": {
+    "admin": "مسؤول",
+    "company_admin": "مسؤول الشركة",
+    "manager": "المدير",
+    "hr": "الموارد البشرية",
+    "employee": "الموظف",
+    "platform_admin": "مسؤول المنصة",
+    "receptionist": "موظف الاستقبال",
+    "housekeeping": "خدمات النظافة"
+  },
+  "user": "المستخدم"
+}

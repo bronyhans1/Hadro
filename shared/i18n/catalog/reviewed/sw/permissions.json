@@ -1,0 +1,13 @@
+{
+  "roles": {
+    "admin": "Msimamizi",
+    "company_admin": "Msimamizi wa Kampuni",
+    "manager": "Meneja",
+    "hr": "HR",
+    "employee": "Mfanyakazi",
+    "platform_admin": "Msimamizi wa Jukwaa",
+    "receptionist": "Mpokeaji",
+    "housekeeping": "Usafi"
+  },
+  "user": "Mtumiaji"
+}

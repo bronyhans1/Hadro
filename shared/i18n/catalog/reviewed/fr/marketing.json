@@ -1,0 +1,1059 @@
+{
+  "nav": {
+    "why": "Pourquoi HADRO",
+    "features": "Fonctionnalités",
+    "solutions": "Solutions",
+    "mobile": "Mobile",
+    "security": "Sécurité",
+    "faqs": "FAQ",
+    "about": "À propos",
+    "marketing": "Marketing",
+    "comingSoon": "Bientôt disponible",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "homeLink": "Accueil {{brand}}"
+  },
+  "cta": {
+    "requestAccess": "Demander l'accès",
+    "requestAccessTitle": "Demande d'accès",
+    "signIn": "Se connecter",
+    "explorePlatform": "Explorer la plateforme",
+    "exploreSolutions": "Explorer les solutions",
+    "exploreAllFeatures": "Explorer toutes les fonctionnalités",
+    "whyHadro": "Pourquoi HADRO",
+    "contact": "Contact",
+    "contactUs": "Nous contacter",
+    "support": "Assistance",
+    "emailSupport": "Assistance par e-mail",
+    "goToSupport": "Aller à l'assistance",
+    "browseFeatures": "Parcourir les fonctionnalités",
+    "industrySolutions": "Solutions sectorielles",
+    "mobileApp": "Application mobile",
+    "backToHome": "Retour à l'accueil",
+    "returnToHome": "Retour à l'accueil",
+    "submitRequest": "Soumettre la demande",
+    "submitting": "Envoi…",
+    "submitAnother": "Soumettre une autre demande",
+    "nextStep": "Étape suivante",
+    "exploreFeatures": "Explorer les fonctionnalités",
+    "viewSolutions": "Voir les solutions",
+    "seeMobile": "Voir l'application mobile",
+    "sendEmail": "Envoyer un e-mail",
+    "visitSupport": "Visiter l'assistance",
+    "allSolutions": "Toutes les solutions",
+    "viewAllSolutions": "Voir toutes les solutions"
+  },
+  "footer": {
+    "blurb": "Gestion d'effectif d'entreprise pour la présence, les congés, la visibilité de la paie et les opérations multi-succursales.",
+    "navigate": "Naviguer",
+    "legalContact": "Mentions légales et contact",
+    "privacy": "Confidentialité",
+    "terms": "Conditions",
+    "downloadSocial": "Téléchargement et réseaux",
+    "social": "Réseaux sociaux",
+    "rights": "Tous droits réservés.",
+    "instagram": "Instagram",
+    "tiktok": "TikTok",
+    "linkedin": "LinkedIn",
+    "x": "X",
+    "youtube": "YouTube"
+  },
+  "stores": {
+    "appStore": "Télécharger dans l'App Store",
+    "playStore": "Disponible sur Google Play"
+  },
+  "theme": {
+    "button": "Thème : {{label}}. Cliquez pour changer",
+    "title": "Thème : {{label}}",
+    "current": "Préférence de thème actuelle : {{label}}. Résolu : {{resolved}}.",
+    "dark": "sombre",
+    "light": "clair"
+  },
+  "showcase": {
+    "eyebrow": "Capacité signature",
+    "problem": "Problème",
+    "solution": "Solution",
+    "businessValue": "Valeur métier"
+  },
+  "mockup": {
+    "dashboardTitle": "Tableau de bord d'effectif HADRO",
+    "chrome": "HADRO · Web",
+    "screens": "Écrans du tableau de bord",
+    "heroDashboard": "Tableau de bord d'effectif en temps réel",
+    "operationalDashboard": "Tableau de bord opérationnel HADRO",
+    "featureOverview": "Vue d'ensemble des fonctionnalités HADRO",
+    "whyHero": "Plateforme d'effectif connectée",
+    "employeeApp": "Application employé HADRO",
+    "workflow": "Flux de travail d'effectif connecté",
+    "team": "Équipe HADRO",
+    "mission": "Mission HADRO",
+    "contact": "Contacter HADRO",
+    "securityOverview": "Vue d'ensemble de la sécurité HADRO",
+    "industrySolutions": "Solutions sectorielles HADRO",
+    "faqs": "FAQ HADRO",
+    "industryWorkforce": "Effectif {{label}}",
+    "mobileTitle": "HADRO mobile",
+    "highlights": "Points forts du produit",
+    "problemsIllustration": "Illustration des problèmes métier",
+    "companyLogo": "Logo de l'entreprise",
+    "organizationLogo": "Logo {{organization}}"
+  },
+  "metrics": {
+    "title": "Conçu pour la clarté opérationnelle",
+    "eyebrow": "Points forts de la plateforme",
+    "attendanceValue": "QR + GPS",
+    "attendanceLabel": "Modes de présence",
+    "attendanceHint": "Conçu pour les équipes sur site et terrain",
+    "branchesValue": "Multi-succursales",
+    "branchesLabel": "Administration unifiée",
+    "branchesHint": "Une plateforme sur tous les sites",
+    "earningsValue": "En direct",
+    "earningsLabel": "Visibilité des gains",
+    "earningsHint": "Transparence pendant le travail",
+    "ecosystemValue": "Web + Mobile",
+    "ecosystemLabel": "Produits connectés",
+    "ecosystemHint": "Direction et effectif synchronisés"
+  },
+  "workflow": {
+    "employee": "Employé",
+    "employeeHint": "Identité et profil de l'effectif",
+    "attendance": "Présence",
+    "attendanceHint": "Pointer l'arrivée et le départ",
+    "gps": "Vérification GPS",
+    "gpsHint": "Confirmation basée sur la localisation",
+    "dashboard": "Tableau de bord",
+    "dashboardHint": "Visibilité opérationnelle en direct",
+    "payroll": "Paie",
+    "payrollHint": "Logique de gains alignée sur la politique",
+    "liveEarnings": "Gains en direct",
+    "liveEarningsHint": "Rémunération transparente au jour le jour",
+    "reports": "Rapports",
+    "reportsHint": "Supervision et aide à la décision",
+    "title": "Un parcours d'effectif connecté",
+    "description": "HADRO relie les personnes, la présence, la vérification, la supervision et les gains dans un seul flux opérationnel."
+  },
+  "home": {
+    "title": "Simplifiez la gestion de l'effectif sur chaque site et chaque poste.",
+    "description": "HADRO est une plateforme Intelligent Workforce Management construite autour de la gestion moderne de la présence. Les employés pointent l'arrivée et le départ dans une application mobile simple, avec des options GPS et QR. Les dirigeants utilisent la plateforme web pour gérer la présence, suivre les retards, superviser les congés, consulter les informations de paie et gérer les équipes dans les départements et les succursales. Les employés peuvent aussi consulter leurs registres de présence et d'autres outils en libre-service sur leur téléphone.",
+    "problemsEyebrow": "Problèmes métier",
+    "problemsTitle": "La complexité de l'effectif ralentit les organisations.",
+    "problemsDescription": "Lorsque la présence, la paie, les congés et les opérations de succursale vivent dans des endroits différents, les dirigeants perdent du temps — et de la confiance.",
+    "problemAttendance": "Présence sans confiance",
+    "problemAttendanceBody": "Les registres manuels et les outils fragmentés laissent les responsables incertains de qui était vraiment présent — et où.",
+    "problemPayroll": "Litiges de paie après coup",
+    "problemPayrollBody": "Les employés découvrent les problèmes de rémunération trop tard, créant des conflits évitables et une charge administrative.",
+    "problemRemote": "Équipes à distance et terrain laissées de côté",
+    "problemRemoteBody": "Lorsque les travailleurs à distance ne peuvent pas pointer l'arrivée de façon sécurisée, les organisations perdent en responsabilité et les employés se sentent déconnectés des processus de paie et d'effectif.",
+    "whyEyebrow": "Pourquoi HADRO",
+    "whyTitle": "Une expérience d'effectif complète — pas une pile de modules.",
+    "whyDescription": "Chaque capacité existe pour simplifier la façon dont les organisations gèrent les personnes au travail.",
+    "whyConnected": "Une plateforme connectée",
+    "whyConnectedBody": "La présence, les congés, la visibilité de la paie et l'administration partagent la même vérité opérationnelle — pour les employés de bureau comme à distance.",
+    "whyWorkplaces": "Conçu pour les vrais lieux de travail",
+    "whyWorkplacesBody": "Conçu pour les bureaux, usines, hôpitaux, chantiers, équipes à distance et organisations multi-succursales — pas uniquement pour les RH de bureau.",
+    "whyWebMobile": "Web pour la direction, mobile pour les équipes",
+    "whyWebMobileBody": "Les décideurs dirigent l'organisation sur le web. Les employés restent productifs sur site ou à distance depuis le terrain.",
+    "visibilityEyebrow": "Visibilité en temps réel",
+    "visibilityTitle": "Voyez clairement votre effectif — pendant que le travail se déroule.",
+    "visibilityDescription": "Le tableau de bord HADRO donne aux responsables une vision immédiate de la présence, de l'activité et de la santé opérationnelle dans l'organisation.",
+    "capabilitiesEyebrow": "Capacités signature",
+    "capabilitiesTitle": "Ce qui rend HADRO différent.",
+    "capabilitiesDescription": "Ce sont des expériences phares — pas de simples tuiles de fonctionnalités.",
+    "exploreEyebrow": "Explorer les solutions",
+    "exploreTitle": "Découvrez HADRO pour votre secteur.",
+    "exploreDescription": "Des écoles et hôpitaux aux usines, hôtels, logistique et équipes gouvernementales — découvrez comment HADRO s'adapte aux lieux où le travail se déroule réellement.",
+    "problemsCaption": "Les processus manuels créent une charge de travail inutile"
+  },
+  "industries": {
+    "schools": "Écoles",
+    "hospitals": "Hôpitaux",
+    "factories": "Usines",
+    "warehouses": "Entrepôts",
+    "construction": "Construction",
+    "hotels": "Hôtels",
+    "retail": "Commerce de détail",
+    "offices": "Bureaux",
+    "logistics": "Logistique",
+    "government": "Gouvernement"
+  },
+  "signature": {
+    "gpsTitle": "Présence GPS",
+    "gpsProblem": "Les équipes terrain pointent l'arrivée sans vérification fiable de localisation.",
+    "gpsSolution": "Vérifiez la présence avec une sensibilisation à la localisation pour les effectifs distribués.",
+    "gpsBenefit": "Réduisez le pointage par substitution et améliorez la responsabilité sur les sites.",
+    "remoteTitle": "Gestion de l'effectif à distance",
+    "remoteProblem": "Les employés à distance et terrain restent hors des outils de présence de bureau traditionnels — les dirigeants perdent en confiance et les équipes se sentent déconnectées.",
+    "remoteSolution": "Permettez aux employés de pointer l'arrivée et le départ à distance de façon sécurisée tout en restant connectés à la présence, à la visibilité de la paie, aux rapports et à l'administration de l'effectif sur une seule plateforme.",
+    "remoteBenefit": "Gérez ensemble les travailleurs de bureau et à distance — avec une responsabilité GPS là où la localisation compte.",
+    "qrTitle": "Présence QR",
+    "qrProblem": "Les sites occupés ont besoin d'un pointage d'arrivée rapide et sécurisé sans friction.",
+    "qrSolution": "Utilisez des codes QR pour une capture de présence rapide et contrôlée.",
+    "qrBenefit": "Accélérez l'entrée tout en maintenant une présence fiable.",
+    "earningsTitle": "Gains en direct",
+    "earningsProblem": "Les employés attendent le jour de paie pour comprendre ce qu'ils ont gagné.",
+    "earningsSolution": "Montrez les gains au fur et à mesure du travail grâce à un suivi en direct transparent.",
+    "earningsBenefit": "Renforcez la confiance et réduisez les litiges de paie avant qu'ils ne commencent.",
+    "multiTitle": "Gestion d'effectif multi-succursales",
+    "multiProblem": "Les organisations en croissance peinent à gérer les personnes sur plusieurs sites.",
+    "multiSolution": "Exploitez plusieurs succursales depuis un tableau de bord administratif unifié.",
+    "multiBenefit": "Développez les opérations sans perdre en visibilité ni en contrôle.",
+    "selfTitle": "Libre-service employé",
+    "selfProblem": "Les équipes RH consacrent du temps aux demandes routinières des employés.",
+    "selfSolution": "Laissez les employés gérer les congés, le profil et les tâches de présence en libre-service.",
+    "selfBenefit": "Libérez la capacité RH pour des décisions d'effectif à plus forte valeur.",
+    "dashboardTitle": "Tableau de bord d'effectif en temps réel",
+    "dashboardProblem": "Les responsables manquent d'une vision immédiate de l'activité de l'effectif.",
+    "dashboardSolution": "Affichez une visibilité opérationnelle en direct sur la présence et l'activité.",
+    "dashboardBenefit": "Agissez le jour même — pas après la clôture du mois."
+  },
+  "features": {
+    "eyebrow": "Fonctionnalités",
+    "title": "Tout ce dont les dirigeants et les employés ont besoin sur une seule plateforme.",
+    "description": "De la présence vérifiée et de la gestion de l'effectif à distance aux gains en direct et à l'administration multi-succursales, HADRO réunit les opérations d'effectif dans une expérience web et mobile connectée — où que travaillent les employés.",
+    "attendanceTitle": "Suivi de la présence",
+    "attendanceBody": "Pointage d'arrivée QR et GPS pour les équipes sur site, et pointage d'arrivée à distance sécurisé pour les employés qui travaillent hors du bureau, lorsque ces options sont activées. Identifiez les arrivées en retard en comparant les heures de pointage des employés à leurs horaires de travail applicables, afin que les responsables voient la ponctualité et les tendances de présence.",
+    "remoteTitle": "Gestion de l'effectif à distance",
+    "remoteBody": "Gérez les travailleurs à distance et terrain avec la même plateforme que les équipes de bureau — connectés à la présence, à la visibilité de la paie et aux rapports.",
+    "payrollTitle": "Paie et gains en direct",
+    "payrollBody": "Analyses de paie transparentes et visibilité des gains en temps réel pour votre effectif. Les gains en direct montrent la rémunération à mesure que le travail avance ; ils ne constituent pas l'enregistrement de paie approuvé. Lorsque le suivi des retards et la retenue pour retard sont activés, et seulement à partir de la date d'effet de la retenue, les minutes de retard enregistrées peuvent être calculées dans le brouillon de paie et affichées sur le bulletin de paie. La compensation des heures supplémentaires configurée, les congés payés et les jours fériés payés peuvent aussi suivre les règles de paie de l'entreprise.",
+    "leaveTitle": "Gestion des congés",
+    "leaveBody": "Les employés demandent un congé ; les responsables examinent et approuvent avec un alignement clair sur la politique. Les congés payés et non payés peuvent être traités différemment lors du calcul de la paie.",
+    "reportsTitle": "Rapports et supervision",
+    "reportsBody": "Résumés de présence, journaux d'audit et reporting opérationnel au même endroit, y compris les retards et les absences. Les absences sont identifiées pour les personnes qui devaient travailler, qui n'ont aucun registre de présence et qui ne sont pas en congé approuvé. Lorsque cette option est activée, le temps travaillé peut déterminer si une journée compte en totalité, en partie ou pas du tout.",
+    "coreEyebrow": "Plateforme de base",
+    "coreTitle": "Le fondement opérationnel.",
+    "coreDescription": "Capacités essentielles d'effectif pour la présence, les congés, la visibilité de la paie et la supervision.",
+    "signatureEyebrow": "Capacités signature",
+    "signatureTitle": "Problème → solution → valeur métier.",
+    "signatureDescription": "Les capacités qui définissent comment HADRO crée confiance et contrôle dans les vrais lieux de travail.",
+    "contextEyebrow": "Voir en contexte",
+    "contextTitle": "Explorez par secteur ou par expérience mobile.",
+    "ctaTitle": "Mettez ces fonctionnalités au service de votre organisation.",
+    "ctaDescription": "Demandez l'accès et parlez-nous de votre effectif. Nous guiderons les prochaines étapes."
+  },
+  "why": {
+    "eyebrow": "Pourquoi HADRO",
+    "title": "Conçu pour la façon dont les effectifs fonctionnent réellement.",
+    "description": "HADRO est une plateforme Intelligent Workforce Management construite autour de la gestion de la présence, reliant congés, visibilité de la paie et administration sur le web et le mobile afin que dirigeants et employés partagent une même vérité opérationnelle, que les équipes travaillent sur site, sur le terrain ou à distance.",
+    "connectedTitle": "Une plateforme connectée",
+    "connectedBody": "La présence, les congés, la visibilité de la paie et l'administration partagent les mêmes registres — ainsi les employés de bureau et à distance restent dans un seul système d'effectif, pas dans des tableurs contradictoires.",
+    "workplacesTitle": "Conçu pour les vrais lieux de travail",
+    "workplacesBody": "Conçu pour les bureaux, usines, hôpitaux, chantiers, hôtels, logistique, équipes à distance et organisations multi-succursales — pas uniquement pour un logiciel RH de bureau.",
+    "webMobileTitle": "Web pour la direction, mobile pour les équipes",
+    "webMobileBody": "Les administrateurs dirigent l'organisation sur le web. Les employés restent productifs depuis le terrain ou des sites à distance avec pointage d'arrivée, congés, gains et libre-service.",
+    "problemAttendanceTitle": "Présence sans confiance",
+    "problemAttendanceBody": "Les registres manuels et les outils fragmentés laissent les responsables incertains de qui était vraiment présent — et où.",
+    "problemRemoteTitle": "Équipes à distance et terrain laissées de côté",
+    "problemRemoteBody": "Lorsque les travailleurs à distance ne peuvent pas pointer l'arrivée de façon sécurisée, les organisations perdent en responsabilité et les employés se sentent déconnectés des processus de paie et d'effectif.",
+    "problemPayrollTitle": "Litiges de paie après coup",
+    "problemPayrollBody": "Les employés découvrent les problèmes de rémunération trop tard, créant des conflits évitables et une charge administrative.",
+    "problemBranchesTitle": "Opérations multi-succursales",
+    "problemBranchesBody": "Les organisations en croissance perdent en visibilité lorsque chaque site gère son propre processus.",
+    "diffVerifyTitle": "Vérification là où cela compte",
+    "diffVerifyBody": "Les options de présence QR et GPS aident les organisations à capturer la présence avec moins d'ambiguïté — y compris les pointages d'arrivée à distance et terrain.",
+    "diffPlatformTitle": "Une plateforme pour chaque lieu de travail",
+    "diffPlatformBody": "Gérez ensemble les employés de bureau et les travailleurs à distance, avec les mêmes contrôles de présence, de reporting et d'administration.",
+    "diffTrustTitle": "Une transparence qui réduit les conflits",
+    "diffTrustBody": "Les gains en direct et des flux de congés clairs aident les employés à comprendre leur progression avant les surprises du jour de paie.",
+    "diffScaleTitle": "Se développer sans perdre le contrôle",
+    "diffScaleBody": "L'administration multi-succursales maintient les réseaux en expansion sous un modèle opérationnel responsable.",
+    "differenceEyebrow": "La différence HADRO",
+    "differenceTitle": "Trois raisons pour lesquelles les organisations choisissent une plateforme connectée.",
+    "problemsEyebrow": "Les problèmes que nous résolvons",
+    "problemsTitle": "Les frictions d'effectif qui coûtent du temps, de la confiance et du contrôle.",
+    "problemsDescription": "HADRO est conçu autour des enjeux opérationnels auxquels les décideurs font face chaque jour.",
+    "approachEyebrow": "Notre approche",
+    "approachTitle": "Vérification, transparence et échelle.",
+    "ctaTitle": "Prêt à découvrir HADRO pour votre organisation ?",
+    "ctaDescription": "Demandez l'accès et notre équipe d'intégration vous proposera une prochaine étape claire."
+  },
+  "mobile": {
+    "eyebrow": "Mobile",
+    "title": "L'application employé pour le travail hors du bureau.",
+    "description": "HADRO mobile maintient les équipes terrain, sur site et à distance productives — pointez l'arrivée et le départ de façon sécurisée, demandez un congé, suivez l'historique, consultez les gains en direct et gérez le profil en libre-service sans attendre les RH pour les tâches routinières.",
+    "clockTitle": "Pointage d'arrivée / de départ",
+    "clockBody": "Capture rapide de la présence pour les débuts de poste, les entrées sur site et le travail à distance — afin que les employés puissent pointer l'arrivée de façon sécurisée depuis des emplacements approuvés.",
+    "gpsTitle": "Présence GPS et QR",
+    "gpsBody": "Choisissez des modèles de vérification adaptés à votre lieu de travail — pointages d'arrivée à distance ou terrain basés sur la localisation, ou flux QR rapides sur site.",
+    "leaveTitle": "Demandes de congés et statut",
+    "leaveBody": "Les employés soumettent un congé et suivent l'avancement sans chaînes d'e-mails.",
+    "earningsTitle": "Gains en direct",
+    "earningsBody": "Suivez la progression des gains à mesure que le travail s'accumule — pour renforcer la confiance avant le jour de paie.",
+    "notificationsTitle": "Notifications et profil",
+    "notificationsBody": "Restez informé et maintenez vos informations personnelles à jour via le libre-service.",
+    "historyTitle": "Historique de présence",
+    "historyBody": "Consultez l'activité passée afin que les questions ne dépendent plus de registres papier ou de la mémoire.",
+    "experienceEyebrow": "Expérience employé",
+    "experienceTitle": "Ce que les équipes peuvent faire depuis leur téléphone.",
+    "experienceDescription": "Le mobile est conçu pour l'effectif. Le web reste le centre de contrôle pour les RH, les responsables et les administrateurs.",
+    "ecosystemEyebrow": "Écosystème connecté",
+    "ecosystemTitle": "Mobile pour les employés. Web pour la direction.",
+    "ecosystemDescription": "La présence, les congés et les gains restent alignés sur les deux expériences — ainsi l'activité terrain et les décisions administratives partagent une même vérité.",
+    "employeesTitle": "Mobile pour les employés",
+    "downloadEyebrow": "Télécharger",
+    "downloadTitle": "Obtenez HADRO sur iOS et Android.",
+    "downloadDescription": "Les liens des stores sont centralisés dans la configuration marketing — remplacez les espaces réservés par les fiches en ligne une fois publiées.",
+    "ctaTitle": "Prêt à équiper votre effectif avec HADRO mobile ?",
+    "ctaDescription": "Demandez l'accès pour votre organisation. L'intégration inclut la mise en place des bonnes expériences web et mobile pour les équipes."
+  },
+  "security": {
+    "eyebrow": "Sécurité",
+    "title": "La confiance fait partie du produit.",
+    "description": "Les décideurs ont besoin d'être convaincus que les systèmes d'effectif sont sécurisés, responsables et prêts à croître. HADRO est conçu avec un accès aligné sur les rôles, une authentification protégée et une supervision adaptée à l'audit.",
+    "roleTitle": "Accès basé sur les rôles",
+    "roleBody": "Des permissions alignées sur le fonctionnement réel de votre organisation — afin que chacun voie ce dont il a besoin, pas tout.",
+    "authTitle": "Authentification sécurisée",
+    "authBody": "Connexion protégée pour les administrateurs et les employés sur les expériences web et mobile.",
+    "auditTitle": "Supervision adaptée à l'audit",
+    "auditBody": "Une activité traçable soutient la responsabilité, l'examen et la confiance opérationnelle.",
+    "privacyTitle": "Conception soucieuse de la confidentialité",
+    "privacyBody": "Les données d'effectif sont traitées selon les attentes d'entreprise — minimiser l'exposition, maximiser la clarté du contrôle.",
+    "leastTitle": "Moindre privilège par conception",
+    "leastBody": "Les expériences administrateur et employé sont séparées afin que le pouvoir opérationnel reste aux bons rôles.",
+    "accountabilityTitle": "Responsabilité opérationnelle",
+    "accountabilityBody": "La présence, les congés et les actions administratives laissent une piste que la direction peut examiner au besoin.",
+    "enterpriseTitle": "Posture prête pour l'entreprise",
+    "enterpriseBody": "Conçu comme une plateforme pour les organisations qui ont besoin de fiabilité — pas un simple pointeuse grand public.",
+    "pillarsEyebrow": "Piliers de sécurité",
+    "pillarsTitle": "Ce que les acheteurs d'entreprise attendent d'une plateforme d'effectif.",
+    "practicesEyebrow": "Pratiques opérationnelles",
+    "practicesTitle": "Conçu pour la responsabilité — pas seulement le contrôle d'accès.",
+    "practicesDescription": "La sécurité sur HADRO s'exprime par les rôles, l'authentification et les pistes opérationnelles qui soutiennent les organisations réelles.",
+    "ctaTitle": "Évaluez HADRO en toute confiance.",
+    "ctaDescription": "Demandez l'accès ou contactez notre équipe pour discuter de l'adéquation de HADRO à vos exigences de sécurité et opérationnelles."
+  },
+  "about": {
+    "eyebrow": "À propos",
+    "title": "À propos de {{brand}}",
+    "description": "HADRO existe pour rendre la gestion de l'effectif plus claire pour les organisations qui opèrent sur plusieurs sites, postes et lieux de travail réels — pas seulement pour les équipes de bureau.",
+    "mission": "Nous aidons les dirigeants à gérer la présence, les congés, la visibilité de la paie et l'administration depuis une plateforme connectée — tandis que les employés restent productifs sur mobile.",
+    "clarityTitle": "La clarté l'emporte sur la complexité",
+    "clarityBody": "Les outils d'effectif devraient réduire l'ambiguïté pour les responsables et les employés — pas créer un autre système déconnecté.",
+    "operationsTitle": "Les opérations méritent une attention produit",
+    "operationsBody": "La présence et les gains ne sont pas des arrière-pensées administratives. Ils façonnent la confiance, la paie et l'exécution quotidienne.",
+    "togetherTitle": "Web et mobile ensemble",
+    "togetherBody": "La direction a besoin d'un tableau de bord puissant. L'effectif a besoin d'une application fiable. Les deux doivent partager la même vérité.",
+    "missionEyebrow": "Mission",
+    "missionTitle": "Pourquoi nous construisons HADRO.",
+    "beliefsEyebrow": "Ce en quoi nous croyons",
+    "beliefsTitle": "Principes qui façonnent le produit.",
+    "learnEyebrow": "En savoir plus",
+    "learnTitle": "Continuez à explorer HADRO.",
+    "ctaTitle": "Parlons de votre effectif.",
+    "ctaDescription": "Demandez l'accès ou contactez-nous via Contact — notre équipe guidera la conversation à partir de là."
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Parlez avec l'équipe HADRO.",
+    "description": "Que vous évaluiez HADRO pour votre organisation ou ayez besoin d'un contact direct avec notre équipe, nous sommes là pour vous aider.",
+    "requestTitle": "Demander l'accès",
+    "requestBody": "Le meilleur point de départ pour les nouvelles organisations. Parlez-nous de votre entreprise et notre équipe d'intégration assurera le suivi.",
+    "emailTitle": "E-mail",
+    "emailBody": "Contactez-nous directement pour des demandes générales, des partenariats ou des questions qui ne correspondent pas au formulaire d'accès.",
+    "supportTitle": "Assistance",
+    "supportBody": "Vous utilisez déjà HADRO ou avez besoin d'aide pour trouver des réponses ? Visitez Assistance pour des conseils et des options de contact.",
+    "pathsEyebrow": "Façons de nous joindre",
+    "pathsTitle": "Choisissez le chemin adapté à votre question.",
+    "directEyebrow": "E-mail direct",
+    "directDescription": "Pour les demandes générales, indiquez le nom de votre organisation et comment nous pouvons vous aider.",
+    "newOrgs": "Nouvelles organisations",
+    "startingTitle": "Vous démarrez avec HADRO ?",
+    "startingDescription": "Utilisez Demande d'accès afin que notre équipe d'intégration reçoive les détails de votre entreprise dans le flux existant."
+  },
+  "support": {
+    "eyebrow": "Assistance",
+    "title": "De l'aide quand vous en avez besoin.",
+    "description": "Trouvez des réponses sur HADRO, contactez notre équipe et obtenez des conseils pour l'intégration ou les questions produit du quotidien.",
+    "quickEyebrow": "Aide rapide",
+    "quickTitle": "Points de départ courants.",
+    "onboardingTitle": "Intégration",
+    "onboardingBody": "Les nouvelles organisations devraient commencer par Demande d'accès afin que notre équipe puisse examiner les détails de l'entreprise dans le flux Administrateur de la plateforme.",
+    "productTitle": "Questions produit",
+    "productBody": "Explorez Fonctionnalités, Mobile et Solutions pour le contexte produit avant d'escalader par e-mail.",
+    "emailTitle": "Nous écrire",
+    "emailBody": "Contactez {{email}} avec le nom de votre organisation et une brève description du problème.",
+    "faqEyebrow": "FAQ",
+    "faqTitle": "Des réponses avant d'écrire.",
+    "legalEyebrow": "Mentions légales",
+    "legalTitle": "Politiques et conditions.",
+    "qRequest": "Comment demander l'accès pour mon organisation ?",
+    "aRequest": "Utilisez la page Demande d'accès de ce site. Notre équipe d'intégration examine votre soumission et assure le suivi avec les prochaines étapes.",
+    "qAgain": "J'ai déjà soumis une demande. Dois-je en soumettre une autre ?",
+    "aAgain": "Si votre demande est encore active, vous n'avez pas besoin de soumettre à nouveau. Vous verrez une confirmation amicale si nous avons déjà votre e-mail professionnel en fichier.",
+    "qDownload": "Où les employés téléchargent-ils l'application mobile ?",
+    "aDownload": "HADRO est disponible via les liens App Store et Google Play sur notre page Mobile et dans le pied de page du site. Remplacez les URL de store factices lorsque vos fiches en ligne sont publiées.",
+    "qAccount": "Qui contacter pour les problèmes de compte ou de produit ?",
+    "aAccount": "Écrivez à {{email}} avec le nom de votre organisation et une brève description du problème. Incluez des captures d'écran pertinentes si possible.",
+    "qMore": "Où trouver plus de FAQ ?",
+    "aMore": "Visitez la page FAQ pour des réponses catégorisées sur le produit, l'accès et l'intégration, le web et le mobile, et l'assistance.",
+    "qLegal": "Où consulter Confidentialité et Conditions ?",
+    "aLegal": "Les documents juridiques sont liés dans le pied de page du site sous Confidentialité et Conditions."
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Des réponses pour les décideurs et les opérateurs.",
+    "description": "Des réponses claires sur HADRO — ce que c'est, à qui cela s'adresse, comment fonctionne l'accès, et comment le web et le mobile s'articulent.",
+    "productTitle": "Produit",
+    "productDescription": "Ce qu'est HADRO et qui il sert.",
+    "qWhat": "Qu'est-ce que HADRO ?",
+    "aWhat": "HADRO est une plateforme Intelligent Workforce Management construite autour de la gestion moderne de la présence. Les employés pointent l'arrivée et le départ dans une application mobile simple, avec des options GPS et QR. Les dirigeants utilisent la plateforme web pour gérer la présence, suivre les retards, superviser les congés, consulter les informations de paie et gérer les équipes dans les départements et les succursales. Les employés peuvent aussi consulter leurs registres de présence et d'autres outils en libre-service sur leur téléphone.",
+    "qWho": "À qui s'adresse HADRO ?",
+    "aWho": "Aux dirigeants d'entreprise, responsables RH, responsables des opérations et administrateurs qui ont besoin d'une visibilité fiable de l'effectif sur les sites, postes, rôles à distance et succursales.",
+    "qRemote": "HADRO prend-il en charge les employés à distance ?",
+    "aRemote": "Oui. Les employés peuvent pointer l'arrivée et le départ à distance de façon sécurisée, avec Présence GPS pour la sensibilisation à la localisation si besoin. Les travailleurs à distance et de bureau restent dans une plateforme d'effectif unifiée connectée à la visibilité de la paie, à la présence et aux rapports.",
+    "qClock": "En quoi HADRO diffère-t-il d'une simple pointeuse ?",
+    "aClock": "HADRO est conçu comme une plateforme connectée — présence, gestion de l'effectif à distance, congés, gains en direct, administration multi-succursales et libre-service employé partagent une même vérité opérationnelle pour les dirigeants et les équipes.",
+    "accessTitle": "Accès et intégration",
+    "accessDescription": "Comment les organisations démarrent avec HADRO.",
+    "qStart": "Comment démarrer ?",
+    "aStart": "Demandez l'accès depuis le site. Notre équipe d'intégration examine votre organisation et guide les prochaines étapes pour la configuration et le lancement.",
+    "qAgain": "J'ai déjà soumis une demande. Dois-je en soumettre une autre ?",
+    "aAgain": "Si votre demande est encore active, vous n'avez pas besoin de soumettre à nouveau. Vous verrez une confirmation amicale si nous avons déjà votre e-mail professionnel en fichier.",
+    "qAccount": "Demande d'accès est-elle la même chose que créer un compte ?",
+    "aAccount": "Non. Soumettre une demande démarre une conversation avec notre équipe d'intégration. L'accès est guidé — ce n'est pas une inscription en libre-service automatisée.",
+    "platformTitle": "Web et mobile",
+    "platformDescription": "Comment l'application employé et l'expérience web d'administration fonctionnent ensemble.",
+    "qApp": "HADRO inclut-il une application mobile ?",
+    "aApp": "Oui. Les employés utilisent le mobile pour pointer l'arrivée/le départ, la Présence GPS et QR, les congés, les gains en direct, les notifications et le libre-service du profil — tandis que les dirigeants gèrent les opérations sur le web.",
+    "qDownload": "Où les employés téléchargent-ils l'application mobile ?",
+    "aDownload": "HADRO est disponible via les liens App Store et Google Play sur notre page Mobile et dans le pied de page du site.",
+    "qBranches": "Pouvons-nous gérer plusieurs succursales ?",
+    "aBranches": "Oui. L'administration multi-succursales est au cœur de HADRO, afin que les organisations en croissance conservent visibilité et contrôle sur leurs sites.",
+    "supportTitle": "Assistance et politiques",
+    "supportDescription": "Comment obtenir de l'aide et trouver les informations juridiques.",
+    "qContact": "Qui contacter pour les questions produit ou de compte ?",
+    "aContact": "Écrivez à {{email}} avec le nom de votre organisation et une brève description du problème. Incluez des captures d'écran pertinentes si possible.",
+    "qLegal": "Où consulter Confidentialité et Conditions ?",
+    "aLegal": "Les documents juridiques sont liés dans le pied de page du site sous Confidentialité et Conditions.",
+    "qSecurity": "Où en savoir plus sur la sécurité ?",
+    "aSecurity": "Visitez la page Sécurité pour une vue d'ensemble de l'accès basé sur les rôles, de l'authentification, de la supervision adaptée à l'audit et de la conception soucieuse de la confidentialité.",
+    "stillExploring": "Encore en exploration ?",
+    "ctaTitle": "Prêt à parler avec notre équipe d'intégration ?",
+    "ctaDescription": "Demandez l'accès et parlez-nous de votre organisation. Nous assurerons le suivi avec une prochaine étape claire."
+  },
+  "requestAccess": {
+    "eyebrow": "Demander l'accès",
+    "title": "Obtenez HADRO pour votre organisation",
+    "description": "Parlez-nous un peu de votre entreprise. Notre équipe d'intégration assurera le suivi pour comprendre vos besoins en effectif et vous guider dans le démarrage avec {{brand}}.",
+    "formEyebrow": "Demande d'accès",
+    "formTitle": "Détails de l'entreprise",
+    "formDescription": "Les champs obligatoires nous aident à joindre la bonne personne. Le rôle, le nombre d'employés et le message sont optionnels.",
+    "companyName": "Nom de l'entreprise",
+    "fullName": "Nom complet",
+    "workEmail": "E-mail professionnel",
+    "phone": "Numéro de téléphone",
+    "country": "Pays",
+    "selectCountry": "Sélectionnez votre pays",
+    "role": "Rôle",
+    "rolePlaceholder": "ex. Directeur RH",
+    "employeeCount": "Nombre d'employés",
+    "selectRange": "Sélectionnez une plage",
+    "message": "Message",
+    "messagePlaceholder": "Parlez-nous de vos sites, postes ou calendrier de déploiement.",
+    "optional": "(optionnel)",
+    "submitError": "Impossible de soumettre votre demande. Veuillez réessayer.",
+    "alreadyExists": "Nous avons déjà votre demande. Notre équipe d'intégration vous contactera — inutile de soumettre à nouveau.",
+    "received": "Nous avons reçu votre demande et notre équipe l'examinera sous peu.",
+    "sentTitle": "Demande envoyée avec succès",
+    "alreadyTitle": "Demande déjà reçue",
+    "thanks": "Merci de votre intérêt pour {{brand}}.",
+    "receivedDetail": "Votre demande a été reçue avec succès et est maintenant auprès de notre équipe d'intégration pour examen.",
+    "followUp": "Nous vous contacterons via l'adresse e-mail ou le numéro de téléphone que vous avez fournis si nous avons besoin d'informations supplémentaires ou pour planifier votre démonstration produit personnalisée.",
+    "inbox": "Veuillez surveiller votre boîte de réception et répondre aux appels de notre équipe.",
+    "nextEyebrow": "Ce qui se passe ensuite",
+    "stepReview": "Nous examinons la demande de votre organisation.",
+    "stepContact": "Nous vous contactons pour comprendre vos besoins en effectif.",
+    "stepDemo": "Nous planifions une démonstration produit personnalisée.",
+    "stepOnboarding": "Nous guidons votre organisation dans l'intégration et la configuration.",
+    "pathEyebrow": "Que se passe-t-il ensuite ?",
+    "pathTitle": "Un chemin clair après votre soumission",
+    "pathDescription": "Soumettre une demande démarre une conversation — pas un compte automatisé. Voici à quoi vous attendre.",
+    "stepLabel": "Étape {{n}}",
+    "reviewTitle": "Nous examinons votre demande",
+    "reviewBody": "Notre équipe d'intégration lit les détails de votre entreprise et vous contacte pour comprendre votre configuration d'effectif.",
+    "fitTitle": "Nous alignons l'adéquation",
+    "fitBody": "Ensemble, nous discutons des sites, rôles, besoins de présence et de la façon dont HADRO doit soutenir votre organisation.",
+    "guideTitle": "Nous guidons l'intégration",
+    "guideBody": "Lorsque vous êtes prêt, nous vous aidons à passer de l'intérêt à une configuration structurée — sans partir d'une page blanche seul.",
+    "seoDescription": "Demandez l'accès à HADRO pour votre organisation. Notre équipe d'intégration examinera vos détails et guidera les prochaines étapes.",
+    "preferEmail": "Vous préférez l'e-mail ? Contactez-nous à"
+  },
+  "solutions": {
+    "eyebrow": "Solutions",
+    "title": "Gestion de l'effectif pour chaque type de lieu de travail.",
+    "description": "HADRO s'adapte à la façon dont vos équipes travaillent réellement — sur les campus, services, ateliers, sites, bureaux et emplacements à distance — sans imposer un processus unique pour tous.",
+    "industriesEyebrow": "Secteurs",
+    "industriesTitle": "Choisissez le lieu de travail qui ressemble au vôtre.",
+    "industriesDescription": "Chaque page solution couvre les défis sectoriels, la réponse de HADRO, les capacités pertinentes et les bénéfices métier.",
+    "approachEyebrow": "Notre approche",
+    "approachTitle": "Une plateforme. Des résultats adaptés au secteur.",
+    "approachDescription": "Le même fondement HADRO — présence, congés, gains en direct, administration multi-succursales et libre-service employé — présenté pour chaque environnement opérationnel.",
+    "pillarChallenges": "Les défis sectoriels d'abord",
+    "pillarChallengesBody": "Chaque page commence par les pressions opérationnelles auxquelles les dirigeants du secteur font réellement face.",
+    "pillarResponse": "HADRO comme réponse",
+    "pillarResponseBody": "Nous cartographions présence, congés, visibilité et administration selon le fonctionnement de ce lieu de travail.",
+    "pillarNext": "Prochaine étape claire",
+    "pillarNextBody": "Chaque solution se termine par un chemin Demande d'accès contextuel vers le flux d'intégration existant.",
+    "solutionEyebrow": "Solution {{label}}",
+    "struggleTitle": "Ce avec quoi les équipes {{label}} peinent.",
+    "capabilitiesTitle": "Les capacités qui comptent le plus pour {{label}}.",
+    "seoTitle": "Solutions d'effectif {{label}}",
+    "ctaTitle": "Prêt à découvrir HADRO pour votre secteur ?",
+    "ctaDescription": "Demandez l'accès et parlez-nous de votre organisation. Notre équipe d'intégration assurera le suivi avec une prochaine étape claire.",
+    "allSolutions": "Toutes les solutions",
+    "viewAll": "Voir toutes les solutions",
+    "challengesEyebrow": "Défis sectoriels",
+    "challengesDescription": "Ce sont les pressions opérationnelles que HADRO est conçu pour traiter.",
+    "howEyebrow": "Comment HADRO aide",
+    "howTitle": "Une réponse concrète aux contraintes réelles du lieu de travail.",
+    "howDescription": "Reliez présence, congés, visibilité et administration autour de la façon dont vos équipes travaillent réellement.",
+    "recommendedEyebrow": "Fonctionnalités recommandées",
+    "recommendedDescription": "Un ensemble ciblé des points forts du produit HADRO pour ce secteur — maintenu dans le contenu solutions centralisé.",
+    "benefitsEyebrow": "Bénéfices métier",
+    "benefitsTitle": "Les résultats qui importent aux dirigeants.",
+    "benefitsDescription": "Au-delà des fonctionnalités — ce qui s'améliore pour les opérations, les RH et les équipes de première ligne.",
+    "moreEyebrow": "Plus de secteurs",
+    "relatedTitle": "Explorez des solutions d'effectif connexes."
+  },
+  "recommended": {
+    "gpsTitle": "Présence GPS",
+    "gpsBody": "Vérifiez les pointages d'arrivée avec une sensibilisation à la localisation pour les équipes distribuées et sur site.",
+    "qrTitle": "Présence QR",
+    "qrBody": "Pointage d'arrivée rapide et contrôlé pour les campus, sites et débuts de poste occupés.",
+    "shiftTitle": "Gestion des postes",
+    "shiftBody": "Maintenez les équipes par postes responsables avec une présence claire alignée sur les plannings opérationnels.",
+    "earningsTitle": "Gains en direct",
+    "earningsBody": "Montrez la progression des gains à mesure que le travail s'accumule, pour réduire les surprises du jour de paie. Cela reflète la rémunération au fil du travail, et non la paie approuvée.",
+    "multiTitle": "Multi-succursales",
+    "multiBody": "Exploitez plusieurs sites depuis une plateforme administrative avec une supervision partagée.",
+    "selfTitle": "Libre-service employé",
+    "selfBody": "Laissez les employés gérer les congés, le profil et les tâches routinières d'effectif sans goulots d'étranglement RH.",
+    "leaveTitle": "Gestion des congés",
+    "leaveBody": "Demandes de congés et approbations structurées avec une piste opérationnelle claire.",
+    "reportsTitle": "Rapports",
+    "reportsBody": "Résumés de présence et reporting opérationnel sur lesquels les dirigeants peuvent agir.",
+    "announcementsTitle": "Annonces",
+    "announcementsBody": "Tenez les équipes informées avec une communication organisationnelle claire là où le travail se déroule.",
+    "mobileTitle": "Application mobile",
+    "mobileBody": "Pointez l'arrivée, demandez un congé, consultez les gains et restez productif depuis le terrain.",
+    "dashboardTitle": "Tableau de bord en temps réel",
+    "dashboardBody": "Visibilité opérationnelle en direct sur la présence et l'activité de l'effectif.",
+    "remoteTitle": "Gestion de l'effectif à distance",
+    "remoteBody": "Pointage d'arrivée et de départ à distance sécurisé afin que les employés terrain et à distance restent connectés à la présence, à la visibilité de la paie et aux rapports."
+  },
+  "notFound": {
+    "eyebrow": "Page introuvable",
+    "title": "Cette page n'est pas disponible.",
+    "description": "Le lien peut être obsolète, ou la page a pu être déplacée. Utilisez l'un des chemins ci-dessous pour continuer à explorer HADRO.",
+    "help": "Vous cherchez de l'aide produit ? Visitez",
+    "or": "ou"
+  },
+  "seo": {
+    "homeTitle": "{{brand}} — Intelligent Workforce Management",
+    "homeDescription": "HADRO — Intelligent Workforce Management pour la présence, les congés, les gains en direct et les opérations multi-succursales sur le web et le mobile.",
+    "mobileTitle": "Application mobile",
+    "jsonLdDescription": "Plateforme de gestion d'effectif d'entreprise pour la présence, les congés, les gains en direct et les opérations multi-succursales."
+  },
+  "industryPages": {
+    "schools": {
+      "label": "Écoles",
+      "summary": "Clarté de la présence et des congés pour les enseignants, le personnel et l'administration multi-campus.",
+      "headline": "Clarté de l'effectif pour les écoles et campus.",
+      "description": "Les établissements éducatifs ont besoin d'une présence fiable, de flux de congés prévisibles et d'une visibilité sur les campus — sans submerger les administrateurs de suivis manuels.",
+      "challenges": [
+        {
+          "title": "Présence du personnel fragmentée",
+          "body": "Les registres papier et les outils déconnectés rendent difficile de confirmer qui était présent sur les campus et les postes."
+        },
+        {
+          "title": "Congés qui perturbent la couverture",
+          "body": "Les plannings d'enseignement et de soutien souffrent lorsque les demandes de congés sont tardives, peu claires ou difficiles à approuver à temps."
+        },
+        {
+          "title": "Surcharge administrative",
+          "body": "Les équipes RH et de secrétariat passent des heures à rapprocher la présence et à répondre aux questions routinières du personnel."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Capture de présence fiable",
+          "body": "Utilisez le pointage d'arrivée QR ou GPS afin que la présence sur le campus soit vérifiable et prête pour le reporting."
+        },
+        {
+          "title": "Flux de congés structurés",
+          "body": "Le personnel demande un congé dans l'application ; les administrateurs examinent et approuvent avec une piste opérationnelle claire."
+        },
+        {
+          "title": "Une vue administrative unique",
+          "body": "Gérez le personnel sur plusieurs campus depuis un tableau de bord unifié au lieu de tableurs dispersés."
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Moins de litiges de présence",
+          "body": "Remplacez les registres ambigus par des registres numériques cohérents auxquels votre direction peut faire confiance."
+        },
+        {
+          "title": "Meilleure planification de la couverture en classe",
+          "body": "Un statut de congés clair aide les administrateurs à organiser des remplaçants avant que les absences ne deviennent des crises."
+        },
+        {
+          "title": "Moins de friction administrative",
+          "body": "Le libre-service réduit les interruptions routinières afin que les équipes de secrétariat puissent se concentrer sur le calendrier scolaire."
+        }
+      ],
+      "ctaTitle": "Prêt à moderniser les opérations d'effectif scolaires ?",
+      "ctaDescription": "Demandez l'accès et parlez-nous de vos campus, rôles du personnel et besoins de présence. Notre équipe d'intégration guidera les prochaines étapes."
+    },
+    "hospitals": {
+      "label": "Hôpitaux",
+      "summary": "Visibilité des postes et présence responsable pour les équipes cliniques et de soutien.",
+      "headline": "Visibilité opérationnelle pour les effectifs hospitaliers.",
+      "description": "Les hôpitaux fonctionnent sur les postes, la couverture et la responsabilité. HADRO aide les équipes cliniques et de soutien à pointer l'arrivée de façon fiable tandis que les administrateurs conservent une vue en direct de l'activité de l'effectif.",
+      "challenges": [
+        {
+          "title": "Couverture de postes complexe",
+          "body": "Le personnel des services et départements change rapidement ; les dirigeants doivent savoir qui est en service sans poursuivre des registres papier."
+        },
+        {
+          "title": "Risque de pointage par substitution",
+          "body": "Les environnements cliniques occupés peuvent rendre les pointages informels faciles — et coûteux — sans vérification."
+        },
+        {
+          "title": "Pression des congés et heures supplémentaires",
+          "body": "Un statut de congés peu clair et des questions sur les gains créent une charge RH évitable pendant des opérations déjà intenses."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Présence vérifiée pour les postes",
+          "body": "Les options QR et GPS aident à confirmer la présence du personnel clinique et de soutien sur les établissements."
+        },
+        {
+          "title": "Vision opérationnelle en direct",
+          "body": "Les responsables voient l'activité de l'effectif en temps réel afin que les problèmes de couverture apparaissent le jour même."
+        },
+        {
+          "title": "Gains et congés transparents",
+          "body": "Les employés peuvent suivre les demandes de congés et les gains en direct, réduisant la confusion de paie après coup."
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Responsabilité renforcée des postes",
+          "body": "Sachez qui était présent et quand — pour soutenir des décisions de dotation plus sûres."
+        },
+        {
+          "title": "Réponse plus rapide aux lacunes de couverture",
+          "body": "La visibilité en temps réel aide les superviseurs à agir avant que le sous-effectif n'impacte la prestation de soins."
+        },
+        {
+          "title": "Moins de friction de paie",
+          "body": "Les gains en direct et un historique de congés clair réduisent les litiges qui distraient la direction clinique."
+        }
+      ],
+      "ctaTitle": "Apportez de la clarté aux opérations d'effectif hospitalières.",
+      "ctaDescription": "Partagez la structure de votre établissement et vos schémas de postes. Nous vous aiderons à évaluer HADRO pour les équipes cliniques et de soutien."
+    },
+    "factories": {
+      "label": "Usines",
+      "summary": "Présence sur site, supervision multi-postes et registres d'effectif prêts pour la paie.",
+      "headline": "Une présence digne de confiance sur l'atelier de production.",
+      "description": "Les usines ont besoin d'un pointage d'arrivée rapide, d'une responsabilité des postes et de registres propres pour la paie — sur les lignes, usines et équipes tournantes.",
+      "challenges": [
+        {
+          "title": "Pointages d'arrivée à fort volume",
+          "body": "Les débuts de poste créent des goulots d'étranglement lorsque la capture de présence est lente ou peu fiable."
+        },
+        {
+          "title": "Supervision de production multi-sites",
+          "body": "Les responsables d'usine peinent à comparer la présence et l'activité entre établissements au même endroit."
+        },
+        {
+          "title": "Litiges de paie dus à des heures peu claires",
+          "body": "Le pointage manuel laisse place à des désaccords qui ralentissent la clôture de la paie."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Présence QR rapide",
+          "body": "Faites passer les équipes par le pointage d'arrivée rapidement tout en conservant une piste numérique contrôlée."
+        },
+        {
+          "title": "Visibilité usine et ligne",
+          "body": "Utilisez un tableau de bord en temps réel et l'administration multi-succursales pour les sites de production."
+        },
+        {
+          "title": "Transparence des gains",
+          "body": "Donnez aux employés une vision des gains en direct afin que les questions d'heures n'attendent pas le jour de paie."
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Débuts de poste plus fluides",
+          "body": "Réduisez les retards à l'entrée et sur le sol causés par des processus de présence obsolètes."
+        },
+        {
+          "title": "Entrées de paie plus propres",
+          "body": "Des registres de présence cohérents soutiennent des cycles de paie plus rapides et plus confiants."
+        },
+        {
+          "title": "Contrôle multi-usines",
+          "body": "Développez les opérations sans perdre en visibilité à mesure que vous ajoutez des lignes ou des établissements."
+        }
+      ],
+      "ctaTitle": "Modernisez la présence de l'effectif en usine.",
+      "ctaDescription": "Demandez l'accès et décrivez vos usines, postes et taille d'effectif. Notre équipe aidera à cartographier HADRO sur vos opérations."
+    },
+    "warehouses": {
+      "label": "Entrepôts",
+      "summary": "Contrôle de présence du quai à l'allée pour les équipes d'entrepôt à fort débit.",
+      "headline": "Contrôle de l'effectif pour les opérations d'entrepôt.",
+      "description": "Les entrepôts avancent vite. HADRO aide à vérifier qui est sur site, à soutenir les réseaux multi-sites et à aligner la présence sur les attentes de paie.",
+      "challenges": [
+        {
+          "title": "Congestion aux heures de pointe",
+          "body": "Les pics entrants et sortants exigent un pointage d'arrivée rapide et fiable sans sacrifier la responsabilité."
+        },
+        {
+          "title": "Main-d'œuvre temporaire et tournante",
+          "body": "Les équipes changeantes rendent le pointage informel risqué et difficile à auditer."
+        },
+        {
+          "title": "Réseaux multi-entrepôts",
+          "body": "Les opérateurs régionaux ont besoin d'un système qui fonctionne sur tous les centres de distribution."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Pointage d'arrivée rapide et contrôlé",
+          "body": "La Présence QR fait avancer les équipes à fort débit tout en préservant la vérification."
+        },
+        {
+          "title": "Options basées sur la localisation",
+          "body": "La présence GPS soutient les rôles distribués, sur cour ou à distance lorsque le travail se déroule hors du quai."
+        },
+        {
+          "title": "Administration à l'échelle du réseau",
+          "body": "Gérez les entrepôts comme des succursales sous un tableau de bord opérationnel — en maintenant connectés les rôles sur site et à distance."
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Visibilité fiable de la main-d'œuvre",
+          "body": "Sachez qui est sur le sol — et dans les rôles sur cour ou à distance — pendant les pics, pas après l'arrivée du rapport de poste."
+        },
+        {
+          "title": "Présence prête pour l'audit",
+          "body": "Les registres numériques réduisent les litiges d'heures pour le personnel permanent et tournant."
+        },
+        {
+          "title": "Mise à l'échelle multi-sites plus simple",
+          "body": "Ajoutez des entrepôts sans réinventer le processus de présence à chaque site."
+        }
+      ],
+      "ctaTitle": "Renforcez la responsabilité de l'effectif en entrepôt.",
+      "ctaDescription": "Parlez-nous de vos sites et schémas de postes. Nous vous expliquerons comment HADRO soutient les opérations de distribution."
+    },
+    "construction": {
+      "label": "Construction",
+      "summary": "Présence sur site et à distance pour les équipes sur projets et rôles terrain.",
+      "headline": "Conçu pour les équipes qui se déplacent entre les sites.",
+      "description": "Les équipes de construction travaillent sur des projets, cours et emplacements terrain. HADRO apporte la présence GPS, la gestion de l'effectif à distance, le libre-service mobile et une supervision centrale pour la direction de projet.",
+      "challenges": [
+        {
+          "title": "Sites de projet distribués",
+          "body": "Les équipes ne sont pas dans un seul bureau — la présence doit fonctionner là où le travail se déroule, y compris les rôles à distance et terrain."
+        },
+        {
+          "title": "Présence difficile à vérifier",
+          "body": "Sans sensibilisation à la localisation, la présence sur site et à distance peut être incomplète ou contestée."
+        },
+        {
+          "title": "Friction administrative sur le terrain",
+          "body": "Les demandes de congés et mises à jour routinières se perdent entre les superviseurs de site et le bureau."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Présence GPS",
+          "body": "Vérifiez les pointages d'arrivée avec une sensibilisation à la localisation conçue pour le travail terrain, à distance et sur site."
+        },
+        {
+          "title": "Connectivité de l'effectif à distance",
+          "body": "Les équipes pointent l'arrivée et le départ de façon sécurisée depuis le terrain tout en restant connectées aux congés, gains et registres d'effectif."
+        },
+        {
+          "title": "Supervision projet et succursales",
+          "body": "Les administrateurs surveillent l'activité sur les sites depuis un tableau de bord web unique."
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Responsabilité renforcée sur site",
+          "body": "Réduisez l'incertitude sur qui était sur quel projet et quand — y compris les rôles terrain à distance."
+        },
+        {
+          "title": "Moins d'allers-retours avec le bureau",
+          "body": "Le libre-service écarte les tâches routinières d'effectif de la paperasse de la cabane de chantier."
+        },
+        {
+          "title": "Conversations de paie plus claires",
+          "body": "Les gains en direct aident les équipes à comprendre leur progression avant que les litiges ne s'intensifient."
+        }
+      ],
+      "ctaTitle": "Apportez HADRO à vos chantiers.",
+      "ctaDescription": "Demandez l'accès et partagez comment vos projets et équipes sont organisés. Nous aiderons à évaluer l'adéquation pour les opérations sur site et terrain."
+    },
+    "hotels": {
+      "label": "Hôtels",
+      "summary": "Présence de l'entretien, F&B et front-of-house sur les établissements.",
+      "headline": "Une gestion d'effectif hôtelière au rythme de l'établissement.",
+      "description": "Les hôtels fonctionnent sur des postes chronométrés entre départements et établissements. HADRO aide à vérifier la présence, fluidifier les congés et donner aux responsables une clarté opérationnelle en temps réel.",
+      "challenges": [
+        {
+          "title": "Complexité des postes par département",
+          "body": "L'entretien, le F&B, la sécurité et la réception ont chacun besoin d'une présence fiable sans ralentir le service."
+        },
+        {
+          "title": "Marques multi-établissements",
+          "body": "Les opérateurs qui gèrent plusieurs hôtels ont besoin d'un processus cohérent sans perdre le contrôle local."
+        },
+        {
+          "title": "Variations saisonnières d'effectif",
+          "body": "Les variations d'effectif rendent le pointage informel et le suivi des congés fragiles."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Pointage d'arrivée rapide par département",
+          "body": "La Présence QR soutient les changements de poste occupés dans les départements hôteliers."
+        },
+        {
+          "title": "Administration du réseau d'établissements",
+          "body": "Traitez les hôtels comme des succursales sous une plateforme unique avec une supervision partagée."
+        },
+        {
+          "title": "Libre-service employé",
+          "body": "Le personnel gère les congés et les tâches de profil sans interrompre les responsables de service."
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Passations de poste plus fluides",
+          "body": "Sachez qui a pointé l'arrivée avant les fenêtres de pointe et de service."
+        },
+        {
+          "title": "Opérations multi-établissements cohérentes",
+          "body": "Standardisez le processus d'effectif tout en gérant clairement chaque hôtel."
+        },
+        {
+          "title": "Meilleure communication en première ligne",
+          "body": "Des congés et gains transparents réduisent les interruptions RH évitables sur l'établissement."
+        }
+      ],
+      "ctaTitle": "Améliorez les opérations d'effectif hôtelières.",
+      "ctaDescription": "Parlez-nous de vos établissements et départements. Notre équipe d'intégration vous aidera à explorer HADRO pour les hôtels."
+    },
+    "retail": {
+      "label": "Commerce de détail",
+      "summary": "Présence en magasin, rôles terrain et visibilité multi-succursales pour les réseaux de détail.",
+      "headline": "Visibilité de l'effectif du magasin phare à chaque point de vente.",
+      "description": "Les équipes de détail ont besoin d'une présence magasin fiable, d'un soutien aux rôles terrain et à distance, d'une gestion claire des congés et d'une supervision régionale — surtout à mesure que les réseaux grandissent.",
+      "challenges": [
+        {
+          "title": "Incohérence au niveau magasin",
+          "body": "Chaque emplacement invente sa propre habitude de présence, rendant le reporting régional peu fiable."
+        },
+        {
+          "title": "Couverture d'ouverture et de fermeture",
+          "body": "Les responsables ont besoin d'être convaincus que les équipes planifiées sont réellement arrivées pour les heures clés de commerce."
+        },
+        {
+          "title": "Rôles terrain et nomades",
+          "body": "Les responsables de zone, merchandisers et autres rôles hors magasin ont besoin d'une présence à distance sécurisée sans quitter le système d'effectif du réseau de détail."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Présence magasin standardisée",
+          "body": "Les options QR ou GPS créent un pointage d'arrivée cohérent sur les emplacements."
+        },
+        {
+          "title": "Effectif à distance pour les rôles terrain",
+          "body": "Soutenez les rôles de détail nomades et à distance avec un pointage d'arrivée sécurisé tout en les maintenant connectés à la visibilité de la paie et aux rapports."
+        },
+        {
+          "title": "Contrôle multi-succursales du détail",
+          "body": "Exploitez le réseau de magasins depuis une plateforme administrative unique."
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Couverture cohérente des heures de commerce",
+          "body": "Voyez les problèmes de présence assez tôt pour protéger l'expérience client."
+        },
+        {
+          "title": "Un reporting régional utilisable",
+          "body": "Comparez les magasins — et les rôles terrain — avec une vérité de présence partagée au lieu de journaux fragmentés."
+        },
+        {
+          "title": "Se développer sans chaos de processus",
+          "body": "Ajoutez des emplacements sans redessiner les opérations d'effectif à chaque fois."
+        }
+      ],
+      "ctaTitle": "Unifiez la gestion de l'effectif du détail.",
+      "ctaDescription": "Demandez l'accès et partagez l'empreinte de vos magasins. Nous aiderons à cartographier HADRO sur votre réseau de détail."
+    },
+    "offices": {
+      "label": "Bureaux",
+      "summary": "Présence moderne, congés et flux d'effectif à distance pour les équipes de bureau et hybrides.",
+      "headline": "Opérations d'effectif professionnelles pour les organisations de bureau.",
+      "description": "Les équipes de bureau et hybrides ont besoin d'une présence responsable pour les personnes dans le bâtiment et à distance — plus des flux de congés clairs et un tableau de bord auquel la direction peut faire confiance.",
+      "challenges": [
+        {
+          "title": "Ambiguïté de la présence hybride",
+          "body": "Il n'est pas clair qui est présent, qui est à distance, et comment la présence doit être enregistrée de façon cohérente pour les deux."
+        },
+        {
+          "title": "Goulots d'étranglement des congés",
+          "body": "Les demandes de congés par e-mail créent des retards et des registres incomplets pour les responsables."
+        },
+        {
+          "title": "Temps RH passé sur des tâches routinières",
+          "body": "Les mises à jour de profil et les questions de présence consomment une capacité qui devrait aller à la stratégie RH."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Présence bureau et à distance unifiée",
+          "body": "Utilisez des modèles QR ou GPS sur site, et un pointage d'arrivée à distance sécurisé pour les employés hybrides et à distance — dans une seule plateforme d'effectif."
+        },
+        {
+          "title": "Administration claire des congés",
+          "body": "Les employés demandent ; les responsables approuvent ; les registres restent alignés dans un seul système."
+        },
+        {
+          "title": "Libre-service employé",
+          "body": "Réduisez le volume de tickets pour les tâches routinières d'effectif."
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Opérations hybrides plus propres",
+          "body": "Remplacez les habitudes de présence ad hoc par un seul processus pour les employés de bureau et à distance."
+        },
+        {
+          "title": "Capacité RH plus productive",
+          "body": "Le libre-service rend du temps au travail d'effectif à plus forte valeur."
+        },
+        {
+          "title": "Visibilité pour la direction",
+          "body": "Un tableau de bord en temps réel soutient les décisions du jour pour les équipes sur site et à distance."
+        }
+      ],
+      "ctaTitle": "Modernisez l'administration de l'effectif de bureau.",
+      "ctaDescription": "Parlez-nous de vos équipes et sites. Nous montrerons comment HADRO soutient les opérations de bureau et à distance modernes."
+    },
+    "logistics": {
+      "label": "Logistique",
+      "summary": "Présence terrain, à distance et dépôt pour les conducteurs, manutentionnaires et équipes de répartition.",
+      "headline": "Visibilité de l'effectif pour la logistique et les opérations de flotte.",
+      "description": "La logistique dépend de personnes qui se déplacent à l'heure. HADRO soutient la présence dépôt, terrain et à distance, la transparence des gains en direct et le contrôle opérationnel multi-sites sur une seule plateforme.",
+      "challenges": [
+        {
+          "title": "Dispersion de l'effectif terrain",
+          "body": "Les conducteurs et manutentionnaires ne sont pas toujours à un bureau — la présence doit voyager avec l'équipe, y compris les pointages d'arrivée à distance entre dépôts et routes."
+        },
+        {
+          "title": "Congestion aux pics de dépôt",
+          "body": "Les fenêtres de répartition du matin ont besoin d'un pointage d'arrivée rapide sans perdre la vérification."
+        },
+        {
+          "title": "Litiges d'heures et de gains",
+          "body": "Les plannings variables rendent les surprises du jour de paie plus probables sans visibilité en direct."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Présence terrain GPS",
+          "body": "Soutenez les rôles distribués et à distance avec des options de pointage d'arrivée basées sur la localisation."
+        },
+        {
+          "title": "Connectivité de l'effectif à distance",
+          "body": "Maintenez les conducteurs et le personnel terrain connectés à la présence, aux gains et à l'administration de l'effectif lorsqu'ils sont loin du dépôt."
+        },
+        {
+          "title": "Flux QR au dépôt",
+          "body": "Gardez les démarrages de dépôt à fort volume efficaces et auditables."
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Meilleure confiance dans la répartition",
+          "body": "Sachez qui est disponible avant que les routes quittent la cour."
+        },
+        {
+          "title": "Moins d'interruptions de paie",
+          "body": "Des gains transparents réduisent les litiges réactifs qui ralentissent les opérations."
+        },
+        {
+          "title": "Contrôle à l'échelle du réseau",
+          "body": "Administrez dépôts, succursales et rôles terrain à distance depuis une plateforme connectée."
+        }
+      ],
+      "ctaTitle": "Connectez les opérations d'effectif logistiques.",
+      "ctaDescription": "Demandez l'accès et décrivez vos dépôts, routes et structure d'équipe. Nous aiderons à évaluer HADRO pour la logistique."
+    },
+    "government": {
+      "label": "Gouvernement",
+      "summary": "Présence responsable pour les effectifs du secteur public de bureau, terrain et à distance.",
+      "headline": "Gestion d'effectif responsable pour les équipes gouvernementales.",
+      "description": "Les organisations du secteur public ont besoin de registres de présence clairs pour les rôles de bureau, terrain et à distance — plus une administration alignée sur les rôles et des processus qui soutiennent la supervision sur les départements et sites.",
+      "challenges": [
+        {
+          "title": "Attentes de responsabilité",
+          "body": "La présence et les congés doivent être défendables pour l'audit, le reporting et la confiance publique — y compris les employés qui travaillent hors d'un seul bureau."
+        },
+        {
+          "title": "Fragmentation départementale",
+          "body": "Des outils séparés et des processus papier rendent la supervision consolidée difficile."
+        },
+        {
+          "title": "Pression de continuité de service",
+          "body": "Les congés et lacunes de personnel affectent les services destinés aux citoyens lorsque la visibilité est retardée."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Présence numérique vérifiable",
+          "body": "Remplacez les registres ambigus par des registres QR ou GPS cohérents pour le travail sur site et à distance."
+        },
+        {
+          "title": "Gestion de l'effectif à distance",
+          "body": "Soutenez les agents publics terrain et à distance avec un pointage d'arrivée sécurisé tout en les maintenant connectés au reporting et à l'administration."
+        },
+        {
+          "title": "Tableau de bord de supervision centrale",
+          "body": "Donnez aux administrateurs une visibilité en temps réel sur les équipes et sites."
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Posture d'audit renforcée",
+          "body": "Maintenez des registres d'effectif plus clairs pour les besoins d'examen et de reporting — sur les rôles de bureau et à distance."
+        },
+        {
+          "title": "Opérations départementales plus cohérentes",
+          "body": "Réduisez la dérive des processus entre bureaux, unités terrain et sites."
+        },
+        {
+          "title": "Conscience plus précoce du personnel",
+          "body": "Agissez sur les problèmes de présence et de congés avant que la prestation de service ne soit affectée."
+        }
+      ],
+      "ctaTitle": "Modernisez les opérations d'effectif du secteur public.",
+      "ctaDescription": "Demandez l'accès et partagez votre structure départementale. Notre équipe d'intégration guidera une conversation prudente sur la prochaine étape."
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "generic": "Algo salió mal",
+  "unableToLoad": "No se pudo cargar",
+  "unableToLoadData": "No se pueden cargar estos datos.",
+  "unavailableForRole": "Esta información no está disponible para su rol.",
+  "noSectionAccess": "No tiene acceso a esta sección.",
+  "noSectionAccessBody": "Esta función no está disponible para su rol. Si necesita acceso, contacte al administrador de la empresa."
+}

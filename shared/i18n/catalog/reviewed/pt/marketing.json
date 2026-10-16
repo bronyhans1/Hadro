@@ -1,0 +1,1059 @@
+{
+  "nav": {
+    "why": "Porquê HADRO",
+    "features": "Funcionalidades",
+    "solutions": "Soluções",
+    "mobile": "Mobile",
+    "security": "Segurança",
+    "faqs": "FAQs",
+    "about": "Sobre",
+    "marketing": "Marketing",
+    "comingSoon": "Em breve",
+    "openMenu": "Abrir menu",
+    "closeMenu": "Fechar menu",
+    "homeLink": "Início {{brand}}"
+  },
+  "cta": {
+    "requestAccess": "Pedir acesso",
+    "requestAccessTitle": "Pedir acesso",
+    "signIn": "Iniciar sessão",
+    "explorePlatform": "Explorar plataforma",
+    "exploreSolutions": "Explorar soluções",
+    "exploreAllFeatures": "Explorar todas as funcionalidades",
+    "whyHadro": "Porquê HADRO",
+    "contact": "Contacto",
+    "contactUs": "Contacte-nos",
+    "support": "Suporte",
+    "emailSupport": "Suporte por e-mail",
+    "goToSupport": "Ir para o Suporte",
+    "browseFeatures": "Explorar funcionalidades",
+    "industrySolutions": "Soluções por setor",
+    "mobileApp": "Aplicação móvel",
+    "backToHome": "Voltar ao início",
+    "returnToHome": "Regressar ao início",
+    "submitRequest": "Submeter pedido",
+    "submitting": "A submeter…",
+    "submitAnother": "Submeter outro pedido",
+    "nextStep": "Próximo passo",
+    "exploreFeatures": "Explorar funcionalidades",
+    "viewSolutions": "Ver soluções",
+    "seeMobile": "Ver a aplicação móvel",
+    "sendEmail": "Enviar um e-mail",
+    "visitSupport": "Visitar o suporte",
+    "allSolutions": "Todas as soluções",
+    "viewAllSolutions": "Ver todas as soluções"
+  },
+  "footer": {
+    "blurb": "Gestão empresarial da força de trabalho para assiduidade, licenças, visibilidade da folha salarial e operações multi-filial.",
+    "navigate": "Navegar",
+    "legalContact": "Legal e contacto",
+    "privacy": "Privacidade",
+    "terms": "Termos",
+    "downloadSocial": "Transferências e redes sociais",
+    "social": "Redes sociais",
+    "rights": "Todos os direitos reservados.",
+    "instagram": "Instagram",
+    "tiktok": "TikTok",
+    "linkedin": "LinkedIn",
+    "x": "X",
+    "youtube": "YouTube"
+  },
+  "stores": {
+    "appStore": "Transferir na App Store",
+    "playStore": "Obter no Google Play"
+  },
+  "theme": {
+    "button": "Tema: {{label}}. Clique para alternar",
+    "title": "Tema: {{label}}",
+    "current": "Preferência de tema atual: {{label}}. Resolvido: {{resolved}}.",
+    "dark": "escuro",
+    "light": "claro"
+  },
+  "showcase": {
+    "eyebrow": "Capacidade distintiva",
+    "problem": "Problema",
+    "solution": "Solução",
+    "businessValue": "Valor para o negócio"
+  },
+  "mockup": {
+    "dashboardTitle": "Painel da força de trabalho HADRO",
+    "chrome": "HADRO · Web",
+    "screens": "Ecrãs do painel",
+    "heroDashboard": "Painel da força de trabalho em tempo real",
+    "operationalDashboard": "Painel operacional HADRO",
+    "featureOverview": "Visão geral das funcionalidades HADRO",
+    "whyHero": "Plataforma de força de trabalho conectada",
+    "employeeApp": "Aplicação de colaborador HADRO",
+    "workflow": "Fluxo de trabalho da força de trabalho conectada",
+    "team": "Equipa HADRO",
+    "mission": "Missão HADRO",
+    "contact": "Contactar HADRO",
+    "securityOverview": "Visão geral de segurança HADRO",
+    "industrySolutions": "Soluções setoriais HADRO",
+    "faqs": "FAQs HADRO",
+    "industryWorkforce": "Força de trabalho {{label}}",
+    "mobileTitle": "HADRO mobile",
+    "highlights": "Destaques do produto",
+    "problemsIllustration": "Ilustração de problemas de negócio",
+    "companyLogo": "Logótipo da empresa",
+    "organizationLogo": "Logótipo {{organization}}"
+  },
+  "metrics": {
+    "title": "Construído para clareza operacional",
+    "eyebrow": "Destaques da plataforma",
+    "attendanceValue": "QR + GPS",
+    "attendanceLabel": "Modos de assiduidade",
+    "attendanceHint": "Construído para equipas no local e de campo",
+    "branchesValue": "Multi-filial",
+    "branchesLabel": "Administração unificada",
+    "branchesHint": "Uma plataforma em várias localizações",
+    "earningsValue": "Em direto",
+    "earningsLabel": "Visibilidade de vencimentos",
+    "earningsHint": "Transparência enquanto o trabalho acontece",
+    "ecosystemValue": "Web + Mobile",
+    "ecosystemLabel": "Produtos conectados",
+    "ecosystemHint": "Liderança e força de trabalho sincronizadas"
+  },
+  "workflow": {
+    "employee": "Colaborador",
+    "employeeHint": "Identidade e perfil da força de trabalho",
+    "attendance": "Assiduidade",
+    "attendanceHint": "Registar entrada e registar saída",
+    "gps": "Verificação GPS",
+    "gpsHint": "Confirmação com consciência de localização",
+    "dashboard": "Painel",
+    "dashboardHint": "Visibilidade operacional em direto",
+    "payroll": "Folha salarial",
+    "payrollHint": "Lógica de vencimentos alinhada com a política",
+    "liveEarnings": "Vencimentos em direto",
+    "liveEarningsHint": "Remuneração transparente dia a dia",
+    "reports": "Relatórios",
+    "reportsHint": "Supervisão e apoio à decisão",
+    "title": "Uma jornada conectada da força de trabalho",
+    "description": "O HADRO liga pessoas, assiduidade, verificação, supervisão e vencimentos num único fluxo operacional."
+  },
+  "home": {
+    "title": "Simplifique a gestão da força de trabalho em todos os locais e turnos.",
+    "description": "O HADRO é uma plataforma Intelligent Workforce Management construída em torno da gestão moderna da assiduidade. Os colaboradores registam a entrada e a saída numa aplicação móvel simples, com opções de GPS e QR. Os líderes usam a plataforma web para gerir a assiduidade, acompanhar os atrasos, supervisionar as licenças, consultar a informação da folha salarial e gerir equipas em departamentos e filiais. Os colaboradores também podem consultar os seus registos de assiduidade e outras ferramentas de self-service no telemóvel.",
+    "problemsEyebrow": "Problemas de negócio",
+    "problemsTitle": "A complexidade da força de trabalho abranda as organizações.",
+    "problemsDescription": "Quando a assiduidade, a folha salarial, as licenças e as operações das filiais vivem em sítios diferentes, os líderes perdem tempo—e confiança.",
+    "problemAttendance": "Assiduidade sem confiança",
+    "problemAttendanceBody": "Registos manuais e ferramentas fragmentadas deixam os gestores sem certeza de quem esteve realmente presente—e onde.",
+    "problemPayroll": "Contestações da folha salarial depois do facto",
+    "problemPayrollBody": "Os colaboradores descobrem problemas de remuneração demasiado tarde, criando conflito evitável e sobrecarga administrativa.",
+    "problemRemote": "Equipas remotas e de campo deixadas de fora",
+    "problemRemoteBody": "Quando os trabalhadores remotos não podem registar entrada de forma segura, as organizações perdem responsabilização e os colaboradores sentem-se desligados dos processos da folha salarial e da força de trabalho.",
+    "whyEyebrow": "Porquê HADRO",
+    "whyTitle": "Uma experiência completa de força de trabalho—não um conjunto de módulos.",
+    "whyDescription": "Cada capacidade existe para simplificar a forma como as organizações gerem as pessoas no trabalho.",
+    "whyConnected": "Uma plataforma conectada",
+    "whyConnectedBody": "Assiduidade, licenças, visibilidade da folha salarial e administração partilham a mesma verdade operacional—para colaboradores de escritório e remotos.",
+    "whyWorkplaces": "Construído para locais de trabalho reais",
+    "whyWorkplacesBody": "Concebido para escritórios, fábricas, hospitais, estaleiros, equipas remotas e organizações multi-filial—não apenas HR de secretária.",
+    "whyWebMobile": "Web para a liderança, mobile para as equipas",
+    "whyWebMobileBody": "Os decisores gerem a organização na web. Os colaboradores mantêm-se produtivos no local ou remotamente a partir do campo.",
+    "visibilityEyebrow": "Visibilidade em tempo real",
+    "visibilityTitle": "Veja a sua força de trabalho com clareza—enquanto o trabalho acontece.",
+    "visibilityDescription": "O painel HADRO dá aos gestores insight imediato sobre assiduidade, atividade e saúde operacional em toda a organização.",
+    "capabilitiesEyebrow": "Capacidades distintivas",
+    "capabilitiesTitle": "O que torna o HADRO diferente.",
+    "capabilitiesDescription": "Estas são experiências de referência—não mosaicos de funcionalidades comuns.",
+    "exploreEyebrow": "Explorar soluções",
+    "exploreTitle": "Veja o HADRO para o seu setor.",
+    "exploreDescription": "De escolas e hospitais a fábricas, hotéis, logística e equipas governamentais—explore como o HADRO se adapta aos locais onde o trabalho realmente acontece.",
+    "problemsCaption": "Processos manuais criam carga de trabalho desnecessária"
+  },
+  "industries": {
+    "schools": "Escolas",
+    "hospitals": "Hospitais",
+    "factories": "Fábricas",
+    "warehouses": "Armazéns",
+    "construction": "Construção",
+    "hotels": "Hotéis",
+    "retail": "Retalho",
+    "offices": "Escritórios",
+    "logistics": "Logística",
+    "government": "Governo"
+  },
+  "signature": {
+    "gpsTitle": "Assiduidade GPS",
+    "gpsProblem": "Equipas de campo registam entrada sem verificação fiável de localização.",
+    "gpsSolution": "Verifique a assiduidade com consciência de localização para forças de trabalho distribuídas.",
+    "gpsBenefit": "Reduza o registo de ponto por outra pessoa e melhore a responsabilização entre locais.",
+    "remoteTitle": "Gestão remota da força de trabalho",
+    "remoteProblem": "Colaboradores remotos e de campo ficam fora das ferramentas tradicionais de assiduidade de escritório—por isso os líderes perdem confiança e as equipas sentem-se desligadas.",
+    "remoteSolution": "Permita que os colaboradores registem entrada e saída remotamente de forma segura, mantendo-se ligados à assiduidade, visibilidade da folha salarial, relatórios e administração da força de trabalho numa só plataforma.",
+    "remoteBenefit": "Faça a gestão de trabalhadores de escritório e remotos em conjunto—com responsabilização GPS onde a consciência de localização importa.",
+    "qrTitle": "Assiduidade QR",
+    "qrProblem": "Locais movimentados precisam de registo de entrada rápido e seguro, sem fricção.",
+    "qrSolution": "Use códigos QR para captura de assiduidade rápida e controlada.",
+    "qrBenefit": "Acelere a entrada mantendo a assiduidade fiável.",
+    "earningsTitle": "Vencimentos em direto",
+    "earningsProblem": "Os colaboradores esperam até ao dia de pagamento para compreender o que ganharam.",
+    "earningsSolution": "Mostre os vencimentos à medida que o trabalho progride, com acompanhamento transparente em direto.",
+    "earningsBenefit": "Construa confiança e reduza contestações da folha salarial antes de começarem.",
+    "multiTitle": "Gestão multi-filial da força de trabalho",
+    "multiProblem": "Organizações em crescimento têm dificuldade em gerir pessoas em várias localizações.",
+    "multiSolution": "Opere várias filiais a partir de um painel administrativo unificado.",
+    "multiBenefit": "Dimensione as operações sem perder visibilidade ou controlo.",
+    "selfTitle": "Self-service do colaborador",
+    "selfProblem": "As equipas de HR gastam tempo em pedidos rotineiros dos colaboradores.",
+    "selfSolution": "Permita que os colaboradores façam a gestão de licenças, perfil e tarefas de assiduidade em self-service.",
+    "selfBenefit": "Liberte capacidade de HR para decisões de maior valor sobre a força de trabalho.",
+    "dashboardTitle": "Painel da força de trabalho em tempo real",
+    "dashboardProblem": "Os gestores não têm insight imediato sobre a atividade da força de trabalho.",
+    "dashboardSolution": "Apresente visibilidade operacional em direto sobre assiduidade e atividade.",
+    "dashboardBenefit": "Atue sobre problemas no mesmo dia—não depois do fecho do mês."
+  },
+  "features": {
+    "eyebrow": "Funcionalidades",
+    "title": "Tudo o que líderes e colaboradores precisam numa só plataforma.",
+    "description": "Desde assiduidade verificada e gestão remota da força de trabalho até vencimentos em direto e administração multi-filial, o HADRO traz as operações da força de trabalho para uma experiência web e mobile conectada—onde quer que os colaboradores trabalhem.",
+    "attendanceTitle": "Acompanhamento de assiduidade",
+    "attendanceBody": "Registo de entrada com QR e GPS para equipas no local, e registo de entrada remoto seguro para colaboradores que trabalham fora do escritório, quando essas opções estão ativadas. Identifique chegadas atrasadas comparando as horas de registo de entrada dos colaboradores com os respetivos horários de trabalho aplicáveis, para que os gestores vejam a pontualidade e os padrões de assiduidade.",
+    "remoteTitle": "Gestão remota da força de trabalho",
+    "remoteBody": "Faça a gestão de trabalhadores remotos e de campo com a mesma plataforma das equipas de escritório—ligada à assiduidade, visibilidade da folha salarial e relatórios.",
+    "payrollTitle": "Folha salarial e vencimentos em direto",
+    "payrollBody": "Insights transparentes da folha salarial e visibilidade de vencimentos em tempo real para a sua força de trabalho. Os vencimentos em direto mostram a remuneração à medida que o trabalho avança; não são o registo de folha salarial aprovado. Quando o acompanhamento de atrasos e a dedução por atraso estão ativados, e apenas a partir da data de efeito da dedução, os minutos de atraso registados podem ser calculados na folha salarial em rascunho e apresentados no recibo de vencimento. A compensação configurada de horas extraordinárias, as licenças remuneradas e os feriados remunerados também podem seguir as regras de folha salarial da empresa.",
+    "leaveTitle": "Gestão de licenças",
+    "leaveBody": "Os colaboradores pedem licença; os gestores reveem e aprovam com alinhamento claro à política. As licenças remuneradas e não remuneradas podem ser tratadas de forma diferente quando a folha salarial é calculada.",
+    "reportsTitle": "Relatórios e supervisão",
+    "reportsBody": "Resumos de assiduidade, registos de auditoria e relatórios operacionais num só lugar, incluindo atrasos e ausências. As ausências são identificadas para quem devia trabalhar, não tem registo de assiduidade e não está em licença aprovada. Quando a opção está ativada, o tempo trabalhado pode determinar se um dia conta na totalidade, em parte ou não conta.",
+    "coreEyebrow": "Plataforma principal",
+    "coreTitle": "A fundação operacional.",
+    "coreDescription": "Capacidades essenciais da força de trabalho para assiduidade, licenças, visibilidade da folha salarial e supervisão.",
+    "signatureEyebrow": "Capacidades distintivas",
+    "signatureTitle": "Problema → solução → valor para o negócio.",
+    "signatureDescription": "As capacidades que definem como o HADRO cria confiança e controlo em locais de trabalho reais.",
+    "contextEyebrow": "Veja no contexto",
+    "contextTitle": "Explore por setor ou pela experiência mobile.",
+    "ctaTitle": "Coloque estas funcionalidades a trabalhar na sua organização.",
+    "ctaDescription": "Peça acesso e fale-nos sobre a sua força de trabalho. Orientaremos os próximos passos."
+  },
+  "why": {
+    "eyebrow": "Porquê HADRO",
+    "title": "Construído para a forma como as forças de trabalho realmente operam.",
+    "description": "O HADRO é uma plataforma Intelligent Workforce Management construída em torno da gestão da assiduidade, ligando licenças, visibilidade da folha salarial e administração em web e mobile para que líderes e colaboradores partilhem uma verdade operacional, quer as equipas trabalhem no local, no campo ou remotamente.",
+    "connectedTitle": "Uma plataforma conectada",
+    "connectedBody": "Assiduidade, licenças, visibilidade da folha salarial e administração partilham os mesmos registos—para que colaboradores de escritório e remotos fiquem num só sistema de força de trabalho, não em folhas de cálculo conflituosas.",
+    "workplacesTitle": "Construído para locais de trabalho reais",
+    "workplacesBody": "Concebido para escritórios, fábricas, hospitais, estaleiros, hotéis, logística, equipas remotas e organizações multi-filial—não software de HR apenas para secretária.",
+    "webMobileTitle": "Web para a liderança, mobile para as equipas",
+    "webMobileBody": "Os administradores gerem a organização na web. Os colaboradores mantêm-se produtivos a partir do campo ou de localizações remotas com registo de entrada, licenças, vencimentos e self-service.",
+    "problemAttendanceTitle": "Assiduidade sem confiança",
+    "problemAttendanceBody": "Registos manuais e ferramentas fragmentadas deixam os gestores sem certeza de quem esteve realmente presente—e onde.",
+    "problemRemoteTitle": "Equipas remotas e de campo deixadas de fora",
+    "problemRemoteBody": "Quando os trabalhadores remotos não podem registar entrada de forma segura, as organizações perdem responsabilização e os colaboradores sentem-se desligados dos processos da folha salarial e da força de trabalho.",
+    "problemPayrollTitle": "Contestações da folha salarial depois do facto",
+    "problemPayrollBody": "Os colaboradores descobrem problemas de remuneração demasiado tarde, criando conflito evitável e sobrecarga administrativa.",
+    "problemBranchesTitle": "Operações entre filiais",
+    "problemBranchesBody": "Organizações em crescimento perdem visibilidade quando cada local corre o seu próprio processo.",
+    "diffVerifyTitle": "Verificação onde importa",
+    "diffVerifyBody": "Opções de assiduidade com QR e consciência GPS ajudam as organizações a capturar a presença com menos ambiguidade—incluindo registos de entrada remotos e de campo.",
+    "diffPlatformTitle": "Uma plataforma para todos os locais de trabalho",
+    "diffPlatformBody": "Faça a gestão de colaboradores de escritório e trabalhadores remotos em conjunto, com os mesmos controlos de assiduidade, relatórios e administração.",
+    "diffTrustTitle": "Transparência que reduz o conflito",
+    "diffTrustBody": "Vencimentos em direto e fluxos claros de licenças ajudam os colaboradores a compreender o progresso antes de surpresas no dia de pagamento.",
+    "diffScaleTitle": "Dimensione sem perder o controlo",
+    "diffScaleBody": "A administração multi-filial mantém redes em expansão sob um modelo operativo responsável.",
+    "differenceEyebrow": "A diferença HADRO",
+    "differenceTitle": "Três razões pelas quais as organizações escolhem uma plataforma conectada.",
+    "problemsEyebrow": "Os problemas que resolvemos",
+    "problemsTitle": "Fricção da força de trabalho que custa tempo, confiança e controlo.",
+    "problemsDescription": "O HADRO é concebido em torno dos problemas operacionais que os decisores enfrentam todos os dias.",
+    "approachEyebrow": "Como abordamos",
+    "approachTitle": "Verificação, transparência e escala.",
+    "ctaTitle": "Pronto para ver o HADRO na sua organização?",
+    "ctaDescription": "Peça acesso e a nossa equipa de integração fará o seguimento com um próximo passo claro."
+  },
+  "mobile": {
+    "eyebrow": "Mobile",
+    "title": "A aplicação do colaborador para o trabalho que acontece longe de uma secretária.",
+    "description": "O HADRO mobile mantém equipas de campo, no local e remotas produtivas—registe entrada e saída de forma segura, peça licença, acompanhe o histórico, veja vencimentos em direto e faça self-service de perfil sem esperar por HR para tarefas rotineiras.",
+    "clockTitle": "Registar entrada / registar saída",
+    "clockBody": "Captura rápida de assiduidade para inícios de turno, entradas no local e trabalho remoto—para que os colaboradores possam registar entrada de forma segura a partir de localizações aprovadas.",
+    "gpsTitle": "Assiduidade GPS e QR",
+    "gpsBody": "Escolha padrões de verificação que correspondam ao seu local de trabalho—registos de entrada remotos ou de campo com consciência de localização, ou fluxos QR rápidos no local.",
+    "leaveTitle": "Pedidos de licença e estado",
+    "leaveBody": "Os colaboradores submetem licenças e acompanham o progresso sem cadeias de e-mail.",
+    "earningsTitle": "Vencimentos em direto",
+    "earningsBody": "Veja o progresso dos vencimentos à medida que o trabalho se acumula—construindo confiança antes do dia de pagamento.",
+    "notificationsTitle": "Notificações e perfil",
+    "notificationsBody": "Mantenha-se informado e mantenha os dados pessoais atualizados através do self-service.",
+    "historyTitle": "Histórico de assiduidade",
+    "historyBody": "Reveja a atividade passada para que as questões não dependam de registos em papel ou da memória.",
+    "experienceEyebrow": "Experiência do colaborador",
+    "experienceTitle": "O que as equipas podem fazer a partir do telemóvel.",
+    "experienceDescription": "O mobile é construído para a força de trabalho. A web permanece o centro de controlo para HR, gestores e administradores.",
+    "ecosystemEyebrow": "Ecossistema conectado",
+    "ecosystemTitle": "Mobile para colaboradores. Web para a liderança.",
+    "ecosystemDescription": "Assiduidade, licenças e vencimentos mantêm-se alinhados nas duas experiências—para que a atividade de campo e as decisões administrativas partilhem uma verdade.",
+    "employeesTitle": "Mobile para colaboradores",
+    "downloadEyebrow": "Transferir",
+    "downloadTitle": "Obtenha o HADRO em iOS e Android.",
+    "downloadDescription": "As ligações das lojas estão centralizadas na configuração de marketing—substitua os marcadores de posição pelas listagens reais quando forem publicadas.",
+    "ctaTitle": "Pronto para equipar a sua força de trabalho com o HADRO mobile?",
+    "ctaDescription": "Peça acesso para a sua organização. A integração inclui colocar as equipas nas experiências web e mobile certas."
+  },
+  "security": {
+    "eyebrow": "Segurança",
+    "title": "A confiança faz parte do produto.",
+    "description": "Os decisores precisam de confiança de que os sistemas da força de trabalho são seguros, responsáveis e prontos para o crescimento. O HADRO é concebido com acesso alinhado às funções, autenticação protegida e supervisão adequada à auditoria.",
+    "roleTitle": "Acesso baseado em funções",
+    "roleBody": "Permissões alinhadas com a forma como a sua organização realmente trabalha—para que as pessoas vejam o que precisam, não tudo.",
+    "authTitle": "Autenticação segura",
+    "authBody": "Início de sessão protegido para administradores e colaboradores nas experiências web e mobile.",
+    "auditTitle": "Supervisão adequada à auditoria",
+    "auditBody": "A atividade rastreável apoia a responsabilização, a revisão e a confiança operacional.",
+    "privacyTitle": "Conceção com foco na privacidade",
+    "privacyBody": "Os dados da força de trabalho são tratados com expectativas empresariais em mente—minimizar a exposição, maximizar a clareza do controlo.",
+    "leastTitle": "Menor privilégio por conceção",
+    "leastBody": "As experiências administrativas e dos colaboradores estão separadas para que o poder operacional fique com as funções certas.",
+    "accountabilityTitle": "Responsabilização operacional",
+    "accountabilityBody": "Assiduidade, licenças e ações administrativas deixam um rasto que a liderança pode rever quando necessário.",
+    "enterpriseTitle": "Postura pronta para empresas",
+    "enterpriseBody": "Construído como plataforma para organizações que precisam de fiabilidade—não um relógio de ponto apenas para consumidores.",
+    "pillarsEyebrow": "Pilares de segurança",
+    "pillarsTitle": "O que os compradores empresariais esperam de uma plataforma de força de trabalho.",
+    "practicesEyebrow": "Práticas operacionais",
+    "practicesTitle": "Concebido para responsabilização—não apenas controlo de acesso.",
+    "practicesDescription": "A segurança no HADRO expressa-se através de funções, autenticação e rastos operacionais que apoiam organizações reais.",
+    "ctaTitle": "Avalie o HADRO com confiança.",
+    "ctaDescription": "Peça acesso ou contacte a nossa equipa para discutir como o HADRO se adequa aos seus requisitos de segurança e operacionais."
+  },
+  "about": {
+    "eyebrow": "Sobre",
+    "title": "Sobre {{brand}}",
+    "description": "O HADRO existe para tornar a gestão da força de trabalho mais clara para organizações que operam em vários locais, turnos e locais de trabalho reais—não apenas equipas baseadas em secretária.",
+    "mission": "Ajudamos os líderes a gerir assiduidade, licenças, visibilidade da folha salarial e administração a partir de uma plataforma conectada—enquanto os colaboradores se mantêm produtivos no mobile.",
+    "clarityTitle": "A clareza vence a complexidade",
+    "clarityBody": "As ferramentas da força de trabalho devem reduzir a ambiguidade para gestores e colaboradores—não criar outro sistema desligado.",
+    "operationsTitle": "As operações merecem atenção de produto",
+    "operationsBody": "Assiduidade e vencimentos não são reflexões secundárias de retaguarda. Moldam a confiança, a folha salarial e a execução diária.",
+    "togetherTitle": "Web e mobile em conjunto",
+    "togetherBody": "A liderança precisa de um painel poderoso. A força de trabalho precisa de uma aplicação fiável. Ambos devem partilhar a mesma verdade.",
+    "missionEyebrow": "Missão",
+    "missionTitle": "Porquê construímos o HADRO.",
+    "beliefsEyebrow": "No que acreditamos",
+    "beliefsTitle": "Princípios que moldam o produto.",
+    "learnEyebrow": "Saber mais",
+    "learnTitle": "Continue a explorar o HADRO.",
+    "ctaTitle": "Falemos sobre a sua força de trabalho.",
+    "ctaDescription": "Peça acesso ou contacte através de Contacto—a nossa equipa orientará a conversa a partir daí."
+  },
+  "contact": {
+    "eyebrow": "Contacto",
+    "title": "Fale com a equipa HADRO.",
+    "description": "Quer esteja a avaliar o HADRO para a sua organização ou precise de uma linha direta com a nossa equipa, estamos aqui para ajudar.",
+    "requestTitle": "Pedir acesso",
+    "requestBody": "O melhor ponto de partida para novas organizações. Fale-nos sobre a sua empresa e a nossa equipa de integração fará o seguimento.",
+    "emailTitle": "E-mail",
+    "emailBody": "Contacte-nos diretamente para questões gerais, parcerias ou perguntas que não se enquadrem no formulário de acesso.",
+    "supportTitle": "Suporte",
+    "supportBody": "Já utiliza o HADRO ou precisa de ajuda a encontrar respostas? Visite o Suporte para orientação e opções de contacto.",
+    "pathsEyebrow": "Formas de nos contactar",
+    "pathsTitle": "Escolha o caminho que se adequa à sua pergunta.",
+    "directEyebrow": "E-mail direto",
+    "directDescription": "Para questões gerais, inclua o nome da sua organização e como podemos ajudar.",
+    "newOrgs": "Novas organizações",
+    "startingTitle": "A começar com o HADRO?",
+    "startingDescription": "Use Pedir acesso para que a nossa equipa de integração receba os detalhes da sua empresa no fluxo de trabalho existente."
+  },
+  "support": {
+    "eyebrow": "Suporte",
+    "title": "Ajuda quando precisar.",
+    "description": "Encontre respostas sobre o HADRO, contacte a nossa equipa e obtenha orientação para integração ou questões do dia a dia do produto.",
+    "quickEyebrow": "Ajuda rápida",
+    "quickTitle": "Pontos de partida comuns.",
+    "onboardingTitle": "Integração",
+    "onboardingBody": "Novas organizações devem começar com Pedir acesso para que a nossa equipa possa rever os detalhes da empresa no fluxo de trabalho do Administrador da plataforma.",
+    "productTitle": "Perguntas sobre o produto",
+    "productBody": "Explore Funcionalidades, Mobile e Soluções para contexto do produto antes de escalar para e-mail.",
+    "emailTitle": "Envie-nos um e-mail",
+    "emailBody": "Contacte {{email}} com o nome da sua organização e uma breve descrição do problema.",
+    "faqEyebrow": "FAQs",
+    "faqTitle": "Respostas antes de escrever.",
+    "legalEyebrow": "Legal",
+    "legalTitle": "Políticas e termos.",
+    "qRequest": "Como peço acesso para a minha organização?",
+    "aRequest": "Use a página Pedir acesso neste website. A nossa equipa de integração analisa a sua submissão e faz o seguimento com os próximos passos.",
+    "qAgain": "Já submeti um pedido. Devo submeter novamente?",
+    "aAgain": "Se o seu pedido ainda estiver ativo, não precisa de submeter novamente. Verá uma confirmação amigável se já tivermos o seu e-mail de trabalho registado.",
+    "qDownload": "Onde os colaboradores transferem a aplicação móvel?",
+    "aDownload": "O HADRO está disponível através das ligações da App Store e do Google Play na nossa página Mobile e no rodapé do site. Substitua os URLs de marcação de posição das lojas quando as listagens reais forem publicadas.",
+    "qAccount": "Quem contacto para problemas de conta ou do produto?",
+    "aAccount": "Envie um e-mail para {{email}} com o nome da sua organização e uma breve descrição do problema. Inclua capturas de ecrã relevantes quando possível.",
+    "qMore": "Onde posso encontrar mais FAQs?",
+    "aMore": "Visite a página de FAQs para respostas categorizadas sobre o produto, acesso e integração, web e mobile, e suporte.",
+    "qLegal": "Onde posso rever Privacidade e Termos?",
+    "aLegal": "Os documentos legais estão ligados no rodapé do site em Privacidade e Termos."
+  },
+  "faq": {
+    "eyebrow": "FAQs",
+    "title": "Respostas para decisores e operadores.",
+    "description": "Respostas claras sobre o HADRO—o que é, para quem é, como funciona o acesso e como web e mobile se complementam.",
+    "productTitle": "Produto",
+    "productDescription": "O que é o HADRO e a quem serve.",
+    "qWhat": "O que é o HADRO?",
+    "aWhat": "O HADRO é uma plataforma Intelligent Workforce Management construída em torno da gestão moderna da assiduidade. Os colaboradores registam a entrada e a saída numa aplicação móvel simples, com opções de GPS e QR. Os líderes usam a plataforma web para gerir a assiduidade, acompanhar os atrasos, supervisionar as licenças, consultar a informação da folha salarial e gerir equipas em departamentos e filiais. Os colaboradores também podem consultar os seus registos de assiduidade e outras ferramentas de self-service no telemóvel.",
+    "qWho": "Para quem é o HADRO?",
+    "aWho": "Proprietários de empresas, líderes de HR, gestores de operações e administradores que precisam de visibilidade fiável da força de trabalho em locais, turnos, funções remotas e filiais.",
+    "qRemote": "O HADRO apoia colaboradores remotos?",
+    "aRemote": "Sim. Os colaboradores podem registar entrada e saída remotamente de forma segura, com assiduidade GPS para consciência de localização quando necessário. Trabalhadores remotos e de escritório ficam numa plataforma unificada de força de trabalho ligada à visibilidade da folha salarial, assiduidade e relatórios.",
+    "qClock": "Como é o HADRO diferente de um simples relógio de ponto?",
+    "aClock": "O HADRO é concebido como uma plataforma conectada—assiduidade, gestão remota da força de trabalho, licenças, vencimentos em direto, administração multi-filial e self-service do colaborador partilham uma verdade operacional para líderes e equipas.",
+    "accessTitle": "Acesso e integração",
+    "accessDescription": "Como as organizações começam com o HADRO.",
+    "qStart": "Como começamos?",
+    "aStart": "Peça acesso a partir do website. A nossa equipa de integração analisa a sua organização e orienta os próximos passos de configuração e lançamento.",
+    "qAgain": "Já submeti um pedido. Devo submeter novamente?",
+    "aAgain": "Se o seu pedido ainda estiver ativo, não precisa de submeter novamente. Verá uma confirmação amigável se já tivermos o seu e-mail de trabalho registado.",
+    "qAccount": "Pedir acesso é o mesmo que criar uma conta?",
+    "aAccount": "Não. Submeter um pedido inicia uma conversa com a nossa equipa de integração. O acesso é orientado—não um registo automatizado de self-service.",
+    "platformTitle": "Web e mobile",
+    "platformDescription": "Como a aplicação do colaborador e a experiência web de administração trabalham em conjunto.",
+    "qApp": "O HADRO inclui uma aplicação móvel?",
+    "aApp": "Sim. Os colaboradores usam o mobile para registar entrada/saída, assiduidade GPS e QR, licenças, vencimentos em direto, notificações e self-service de perfil—enquanto os líderes gerem as operações na web.",
+    "qDownload": "Onde os colaboradores transferem a aplicação móvel?",
+    "aDownload": "O HADRO está disponível através das ligações da App Store e do Google Play na nossa página Mobile e no rodapé do site.",
+    "qBranches": "Podemos gerir várias filiais?",
+    "aBranches": "Sim. A administração multi-filial é uma parte central do HADRO, para que organizações em crescimento mantenham visibilidade e controlo entre localizações.",
+    "supportTitle": "Suporte e políticas",
+    "supportDescription": "Como obter ajuda e encontrar informação legal.",
+    "qContact": "Quem contacto para questões de produto ou de conta?",
+    "aContact": "Envie um e-mail para {{email}} com o nome da sua organização e uma breve descrição do problema. Inclua capturas de ecrã relevantes quando possível.",
+    "qLegal": "Onde posso rever Privacidade e Termos?",
+    "aLegal": "Os documentos legais estão ligados no rodapé do site em Privacidade e Termos.",
+    "qSecurity": "Onde posso saber mais sobre segurança?",
+    "aSecurity": "Visite a página Segurança para uma visão geral do acesso baseado em funções, autenticação, supervisão adequada à auditoria e conceção com foco na privacidade.",
+    "stillExploring": "Ainda a explorar?",
+    "ctaTitle": "Pronto para falar com a nossa equipa de integração?",
+    "ctaDescription": "Peça acesso e fale-nos sobre a sua organização. Faremos o seguimento com um próximo passo claro."
+  },
+  "requestAccess": {
+    "eyebrow": "Pedir acesso",
+    "title": "Obtenha o HADRO para a sua organização",
+    "description": "Conte-nos um pouco sobre a sua empresa. A nossa equipa de integração fará o seguimento para compreender as necessidades da sua força de trabalho e orientá-lo a começar com {{brand}}.",
+    "formEyebrow": "Pedido de acesso",
+    "formTitle": "Detalhes da empresa",
+    "formDescription": "Os campos obrigatórios ajudam-nos a contactar a pessoa certa. Função, número de colaboradores e mensagem são opcionais.",
+    "companyName": "Nome da empresa",
+    "fullName": "Nome completo",
+    "workEmail": "E-mail de trabalho",
+    "phone": "Número de telefone",
+    "country": "País",
+    "selectCountry": "Selecione o seu país",
+    "role": "Função",
+    "rolePlaceholder": "ex.: Diretor de HR",
+    "employeeCount": "Número de colaboradores",
+    "selectRange": "Selecione um intervalo",
+    "message": "Mensagem",
+    "messagePlaceholder": "Fale-nos sobre os seus locais, turnos ou calendário de implementação.",
+    "optional": "(opcional)",
+    "submitError": "Não foi possível submeter o seu pedido. Tente novamente.",
+    "alreadyExists": "Já temos o seu pedido. A nossa equipa de integração entrará em contacto—não é necessário submeter novamente.",
+    "received": "Recebemos o seu pedido e a nossa equipa irá analisá-lo em breve.",
+    "sentTitle": "Pedido enviado com sucesso",
+    "alreadyTitle": "Pedido já recebido",
+    "thanks": "Obrigado pelo seu interesse em {{brand}}.",
+    "receivedDetail": "O seu pedido foi recebido com sucesso e está agora com a nossa equipa de integração para análise.",
+    "followUp": "Contactá-lo-emos através do endereço de e-mail ou número de telefone que forneceu se precisarmos de informação adicional ou para agendar a sua demonstração personalizada do produto.",
+    "inbox": "Mantenha atenção à sua caixa de entrada e atenda chamadas da nossa equipa.",
+    "nextEyebrow": "O que acontece a seguir",
+    "stepReview": "Analisamos o pedido da sua organização.",
+    "stepContact": "Contactamo-lo para compreender as necessidades da sua força de trabalho.",
+    "stepDemo": "Agendamos uma demonstração personalizada do produto.",
+    "stepOnboarding": "Orientamos a sua organização na integração e configuração.",
+    "pathEyebrow": "O que acontece a seguir?",
+    "pathTitle": "Um caminho claro após submeter",
+    "pathDescription": "Submeter um pedido inicia uma conversa—não uma conta automatizada. Eis o que pode esperar.",
+    "stepLabel": "Passo {{n}}",
+    "reviewTitle": "Analisamos o seu pedido",
+    "reviewBody": "A nossa equipa de integração lê os detalhes da sua empresa e contacta-o para compreender a configuração da sua força de trabalho.",
+    "fitTitle": "Alinhamos a adequação",
+    "fitBody": "Em conjunto discutimos locais, funções, necessidades de assiduidade e como o HADRO deve apoiar a sua organização.",
+    "guideTitle": "Orientamos a integração",
+    "guideBody": "Quando estiver pronto, ajudamo-lo a passar do interesse a uma configuração estruturada—sem começar sozinho a partir de uma página em branco.",
+    "seoDescription": "Peça acesso ao HADRO para a sua organização. A nossa equipa de integração analisará os seus detalhes e orientará os próximos passos.",
+    "preferEmail": "Prefere e-mail? Contacte-nos em"
+  },
+  "solutions": {
+    "eyebrow": "Soluções",
+    "title": "Gestão da força de trabalho para todos os tipos de local de trabalho.",
+    "description": "O HADRO adapta-se à forma como as suas equipas realmente trabalham—em campi, enfermarias, pisos de produção, estaleiros, escritórios e localizações remotas—sem forçar um processo único para todos.",
+    "industriesEyebrow": "Setores",
+    "industriesTitle": "Escolha o local de trabalho que se parece com o seu.",
+    "industriesDescription": "Cada página de solução cobre desafios do setor, como o HADRO responde, capacidades relevantes e benefícios para o negócio.",
+    "approachEyebrow": "A nossa abordagem",
+    "approachTitle": "Uma plataforma. Resultados conscientes do setor.",
+    "approachDescription": "A mesma fundação HADRO—assiduidade, licenças, vencimentos em direto, administração multi-filial e self-service do colaborador—enquadrada para cada ambiente operativo.",
+    "pillarChallenges": "Desafios do setor primeiro",
+    "pillarChallengesBody": "Cada página começa com as pressões operacionais que os líderes do setor realmente enfrentam.",
+    "pillarResponse": "O HADRO como resposta",
+    "pillarResponseBody": "Mapeamos assiduidade, licenças, visibilidade e administração à forma como esse local de trabalho funciona.",
+    "pillarNext": "Próximo passo claro",
+    "pillarNextBody": "Cada solução termina com um caminho contextual de Pedir acesso para o fluxo de integração existente.",
+    "solutionEyebrow": "Solução {{label}}",
+    "struggleTitle": "Com o que as equipas de {{label}} têm dificuldade.",
+    "capabilitiesTitle": "Capacidades que mais importam para {{label}}.",
+    "seoTitle": "Soluções de força de trabalho {{label}}",
+    "ctaTitle": "Pronto para ver o HADRO para o seu setor?",
+    "ctaDescription": "Peça acesso e fale-nos sobre a sua organização. A nossa equipa de integração fará o seguimento com um próximo passo claro.",
+    "allSolutions": "Todas as soluções",
+    "viewAll": "Ver todas as soluções",
+    "challengesEyebrow": "Desafios do setor",
+    "challengesDescription": "Estas são as pressões operacionais que o HADRO é concebido para abordar.",
+    "howEyebrow": "Como o HADRO ajuda",
+    "howTitle": "Uma resposta prática a restrições reais do local de trabalho.",
+    "howDescription": "Ligue assiduidade, licenças, visibilidade e administração em torno da forma como as suas equipas realmente trabalham.",
+    "recommendedEyebrow": "Funcionalidades recomendadas",
+    "recommendedDescription": "Um conjunto focado de pontos fortes do produto HADRO para este setor—mantido no conteúdo centralizado de soluções.",
+    "benefitsEyebrow": "Benefícios para o negócio",
+    "benefitsTitle": "Resultados que interessam aos líderes.",
+    "benefitsDescription": "Além das funcionalidades—o que melhora para operações, HR e equipas de primeira linha.",
+    "moreEyebrow": "Mais setores",
+    "relatedTitle": "Explore soluções relacionadas de força de trabalho."
+  },
+  "recommended": {
+    "gpsTitle": "Assiduidade GPS",
+    "gpsBody": "Verifique os registos de entrada com consciência de localização para equipas distribuídas e baseadas em locais.",
+    "qrTitle": "Assiduidade QR",
+    "qrBody": "Registo de entrada rápido e controlado para campi movimentados, estaleiros e inícios de turno.",
+    "shiftTitle": "Gestão de turnos",
+    "shiftBody": "Mantenha equipas baseadas em turnos responsabilizadas com assiduidade clara alinhada aos calendários operacionais.",
+    "earningsTitle": "Vencimentos em direto",
+    "earningsBody": "Mostre o progresso dos vencimentos à medida que o trabalho se acumula, reduzindo surpresas no dia de pagamento. Reflete a remuneração à medida que o trabalho acontece, e não a folha salarial aprovada.",
+    "multiTitle": "Multi-filial",
+    "multiBody": "Opere várias localizações a partir de uma plataforma administrativa com supervisão partilhada.",
+    "selfTitle": "Self-service do colaborador",
+    "selfBody": "Permita que os colaboradores tratem de licenças, perfil e tarefas rotineiras da força de trabalho sem gargalos de HR.",
+    "leaveTitle": "Gestão de licenças",
+    "leaveBody": "Pedidos e aprovações de licença estruturados com um rasto operacional claro.",
+    "reportsTitle": "Relatórios",
+    "reportsBody": "Resumos de assiduidade e relatórios operacionais sobre os quais os líderes podem atuar.",
+    "announcementsTitle": "Anúncios",
+    "announcementsBody": "Mantenha as equipas informadas com comunicação organizacional clara onde o trabalho acontece.",
+    "mobileTitle": "Aplicação móvel",
+    "mobileBody": "Registe entrada, peça licença, veja vencimentos e mantenha-se produtivo a partir do campo.",
+    "dashboardTitle": "Painel em tempo real",
+    "dashboardBody": "Visibilidade operacional em direto sobre assiduidade e atividade da força de trabalho.",
+    "remoteTitle": "Gestão remota da força de trabalho",
+    "remoteBody": "Registo de entrada e saída remoto seguro para que colaboradores de campo e remotos se mantenham ligados à assiduidade, visibilidade da folha salarial e relatórios."
+  },
+  "notFound": {
+    "eyebrow": "Página não encontrada",
+    "title": "Esta página não está disponível.",
+    "description": "A ligação pode estar desatualizada, ou a página pode ter sido movida. Use um dos caminhos abaixo para continuar a explorar o HADRO.",
+    "help": "Procura ajuda sobre o produto? Visite",
+    "or": "ou"
+  },
+  "seo": {
+    "homeTitle": "{{brand}} — Intelligent Workforce Management",
+    "homeDescription": "HADRO — Intelligent Workforce Management para assiduidade, licenças, vencimentos em direto e operações multi-filial em web e mobile.",
+    "mobileTitle": "Aplicação móvel",
+    "jsonLdDescription": "Plataforma empresarial de gestão da força de trabalho para assiduidade, licenças, vencimentos em direto e operações multi-filial."
+  },
+  "industryPages": {
+    "schools": {
+      "label": "Escolas",
+      "summary": "Clareza de assiduidade e licenças para professores, pessoal e administração multi-campus.",
+      "headline": "Clareza da força de trabalho para escolas e campi.",
+      "description": "As instituições educativas precisam de assiduidade fiável, fluxos previsíveis de licenças e visibilidade entre campi—sem sobrecarregar os administradores com seguimento manual.",
+      "challenges": [
+        {
+          "title": "Assiduidade do pessoal fragmentada",
+          "body": "Registos em papel e ferramentas desligadas tornam difícil confirmar quem esteve presente entre campi e turnos."
+        },
+        {
+          "title": "Licenças que perturbam a cobertura",
+          "body": "Os calendários de ensino e de apoio sofrem quando os pedidos de licença são tardios, pouco claros ou difíceis de aprovar a tempo."
+        },
+        {
+          "title": "Sobrecarga administrativa",
+          "body": "As equipas de HR e dos escritórios escolares passam horas a reconciliar a assiduidade e a responder a perguntas rotineiras do pessoal."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Captura de assiduidade fiável",
+          "body": "Use registo de entrada com QR ou consciência GPS para que a presença no campus seja verificável e pronta para relatórios."
+        },
+        {
+          "title": "Fluxos estruturados de licenças",
+          "body": "O pessoal pede licença na aplicação; os administradores reveem e aprovam com um rasto operacional claro."
+        },
+        {
+          "title": "Uma vista administrativa",
+          "body": "Faça a gestão do pessoal entre campi a partir de um painel unificado em vez de folhas de cálculo dispersas."
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Menos contestações de assiduidade",
+          "body": "Substitua registos ambíguos por registos digitais consistentes em que a sua liderança pode confiar."
+        },
+        {
+          "title": "Melhor planeamento de cobertura nas salas",
+          "body": "O estado claro das licenças ajuda os administradores a organizar substituições antes de as falhas se tornarem crises."
+        },
+        {
+          "title": "Menos fricção administrativa",
+          "body": "O self-service reduz interrupções rotineiras para que as equipas dos escritórios se foquem no calendário escolar."
+        }
+      ],
+      "ctaTitle": "Pronto para modernizar as operações da força de trabalho escolar?",
+      "ctaDescription": "Peça acesso e fale-nos sobre os seus campi, funções do pessoal e necessidades de assiduidade. A nossa equipa de integração orientará os próximos passos."
+    },
+    "hospitals": {
+      "label": "Hospitais",
+      "summary": "Visibilidade de turnos e assiduidade responsabilizada para equipas clínicas e de apoio.",
+      "headline": "Visibilidade operacional para forças de trabalho hospitalares.",
+      "description": "Os hospitais funcionam com turnos, cobertura e responsabilização. O HADRO ajuda equipas clínicas e de apoio a registar entrada de forma fiável enquanto os administradores mantêm uma vista em direto da atividade da força de trabalho.",
+      "challenges": [
+        {
+          "title": "Cobertura de turnos complexa",
+          "body": "A dotação de enfermarias e departamentos muda rapidamente; os líderes precisam de saber quem está de serviço sem perseguir registos em papel."
+        },
+        {
+          "title": "Risco de registo de ponto por outra pessoa",
+          "body": "Ambientes clínicos movimentados podem tornar os registos de entrada informais fáceis—e dispendiosos—sem verificação."
+        },
+        {
+          "title": "Pressão de licenças e horas extraordinárias",
+          "body": "Estado pouco claro de licenças e questões de vencimentos criam carga evitável de HR durante operações já intensas."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Assiduidade verificada para turnos",
+          "body": "Opções com QR e consciência GPS ajudam a confirmar a presença de pessoal clínico e de apoio em várias instalações."
+        },
+        {
+          "title": "Insight operacional em direto",
+          "body": "Os gestores veem a atividade da força de trabalho em tempo real para que os problemas de cobertura surjam no mesmo dia."
+        },
+        {
+          "title": "Vencimentos e licenças transparentes",
+          "body": "Os colaboradores podem acompanhar pedidos de licença e vencimentos em direto, reduzindo a confusão da folha salarial depois do facto."
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Maior responsabilização nos turnos",
+          "body": "Saiba quem esteve presente e quando—apoiando decisões de dotação mais seguras."
+        },
+        {
+          "title": "Resposta mais rápida a falhas de cobertura",
+          "body": "A visibilidade em tempo real ajuda os supervisores a atuar antes de a falta de pessoal afetar a prestação de cuidados."
+        },
+        {
+          "title": "Menos fricção na folha salarial",
+          "body": "Vencimentos em direto e histórico claro de licenças reduzem contestações que distraem a liderança clínica."
+        }
+      ],
+      "ctaTitle": "Traga clareza às operações da força de trabalho hospitalar.",
+      "ctaDescription": "Partilhe a estrutura da sua instalação e os padrões de turnos. Ajudá-lo-emos a avaliar o HADRO para equipas clínicas e de apoio."
+    },
+    "factories": {
+      "label": "Fábricas",
+      "summary": "Assiduidade no local, supervisão multi-turno e registos da força de trabalho prontos para a folha salarial.",
+      "headline": "Assiduidade em que pode confiar no piso de produção.",
+      "description": "As fábricas precisam de registo de entrada rápido, responsabilização de turnos e registos limpos para a folha salarial—entre linhas, plantas e equipas rotativas.",
+      "challenges": [
+        {
+          "title": "Registos de entrada de elevado volume",
+          "body": "Os inícios de turno criam estrangulamentos quando a captura de assiduidade é lenta ou pouco fiável."
+        },
+        {
+          "title": "Supervisão de produção multi-local",
+          "body": "Os gestores de planta têm dificuldade em comparar assiduidade e atividade entre instalações num só lugar."
+        },
+        {
+          "title": "Contestações da folha salarial por horas pouco claras",
+          "body": "O controlo de tempo manual deixa espaço para desacordos que atrasam o fecho da folha salarial."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Assiduidade QR rápida",
+          "body": "Faça passar as equipas pelo registo de entrada rapidamente, mantendo um rasto digital controlado."
+        },
+        {
+          "title": "Visibilidade de planta e de linha",
+          "body": "Use um painel em tempo real e administração multi-filial para localizações de produção."
+        },
+        {
+          "title": "Transparência de vencimentos",
+          "body": "Dê aos colaboradores insight de vencimentos em direto para que as questões de horas não esperem até ao dia de pagamento."
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Inícios de turno mais fluidos",
+          "body": "Reduza atrasos na portaria e no piso causados por processos de assiduidade desatualizados."
+        },
+        {
+          "title": "Entradas mais limpas para a folha salarial",
+          "body": "Registos de assiduidade consistentes apoiam ciclos da folha salarial mais rápidos e com maior confiança."
+        },
+        {
+          "title": "Controlo entre plantas",
+          "body": "Dimensione as operações sem perder visibilidade à medida que adiciona linhas ou instalações."
+        }
+      ],
+      "ctaTitle": "Modernize a assiduidade da força de trabalho fabril.",
+      "ctaDescription": "Peça acesso e descreva as suas plantas, turnos e dimensão da força de trabalho. A nossa equipa ajudará a mapear o HADRO às suas operações."
+    },
+    "warehouses": {
+      "label": "Armazéns",
+      "summary": "Controlo de assiduidade da doca ao corredor para equipas de armazém de elevado débito.",
+      "headline": "Controlo da força de trabalho para operações de armazém.",
+      "description": "Os armazéns movem-se depressa. O HADRO ajuda a verificar quem está no local, a apoiar redes multi-localização e a manter a assiduidade alinhada com as expectativas da folha salarial.",
+      "challenges": [
+        {
+          "title": "Congestão em horas de pico",
+          "body": "Os picos de entrada e saída exigem registo de entrada rápido e fiável sem sacrificar a responsabilização."
+        },
+        {
+          "title": "Mão de obra temporária e rotativa",
+          "body": "Equipas em mudança tornam o controlo de tempo informal arriscado e difícil de auditar."
+        },
+        {
+          "title": "Redes multi-armazém",
+          "body": "Os operadores regionais precisam de um sistema que funcione em vários centros de distribuição."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Registo de entrada rápido e controlado",
+          "body": "A assiduidade QR mantém equipas de elevado débito em movimento enquanto preserva a verificação."
+        },
+        {
+          "title": "Opções com consciência de localização",
+          "body": "A assiduidade com consciência GPS apoia funções distribuídas, no parque ou remotas quando o trabalho acontece fora da doca."
+        },
+        {
+          "title": "Administração em toda a rede",
+          "body": "Faça a gestão de armazéns como filiais sob um painel operacional—mantendo funções no local e remotas conectadas."
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Visibilidade fiável da mão de obra",
+          "body": "Saiba quem está no piso—e em funções de parque ou remotas—durante os picos, não depois de chegar o relatório do turno."
+        },
+        {
+          "title": "Assiduidade pronta para auditoria",
+          "body": "Registos digitais reduzem contestações sobre horas para pessoal permanente e rotativo."
+        },
+        {
+          "title": "Escala multi-local mais fácil",
+          "body": "Adicione armazéns sem reinventar o processo de assiduidade em cada local."
+        }
+      ],
+      "ctaTitle": "Reforce a responsabilização da força de trabalho em armazéns.",
+      "ctaDescription": "Fale-nos sobre os seus locais e padrões de turnos. Guiá-lo-emos sobre como o HADRO apoia operações de distribuição."
+    },
+    "construction": {
+      "label": "Construção",
+      "summary": "Assiduidade no local e remota para equipas entre projetos e funções de campo.",
+      "headline": "Construído para equipas que se deslocam entre locais.",
+      "description": "As equipas de construção trabalham entre projetos, parques e localizações de campo. O HADRO traz assiduidade com consciência GPS, gestão remota da força de trabalho, self-service mobile e supervisão central para a liderança de projeto.",
+      "challenges": [
+        {
+          "title": "Estaleiros de projeto distribuídos",
+          "body": "As equipas não estão num só escritório—a assiduidade tem de funcionar onde o trabalho acontece, incluindo funções remotas e de campo."
+        },
+        {
+          "title": "Presença difícil de verificar",
+          "body": "Sem consciência de localização, a assiduidade no local e remota pode ser incompleta ou contestada."
+        },
+        {
+          "title": "Fricção administrativa de campo",
+          "body": "Pedidos de licença e atualizações rotineiras perdem-se entre supervisores de estaleiro e o escritório."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Assiduidade com consciência GPS",
+          "body": "Verifique os registos de entrada com consciência de localização concebida para trabalho de campo, remoto e no local."
+        },
+        {
+          "title": "Conectividade remota da força de trabalho",
+          "body": "As equipas registam entrada e saída de forma segura a partir do campo, mantendo-se ligadas a licenças, vencimentos e registos da força de trabalho."
+        },
+        {
+          "title": "Supervisão de projeto e filial",
+          "body": "Os administradores monitorizam a atividade entre locais a partir de um painel web."
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Maior responsabilização no estaleiro",
+          "body": "Reduza a incerteza sobre quem esteve em que projeto e quando—incluindo funções remotas de campo."
+        },
+        {
+          "title": "Menos troca de informação com o escritório",
+          "body": "O self-service mantém as tarefas rotineiras da força de trabalho fora da papelada do contentor de estaleiro."
+        },
+        {
+          "title": "Conversas mais claras sobre a folha salarial",
+          "body": "Os vencimentos em direto ajudam as equipas a compreender o progresso antes de as contestações escalarem."
+        }
+      ],
+      "ctaTitle": "Leve o HADRO aos seus estaleiros de construção.",
+      "ctaDescription": "Peça acesso e partilhe como os seus projetos e equipas estão organizados. Ajudá-lo-emos a avaliar a adequação para operações no local e de campo."
+    },
+    "hotels": {
+      "label": "Hotéis",
+      "summary": "Assiduidade de limpeza, F&B e front-of-house entre propriedades.",
+      "headline": "Gestão da força de trabalho hoteleira que acompanha o ritmo da propriedade.",
+      "description": "Os hotéis funcionam com turnos temporizados entre departamentos e propriedades. O HADRO ajuda a verificar a assiduidade, simplificar as licenças e dar aos gestores clareza operacional em tempo real.",
+      "challenges": [
+        {
+          "title": "Complexidade de turnos por departamento",
+          "body": "Limpeza, F&B, segurança e receção precisam cada um de assiduidade fiável sem abrandar o serviço."
+        },
+        {
+          "title": "Marcas multi-propriedade",
+          "body": "Operadores que gerem vários hotéis precisam de processo consistente sem perder o controlo local."
+        },
+        {
+          "title": "Oscilações sazonais de pessoal",
+          "body": "A variação do número de colaboradores torna o controlo de tempo informal e o acompanhamento de licenças frágeis."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Registo de entrada rápido por departamento",
+          "body": "A assiduidade QR apoia mudanças de turno movimentadas entre departamentos do hotel."
+        },
+        {
+          "title": "Administração da rede de propriedades",
+          "body": "Trate os hotéis como filiais sob uma plataforma com supervisão partilhada."
+        },
+        {
+          "title": "Self-service do colaborador",
+          "body": "O pessoal gere licenças e tarefas de perfil sem interromper os gestores de serviço."
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Passagens de turno mais fluidas",
+          "body": "Saiba quem tem entrada registada antes das janelas de pico de registo de entrada e de serviço."
+        },
+        {
+          "title": "Operações multi-propriedade consistentes",
+          "body": "Normalize o processo da força de trabalho mantendo a gestão clara de cada hotel."
+        },
+        {
+          "title": "Comunicação mais clara na primeira linha",
+          "body": "Licenças e vencimentos transparentes reduzem interrupções evitáveis de HR na propriedade."
+        }
+      ],
+      "ctaTitle": "Melhore as operações da força de trabalho hoteleira.",
+      "ctaDescription": "Fale-nos sobre as suas propriedades e departamentos. A nossa equipa de integração ajudá-lo-á a explorar o HADRO para hotéis."
+    },
+    "retail": {
+      "label": "Retalho",
+      "summary": "Assiduidade ao nível da loja, funções de campo e visibilidade multi-filial para redes de retalho.",
+      "headline": "Visibilidade da força de trabalho de retalho da loja-bandeira a cada loja.",
+      "description": "As equipas de retalho precisam de assiduidade fiável nas lojas, apoio a funções de campo e remotas, tratamento claro de licenças e supervisão regional—especialmente à medida que as redes crescem.",
+      "challenges": [
+        {
+          "title": "Inconsistência ao nível da loja",
+          "body": "Cada localização inventa o seu próprio hábito de assiduidade, tornando os relatórios regionais pouco fiáveis."
+        },
+        {
+          "title": "Cobertura de abertura e fecho",
+          "body": "Os gestores precisam de confiança de que as equipas agendadas chegaram realmente para as horas-chave de comércio."
+        },
+        {
+          "title": "Funções de campo e itinerantes",
+          "body": "Gestores de área, merchandisers e outras funções fora do piso precisam de assiduidade remota segura sem sair do sistema de força de trabalho da rede de retalho."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Assiduidade padronizada nas lojas",
+          "body": "Opções com QR ou consciência GPS criam registo de entrada consistente entre localizações."
+        },
+        {
+          "title": "Força de trabalho remota para funções de campo",
+          "body": "Apoie funções de retalho itinerantes e remotas com registo de entrada seguro, mantendo-as ligadas à visibilidade da folha salarial e aos relatórios."
+        },
+        {
+          "title": "Controlo multi-filial de retalho",
+          "body": "Opere a rede de lojas a partir de uma plataforma administrativa."
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Cobertura consistente nas horas de comércio",
+          "body": "Veja problemas de assiduidade cedo o suficiente para proteger a experiência do cliente."
+        },
+        {
+          "title": "Relatórios regionais utilizáveis",
+          "body": "Compare lojas—e funções de campo—com uma verdade partilhada de assiduidade em vez de registos fragmentados."
+        },
+        {
+          "title": "Escala sem caos de processos",
+          "body": "Adicione localizações sem redesenhar as operações da força de trabalho de cada vez."
+        }
+      ],
+      "ctaTitle": "Unifique a gestão da força de trabalho de retalho.",
+      "ctaDescription": "Peça acesso e partilhe a dimensão da sua rede de lojas. Ajudá-lo-emos a mapear o HADRO à sua rede de retalho."
+    },
+    "offices": {
+      "label": "Escritórios",
+      "summary": "Fluxos modernos de assiduidade, licenças e força de trabalho remota para equipas de escritório e híbridas.",
+      "headline": "Operações profissionais da força de trabalho para organizações de escritório.",
+      "description": "Equipas de escritório e híbridas precisam de assiduidade responsabilizada para pessoas no edifício e a trabalhar remotamente—mais fluxos limpos de licenças e um painel em que a liderança pode confiar.",
+      "challenges": [
+        {
+          "title": "Ambiguidade de presença híbrida",
+          "body": "Não é claro quem está no local, quem está remoto e como a assiduidade deve ser registada de forma consistente em ambos."
+        },
+        {
+          "title": "Gargalos de licenças",
+          "body": "Pedidos de licença por e-mail criam atrasos e registos incompletos para os gestores."
+        },
+        {
+          "title": "Tempo de HR gasto em tarefas rotineiras",
+          "body": "Atualizações de perfil e perguntas de assiduidade consomem capacidade que deveria ir para a estratégia de pessoas."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Assiduidade unificada de escritório e remota",
+          "body": "Use padrões com QR ou consciência GPS no local, e registo de entrada remoto seguro para colaboradores híbridos e remotos—numa só plataforma de força de trabalho."
+        },
+        {
+          "title": "Administração clara de licenças",
+          "body": "Os colaboradores pedem; os gestores aprovam; os registos mantêm-se alinhados num só sistema."
+        },
+        {
+          "title": "Self-service do colaborador",
+          "body": "Reduza o volume de pedidos para tarefas rotineiras da força de trabalho."
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Operações híbridas mais limpas",
+          "body": "Substitua hábitos ad hoc de assiduidade por um processo para colaboradores de escritório e remotos."
+        },
+        {
+          "title": "Capacidade de HR mais produtiva",
+          "body": "O self-service devolve tempo a trabalho de maior valor sobre a força de trabalho."
+        },
+        {
+          "title": "Visibilidade para a liderança",
+          "body": "Um painel em tempo real apoia decisões no mesmo dia entre equipas no local e remotas."
+        }
+      ],
+      "ctaTitle": "Modernize a administração da força de trabalho de escritório.",
+      "ctaDescription": "Fale-nos sobre as suas equipas e localizações. Mostraremos como o HADRO apoia operações modernas de escritório e remotas."
+    },
+    "logistics": {
+      "label": "Logística",
+      "summary": "Assiduidade de campo, remota e em depósito para motoristas, operadores e equipas de despacho.",
+      "headline": "Visibilidade da força de trabalho para operações de logística e frota.",
+      "description": "A logística depende de pessoas a moverem-se a tempo. O HADRO apoia assiduidade em depósito, de campo e remota, transparência de vencimentos em direto e controlo operacional multi-local numa só plataforma.",
+      "challenges": [
+        {
+          "title": "Dispersão da força de trabalho de campo",
+          "body": "Motoristas e operadores nem sempre estão numa secretária—a assiduidade tem de viajar com a equipa, incluindo registos de entrada remotos entre depósitos e rotas."
+        },
+        {
+          "title": "Congestão no pico do depósito",
+          "body": "As janelas de despacho matinal precisam de registo de entrada rápido sem perder a verificação."
+        },
+        {
+          "title": "Contestações de horas e vencimentos",
+          "body": "Calendários variáveis tornam as surpresas no dia de pagamento mais prováveis sem visibilidade em direto."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Assiduidade de campo com consciência GPS",
+          "body": "Apoie funções distribuídas e remotas com opções de registo de entrada com consciência de localização."
+        },
+        {
+          "title": "Conectividade remota da força de trabalho",
+          "body": "Mantenha motoristas e pessoal de campo ligados à assiduidade, vencimentos e administração da força de trabalho enquanto estão longe do depósito."
+        },
+        {
+          "title": "Fluxos QR no depósito",
+          "body": "Mantenha os inícios de depósito de elevado volume eficientes e auditáveis."
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Maior confiança no despacho",
+          "body": "Saiba quem está disponível antes de as rotas saírem do parque."
+        },
+        {
+          "title": "Menos interrupções na folha salarial",
+          "body": "Vencimentos transparentes reduzem contestações reativas que abrandam as operações."
+        },
+        {
+          "title": "Controlo em toda a rede",
+          "body": "Administre depósitos, filiais e funções remotas de campo a partir de uma plataforma conectada."
+        }
+      ],
+      "ctaTitle": "Ligue as operações da força de trabalho logística.",
+      "ctaDescription": "Peça acesso e descreva os seus depósitos, rotas e estrutura de equipa. Ajudá-lo-emos a avaliar o HADRO para logística."
+    },
+    "government": {
+      "label": "Governo",
+      "summary": "Assiduidade responsabilizada para forças de trabalho do setor público de escritório, de campo e remotas.",
+      "headline": "Gestão responsabilizada da força de trabalho para equipas governamentais.",
+      "description": "As organizações do setor público precisam de registos claros de assiduidade para funções de escritório, de campo e remotas—mais administração alinhada às funções e processos que apoiam a supervisão entre departamentos e localizações.",
+      "challenges": [
+        {
+          "title": "Expectativas de responsabilização",
+          "body": "Assiduidade e licenças devem ser defensáveis para auditoria, relatórios e confiança pública—incluindo colaboradores que trabalham fora de um único escritório."
+        },
+        {
+          "title": "Fragmentação departamental",
+          "body": "Ferramentas separadas e processos em papel tornam a supervisão consolidada difícil."
+        },
+        {
+          "title": "Pressão de continuidade do serviço",
+          "body": "Lacunas de licenças e de pessoal afetam serviços voltados para o cidadão quando a visibilidade é atrasada."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Assiduidade digital verificável",
+          "body": "Substitua registos ambíguos por registos consistentes com QR ou consciência GPS para trabalho no local e remoto."
+        },
+        {
+          "title": "Gestão remota da força de trabalho",
+          "body": "Apoie funcionários públicos de campo e remotos com registo de entrada seguro, mantendo-os ligados a relatórios e administração."
+        },
+        {
+          "title": "Painel de supervisão central",
+          "body": "Dê aos administradores visibilidade em tempo real entre equipas e localizações."
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Postura de auditoria mais forte",
+          "body": "Mantenha registos mais claros da força de trabalho para necessidades de revisão e relatório—entre funções de escritório e remotas."
+        },
+        {
+          "title": "Operações departamentais mais consistentes",
+          "body": "Reduza a deriva de processos entre escritórios, unidades de campo e localizações."
+        },
+        {
+          "title": "Consciência mais precoce de pessoal",
+          "body": "Atue sobre problemas de assiduidade e licenças antes de a prestação de serviços ser afetada."
+        }
+      ],
+      "ctaTitle": "Modernize as operações da força de trabalho do setor público.",
+      "ctaDescription": "Peça acesso e partilhe a estrutura dos seus departamentos. A nossa equipa de integração orientará uma conversa cuidadosa sobre o próximo passo."
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "contact": "Contact",
+  "launcher": "Assistance",
+  "contactSupport": "Contacter l'assistance",
+  "closePanel": "Fermer le panneau d'assistance",
+  "loadingDetails": "Chargement des informations d'assistance…",
+  "failedLoad": "Impossible de charger les informations d'assistance",
+  "unavailable": "Les informations d'assistance ne sont pas encore disponibles.",
+  "whatsapp": "WhatsApp",
+  "chatWhatsApp": "Discuter sur WhatsApp"
+}

@@ -1,0 +1,1059 @@
+{
+  "nav": {
+    "why": "Kwa nini HADRO",
+    "features": "Vipengele",
+    "solutions": "Suluhisho",
+    "mobile": "Simu",
+    "security": "Usalama",
+    "faqs": "FAQ",
+    "about": "Kuhusu",
+    "marketing": "Uuzaji",
+    "comingSoon": "Inakuja hivi karibuni",
+    "openMenu": "Fungua menyu",
+    "closeMenu": "Funga menyu",
+    "homeLink": "Ukurasa wa nyumbani wa {{brand}}"
+  },
+  "cta": {
+    "requestAccess": "Omba ufikiaji",
+    "requestAccessTitle": "Omba Ufikiaji",
+    "signIn": "Ingia",
+    "explorePlatform": "Chunguza jukwaa",
+    "exploreSolutions": "Chunguza suluhisho",
+    "exploreAllFeatures": "Chunguza vipengele vyote",
+    "whyHadro": "Kwa nini HADRO",
+    "contact": "Mawasiliano",
+    "contactUs": "Wasiliana nasi",
+    "support": "Msaada",
+    "emailSupport": "Msaada wa barua pepe",
+    "goToSupport": "Nenda kwa Msaada",
+    "browseFeatures": "Vinjari vipengele",
+    "industrySolutions": "Suluhisho za sekta",
+    "mobileApp": "Programu ya simu",
+    "backToHome": "Rudi nyumbani",
+    "returnToHome": "Rudi Nyumbani",
+    "submitRequest": "Wasilisha ombi",
+    "submitting": "Inawasilisha…",
+    "submitAnother": "Wasilisha ombi lingine",
+    "nextStep": "Hatua ifuatayo",
+    "exploreFeatures": "Chunguza vipengele",
+    "viewSolutions": "Angalia suluhisho",
+    "seeMobile": "Angalia programu ya simu",
+    "sendEmail": "Tuma barua pepe",
+    "visitSupport": "Tembelea msaada",
+    "allSolutions": "Suluhisho zote",
+    "viewAllSolutions": "Angalia suluhisho zote"
+  },
+  "footer": {
+    "blurb": "Usimamizi wa wafanyakazi wa biashara kwa mahudhurio, likizo, uwazi wa mishahara, na shughuli za matawi mengi.",
+    "navigate": "Urambazaji",
+    "legalContact": "Kisheria na mawasiliano",
+    "privacy": "Faragha",
+    "terms": "Masharti",
+    "downloadSocial": "Upakuaji na mitandao ya kijamii",
+    "social": "Mitandao ya kijamii",
+    "rights": "Haki zote zimehifadhiwa.",
+    "instagram": "Instagram",
+    "tiktok": "TikTok",
+    "linkedin": "LinkedIn",
+    "x": "X",
+    "youtube": "YouTube"
+  },
+  "stores": {
+    "appStore": "Pakua kwenye App Store",
+    "playStore": "Pata kwenye Google Play"
+  },
+  "theme": {
+    "button": "Mandhari: {{label}}. Bofya kubadilisha",
+    "title": "Mandhari: {{label}}",
+    "current": "Mapendeleo ya mandhari ya sasa: {{label}}. Imetatuliwa: {{resolved}}.",
+    "dark": "giza",
+    "light": "mwanga"
+  },
+  "showcase": {
+    "eyebrow": "Uwezo wa saini",
+    "problem": "Tatizo",
+    "solution": "Suluhisho",
+    "businessValue": "Thamani ya biashara"
+  },
+  "mockup": {
+    "dashboardTitle": "Dashibodi ya wafanyakazi ya HADRO",
+    "chrome": "HADRO · Wavuti",
+    "screens": "Skrini za dashibodi",
+    "heroDashboard": "Dashibodi ya wafanyakazi ya wakati halisisi",
+    "operationalDashboard": "Dashibodi ya uendeshaji ya HADRO",
+    "featureOverview": "Muhtasari wa vipengele vya HADRO",
+    "whyHero": "Jukwaa la wafanyakazi lililounganishwa",
+    "employeeApp": "Programu ya mfanyakazi ya HADRO",
+    "workflow": "Mtiririko wa kazi wa wafanyakazi uliounganishwa",
+    "team": "Timu ya HADRO",
+    "mission": "Dhamira ya HADRO",
+    "contact": "Wasiliana na HADRO",
+    "securityOverview": "Muhtasari wa usalama wa HADRO",
+    "industrySolutions": "Suluhisho za sekta za HADRO",
+    "faqs": "FAQ za HADRO",
+    "industryWorkforce": "Wafanyakazi wa {{label}}",
+    "mobileTitle": "HADRO simu",
+    "highlights": "Vipengele muhimu vya bidhaa",
+    "problemsIllustration": "Mchoro wa matatizo ya biashara",
+    "companyLogo": "Nembo ya kampuni",
+    "organizationLogo": "Nembo ya {{organization}}"
+  },
+  "metrics": {
+    "title": "Imejengwa kwa uwazi wa uendeshaji",
+    "eyebrow": "Vipengele muhimu vya jukwaa",
+    "attendanceValue": "QR + GPS",
+    "attendanceLabel": "Njia za mahudhurio",
+    "attendanceHint": "Imejengwa kwa timu za kazini na za uwanjani",
+    "branchesValue": "Matawi mengi",
+    "branchesLabel": "Usimamizi wa pamoja",
+    "branchesHint": "Jukwaa moja katika maeneo yote",
+    "earningsValue": "Moja kwa moja",
+    "earningsLabel": "Uwazi wa mapato",
+    "earningsHint": "Uwazi wakati kazi inaendelea",
+    "ecosystemValue": "Wavuti + Simu",
+    "ecosystemLabel": "Bidhaa zilizounganishwa",
+    "ecosystemHint": "Uongozi na wafanyakazi wako sawa"
+  },
+  "workflow": {
+    "employee": "Mfanyakazi",
+    "employeeHint": "Utambulisho na wasifu wa wafanyakazi",
+    "attendance": "Mahudhurio",
+    "attendanceHint": "Sajili kuingia na sajili kutoka",
+    "gps": "Uthibitishaji wa GPS",
+    "gpsHint": "Uthibitisho unaozingatia mahali",
+    "dashboard": "Dashibodi",
+    "dashboardHint": "Uwazi wa uendeshaji wa moja kwa moja",
+    "payroll": "Mishahara",
+    "payrollHint": "Mantiki ya mapato inayolingana na sera",
+    "liveEarnings": "Mapato ya Moja kwa Moja",
+    "liveEarningsHint": "Malipo ya uwazi siku kwa siku",
+    "reports": "Ripoti",
+    "reportsHint": "Usimamizi na msaada wa maamuzi",
+    "title": "Safari moja ya wafanyakazi iliyounganishwa",
+    "description": "HADRO inaunganisha watu, mahudhurio, uthibitishaji, usimamizi, na mapato katika mtiririko mmoja wa uendeshaji."
+  },
+  "home": {
+    "title": "Rahisisha usimamizi wa wafanyakazi katika kila eneo na zamu.",
+    "description": "HADRO ni jukwaa la Intelligent Workforce Management lililojengwa kuzunguka usimamizi wa kisasa wa mahudhurio. Wafanyakazi husajili kuingia na kutoka kwa programu rahisi ya simu, kwa chaguo za GPS na QR. Viongozi wa kampuni hutumia jukwaa la wavuti kusimamia mahudhurio, kufuatilia kuchelewa, kusimamia likizo, kufuatilia taarifa za mishahara, na kusimamia timu katika idara na matawi. Wafanyakazi pia wanaweza kufikia kumbukumbu zao za mahudhurio na zana nyingine za huduma za kibinafsi kwenye simu zao.",
+    "problemsEyebrow": "Matatizo ya biashara",
+    "problemsTitle": "Ugumu wa wafanyakazi unapunguza kasi ya mashirika.",
+    "problemsDescription": "Wakati mahudhurio, mishahara, likizo, na shughuli za matawi zipo sehemu tofauti, viongozi hupoteza muda—na uaminifu.",
+    "problemAttendance": "Mahudhurio bila uaminifu",
+    "problemAttendanceBody": "Daftari za mkono na zana zilizotawanyika huacha meneja wasijue nani alikuwa kweli yupo—na wapi.",
+    "problemPayroll": "Mizozo ya mishahara baada ya ukweli",
+    "problemPayrollBody": "Wafanyakazi hugundua matatizo ya malipo kuchelewa sana, na hivyo kusababisha migogoro inayoweza kuepukwa na mzigo wa kiutawala.",
+    "problemRemote": "Timu za mbali na za uwanjani zimeachwa nje",
+    "problemRemoteBody": "Wakati wafanyakazi wa mbali hawawezi sajili kuingia kwa usalama, mashirika hupoteza uwajibikaji na wafanyakazi huhisi wametengwa na michakato ya mishahara na wafanyakazi.",
+    "whyEyebrow": "Kwa nini HADRO",
+    "whyTitle": "Uzoefu kamili wa wafanyakazi—si rundo la moduli.",
+    "whyDescription": "Kila uwezo upo ili kurahisisha jinsi mashirika yanavyosimamia watu kazini.",
+    "whyConnected": "Jukwaa moja lililounganishwa",
+    "whyConnectedBody": "Mahudhurio, likizo, uwazi wa mishahara, na usimamizi vinashiriki ukweli mmoja wa uendeshaji—kwa wafanyakazi wa ofisi na wa mbali.",
+    "whyWorkplaces": "Imejengwa kwa maeneo halisi ya kazi",
+    "whyWorkplacesBody": "Imeundwa kwa ofisi, viwanda, hospitali, maeneo ya ujenzi, timu za mbali, na mashirika ya matawi mengi—si HR ya dawati pekee.",
+    "whyWebMobile": "Wavuti kwa uongozi, simu kwa timu",
+    "whyWebMobileBody": "Watoa maamuzi huendesha shirika kwenye wavuti. Wafanyakazi wanabaki wenye tija kazini au kwa mbali kutoka uwanjani.",
+    "visibilityEyebrow": "Uwazi wa wakati halisisi",
+    "visibilityTitle": "Ona wafanyakazi wako wazi—wakati kazi inaendelea.",
+    "visibilityDescription": "Dashibodi ya HADRO inawapa meneja maarifa ya haraka kuhusu mahudhurio, shughuli, na afya ya uendeshaji katika shirika.",
+    "capabilitiesEyebrow": "Uwezo wa saini",
+    "capabilitiesTitle": "Kinachofanya HADRO kuwa tofauti.",
+    "capabilitiesDescription": "Hizi ni uzoefu wa bendera—si vigae vya kawaida vya vipengele.",
+    "exploreEyebrow": "Chunguza suluhisho",
+    "exploreTitle": "Angalia HADRO kwa sekta yako.",
+    "exploreDescription": "Kutoka shule na hospitali hadi viwanda, hoteli, usafirishaji, na timu za serikali—chunguza jinsi HADRO inavyobadilika kulingana na mahali kazi inafanyika kweli.",
+    "problemsCaption": "Michakato ya mkono inaunda mzigo usio wa lazima"
+  },
+  "industries": {
+    "schools": "Shule",
+    "hospitals": "Hospitali",
+    "factories": "Viwanda",
+    "warehouses": "Maghala",
+    "construction": "Ujenzi",
+    "hotels": "Hoteli",
+    "retail": "Rejareja",
+    "offices": "Ofisi",
+    "logistics": "Usafirishaji",
+    "government": "Serikali"
+  },
+  "signature": {
+    "gpsTitle": "Mahudhurio ya GPS",
+    "gpsProblem": "Timu za uwanjani hujisajili kuingia bila uthibitishaji wa kuaminika wa mahali.",
+    "gpsSolution": "Thibitisha mahudhurio kwa uangalifu wa mahali kwa wafanyakazi waliotawanyika.",
+    "gpsBenefit": "Punguza kusajili kuingia kwa niaba ya mwenzako na uboreshe uwajibikaji katika maeneo yote.",
+    "remoteTitle": "Usimamizi wa Wafanyakazi wa Mbali",
+    "remoteProblem": "Wafanyakazi wa mbali na wa uwanjani hukaa nje ya zana za kawaida za mahudhurio ya ofisi—kwa hivyo viongozi hupoteza ujasiri na timu huhisi zimetengwa.",
+    "remoteSolution": "Ruhusu wafanyakazi sajili kuingia na kutoka kwa mbali kwa usalama huku wakiendelea kuunganishwa na mahudhurio, uwazi wa mishahara, ripoti, na usimamizi wa wafanyakazi katika jukwaa moja.",
+    "remoteBenefit": "Simamia wafanyakazi wa ofisi na wa mbali pamoja—kwa uwajibikaji wa GPS pale uangalifu wa mahali unapohitajika.",
+    "qrTitle": "Mahudhurio ya QR",
+    "qrProblem": "Maeneo yenye shughuli nyingi yanahitaji sajili kuingia ya haraka na salama bila msuguano.",
+    "qrSolution": "Tumia misimbo ya QR kwa kunasa mahudhurio kwa kasi na kwa udhibiti.",
+    "qrBenefit": "Harisha kuingia huku ukihifadhi mahudhurio ya kuaminika.",
+    "earningsTitle": "Mapato ya Moja kwa Moja",
+    "earningsProblem": "Wafanyakazi husubiri siku ya malipo ili kuelewa kile walichopata.",
+    "earningsSolution": "Onyesha mapato kadri kazi inavyoendelea kupitia ufuatiliaji wa uwazi wa moja kwa moja.",
+    "earningsBenefit": "Jenga uaminifu na upunguze mizozo ya mishahara kabla haijaanza.",
+    "multiTitle": "Usimamizi wa Wafanyakazi wa Matawi Mengi",
+    "multiProblem": "Mashirika yanayokua yanatatizika kusimamia watu katika maeneo mengi.",
+    "multiSolution": "Endesha matawi mengi kutoka dashibodi moja ya usimamizi iliyounganishwa.",
+    "multiBenefit": "Panua shughuli bila kupoteza uwazi au udhibiti.",
+    "selfTitle": "Huduma za Kibinafsi za Mfanyakazi",
+    "selfProblem": "Timu za HR hutumia muda kwa maombi ya kawaida ya wafanyakazi.",
+    "selfSolution": "Ruhusu wafanyakazi kusimamia likizo, wasifu, na kazi za mahudhurio za huduma za kibinafsi.",
+    "selfBenefit": "Fungua uwezo wa HR kwa maamuzi ya juu zaidi ya wafanyakazi.",
+    "dashboardTitle": "Dashibodi ya Wafanyakazi ya Wakati Halisi",
+    "dashboardProblem": "Meneja hukosa maarifa ya haraka kuhusu shughuli za wafanyakazi.",
+    "dashboardSolution": "Onyesha uwazi wa uendeshaji wa moja kwa moja katika mahudhurio na shughuli.",
+    "dashboardBenefit": "Chukua hatua kwa masuala siku ile ile—si baada ya mwezi kufungwa."
+  },
+  "features": {
+    "eyebrow": "Vipengele",
+    "title": "Kila kitu viongozi na wafanyakazi wanachohitaji katika jukwaa moja.",
+    "description": "Kutoka mahudhurio yaliyothibitishwa na usimamizi wa wafanyakazi wa mbali hadi mapato ya moja kwa moja na usimamizi wa matawi mengi, HADRO inaleta shughuli za wafanyakazi katika uzoefu wa wavuti na simu uliounganishwa—popote wafanyakazi wanafanya kazi.",
+    "attendanceTitle": "Ufuatiliaji wa Mahudhurio",
+    "attendanceBody": "Sajili kuingia kwa QR na GPS kwa timu za kazini, na sajili kuingia kwa mbali salama kwa wafanyakazi wanaofanya kazi mbali na ofisi, pale chaguo hizo zinapowezeshwa. Tambua waliofika kwa kuchelewa kwa kulinganisha muda wa kusajili kuingia na ratiba zao za kazi zinazotumika, ili wasimamizi waone unadhifu na mifumo ya mahudhurio.",
+    "remoteTitle": "Usimamizi wa Wafanyakazi wa Mbali",
+    "remoteBody": "Simamia wafanyakazi wa mbali na wa uwanjani kwa jukwaa lile lile kama timu za ofisi—lililounganishwa na mahudhurio, uwazi wa mishahara, na ripoti.",
+    "payrollTitle": "Mishahara na Mapato ya Moja kwa Moja",
+    "payrollBody": "Maarifa ya uwazi ya mishahara na uwazi wa mapato wa wakati halisi kwa wafanyakazi wako. Mapato ya moja kwa moja huonyesha malipo kadri kazi inavyoendelea; si kumbukumbu ya mishahara iliyoidhinishwa. Pale ufuatiliaji wa kuchelewa na makato ya malipo ya kuchelewa vinapowezeshwa, na kuanzia tarehe ya kuanza kwa makato tu, dakika za kuchelewa zilizorekodiwa zinaweza kuhesabiwa katika rasimu ya mishahara na kuonyeshwa kwenye stakabadhi ya mshahara. Fidia ya muda wa ziada iliyosanidiwa, likizo zinazolipwa, na sikukuu zinazolipwa pia zinaweza kufuata sheria za mishahara za kampuni.",
+    "leaveTitle": "Usimamizi wa Likizo",
+    "leaveBody": "Wafanyakazi huomba likizo; meneja hukagua na kuidhinisha kwa uoanishaji wazi wa sera. Likizo zinazolipwa na zisizolipwa zinaweza kutendewa tofauti wakati mishahara inapokokotolewa.",
+    "reportsTitle": "Ripoti na Usimamizi",
+    "reportsBody": "Muhtasari wa mahudhurio, kumbukumbu za ukaguzi, na ripoti za uendeshaji mahali pamoja, ikiwemo kuchelewa na kutokuwepo. Kutokuwepo kunatambuliwa kwa watu waliotarajiwa kufanya kazi, wasio na kumbukumbu ya mahudhurio, na wasio kwenye likizo iliyoidhinishwa. Pale kinapowezeshwa, muda uliofanywa kazi unaweza kuamua kama siku inahesabiwa kamili, kwa sehemu, au haihesabiwi.",
+    "coreEyebrow": "Jukwaa la msingi",
+    "coreTitle": "Msingi wa uendeshaji.",
+    "coreDescription": "Uwezo muhimu wa wafanyakazi kwa mahudhurio, likizo, uwazi wa mishahara, na usimamizi.",
+    "signatureEyebrow": "Uwezo wa saini",
+    "signatureTitle": "Tatizo → suluhisho → thamani ya biashara.",
+    "signatureDescription": "Uwezo unaofafanua jinsi HADRO inavyounda uaminifu na udhibiti katika maeneo halisi ya kazi.",
+    "contextEyebrow": "Angalia katika muktadha",
+    "contextTitle": "Chunguza kwa sekta au kwa uzoefu wa simu.",
+    "ctaTitle": "Tumia vipengele hivi katika shirika lako.",
+    "ctaDescription": "Omba ufikiaji na utueleze kuhusu wafanyakazi wako. Tutaongoza hatua zinazofuata."
+  },
+  "why": {
+    "eyebrow": "Kwa nini HADRO",
+    "title": "Imejengwa kwa jinsi wafanyakazi wanavyofanya kazi kweli.",
+    "description": "HADRO ni jukwaa la Intelligent Workforce Management lililojengwa kuzunguka usimamizi wa mahudhurio, linalounganisha likizo, uwazi wa mishahara, na usimamizi katika wavuti na simu ili viongozi na wafanyakazi washiriki ukweli mmoja wa uendeshaji, iwe timu zinafanya kazi kazini, uwanjani, au kwa mbali.",
+    "connectedTitle": "Jukwaa moja lililounganishwa",
+    "connectedBody": "Mahudhurio, likizo, uwazi wa mishahara, na usimamizi vinashiriki rekodi zile zile—ili wafanyakazi wa ofisi na wa mbali wabaki katika mfumo mmoja wa wafanyakazi, si majedwali yanayokinzana.",
+    "workplacesTitle": "Imejengwa kwa maeneo halisi ya kazi",
+    "workplacesBody": "Imeundwa kwa ofisi, viwanda, hospitali, maeneo ya ujenzi, hoteli, usafirishaji, timu za mbali, na mashirika ya matawi mengi—si programu ya HR ya dawati pekee.",
+    "webMobileTitle": "Wavuti kwa uongozi, simu kwa timu",
+    "webMobileBody": "Wasimamizi huendesha shirika kwenye wavuti. Wafanyakazi wanabaki wenye tija kutoka uwanjani au maeneo ya mbali kwa sajili kuingia, likizo, mapato, na huduma za kibinafsi.",
+    "problemAttendanceTitle": "Mahudhurio bila uaminifu",
+    "problemAttendanceBody": "Daftari za mkono na zana zilizotawanyika huacha meneja wasijue nani alikuwa kweli yupo—na wapi.",
+    "problemRemoteTitle": "Timu za mbali na za uwanjani zimeachwa nje",
+    "problemRemoteBody": "Wakati wafanyakazi wa mbali hawawezi sajili kuingia kwa usalama, mashirika hupoteza uwajibikaji na wafanyakazi huhisi wametengwa na michakato ya mishahara na wafanyakazi.",
+    "problemPayrollTitle": "Mizozo ya mishahara baada ya ukweli",
+    "problemPayrollBody": "Wafanyakazi hugundua matatizo ya malipo kuchelewa sana, na hivyo kusababisha migogoro inayoweza kuepukwa na mzigo wa kiutawala.",
+    "problemBranchesTitle": "Shughuli katika matawi",
+    "problemBranchesBody": "Mashirika yanayokua hupoteza uwazi wakati kila eneo linaendesha mchakato wake.",
+    "diffVerifyTitle": "Uthibitishaji pale unapohitajika",
+    "diffVerifyBody": "Chaguo za mahudhurio zinazozingatia QR na GPS husaidia mashirika kunasa uwepo kwa utata mdogo—ikijumuisha sajili kuingia za mbali na za uwanjani.",
+    "diffPlatformTitle": "Jukwaa moja kwa kila eneo la kazi",
+    "diffPlatformBody": "Simamia wafanyakazi wa ofisi na wa mbali pamoja, kwa vidhibiti sawa vya mahudhurio, ripoti, na usimamizi.",
+    "diffTrustTitle": "Uwazi unaopunguza migogoro",
+    "diffTrustBody": "Mapato ya moja kwa moja na mitiririko wazi ya likizo husaidia wafanyakazi kuelewa maendeleo kabla ya mshangao wa siku ya malipo.",
+    "diffScaleTitle": "Panua bila kupoteza udhibiti",
+    "diffScaleBody": "Usimamizi wa matawi mengi huweka mitandao inayopanuka chini ya mfano mmoja wa uendeshaji wenye uwajibikaji.",
+    "differenceEyebrow": "Tofauti ya HADRO",
+    "differenceTitle": "Sababu tatu mashirika yanachagua jukwaa lililounganishwa.",
+    "problemsEyebrow": "Matatizo tunayoyatatua",
+    "problemsTitle": "Msuguano wa wafanyakazi unaogharimu muda, uaminifu, na udhibiti.",
+    "problemsDescription": "HADRO imeundwa kuzingatia masuala ya uendeshaji ambayo watoa maamuzi hukutana nayo kila siku.",
+    "approachEyebrow": "Jinsi tunavyoikabili",
+    "approachTitle": "Uthibitishaji, uwazi, na upanuzi.",
+    "ctaTitle": "Uko tayari kuona HADRO kwa shirika lako?",
+    "ctaDescription": "Omba ufikiaji na timu yetu ya kuanza itafuatilia kwa hatua wazi ifuatayo."
+  },
+  "mobile": {
+    "eyebrow": "Simu",
+    "title": "Programu ya mfanyakazi kwa kazi inayofanyika mbali na dawati.",
+    "description": "HADRO simu inawaweka timu za uwanjani, kazini, na za mbali wenye tija—sajili kuingia na kutoka kwa usalama, omba likizo, fuatilia historia, angalia mapato ya moja kwa moja, na simamia wasifu wa huduma za kibinafsi bila kusubiri HR kwa kazi za kawaida.",
+    "clockTitle": "Sajili kuingia / sajili kutoka",
+    "clockBody": "Kunasa mahudhurio kwa haraka kwa kuanza kwa zamu, kuingia maeneo, na kazi ya mbali—ili wafanyakazi waweze sajili kuingia kwa usalama kutoka maeneo yaliyoruhusiwa.",
+    "gpsTitle": "Mahudhurio ya GPS na QR",
+    "gpsBody": "Chagua mifumo ya uthibitishaji inayolingana na eneo lako la kazi—sajili kuingia za mbali au za uwanjani zinazozingatia mahali, au mitiririko ya haraka ya QR kazini.",
+    "leaveTitle": "Maombi ya likizo na hali",
+    "leaveBody": "Wafanyakazi huwasilisha likizo na kufuatilia maendeleo bila minyororo ya barua pepe.",
+    "earningsTitle": "Mapato ya moja kwa moja",
+    "earningsBody": "Ona maendeleo ya mapato kadri kazi inavyokusanyika—kujenga uaminifu kabla ya siku ya malipo.",
+    "notificationsTitle": "Arifa na wasifu",
+    "notificationsBody": "Endelea kujua na weka maelezo ya kibinafsi yanayosasishwa kupitia huduma za kibinafsi.",
+    "historyTitle": "Historia ya mahudhurio",
+    "historyBody": "Kagua shughuli za zamani ili maswali yasiitegemee daftari za karatasi au kumbukumbu.",
+    "experienceEyebrow": "Uzoefu wa mfanyakazi",
+    "experienceTitle": "Kile timu zinaweza kufanya kutoka simu yao.",
+    "experienceDescription": "Simu imejengwa kwa wafanyakazi. Wavuti inabaki kituo cha udhibiti kwa HR, meneja, na wasimamizi.",
+    "ecosystemEyebrow": "Mfumo uliounganishwa",
+    "ecosystemTitle": "Simu kwa wafanyakazi. Wavuti kwa uongozi.",
+    "ecosystemDescription": "Mahudhurio, likizo, na mapato yanabaki yameoanishwa katika uzoefu wote—ili shughuli za uwanjani na maamuzi ya kiutawala yashiriki ukweli mmoja.",
+    "employeesTitle": "Simu kwa wafanyakazi",
+    "downloadEyebrow": "Pakua",
+    "downloadTitle": "Pata HADRO kwenye iOS na Android.",
+    "downloadDescription": "Viungo vya duka vimewekwa katika usanidi wa uuzaji—badilisha mahali pa kushikilia kwa orodha za moja kwa moja zinapochapishwa.",
+    "ctaTitle": "Uko tayari kuandaa wafanyakazi wako kwa HADRO simu?",
+    "ctaDescription": "Omba ufikiaji kwa shirika lako. Kuanza kunajumuisha kuweka timu kwenye uzoefu sahihi wa wavuti na simu."
+  },
+  "security": {
+    "eyebrow": "Usalama",
+    "title": "Uaminifu ni sehemu ya bidhaa.",
+    "description": "Watoa maamuzi wanahitaji ujasiri kuwa mifumo ya wafanyakazi ni salama, yenye uwajibikaji, na tayari kwa ukuaji. HADRO imeundwa kwa ufikiaji unaolingana na majukumu, uthibitishaji uliolindwa, na usimamizi rafiki wa ukaguzi.",
+    "roleTitle": "Ufikiaji kulingana na jukumu",
+    "roleBody": "Ruhusa zinazolingana na jinsi shirika lako linavyofanya kazi kweli—ili watu waone wanachohitaji, si kila kitu.",
+    "authTitle": "Uthibitishaji salama",
+    "authBody": "Kuingia kulindwa kwa wasimamizi na wafanyakazi katika uzoefu wa wavuti na simu.",
+    "auditTitle": "Usimamizi rafiki wa ukaguzi",
+    "auditBody": "Shughuli inayoweza kufuatiliwa inasaidia uwajibikaji, ukaguzi, na ujasiri wa uendeshaji.",
+    "privacyTitle": "Ubunifu unaozingatia faragha",
+    "privacyBody": "Data ya wafanyakazi inashughulikiwa kwa kuzingatia matarajio ya biashara—punguza ufichuzi, ongeza uwazi wa udhibiti.",
+    "leastTitle": "Haki ndogo zaidi kwa ubunifu",
+    "leastBody": "Uzoefu wa kiutawala na wa mfanyakazi umetenganishwa ili nguvu ya uendeshaji ibaki na majukumu sahihi.",
+    "accountabilityTitle": "Uwajibikaji wa uendeshaji",
+    "accountabilityBody": "Mahudhurio, likizo, na vitendo vya kiutawala huacha njia ambayo uongozi unaweza kukagua inapohitajika.",
+    "enterpriseTitle": "Msimamo tayari kwa biashara",
+    "enterpriseBody": "Imejengwa kama jukwaa kwa mashirika yanayohitaji uaminifu—si saa ya muda ya watumiaji pekee.",
+    "pillarsEyebrow": "Nguzo za usalama",
+    "pillarsTitle": "Kile wanunuzi wa biashara wanatarajia kutoka jukwaa la wafanyakazi.",
+    "practicesEyebrow": "Mazoea ya uendeshaji",
+    "practicesTitle": "Imeundwa kwa uwajibikaji—si udhibiti wa ufikiaji pekee.",
+    "practicesDescription": "Usalama kwenye HADRO unaonyeshwa kupitia majukumu, uthibitishaji, na njia za uendeshaji zinazosaidia mashirika halisi.",
+    "ctaTitle": "Tathmini HADRO kwa ujasiri.",
+    "ctaDescription": "Omba ufikiaji au wasiliana na timu yetu kujadili jinsi HADRO inavyolingana na mahitaji yako ya usalama na uendeshaji."
+  },
+  "about": {
+    "eyebrow": "Kuhusu",
+    "title": "Kuhusu {{brand}}",
+    "description": "HADRO ipo ili kufanya usimamizi wa wafanyakazi kuwa wazi zaidi kwa mashirika yanayofanya kazi katika maeneo, zamu, na maeneo halisi ya kazi—si timu za dawati pekee.",
+    "mission": "Tunasaidia viongozi kuendesha mahudhurio, likizo, uwazi wa mishahara, na usimamizi kutoka jukwaa moja lililounganishwa—wakati wafanyakazi wanabaki wenye tija kwenye simu.",
+    "clarityTitle": "Uwazi unashinda ugumu",
+    "clarityBody": "Zana za wafanyakazi zinapaswa kupunguza utata kwa meneja na wafanyakazi—si kuunda mfumo mwingine uliotengwa.",
+    "operationsTitle": "Shughuli zinastahili umakini wa bidhaa",
+    "operationsBody": "Mahudhurio na mapato si mawazo ya baadaye ya ofisi ya nyuma. Yanachora uaminifu, mishahara, na utekelezaji wa kila siku.",
+    "togetherTitle": "Wavuti na simu pamoja",
+    "togetherBody": "Uongozi unahitaji dashibodi yenye nguvu. Wafanyakazi wanahitaji programu ya kuaminika. Zote mbili lazima zishiriki ukweli mmoja.",
+    "missionEyebrow": "Dhamira",
+    "missionTitle": "Kwa nini tunajenga HADRO.",
+    "beliefsEyebrow": "Tunachoamini",
+    "beliefsTitle": "Kanuni zinazounda bidhaa.",
+    "learnEyebrow": "Jifunze zaidi",
+    "learnTitle": "Endelea kuchunguza HADRO.",
+    "ctaTitle": "Tuzungumze kuhusu wafanyakazi wako.",
+    "ctaDescription": "Omba ufikiaji au wasiliana kupitia Mawasiliano—timu yetu itaongoza mazungumzo kutoka hapo."
+  },
+  "contact": {
+    "eyebrow": "Mawasiliano",
+    "title": "Zungumza na timu ya HADRO.",
+    "description": "Iwe unatathmini HADRO kwa shirika lako au unahitaji mstari wa moja kwa moja kwa timu yetu, tuko hapa kukusaidia.",
+    "requestTitle": "Omba ufikiaji",
+    "requestBody": "Sehemu bora ya kuanzia kwa mashirika mapya. Tuambie kuhusu kampuni yako na timu yetu ya kuanza itafuatilia.",
+    "emailTitle": "Barua pepe",
+    "emailBody": "Wasiliana nasi moja kwa moja kwa maswali ya jumla, ushirikiano, au maswali ambayo hayafai fomu ya ufikiaji.",
+    "supportTitle": "Msaada",
+    "supportBody": "Tayari unatumia HADRO au unahitaji msaada kupata majibu? Tembelea Msaada kwa mwongozo na chaguo za mawasiliano.",
+    "pathsEyebrow": "Njia za kutufikia",
+    "pathsTitle": "Chagua njia inayolingana na swali lako.",
+    "directEyebrow": "Barua pepe ya moja kwa moja",
+    "directDescription": "Kwa maswali ya jumla, jumuisha jina la shirika lako na jinsi tunavyoweza kusaidia.",
+    "newOrgs": "Mashirika mapya",
+    "startingTitle": "Unaanza na HADRO?",
+    "startingDescription": "Tumia Omba Ufikiaji ili timu yetu ya kuanza ipokee maelezo ya kampuni yako katika mtiririko uliopo."
+  },
+  "support": {
+    "eyebrow": "Msaada",
+    "title": "Msaada unapouhitaji.",
+    "description": "Pata majibu kuhusu HADRO, wasiliana na timu yetu, na pata mwongozo kwa kuanza au maswali ya bidhaa ya kila siku.",
+    "quickEyebrow": "Msaada wa haraka",
+    "quickTitle": "Sehemu za kawaida za kuanzia.",
+    "onboardingTitle": "Kuanza",
+    "onboardingBody": "Mashirika mapya yanapaswa kuanza na Omba Ufikiaji ili timu yetu iweze kukagua maelezo ya kampuni katika mtiririko wa Msimamizi wa Jukwaa.",
+    "productTitle": "Maswali ya bidhaa",
+    "productBody": "Chunguza Vipengele, Simu, na Suluhisho kwa muktadha wa bidhaa kabla ya kuongeza kwa barua pepe.",
+    "emailTitle": "Tutumie barua pepe",
+    "emailBody": "Wasiliana {{email}} na jina la shirika lako na maelezo mafupi ya suala.",
+    "faqEyebrow": "FAQ",
+    "faqTitle": "Majibu kabla ya kuandika.",
+    "legalEyebrow": "Kisheria",
+    "legalTitle": "Sera na masharti.",
+    "qRequest": "Ninaombaje ufikiaji kwa shirika langu?",
+    "aRequest": "Tumia ukurasa wa Omba Ufikiaji kwenye tovuti hii. Timu yetu ya kuanza inakagua uwasilishaji wako na kufuatilia kwa hatua zinazofuata.",
+    "qAgain": "Tayari niliwasilisha ombi. Je, niwasilishe tena?",
+    "aAgain": "Ikiwa ombi lako bado linatumika, huhitaji kuwasilisha tena. Utaona uthibitisho wa kirafiki ikiwa tayari tuna barua pepe yako ya kazi kwenye faili.",
+    "qDownload": "Wafanyakazi wanapakua wapi programu ya simu?",
+    "aDownload": "HADRO inapatikana kupitia viungo vya App Store na Google Play kwenye ukurasa wetu wa Simu na katika kijachini cha tovuti. Badilisha URL za mahali pa kushikilia za duka wakati orodha zako za moja kwa moja zinapochapishwa.",
+    "qAccount": "Nawasiliana na nani kwa masuala ya akaunti au bidhaa?",
+    "aAccount": "Tuma barua pepe {{email}} na jina la shirika lako na maelezo mafupi ya suala. Jumuisha picha za skrini zinazohusika inapowezekana.",
+    "qMore": "Ninaweza kupata wapi FAQ zaidi?",
+    "aMore": "Tembelea ukurasa wa FAQ kwa majibu yaliyopangwa kuhusu bidhaa, ufikiaji na kuanza, wavuti na simu, na msaada.",
+    "qLegal": "Ninaweza kukagua wapi Faragha na Masharti?",
+    "aLegal": "Nyaraka za kisheria zimeunganishwa katika kijachini cha tovuti chini ya Faragha na Masharti."
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Majibu kwa watoa maamuzi na waendeshaji.",
+    "description": "Majibu wazi kuhusu HADRO—ni nini, ni kwa nani, jinsi ufikiaji unavyofanya kazi, na jinsi wavuti na simu zinavyofanya kazi pamoja.",
+    "productTitle": "Bidhaa",
+    "productDescription": "HADRO ni nini na inawahudumia nani.",
+    "qWhat": "HADRO ni nini?",
+    "aWhat": "HADRO ni jukwaa la Intelligent Workforce Management lililojengwa kuzunguka usimamizi wa kisasa wa mahudhurio. Wafanyakazi husajili kuingia na kutoka kwa programu rahisi ya simu, kwa chaguo za GPS na QR. Viongozi wa kampuni hutumia jukwaa la wavuti kusimamia mahudhurio, kufuatilia kuchelewa, kusimamia likizo, kufuatilia taarifa za mishahara, na kusimamia timu katika idara na matawi. Wafanyakazi pia wanaweza kufikia kumbukumbu zao za mahudhurio na zana nyingine za huduma za kibinafsi kwenye simu zao.",
+    "qWho": "HADRO ni kwa nani?",
+    "aWho": "Wamiliki wa biashara, viongozi wa HR, meneja wa shughuli, na wasimamizi wanaohitaji uwazi wa kuaminika wa wafanyakazi katika maeneo, zamu, majukumu ya mbali, na matawi.",
+    "qRemote": "Je, HADRO inasaidia wafanyakazi wa mbali?",
+    "aRemote": "Ndiyo. Wafanyakazi wanaweza sajili kuingia na kutoka kwa mbali kwa usalama, kwa mahudhurio ya GPS kwa uangalifu wa mahali inapohitajika. Wafanyakazi wa mbali na wa ofisi wanabaki katika jukwaa moja la wafanyakazi lililounganishwa na uwazi wa mishahara, mahudhurio, na ripoti.",
+    "qClock": "HADRO inatofautianaje na saa rahisi ya muda?",
+    "aClock": "HADRO imeundwa kama jukwaa lililounganishwa—mahudhurio, usimamizi wa wafanyakazi wa mbali, likizo, mapato ya moja kwa moja, usimamizi wa matawi mengi, na huduma za kibinafsi za mfanyakazi vinashiriki ukweli mmoja wa uendeshaji kwa viongozi na timu.",
+    "accessTitle": "Ufikiaji na kuanza",
+    "accessDescription": "Jinsi mashirika yanavyoanza na HADRO.",
+    "qStart": "Tunaanzaje?",
+    "aStart": "Omba ufikiaji kutoka tovuti. Timu yetu ya kuanza inakagua shirika lako na kuongoza hatua zinazofuata za usanidi na uzinduzi.",
+    "qAgain": "Tayari niliwasilisha ombi. Je, niwasilishe tena?",
+    "aAgain": "Ikiwa ombi lako bado linatumika, huhitaji kuwasilisha tena. Utaona uthibitisho wa kirafiki ikiwa tayari tuna barua pepe yako ya kazi kwenye faili.",
+    "qAccount": "Je, Omba Ufikiaji ni sawa na kuunda akaunti?",
+    "aAccount": "Hapana. Kuwasilisha ombi kunaanza mazungumzo na timu yetu ya kuanza. Ufikiaji unaongozwa—si usajili wa kiotomatiki wa kujihudumia.",
+    "platformTitle": "Wavuti na simu",
+    "platformDescription": "Jinsi programu ya mfanyakazi na uzoefu wa wavuti wa msimamizi vinavyofanya kazi pamoja.",
+    "qApp": "Je, HADRO inajumuisha programu ya simu?",
+    "aApp": "Ndiyo. Wafanyakazi hutumia simu kwa sajili kuingia/kutoka, mahudhurio ya GPS na QR, likizo, mapato ya moja kwa moja, arifa, na wasifu wa huduma za kibinafsi—wakati viongozi husimamia shughuli kwenye wavuti.",
+    "qDownload": "Wafanyakazi wanapakua wapi programu ya simu?",
+    "aDownload": "HADRO inapatikana kupitia viungo vya App Store na Google Play kwenye ukurasa wetu wa Simu na katika kijachini cha tovuti.",
+    "qBranches": "Je, tunaweza kusimamia matawi mengi?",
+    "aBranches": "Ndiyo. Usimamizi wa matawi mengi ni sehemu muhimu ya HADRO, ili mashirika yanayokua yaweze kudumisha uwazi na udhibiti katika maeneo yote.",
+    "supportTitle": "Msaada na sera",
+    "supportDescription": "Jinsi ya kupata msaada na kupata taarifa za kisheria.",
+    "qContact": "Nawasiliana na nani kwa maswali ya bidhaa au akaunti?",
+    "aContact": "Tuma barua pepe {{email}} na jina la shirika lako na maelezo mafupi ya suala. Jumuisha picha za skrini zinazohusika inapowezekana.",
+    "qLegal": "Ninaweza kukagua wapi Faragha na Masharti?",
+    "aLegal": "Nyaraka za kisheria zimeunganishwa katika kijachini cha tovuti chini ya Faragha na Masharti.",
+    "qSecurity": "Ninaweza kujifunza wapi kuhusu usalama?",
+    "aSecurity": "Tembelea ukurasa wa Usalama kwa muhtasari wa ufikiaji kulingana na jukumu, uthibitishaji, usimamizi rafiki wa ukaguzi, na ubunifu unaozingatia faragha.",
+    "stillExploring": "Bado unachunguza?",
+    "ctaTitle": "Uko tayari kuzungumza na timu yetu ya kuanza?",
+    "ctaDescription": "Omba ufikiaji na utueleze kuhusu shirika lako. Tutafuatilia kwa hatua wazi ifuatayo."
+  },
+  "requestAccess": {
+    "eyebrow": "Omba ufikiaji",
+    "title": "Pata HADRO kwa shirika lako",
+    "description": "Tuambie kidogo kuhusu kampuni yako. Timu yetu ya kuanza itafuatilia ili kuelewa mahitaji yako ya wafanyakazi na kukuongoza kupitia kuanza na {{brand}}.",
+    "formEyebrow": "Ombi la ufikiaji",
+    "formTitle": "Maelezo ya kampuni",
+    "formDescription": "Sehemu zinazohitajika zinatusaidia kufikia mtu sahihi. Jukumu, idadi ya wafanyakazi, na ujumbe ni hiari.",
+    "companyName": "Jina la kampuni",
+    "fullName": "Jina kamili",
+    "workEmail": "Barua pepe ya kazi",
+    "phone": "Nambari ya simu",
+    "country": "Nchi",
+    "selectCountry": "Chagua nchi yako",
+    "role": "Jukumu",
+    "rolePlaceholder": "mf. Mkurugenzi wa HR",
+    "employeeCount": "Idadi ya wafanyakazi",
+    "selectRange": "Chagua anuwai",
+    "message": "Ujumbe",
+    "messagePlaceholder": "Tuambie kuhusu maeneo yako, zamu, au ratiba ya uzinduzi.",
+    "optional": "(si lazima)",
+    "submitError": "Imeshindwa kuwasilisha ombi lako. Tafadhali jaribu tena.",
+    "alreadyExists": "Tayari tuna ombi lako. Timu yetu ya kuanza itawasiliana—hakuna haja ya kuwasilisha tena.",
+    "received": "Tumepokea ombi lako na timu yetu italikagua hivi karibuni.",
+    "sentTitle": "Ombi Limetumwa kwa Mafanikio",
+    "alreadyTitle": "Ombi tayari limepokelewa",
+    "thanks": "Asante kwa kupendezwa na {{brand}}.",
+    "receivedDetail": "Ombi lako limepokelewa kwa mafanikio na sasa liko kwa timu yetu ya kuanza kwa ukaguzi.",
+    "followUp": "Tutawasiliana nawe kwa kutumia anwani ya barua pepe au nambari ya simu uliyotoa ikiwa tutahitaji taarifa za ziada au kupanga onyesho lako la kibinafsi la bidhaa.",
+    "inbox": "Tafadhali angalia kikasha chako cha barua pepe na ujibu simu kutoka timu yetu.",
+    "nextEyebrow": "Kinachofuata",
+    "stepReview": "Tunakagua ombi la shirika lako.",
+    "stepContact": "Tunawasiliana nawe ili kuelewa mahitaji yako ya wafanyakazi.",
+    "stepDemo": "Tunapanga onyesho la kibinafsi la bidhaa.",
+    "stepOnboarding": "Tunaongoza shirika lako kupitia kuanza na usanidi.",
+    "pathEyebrow": "Kinachofuata?",
+    "pathTitle": "Njia wazi baada ya kuwasilisha",
+    "pathDescription": "Kuwasilisha ombi kunaanza mazungumzo—si akaunti ya kiotomatiki. Hivi ndivyo unavyotarajia.",
+    "stepLabel": "Hatua {{n}}",
+    "reviewTitle": "Tunakagua ombi lako",
+    "reviewBody": "Timu yetu ya kuanza inasoma maelezo ya kampuni yako na kufikia ili kuelewa usanidi wako wa wafanyakazi.",
+    "fitTitle": "Tunaoanisha ufaafu",
+    "fitBody": "Pamoja tunajadili maeneo, majukumu, mahitaji ya mahudhurio, na jinsi HADRO inapaswa kusaidia shirika lako.",
+    "guideTitle": "Tunaongoza kuanza",
+    "guideBody": "Unapokuwa tayari, tunakusaidia kuhama kutoka kupendezwa hadi usanidi uliopangwa—bila kuanza kutoka ukurasa tupu peke yako.",
+    "seoDescription": "Omba ufikiaji wa HADRO kwa shirika lako. Timu yetu ya kuanza itakagua maelezo yako na kuongoza hatua zinazofuata.",
+    "preferEmail": "Unapendelea barua pepe? Wasiliana nasi kwa"
+  },
+  "solutions": {
+    "eyebrow": "Suluhisho",
+    "title": "Usimamizi wa wafanyakazi kwa kila aina ya eneo la kazi.",
+    "description": "HADRO inabadilika kulingana na jinsi timu zako zinavyofanya kazi kweli—katika kampasi, wadi, sakafu za uzalishaji, maeneo, ofisi, na maeneo ya mbali—bila kulazimisha mchakato mmoja kwa wote.",
+    "industriesEyebrow": "Sekta",
+    "industriesTitle": "Chagua eneo la kazi linalofanana na lako.",
+    "industriesDescription": "Kila ukurasa wa suluhisho unashughulikia changamoto za sekta, jinsi HADRO inavyojibu, uwezo husika, na faida za biashara.",
+    "approachEyebrow": "Mbinu yetu",
+    "approachTitle": "Jukwaa moja. Matokeo yanayozingatia sekta.",
+    "approachDescription": "Msingi ule ule wa HADRO—mahudhurio, likizo, mapato ya moja kwa moja, usimamizi wa matawi mengi, na huduma za kibinafsi za mfanyakazi—uliframuwa kwa kila mazingira ya uendeshaji.",
+    "pillarChallenges": "Changamoto za sekta kwanza",
+    "pillarChallengesBody": "Kila ukurasa unaanza na shinikizo za uendeshaji ambazo viongozi wa sekta hukutana nazo kweli.",
+    "pillarResponse": "HADRO kama jibu",
+    "pillarResponseBody": "Tunaunganisha mahudhurio, likizo, uwazi, na usimamizi na jinsi eneo hilo la kazi linavyoendesha.",
+    "pillarNext": "Hatua wazi ifuatayo",
+    "pillarNextBody": "Kila suluhisho linaishia na njia ya muktadha ya Omba Ufikiaji katika mtiririko uliopo wa kuanza.",
+    "solutionEyebrow": "Suluhisho la {{label}}",
+    "struggleTitle": "Kile timu za {{label}} zinatatizika nacho.",
+    "capabilitiesTitle": "Uwezo muhimu zaidi kwa {{label}}.",
+    "seoTitle": "Suluhisho za Wafanyakazi za {{label}}",
+    "ctaTitle": "Uko tayari kuona HADRO kwa sekta yako?",
+    "ctaDescription": "Omba ufikiaji na utueleze kuhusu shirika lako. Timu yetu ya kuanza itafuatilia kwa hatua wazi ifuatayo.",
+    "allSolutions": "Suluhisho zote",
+    "viewAll": "Angalia suluhisho zote",
+    "challengesEyebrow": "Changamoto za sekta",
+    "challengesDescription": "Hizi ni shinikizo za uendeshaji ambazo HADRO imeundwa kushughulikia.",
+    "howEyebrow": "Jinsi HADRO inavyosaidia",
+    "howTitle": "Jibu la vitendo kwa vikwazo halisi vya eneo la kazi.",
+    "howDescription": "Unganisha mahudhurio, likizo, uwazi, na usimamizi kuzunguka jinsi timu zako zinavyofanya kazi kweli.",
+    "recommendedEyebrow": "Vipengele vinavyopendekezwa",
+    "recommendedDescription": "Seti iliyolengwa ya nguvu za bidhaa za HADRO kwa sekta hii—zinazodumishwa katika maudhui ya kati ya suluhisho.",
+    "benefitsEyebrow": "Faida za biashara",
+    "benefitsTitle": "Matokeo ambayo viongozi wanajali.",
+    "benefitsDescription": "Zaidi ya vipengele—kile kinachoboreshwa kwa shughuli, HR, na timu za mstari wa mbele.",
+    "moreEyebrow": "Sekta zaidi",
+    "relatedTitle": "Chunguza suluhisho zinazohusiana za wafanyakazi."
+  },
+  "recommended": {
+    "gpsTitle": "Mahudhurio ya GPS",
+    "gpsBody": "Thibitisha sajili kuingia kwa uangalifu wa mahali kwa timu zilizotawanyika na za maeneo.",
+    "qrTitle": "Mahudhurio ya QR",
+    "qrBody": "Sajili kuingia ya haraka na kudhibitiwa kwa kampasi zenye shughuli, maeneo, na kuanza kwa zamu.",
+    "shiftTitle": "Usimamizi wa Zamu",
+    "shiftBody": "Weka timu za zamu zenye uwajibikaji kwa mahudhurio wazi yanayolingana na ratiba za uendeshaji.",
+    "earningsTitle": "Mapato ya Moja kwa Moja",
+    "earningsBody": "Onyesha maendeleo ya mapato kadri kazi inavyokusanyika, kupunguza mshangao wa siku ya malipo. Inaonyesha malipo kadri kazi inavyofanyika, si mishahara iliyoidhinishwa.",
+    "multiTitle": "Matawi Mengi",
+    "multiBody": "Endesha maeneo mengi kutoka jukwaa moja la usimamizi kwa usimamizi wa pamoja.",
+    "selfTitle": "Huduma za Kibinafsi za Mfanyakazi",
+    "selfBody": "Ruhusu wafanyakazi kushughulikia likizo, wasifu, na kazi za kawaida za wafanyakazi bila vizuizi vya HR.",
+    "leaveTitle": "Usimamizi wa Likizo",
+    "leaveBody": "Maombi na idhini za likizo zilizopangwa kwa njia wazi ya uendeshaji.",
+    "reportsTitle": "Ripoti",
+    "reportsBody": "Muhtasari wa mahudhurio na ripoti za uendeshaji ambazo viongozi wanaweza kuchukua hatua nazo.",
+    "announcementsTitle": "Matangazo",
+    "announcementsBody": "Weka timu zikiwa na taarifa kwa mawasiliano wazi ya shirika pale kazi inafanyika.",
+    "mobileTitle": "Programu ya Simu",
+    "mobileBody": "Sajili kuingia, omba likizo, angalia mapato, na ubaki wenye tija kutoka uwanjani.",
+    "dashboardTitle": "Dashibodi ya Wakati Halisi",
+    "dashboardBody": "Uwazi wa uendeshaji wa moja kwa moja katika mahudhurio na shughuli za wafanyakazi.",
+    "remoteTitle": "Usimamizi wa Wafanyakazi wa Mbali",
+    "remoteBody": "Sajili kuingia na kutoka kwa mbali salama ili wafanyakazi wa uwanjani na wa mbali wabaki wameunganishwa na mahudhurio, uwazi wa mishahara, na ripoti."
+  },
+  "notFound": {
+    "eyebrow": "Ukurasa haujapatikana",
+    "title": "Ukurasa huu haupatikani.",
+    "description": "Kiungo kinaweza kuwa kimepitwa na wakati, au ukurasa unaweza kuwa umehamishwa. Tumia moja ya njia hapa chini ili kuendelea kuchunguza HADRO.",
+    "help": "Unatafuta msaada wa bidhaa? Tembelea",
+    "or": "au"
+  },
+  "seo": {
+    "homeTitle": "{{brand}} — Intelligent Workforce Management",
+    "homeDescription": "HADRO — Intelligent Workforce Management kwa mahudhurio, likizo, mapato ya moja kwa moja, na shughuli za matawi mengi katika wavuti na simu.",
+    "mobileTitle": "Programu ya Simu",
+    "jsonLdDescription": "Jukwaa la Usimamizi wa Wafanyakazi wa Biashara kwa mahudhurio, likizo, mapato ya moja kwa moja, na shughuli za matawi mengi."
+  },
+  "industryPages": {
+    "schools": {
+      "label": "Shule",
+      "summary": "Uwazi wa mahudhurio na likizo kwa walimu, wafanyakazi, na usimamizi wa kampasi nyingi.",
+      "headline": "Uwazi wa wafanyakazi kwa shule na kampasi.",
+      "description": "Taasisi za elimu zinahitaji mahudhurio ya kuaminika, mitiririko ya likizo inayotabirika, na uwazi katika kampasi—bila kuwazika wasimamizi katika ufuatiliaji wa mkono.",
+      "challenges": [
+        {
+          "title": "Mahudhurio ya wafanyakazi yaliyotawanyika",
+          "body": "Daftari za karatasi na zana zilizotenganishwa hufanya iwe vigumu kuthibitisha nani alikuwa yupo katika kampasi na zamu."
+        },
+        {
+          "title": "Likizo inayosumbua ufunikaji",
+          "body": "Ratiba za ufundishaji na msaada zinateseka wakati maombi ya likizo yanachelewa, hayako wazi, au ni magumu kuidhinisha kwa wakati."
+        },
+        {
+          "title": "Mzigo wa kiutawala",
+          "body": "Timu za HR na ofisi za shule hutumia saa kupatanisha mahudhurio na kujibu maswali ya kawaida ya wafanyakazi."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Kunasa mahudhurio yanayoaminika",
+          "body": "Tumia sajili kuingia kwa QR au inayozingatia GPS ili uwepo wa kampasi uweze kuthibitishwa na uwe tayari kwa ripoti."
+        },
+        {
+          "title": "Mitiririko ya likizo iliyopangwa",
+          "body": "Wafanyakazi huomba likizo katika programu; wasimamizi hukagua na kuidhinisha kwa njia wazi ya uendeshaji."
+        },
+        {
+          "title": "Mwonekano mmoja wa kiutawala",
+          "body": "Simamia wafanyakazi katika kampasi kutoka dashibodi iliyounganishwa badala ya majedwali yaliyotawanyika."
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Mizozo michache ya mahudhurio",
+          "body": "Badilisha daftari zenye utata kwa rekodi thabiti za kidijitali ambazo uongozi wako unaweza kuamini."
+        },
+        {
+          "title": "Mipango bora ya ufunikaji wa darasa",
+          "body": "Hali wazi ya likizo husaidia wasimamizi kupanga wasaidizi kabla mapengo hayageuke dharura."
+        },
+        {
+          "title": "Msuguano mdogo wa kiutawala",
+          "body": "Huduma za kibinafsi hupunguza usumbufu wa kawaida ili timu za ofisi ziweze kuzingatia kalenda ya shule."
+        }
+      ],
+      "ctaTitle": "Uko tayari kusasaisha shughuli za wafanyakazi za shule?",
+      "ctaDescription": "Omba ufikiaji na utueleze kuhusu kampasi zako, majukumu ya wafanyakazi, na mahitaji ya mahudhurio. Timu yetu ya kuanza itaongoza hatua zinazofuata."
+    },
+    "hospitals": {
+      "label": "Hospitali",
+      "summary": "Uwazi wa zamu na mahudhurio yenye uwajibikaji kwa timu za kliniki na msaada.",
+      "headline": "Uwazi wa uendeshaji kwa wafanyakazi wa hospitali.",
+      "description": "Hospitali zinaendesha kwa zamu, ufunikaji, na uwajibikaji. HADRO inasaidia timu za kliniki na msaada sajili kuingia kwa uaminifu wakati wasimamizi wanadumisha mwonekano wa moja kwa moja wa shughuli za wafanyakazi.",
+      "challenges": [
+        {
+          "title": "Ufunikaji changamano wa zamu",
+          "body": "Wafanyakazi wa wadi na idara hubadilika haraka; viongozi wanahitaji kujua nani yuko kazini bila kufukuza daftari za karatasi."
+        },
+        {
+          "title": "Hatari ya kusajili kuingia kwa niaba ya mwenzako",
+          "body": "Mazingira yenye shughuli za kliniki yanaweza kufanya sajili kuingia zisizo rasmi kuwa rahisi—na ghali—bila uthibitishaji."
+        },
+        {
+          "title": "Shinikizo la likizo na muda wa ziada",
+          "body": "Hali isiyo wazi ya likizo na maswali ya mapato yanaunda mzigo wa HR unaoweza kuepukwa wakati wa shughuli tayari ngumu."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Mahudhurio yaliyothibitishwa kwa zamu",
+          "body": "Chaguo za QR na zinazozingatia GPS husaidia kuthibitisha uwepo wa wafanyakazi wa kliniki na msaada katika vituo."
+        },
+        {
+          "title": "Maarifa ya uendeshaji ya moja kwa moja",
+          "body": "Meneja wanaona shughuli za wafanyakazi kwa wakati halisisi ili masuala ya ufunikaji yaonekane siku ile ile."
+        },
+        {
+          "title": "Mapato na likizo yenye uwazi",
+          "body": "Wafanyakazi wanaweza kufuatilia maombi ya likizo na mapato ya moja kwa moja, kupunguza mkanganyiko wa mishahara baada ya ukweli."
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Uwajibikaji thabiti wa zamu",
+          "body": "Jua nani alikuwa yupo na lini—kusaidia maamuzi salama zaidi ya wafanyakazi."
+        },
+        {
+          "title": "Majibu ya haraka kwa mapengo ya ufunikaji",
+          "body": "Uwazi wa wakati halisisi husaidia wasimamizi kuchukua hatua kabla uhaba wa wafanyakazi hauathiri utoaji wa huduma."
+        },
+        {
+          "title": "Msuguano mdogo wa mishahara",
+          "body": "Mapato ya moja kwa moja na historia wazi ya likizo hupunguza mizozo inayosumbua uongozi wa kliniki."
+        }
+      ],
+      "ctaTitle": "Leta uwazi kwa shughuli za wafanyakazi za hospitali.",
+      "ctaDescription": "Shiriki muundo wa kituo chako na mifumo ya zamu. Tutakusaidia kutathmini HADRO kwa timu za kliniki na msaada."
+    },
+    "factories": {
+      "label": "Viwanda",
+      "summary": "Mahudhurio ya eneo, usimamizi wa zamu nyingi, na rekodi za wafanyakazi tayari kwa mishahara.",
+      "headline": "Mahudhurio unayoweza kuamini kwenye sakafu ya uzalishaji.",
+      "description": "Viwanda vinahitaji sajili kuingia ya haraka, uwajibikaji wa zamu, na rekodi safi kwa mishahara—katika mistari, mimea, na wahudumu wanaozunguka.",
+      "challenges": [
+        {
+          "title": "Sajili kuingia za kiwango cha juu",
+          "body": "Kuanza kwa zamu kunaunda vizuizi wakati kunasa mahudhurio ni polepole au hakutumiki."
+        },
+        {
+          "title": "Usimamizi wa uzalishaji wa maeneo mengi",
+          "body": "Wasimamizi wa mimea wanatatizika kulinganisha mahudhurio na shughuli katika vituo mahali pamoja."
+        },
+        {
+          "title": "Mizozo ya mishahara kutoka saa zisizo wazi",
+          "body": "Uwekaji muda wa mkono unaacha nafasi ya kutokubaliana ambayo hupunguza kufungwa kwa mishahara."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Mahudhurio ya haraka ya QR",
+          "body": "Sogeza wahudumu kupitia sajili kuingia haraka huku ukihifadhi njia ya kidijitali iliyodhibitiwa."
+        },
+        {
+          "title": "Uwazi wa mimea na mistari",
+          "body": "Tumia dashibodi ya wakati halisisi na usimamizi wa matawi mengi kwa maeneo ya uzalishaji."
+        },
+        {
+          "title": "Uwazi wa mapato",
+          "body": "Wape wafanyakazi maarifa ya mapato ya moja kwa moja ili maswali ya saa yasisubiri siku ya malipo."
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Kuanza kwa zamu laini zaidi",
+          "body": "Punguza ucheleweshaji wa lango na sakafu unaosababishwa na michakato ya mahudhurio iliyopitwa na wakati."
+        },
+        {
+          "title": "Ingizo safi zaidi za mishahara",
+          "body": "Rekodi thabiti za mahudhurio zinasaidia mizunguko ya mishahara ya haraka na yenye ujasiri zaidi."
+        },
+        {
+          "title": "Udhibiti wa mimea nyingi",
+          "body": "Panua shughuli bila kupoteza uwazi unapoongeza mistari au vituo."
+        }
+      ],
+      "ctaTitle": "Sasisha mahudhurio ya wafanyakazi ya kiwanda.",
+      "ctaDescription": "Omba ufikiaji na eleza mimea yako, zamu, na ukubwa wa wafanyakazi. Timu yetu itasaidia kuoanisha HADRO na shughuli zako."
+    },
+    "warehouses": {
+      "label": "Maghala",
+      "summary": "Udhibiti wa mahudhurio kutoka gati hadi korido kwa timu za maghala yenye uzalishaji wa juu.",
+      "headline": "Udhibiti wa wafanyakazi kwa shughuli za maghala.",
+      "description": "Maghala yanahamia haraka. HADRO inasaidia kuthibitisha nani yuko kazini, kusaidia mitandao ya maeneo mengi, na kuweka mahudhurio yameoanishwa na matarajio ya mishahara.",
+      "challenges": [
+        {
+          "title": "Msongamano wa saa za kilele",
+          "body": "Vilele vya kuingia na kutoka vinahitaji sajili kuingia ya haraka na ya kuaminika bila kutoa uwajibikaji."
+        },
+        {
+          "title": "Kazi ya muda na inayozunguka",
+          "body": "Wahudumu wanaobadilika hufanya uwekaji muda usio rasmi kuwa hatari na mgumu kukaguliwa."
+        },
+        {
+          "title": "Mitandao ya maghala mengi",
+          "body": "Waendeshaji wa kikanda wanahitaji mfumo mmoja unaofanya kazi katika vituo vya usambazaji."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Sajili kuingia ya haraka na kudhibitiwa",
+          "body": "Mahudhurio ya QR yanaweka timu zenye uzalishaji wa juu zikisonga huku yakihifadhi uthibitishaji."
+        },
+        {
+          "title": "Chaguo zinazozingatia mahali",
+          "body": "Mahudhurio yanayozingatia GPS yanasaidia majukumu yaliyotawanyika, ya uwanja, au ya mbali wakati kazi inafanyika nje ya gati."
+        },
+        {
+          "title": "Usimamizi wa mtandao mzima",
+          "body": "Simamia maghala kama matawi chini ya dashibodi moja ya uendeshaji—kuweka majukumu ya kazini na ya mbali yameunganishwa."
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Uwazi wa kuaminika wa kazi",
+          "body": "Jua nani yuko sakafuni—na katika uwanja au majukumu ya mbali—wakati wa vilele, si baada ya ripoti ya zamu kufika."
+        },
+        {
+          "title": "Mahudhurio tayari kwa ukaguzi",
+          "body": "Rekodi za kidijitali hupunguza mizozo kuhusu saa kwa wafanyakazi wa kudumu na wanaozunguka."
+        },
+        {
+          "title": "Upanuzi rahisi wa maeneo mengi",
+          "body": "Ongeza maghala bila kuvumbua upya mchakato wa mahudhurio katika kila eneo."
+        }
+      ],
+      "ctaTitle": "Imarisha uwajibikaji wa wafanyakazi wa maghala.",
+      "ctaDescription": "Tuambie kuhusu maeneo yako na mifumo ya zamu. Tutakuongoza jinsi HADRO inavyosaidia shughuli za usambazaji."
+    },
+    "construction": {
+      "label": "Ujenzi",
+      "summary": "Mahudhurio ya maeneo na ya mbali kwa wahudumu katika miradi na majukumu ya uwanjani.",
+      "headline": "Imejengwa kwa wahudumu wanaohama kati ya maeneo.",
+      "description": "Timu za ujenzi hufanya kazi katika miradi, uwanja, na maeneo ya uwanjani. HADRO inaleta mahudhurio yanayozingatia GPS, usimamizi wa wafanyakazi wa mbali, huduma za kibinafsi za simu, na usimamizi wa kati kwa uongozi wa mradi.",
+      "challenges": [
+        {
+          "title": "Maeneo ya miradi yaliyotawanyika",
+          "body": "Wahudumu hawako katika ofisi moja—mahudhurio lazima yafanye kazi pale kazi inafanyika, ikijumuisha majukumu ya mbali na ya uwanjani."
+        },
+        {
+          "title": "Uwepo mgumu kuthibitisha",
+          "body": "Bila uangalifu wa mahali, mahudhurio ya eneo na ya mbali yanaweza kuwa hayajakamilika au yanapingwa."
+        },
+        {
+          "title": "Msuguano wa kiutawala wa uwanjani",
+          "body": "Maombi ya likizo na sasisho za kawaida hupotea kati ya wasimamizi wa eneo na ofisi."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Mahudhurio yanayozingatia GPS",
+          "body": "Thibitisha sajili kuingia kwa uangalifu wa mahali ulioundwa kwa kazi ya uwanjani, ya mbali, na ya eneo."
+        },
+        {
+          "title": "Muunganisho wa wafanyakazi wa mbali",
+          "body": "Wahudumu hujisajili kuingia na kutoka kwa usalama kutoka uwanjani huku wakiendelea kuunganishwa na likizo, mapato, na rekodi za wafanyakazi."
+        },
+        {
+          "title": "Usimamizi wa mradi na tawi",
+          "body": "Wasimamizi hufuatilia shughuli katika maeneo kutoka dashibodi moja ya wavuti."
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Uwajibikaji thabiti wa eneo",
+          "body": "Punguza kutokuwa na uhakika kuhusu nani alikuwa katika mradi gani na lini—ikijumuisha majukumu ya mbali ya uwanjani."
+        },
+        {
+          "title": "Mawasiliano machache ya ofisi",
+          "body": "Huduma za kibinafsi huweka kazi za kawaida za wafanyakazi nje ya rundo la karatasi la trela ya eneo."
+        },
+        {
+          "title": "Mazungumzo wazi zaidi ya mishahara",
+          "body": "Mapato ya moja kwa moja husaidia wahudumu kuelewa maendeleo kabla mizozo haijazidi."
+        }
+      ],
+      "ctaTitle": "Leta HADRO kwenye maeneo yako ya ujenzi.",
+      "ctaDescription": "Omba ufikiaji na shiriki jinsi miradi na wahudumu wako wanavyopangwa. Tutasaidia kutathmini ufaafu kwa shughuli za eneo na uwanjani."
+    },
+    "hotels": {
+      "label": "Hoteli",
+      "summary": "Mahudhurio ya usafi, F&B, na sehemu ya mbele katika mali nyingi.",
+      "headline": "Usimamizi wa wafanyakazi wa ukarimu unaoendana na kasi ya mali.",
+      "description": "Hoteli zinaendesha kwa zamu zilizopangwa katika idara na mali. HADRO inasaidia kuthibitisha mahudhurio, kurahisisha likizo, na kuwapa meneja uwazi wa uendeshaji wa wakati halisisi.",
+      "challenges": [
+        {
+          "title": "Ugumu wa zamu za idara",
+          "body": "Usafi, F&B, usalama, na dawati la mbele kila moja inahitaji mahudhurio ya kuaminika bila kupunguza kasi ya huduma."
+        },
+        {
+          "title": "Chapa za mali nyingi",
+          "body": "Waendeshaji wanaosimamia hoteli kadhaa wanahitaji mchakato thabiti bila kupoteza udhibiti wa ndani."
+        },
+        {
+          "title": "Mabadiliko ya wafanyakazi ya msimu",
+          "body": "Idadi inayobadilika ya wafanyakazi hufanya uwekaji muda usio rasmi na ufuatiliaji wa likizo kuwa dhaifu."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Sajili kuingia ya haraka ya idara",
+          "body": "Mahudhurio ya QR yanasaidia mabadiliko ya zamu yenye shughuli katika idara za hoteli."
+        },
+        {
+          "title": "Usimamizi wa mtandao wa mali",
+          "body": "Chukulia hoteli kama matawi chini ya jukwaa moja kwa usimamizi wa pamoja."
+        },
+        {
+          "title": "Huduma za kibinafsi za mfanyakazi",
+          "body": "Wafanyakazi husimamia likizo na kazi za wasifu bila kusumbua meneja wa zamu."
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Ukabidhi wa zamu laini zaidi",
+          "body": "Jua nani ameingia kabla ya madirisha ya kilele cha sajili kuingia na huduma."
+        },
+        {
+          "title": "Shughuli thabiti za mali nyingi",
+          "body": "Sanifisha mchakato wa wafanyakazi huku ukisimamia kila hoteli kwa uwazi."
+        },
+        {
+          "title": "Mawasiliano bora ya mstari wa mbele",
+          "body": "Likizo na mapato yenye uwazi hupunguza usumbufu wa HR unaoweza kuepukwa katika mali."
+        }
+      ],
+      "ctaTitle": "Boresha shughuli za wafanyakazi za ukarimu.",
+      "ctaDescription": "Tuambie kuhusu mali na idara zako. Timu yetu ya kuanza itakusaidia kuchunguza HADRO kwa hoteli."
+    },
+    "retail": {
+      "label": "Rejareja",
+      "summary": "Mahudhurio ya kiwango cha duka, majukumu ya uwanjani, na uwazi wa matawi mengi kwa mitandao ya rejareja.",
+      "headline": "Uwazi wa wafanyakazi wa rejareja kutoka bendera hadi kila duka.",
+      "description": "Timu za rejareja zinahitaji mahudhurio ya kuaminika ya duka, msaada kwa majukumu ya uwanjani na ya mbali, ushughulikiaji wazi wa likizo, na usimamizi wa kikanda—hasa kadri mitandao inavyokua.",
+      "challenges": [
+        {
+          "title": "Kutokuwiana kwa kiwango cha duka",
+          "body": "Kila eneo linavumbua desturi yake ya mahudhurio, na kufanya ripoti za kikanda zisiaminike."
+        },
+        {
+          "title": "Ufunikaji wa kufungua na kufunga",
+          "body": "Meneja wanahitaji ujasiri kuwa timu zilizopangwa zilifika kweli kwa saa muhimu za biashara."
+        },
+        {
+          "title": "Majukumu ya uwanjani na yanayozunguka",
+          "body": "Meneja wa eneo, wahuzuni wa bidhaa, na majukumu mengine nje ya sakafu yanahitaji mahudhurio ya mbali salama bila kuacha mfumo wa wafanyakazi wa mtandao wa rejareja."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Mahudhurio sanifu ya duka",
+          "body": "Chaguo za QR au zinazozingatia GPS huunda sajili kuingia thabiti katika maeneo yote."
+        },
+        {
+          "title": "Wafanyakazi wa mbali kwa majukumu ya uwanjani",
+          "body": "Saidia majukumu ya rejareja yanayozunguka na ya mbali kwa sajili kuingia salama huku ukiyaweka yameunganishwa na uwazi wa mishahara na ripoti."
+        },
+        {
+          "title": "Udhibiti wa rejareja wa matawi mengi",
+          "body": "Endesha mtandao wa maduka kutoka jukwaa moja la usimamizi."
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Ufunikaji thabiti wa saa za biashara",
+          "body": "Ona masuala ya mahudhurio mapema vya kutosha kulinda uzoefu wa mteja."
+        },
+        {
+          "title": "Ripoti za kikanda unazoweza kutumia",
+          "body": "Linganisha maduka—na majukumu ya uwanjani—kwa ukweli wa pamoja wa mahudhurio badala ya kumbukumbu zilizotawanyika."
+        },
+        {
+          "title": "Panua bila machafuko ya mchakato",
+          "body": "Ongeza maeneo bila kubuni upya shughuli za wafanyakazi kila wakati."
+        }
+      ],
+      "ctaTitle": "Unganisha usimamizi wa wafanyakazi wa rejareja.",
+      "ctaDescription": "Omba ufikiaji na shiriki ujazo wa maduka yako. Tutasaidia kuoanisha HADRO na mtandao wako wa rejareja."
+    },
+    "offices": {
+      "label": "Ofisi",
+      "summary": "Mitiririko ya kisasa ya mahudhurio, likizo, na wafanyakazi wa mbali kwa timu za ofisi na mseto.",
+      "headline": "Shughuli za kitaaluma za wafanyakazi kwa mashirika ya ofisi.",
+      "description": "Timu za ofisi na mseto zinahitaji mahudhurio yenye uwajibikaji kwa watu katika jengo na wanaofanya kazi kwa mbali—pamoja na mitiririko safi ya likizo na dashibodi ambayo uongozi unaweza kuamini.",
+      "challenges": [
+        {
+          "title": "Utata wa uwepo wa mseto",
+          "body": "Haijulikani nani yuko ndani, nani yuko mbali, na jinsi mahudhurio yanapaswa kurekodiwa kwa uthabiti katika zote mbili."
+        },
+        {
+          "title": "Vizuizi vya likizo",
+          "body": "Maombi ya likizo yanayotegemea barua pepe yanaunda ucheleweshaji na rekodi zisizokamilika kwa meneja."
+        },
+        {
+          "title": "Muda wa HR unaotumika kwa kazi za kawaida",
+          "body": "Sasisho za wasifu na maswali ya mahudhurio yanatumia uwezo ambao unapaswa kwenda kwa mkakati wa watu."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Mahudhurio yaliyounganishwa ya ofisi na ya mbali",
+          "body": "Tumia mifumo ya QR au inayozingatia GPS kazini, na sajili kuingia kwa mbali salama kwa wafanyakazi wa mseto na wa mbali—katika jukwaa moja la wafanyakazi."
+        },
+        {
+          "title": "Usimamizi wazi wa likizo",
+          "body": "Wafanyakazi huomba; meneja huidhinisha; rekodi zinabaki zimeoanishwa katika mfumo mmoja."
+        },
+        {
+          "title": "Huduma za kibinafsi za mfanyakazi",
+          "body": "Punguza kiasi cha tiketi kwa kazi za kawaida za wafanyakazi."
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Shughuli safi zaidi za mseto",
+          "body": "Badilisha desturi za ad-hoc za mahudhurio kwa mchakato mmoja kwa wafanyakazi wa ofisi na wa mbali."
+        },
+        {
+          "title": "Uwezo wa HR wenye tija zaidi",
+          "body": "Huduma za kibinafsi zinarejesha muda kwa kazi ya juu zaidi ya wafanyakazi."
+        },
+        {
+          "title": "Uwazi wa uongozi",
+          "body": "Dashibodi ya wakati halisi inasaidia maamuzi ya siku ile ile kwa timu za kazini na za mbali."
+        }
+      ],
+      "ctaTitle": "Boresha usimamizi wa wafanyakazi wa ofisi.",
+      "ctaDescription": "Tuambie kuhusu timu na maeneo yako. Tutaonyesha jinsi HADRO inavyosaidia shughuli za kisasa za ofisi na za mbali."
+    },
+    "logistics": {
+      "label": "Usafirishaji",
+      "summary": "Mahudhurio ya uwanjani, ya mbali, na ya depo kwa madereva, washughulikiaji, na timu za usambazaji.",
+      "headline": "Uwazi wa wafanyakazi kwa shughuli za usafirishaji na meli.",
+      "description": "Usafirishaji unategemea watu kuhamia kwa wakati. HADRO inasaidia mahudhurio ya depo, uwanjani, na ya mbali, uwazi wa mapato ya moja kwa moja, na udhibiti wa uendeshaji wa maeneo mengi katika jukwaa moja.",
+      "challenges": [
+        {
+          "title": "Utawanyiko wa wafanyakazi wa uwanjani",
+          "body": "Madereva na washughulikiaji si mara zote wako dawati—mahudhurio lazima yasafiri na timu, ikijumuisha sajili kuingia za mbali kati ya depo na njia."
+        },
+        {
+          "title": "Msongamano wa kilele cha depo",
+          "body": "Madirisha ya usambazaji wa asubuhi yanahitaji sajili kuingia ya haraka bila kupoteza uthibitishaji."
+        },
+        {
+          "title": "Mizozo ya saa na mapato",
+          "body": "Ratiba zinazobadilika hufanya mshangao wa siku ya malipo uwezekane zaidi bila uwazi wa moja kwa moja."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Mahudhurio ya uwanjani yanayozingatia GPS",
+          "body": "Saidia majukumu yaliyotawanyika na ya mbali kwa chaguo za sajili kuingia zinazozingatia mahali."
+        },
+        {
+          "title": "Muunganisho wa wafanyakazi wa mbali",
+          "body": "Weka madereva na wafanyakazi wa uwanjani wameunganishwa na mahudhurio, mapato, na usimamizi wa wafanyakazi wakati wako mbali na depo."
+        },
+        {
+          "title": "Mitiririko ya QR ya depo",
+          "body": "Weka kuanza kwa depo yenye kiasi kikubwa kuwa yenye ufanisi na inayoweza kukaguliwa."
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Ujasiri bora wa usambazaji",
+          "body": "Jua nani anapatikana kabla njia hazijaondoka uwanjani."
+        },
+        {
+          "title": "Usumbufu mchache wa mishahara",
+          "body": "Mapato yenye uwazi hupunguza mizozo zinazojibu ambazo hupunguza kasi ya shughuli."
+        },
+        {
+          "title": "Udhibiti wa mtandao mzima",
+          "body": "Simamia depo, matawi, na majukumu ya mbali ya uwanjani kutoka jukwaa moja lililounganishwa."
+        }
+      ],
+      "ctaTitle": "Unganisha shughuli za wafanyakazi za usafirishaji.",
+      "ctaDescription": "Omba ufikiaji na eleza depo zako, njia, na muundo wa timu. Tutasaidia kutathmini HADRO kwa usafirishaji."
+    },
+    "government": {
+      "label": "Serikali",
+      "summary": "Mahudhurio yenye uwajibikaji kwa wafanyakazi wa sekta ya umma wa ofisi, uwanjani, na wa mbali.",
+      "headline": "Usimamizi wa wafanyakazi wenye uwajibikaji kwa timu za serikali.",
+      "description": "Mashirika ya sekta ya umma yanahitaji rekodi wazi za mahudhurio kwa majukumu ya ofisi, uwanjani, na ya mbali—pamoja na usimamizi unaolingana na majukumu na michakato inayosaidia usimamizi katika idara na maeneo.",
+      "challenges": [
+        {
+          "title": "Matarajio ya uwajibikaji",
+          "body": "Mahudhurio na likizo lazima ziweze kutetelewa kwa ukaguzi, ripoti, na uaminifu wa umma—ikijumuisha wafanyakazi wanaofanya kazi nje ya ofisi moja."
+        },
+        {
+          "title": "Utawanyiko wa idara",
+          "body": "Zana tofauti na michakato ya karatasi hufanya usimamizi wa pamoja kuwa mgumu."
+        },
+        {
+          "title": "Shinikizo la kuendelea kwa huduma",
+          "body": "Mapengo ya likizo na wafanyakazi yanaathiri huduma zinazowakabili raia wakati uwazi umechelewa."
+        }
+      ],
+      "solutions": [
+        {
+          "title": "Mahudhurio ya kidijitali yanayothibitishwa",
+          "body": "Badilisha daftari zenye utata kwa rekodi thabiti za QR au zinazozingatia GPS kwa kazi ya kazini na ya mbali."
+        },
+        {
+          "title": "Usimamizi wa wafanyakazi wa mbali",
+          "body": "Saidia watumishi wa umma wa uwanjani na wa mbali kwa sajili kuingia salama huku ukiwaweka wameunganishwa na ripoti na usimamizi."
+        },
+        {
+          "title": "Dashibodi ya usimamizi wa kati",
+          "body": "Wape wasimamizi uwazi wa wakati halisi katika timu na maeneo."
+        }
+      ],
+      "benefits": [
+        {
+          "title": "Msimamo thabiti wa ukaguzi",
+          "body": "Dumisha rekodi wazi zaidi za wafanyakazi kwa mahitaji ya ukaguzi na ripoti—katika majukumu ya ofisi na ya mbali."
+        },
+        {
+          "title": "Shughuli thabiti zaidi za idara",
+          "body": "Punguza mchepuko wa mchakato kati ya ofisi, vitengo vya uwanjani, na maeneo."
+        },
+        {
+          "title": "Ufahamu wa mapema wa wafanyakazi",
+          "body": "Chukua hatua kwa masuala ya mahudhurio na likizo kabla utoaji wa huduma haujaathiriwa."
+        }
+      ],
+      "ctaTitle": "Sasisha shughuli za wafanyakazi za sekta ya umma.",
+      "ctaDescription": "Omba ufikiaji na shiriki muundo wa idara yako. Timu yetu ya kuanza itaongoza mazungumzo makini ya hatua ifuatayo."
+    }
+  }
+}

@@ -1,0 +1,835 @@
+import * as payrollRepo from "./payroll.repository";
+import * as wageRepo from "../wageRates/wageRates.repository";
+import * as companyPolicy from "../companyPolicy/companyPolicy.service";
+import * as holidaysRepo from "../holidays/holidays.repository";
+import * as sessionsRepo from "../sessions/sessions.repository";
+import * as attendanceOverrideRepo from "../attendanceDayOverrides/attendanceDayOverrides.repository";
+import {
+  aggregateLateMinutesByAttendanceDay,
+  classifyAttendanceDayByWorkedMinutes,
+  classifyDay,
+  computeDailyRate,
+  countPayableDivisorDays,
+  holidayMap,
+  hourlyEquivalentFromDailyRate,
+  latePayDeductionFromLateMinutes,
+  normalizeAttendanceThresholds,
+  normalizeWorkingWeekdays,
+  salaryAttendanceDayFromCheckIn,
+  type IsoDate,
+  type SalaryDivisorType,
+} from "./salaryEarnings.engine";
+import { sessionAttendanceDayForPayroll } from "../../lib/sessionAttendanceDay";
+import { filterCompletedPayrollEligibleSessions } from "../../lib/remoteAttendancePayroll";
+import { isPayrollRecordProtected } from "./payrollRecordProtection";
+import {
+  getPayrollDayClassificationsForRange,
+  getPayrollLeaveReadinessMeta,
+  type PayrollDayClassification,
+  type PayrollLeaveReadinessMeta,
+} from "./payrollLeaveAwareness.service";
+import { syncHourlyLeavePayrollForMonth } from "./hourlyLeavePayroll.service";
+import { getPayrollPeriodEditability } from "../payrollPeriod/payrollPeriodEditable";
+import { resolveEditablePayrollPeriodId } from "./payrollPeriodOwnership";
+import { resolveMonthlyWorkingDayPayroll } from "./salaryLeavePayroll.engine";
+import {
+  normalizeBusinessTimeZone,
+  yearMonthTodayInTimeZone,
+} from "../../lib/businessCalendar";
+import {
+  canEmitPaidLeaveWorkforceEarning,
+  resolveCompanyTodayIso,
+} from "./paidLeavePayrollEligibility";
+import {
+  hasScheduledShiftClosed,
+  toShiftWindowSource,
+} from "../../lib/shiftWindow";
+import { resolveScheduledShiftForUser } from "./leaveExpectedHours.service";
+
+function round2(n: number): number {
+  return Math.round(n * 100) / 100;
+}
+
+type DayBreakAgg = {
+  net: number;
+  base: number;
+  late: number;
+  recordTypes: Set<string>;
+  earningSources: Set<string>;
+};
+
+function mergeBreakIntoDay(
+  map: Map<string, DayBreakAgg>,
+  dateKey: string | null | undefined,
+  r: payrollRepo.PayrollRecord
+): void {
+  if (!dateKey) return;
+  const ed = dateKey.slice(0, 10);
+  const br = payrollRepo.payrollRecordEarningsBreakdown(r);
+  const prev = map.get(ed) ?? {
+    net: 0,
+    base: 0,
+    late: 0,
+    recordTypes: new Set<string>(),
+    earningSources: new Set<string>(),
+  };
+  prev.recordTypes.add(r.record_type ?? "session_hourly");
+  prev.earningSources.add(r.earning_source ?? "attendance");
+  map.set(ed, {
+    net: round2(prev.net + br.net),
+    base: round2(prev.base + br.baseBeforeLate),
+    late: round2(prev.late + br.lateDeduction),
+    recordTypes: prev.recordTypes,
+    earningSources: prev.earningSources,
+  });
+}
+
+function historyRecordTypeFromAgg(agg: DayBreakAgg): string {
+  if (agg.recordTypes.size === 1) return [...agg.recordTypes][0]!;
+  if (agg.recordTypes.has("leave_hourly")) return "leave_hourly";
+  if (agg.earningSources.has("paid_leave")) return "salary_daily";
+  return "mixed";
+}
+
+function historyEarningSourceFromAgg(agg: DayBreakAgg): string | null {
+  if (agg.earningSources.has("paid_leave")) return "paid_leave";
+  if (agg.earningSources.size === 1) return [...agg.earningSources][0]!;
+  return null;
+}
+
+export async function syncMonthlySalaryPayroll(
+  userId: string,
+  companyId: string,
+  year: number,
+  month: number,
+  todayIsoOverride?: string
+): Promise<void> {
+  const payrollOn = await companyPolicy.isPayrollEnabled(companyId);
+  if (!payrollOn) return;
+
+  const editability = await getPayrollPeriodEditability(companyId, year, month);
+  if (!editability.editable) return;
+  const payrollPeriodId =
+    editability.periodId ??
+    (await resolveEditablePayrollPeriodId(
+      companyId,
+      `${year}-${String(month).padStart(2, "0")}-01`
+    ));
+
+  /**
+   * Session query window: `[monthStartUtc, nextMonthStartUtc)` so every included session has check_in in this
+   * `(year, month)` or earlier; combined with `salaryAttendanceDayFromCheckIn`, rows cannot be double-counted across
+   * months (see engine JSDoc).
+   */
+  const lastDay = new Date(Date.UTC(year, month, 0)).getUTCDate();
+  const asOf = `${year}-${String(month).padStart(2, "0")}-${String(lastDay).padStart(2, "0")}`;
+  const wage = await wageRepo.getEffectiveWageRow(userId, companyId, asOf);
+  if (!wage || wage.rate_type !== "monthly" || !wage.monthly_salary || wage.monthly_salary <= 0) {
+    await payrollRepo.deleteSalaryDailyForUserMonth(userId, companyId, year, month).catch(() => undefined);
+    return;
+  }
+
+  const policy = await companyPolicy.getPolicy(companyId);
+  const todayIso = todayIsoOverride ?? resolveCompanyTodayIso(policy);
+  const bizTz = normalizeBusinessTimeZone(
+    (policy as { business_timezone?: string | null }).business_timezone
+  );
+  const overnightOn =
+    (policy as { overnight_shifts_enabled?: boolean }).overnight_shifts_enabled === true;
+  const scheduledShift = await resolveScheduledShiftForUser(userId, companyId);
+  const shiftSource = scheduledShift ? toShiftWindowSource(scheduledShift) : null;
+  const workingWeekdays = normalizeWorkingWeekdays(
+    (policy as { working_weekdays?: unknown }).working_weekdays
+  );
+  const thresholds = normalizeAttendanceThresholds({
+    minimum_minutes_for_counted_day: (policy as any).minimum_minutes_for_counted_day,
+    full_day_minutes_threshold: (policy as any).full_day_minutes_threshold,
+    default_daily_hours: (policy as any).default_daily_hours,
+  });
+  const classificationEnabled =
+    (policy as { attendance_day_classification_enabled?: unknown }).attendance_day_classification_enabled === true;
+
+  const holRows = await holidaysRepo.listHolidaysForCompanyRange(
+    companyId,
+    `${year}-${String(month).padStart(2, "0")}-01`,
+    asOf
+  );
+  const hmap = holidayMap(
+    holRows.map((h) => ({ date: h.holiday_date.slice(0, 10), is_paid: h.is_paid }))
+  );
+
+  const divisorDays = countPayableDivisorDays(year, month, workingWeekdays, hmap);
+  const dynamicCount = divisorDays.length;
+  const divType = (wage.salary_divisor_type as SalaryDivisorType) ?? "dynamic_working_days";
+  const dailyRate = computeDailyRate(
+    wage.monthly_salary,
+    divType,
+    wage.salary_divisor_value,
+    dynamicCount
+  );
+
+  const nextMonth = month === 12 ? 1 : month + 1;
+  const nextYear = month === 12 ? year + 1 : year;
+  const startIso = `${year}-${String(month).padStart(2, "0")}-01T00:00:00.000Z`;
+  const endIso = `${nextYear}-${String(nextMonth).padStart(2, "0")}-01T00:00:00.000Z`;
+
+  const startYmd = `${year}-${String(month).padStart(2, "0")}-01`;
+  const endYmd = asOf;
+  const { rows: sessions } = await sessionsRepo.listSessionsForUser(userId, companyId, {
+    startIso,
+    endIso,
+    startYmd,
+    endYmd,
+    limit: 2000,
+    offset: 0,
+  });
+  const overrides = await attendanceOverrideRepo.listForUserRange(companyId, userId, startYmd, endYmd);
+  const overrideUnitsByDay = new Map<string, number>();
+  for (const o of overrides) {
+    overrideUnitsByDay.set(o.attendance_date.slice(0, 10), Number(o.day_units));
+  }
+
+  const payrollEligibleSessions = filterCompletedPayrollEligibleSessions(sessions);
+
+  const workedMinutesByDay = new Map<string, number>();
+  for (const s of payrollEligibleSessions) {
+    const k = sessionAttendanceDayForPayroll(s);
+    if (!k) continue;
+    const mins =
+      typeof (s as any).duration_minutes === "number" && (s as any).duration_minutes >= 0
+        ? (s as any).duration_minutes
+        : s.check_out
+          ? Math.floor((new Date(s.check_out).getTime() - new Date(s.check_in!).getTime()) / 60000)
+          : 0;
+    workedMinutesByDay.set(k, (workedMinutesByDay.get(k) ?? 0) + Math.max(0, mins));
+  }
+
+  const lateByDay = aggregateLateMinutesByAttendanceDay(payrollEligibleSessions);
+  const defaultDailyHours = Math.max(1, Math.min(24, policy.default_daily_hours ?? 8));
+
+  const leaveByDay = await getPayrollDayClassificationsForRange(
+    userId,
+    companyId,
+    startYmd,
+    endYmd
+  );
+
+  const existingMonth = await payrollRepo.getPayrollByUserMonth(userId, companyId, year, month);
+  const protectedSalaryDates = new Set(
+    existingMonth
+      .filter(
+        (r) =>
+          (r.record_type ?? "session_hourly") === "salary_daily" &&
+          isPayrollRecordProtected(r.status)
+      )
+      .map((r) => (r.earnings_date ?? r.payroll_date).slice(0, 10))
+  );
+
+  await payrollRepo.deleteSalaryDailyForUserMonth(userId, companyId, year, month);
+
+  const dim = lastDay;
+  for (let d = 1; d <= dim; d++) {
+    const iso: IsoDate = `${year}-${String(month).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
+    if (protectedSalaryDates.has(iso)) continue;
+    const applyLatePayDed = companyPolicy.isLatePayDeductionActiveOnAttendanceDate(policy, iso);
+    const c = classifyDay(iso, workingWeekdays, hmap);
+    let gross = 0;
+    let grossBeforeLate: number | null = null;
+    let lateDedAmount: number | null = null;
+    if (c.kind === "paid_holiday") {
+      gross = dailyRate;
+    } else if (c.kind === "working_day") {
+      const mins = workedMinutesByDay.get(iso) ?? 0;
+      const overrideUnits = overrideUnitsByDay.get(iso);
+      const leaveCtx = leaveByDay.get(iso);
+      const resolved = resolveMonthlyWorkingDayPayroll({
+        leaveClassification: leaveCtx?.classification,
+        workedMinutes: mins,
+        overrideUnits,
+        classificationEnabled,
+        thresholds,
+        dailyRate,
+      });
+      if (resolved.gross > 0) gross = resolved.gross;
+      if (
+        resolved.gross > 0 &&
+        applyLatePayDed &&
+        resolved.earningSource === "attendance"
+      ) {
+        const lateM = lateByDay.get(iso) ?? 0;
+        if (lateM > 0) {
+          grossBeforeLate = Math.round(gross * 100) / 100;
+          const hourlyEq = hourlyEquivalentFromDailyRate(dailyRate, defaultDailyHours);
+          const ded = latePayDeductionFromLateMinutes(lateM, hourlyEq);
+          lateDedAmount = ded;
+          gross = Math.max(0, Math.round((gross - ded) * 100) / 100);
+        }
+      }
+      if (
+        gross > 0 &&
+        (resolved.earningSource !== "paid_leave" ||
+          canEmitPaidLeaveWorkforceEarning({
+            earningsDateYmd: iso,
+            companyTodayYmd: todayIso,
+            shiftHasClosed: hasScheduledShiftClosed({
+              ownershipYmd: iso,
+              businessTimeZone: bizTz,
+              overnightShiftsEnabled: overnightOn,
+              shift: shiftSource,
+            }),
+          }))
+      ) {
+        await payrollRepo.insertSalaryDailyRecord({
+          user_id: userId,
+          company_id: companyId,
+          earnings_date: iso,
+          gross_earnings: gross,
+          daily_rate: dailyRate,
+          gross_before_late_deduction: grossBeforeLate,
+          late_deduction_amount: lateDedAmount,
+          earning_source: resolved.earningSource,
+          leave_request_id: leaveCtx?.leaveCoverage?.leaveRequestId ?? null,
+          payroll_period_id: payrollPeriodId,
+        });
+      }
+      continue;
+    }
+    if (gross > 0 && applyLatePayDed) {
+      const lateM = lateByDay.get(iso) ?? 0;
+      if (lateM > 0) {
+        grossBeforeLate = Math.round(gross * 100) / 100;
+        const hourlyEq = hourlyEquivalentFromDailyRate(dailyRate, defaultDailyHours);
+        const ded = latePayDeductionFromLateMinutes(lateM, hourlyEq);
+        lateDedAmount = ded;
+        gross = Math.max(0, Math.round((gross - ded) * 100) / 100);
+      }
+    }
+    if (gross > 0) {
+      await payrollRepo.insertSalaryDailyRecord({
+        user_id: userId,
+        company_id: companyId,
+        earnings_date: iso,
+        gross_earnings: gross,
+        daily_rate: dailyRate,
+        gross_before_late_deduction: grossBeforeLate,
+        late_deduction_amount: lateDedAmount,
+        earning_source: "attendance",
+        payroll_period_id: payrollPeriodId,
+      });
+    }
+  }
+
+  await syncHourlyLeavePayrollForMonth(userId, companyId, year, month, todayIso);
+}
+
+/** Which calendar month to resync after clock-out (attendance ownership, not raw check-in UTC). */
+export function resolveSalarySyncYearMonth(
+  checkInIso: string,
+  attendanceDateYmd?: string | null
+): { year: number; month: number; attendanceYmd: string } {
+  const attendanceYmd =
+    attendanceDateYmd?.slice(0, 10) ?? salaryAttendanceDayFromCheckIn(checkInIso);
+  const [year, month] = attendanceYmd.split("-").map(Number);
+  return { year, month, attendanceYmd };
+}
+
+export async function syncSalaryMonthForUserIfMonthly(
+  userId: string,
+  companyId: string,
+  checkInIso: string,
+  attendanceDateYmd?: string | null
+): Promise<void> {
+  const { year: y, month: m, attendanceYmd: ymd } = resolveSalarySyncYearMonth(
+    checkInIso,
+    attendanceDateYmd
+  );
+  const wage = await wageRepo.getEffectiveWageRow(userId, companyId, ymd);
+  if (!wage || wage.rate_type !== "monthly") return;
+  await syncMonthlySalaryPayroll(userId, companyId, y, m);
+}
+
+export interface EarningsSummaryDto {
+  rate_type: "hourly" | "monthly" | "none";
+  monthly_salary: number | null;
+  expected_monthly_salary: number | null;
+  daily_rate: number | null;
+  payable_days_in_month: number;
+  /** Salary only: paid day equivalents (full=1, half=0.5). */
+  paid_days: number;
+  /** Salary only: unpaid day equivalents (working days not credited up to today). */
+  unpaid_days: number;
+  today_earned: number;
+  /** Base / payable before late deduction (derived or stored). */
+  today_base_before_late: number;
+  today_late_deduction: number;
+  month_earned_total: number;
+  month_base_before_late: number;
+  month_late_deduction_total: number;
+  month_earned_salary_daily: number;
+  month_earned_hourly: number;
+  divisor_type: string | null;
+  /** IANA zone from company policy (fallback UTC). */
+  business_timezone: string;
+  /** Company-local calendar date used as "today" for this summary. */
+  calendar_today: string;
+  /** Short explanation for UI (truthful vs device-local midnight). */
+  earnings_period_label: string;
+  /** Thresholds used to classify a completed day for salary credit. */
+  attendance_thresholds: {
+    minimum_minutes_for_counted_day: number;
+    full_day_minutes_threshold: number;
+  };
+  attendance_day_classification_enabled: boolean;
+  daily_history: Array<{
+    date: string;
+    gross: number;
+    record_type: string;
+    /** attendance | paid_leave when known */
+    earning_source?: string | null;
+    base_before_late: number;
+    late_deduction: number;
+    /** Payroll-awareness only; does not change gross or earnings totals. */
+    payroll_day_classification?: PayrollDayClassification;
+  }>;
+  /** Payroll leave awareness for today; does not affect earnings amounts. */
+  payroll_leave_readiness: PayrollLeaveReadinessMeta;
+}
+
+function earningsCalendarMeta(
+  tzInput: string,
+  todayIso: IsoDate
+): Pick<
+  EarningsSummaryDto,
+  "business_timezone" | "calendar_today" | "earnings_period_label"
+> {
+  const business_timezone = normalizeBusinessTimeZone(tzInput);
+  return {
+    business_timezone,
+    calendar_today: todayIso,
+    earnings_period_label: `Earnings use your company calendar (${business_timezone}). Calendar date: ${todayIso}.`,
+  };
+}
+
+function earningsThresholdMeta(th: { min: number; full: number }): Pick<EarningsSummaryDto, "attendance_thresholds"> {
+  return {
+    attendance_thresholds: {
+      minimum_minutes_for_counted_day: th.min,
+      full_day_minutes_threshold: th.full,
+    },
+  };
+}
+
+/** Attach leave payroll classification metadata only (no earnings math). */
+async function attachPayrollLeaveReadiness(
+  userId: string,
+  companyId: string,
+  todayIso: IsoDate,
+  year: number,
+  month: number,
+  daily_history: EarningsSummaryDto["daily_history"]
+): Promise<Pick<EarningsSummaryDto, "payroll_leave_readiness" | "daily_history">> {
+  const payroll_leave_readiness = await getPayrollLeaveReadinessMeta(userId, companyId, todayIso);
+  if (daily_history.length === 0) {
+    return { payroll_leave_readiness, daily_history };
+  }
+  const monthStart = `${year}-${String(month).padStart(2, "0")}-01`;
+  const byDay = await getPayrollDayClassificationsForRange(
+    userId,
+    companyId,
+    monthStart,
+    todayIso
+  );
+  const enriched = daily_history.map((d) => ({
+    ...d,
+    payroll_day_classification:
+      byDay.get(d.date.slice(0, 10))?.classification ?? ("WORKING" as PayrollDayClassification),
+  }));
+  return { payroll_leave_readiness, daily_history: enriched };
+}
+
+/** Recompute salary-daily rows for the month, then return dashboard numbers. */
+export async function getEarningsSummary(
+  userId: string,
+  companyId: string,
+  year: number,
+  month: number,
+  todayIso: IsoDate,
+  businessTimezone: string
+): Promise<EarningsSummaryDto> {
+  const tz = normalizeBusinessTimeZone(businessTimezone);
+
+  const payrollOn = await companyPolicy.isPayrollEnabled(companyId);
+  if (!payrollOn) {
+    return emptySummary("none", tz, todayIso, userId, companyId);
+  }
+
+  const wage = await wageRepo.getEffectiveWageRow(userId, companyId, todayIso);
+  if (!wage) {
+    return emptySummary("none", tz, todayIso, userId, companyId);
+  }
+
+  const policyBase = await companyPolicy.getPolicy(companyId);
+  const thresholdsBase = normalizeAttendanceThresholds({
+    minimum_minutes_for_counted_day: (policyBase as { minimum_minutes_for_counted_day?: unknown }).minimum_minutes_for_counted_day,
+    full_day_minutes_threshold: (policyBase as { full_day_minutes_threshold?: unknown }).full_day_minutes_threshold,
+    default_daily_hours: (policyBase as { default_daily_hours?: unknown }).default_daily_hours,
+  });
+  const classificationEnabledBase =
+    (policyBase as { attendance_day_classification_enabled?: unknown }).attendance_day_classification_enabled === true;
+
+  if (wage.rate_type !== "monthly") {
+    await syncHourlyLeavePayrollForMonth(userId, companyId, year, month);
+    const records = await payrollRepo.getPayrollByUserMonth(userId, companyId, year, month);
+    let month_earned_hourly = 0;
+    let month_base_before_late = 0;
+    let month_late_deduction_total = 0;
+    const byDateDetail = new Map<string, DayBreakAgg>();
+    for (const r of records) {
+      const rt = r.record_type ?? "session_hourly";
+      if (typeof r.gross_earnings !== "number") continue;
+      if (rt === "salary_daily") continue;
+      const br = payrollRepo.payrollRecordEarningsBreakdown(r);
+      month_earned_hourly += r.gross_earnings;
+      month_base_before_late = round2(month_base_before_late + br.baseBeforeLate);
+      month_late_deduction_total = round2(month_late_deduction_total + br.lateDeduction);
+      const dateKey =
+        rt === "leave_hourly" || rt === "manual_overtime"
+          ? (r.earnings_date ?? r.payroll_date)
+          : r.payroll_date;
+      mergeBreakIntoDay(byDateDetail, dateKey, r);
+    }
+    const daily_history: EarningsSummaryDto["daily_history"] = [];
+    for (const [date, agg] of [...byDateDetail.entries()].sort((a, b) => (a[0] < b[0] ? 1 : -1))) {
+      daily_history.push({
+        date,
+        gross: agg.net,
+        record_type: historyRecordTypeFromAgg(agg),
+        earning_source: historyEarningSourceFromAgg(agg),
+        base_before_late: agg.base,
+        late_deduction: agg.late,
+      });
+    }
+    const todayAgg = byDateDetail.get(todayIso);
+    const leaveMeta = await attachPayrollLeaveReadiness(
+      userId,
+      companyId,
+      todayIso,
+      year,
+      month,
+      daily_history.slice(0, 62)
+    );
+    return {
+      rate_type: "hourly",
+      monthly_salary: null,
+      expected_monthly_salary: null,
+      daily_rate: null,
+      payable_days_in_month: 0,
+      paid_days: 0,
+      unpaid_days: 0,
+      today_earned: todayAgg ? todayAgg.net : 0,
+      today_base_before_late: todayAgg?.base ?? 0,
+      today_late_deduction: todayAgg?.late ?? 0,
+      month_earned_total: round2(month_earned_hourly),
+      month_base_before_late,
+      month_late_deduction_total,
+      month_earned_salary_daily: 0,
+      month_earned_hourly: round2(month_earned_hourly),
+      divisor_type: null,
+      ...leaveMeta,
+      ...earningsCalendarMeta(tz, todayIso),
+      ...earningsThresholdMeta(thresholdsBase),
+      attendance_day_classification_enabled: classificationEnabledBase,
+    };
+  }
+
+  if (!wage.monthly_salary || wage.monthly_salary <= 0) {
+    return emptySummary("none", tz, todayIso, userId, companyId);
+  }
+
+  await syncMonthlySalaryPayroll(userId, companyId, year, month);
+
+  const policy = policyBase;
+  const workingWeekdays = normalizeWorkingWeekdays(
+    (policy as { working_weekdays?: unknown }).working_weekdays
+  );
+  const thresholds = thresholdsBase;
+  const classificationEnabled = classificationEnabledBase;
+
+  const lastDay = new Date(Date.UTC(year, month, 0)).getUTCDate();
+  const monthEnd = `${year}-${String(month).padStart(2, "0")}-${String(lastDay).padStart(2, "0")}`;
+  const holRows = await holidaysRepo.listHolidaysForCompanyRange(
+    companyId,
+    `${year}-${String(month).padStart(2, "0")}-01`,
+    monthEnd
+  );
+  const hmap = holidayMap(
+    holRows.map((h) => ({ date: h.holiday_date.slice(0, 10), is_paid: h.is_paid }))
+  );
+
+  const divisorList = countPayableDivisorDays(year, month, workingWeekdays, hmap);
+  const dynamicCount = divisorList.length;
+
+  let dailyRate: number | null = null;
+  let monthlySalary: number | null = null;
+  let divType: string | null = null;
+
+  if (wage.rate_type === "monthly" && wage.monthly_salary) {
+    monthlySalary = wage.monthly_salary;
+    divType = wage.salary_divisor_type;
+    dailyRate = computeDailyRate(
+      wage.monthly_salary,
+      (wage.salary_divisor_type as SalaryDivisorType) ?? "dynamic_working_days",
+      wage.salary_divisor_value,
+      dynamicCount
+    );
+  }
+
+  const nextMonth = month === 12 ? 1 : month + 1;
+  const nextYear = month === 12 ? year + 1 : year;
+  const startIso = `${year}-${String(month).padStart(2, "0")}-01T00:00:00.000Z`;
+  const endIso = `${nextYear}-${String(nextMonth).padStart(2, "0")}-01T00:00:00.000Z`;
+
+  const startYmd = `${year}-${String(month).padStart(2, "0")}-01`;
+  const endYmd = monthEnd;
+  const { rows: sessions } = await sessionsRepo.listSessionsForUser(userId, companyId, {
+    startIso,
+    endIso,
+    startYmd,
+    endYmd,
+    limit: 2000,
+    offset: 0,
+  });
+  const overrides = await attendanceOverrideRepo.listForUserRange(companyId, userId, startYmd, endYmd);
+  const overrideUnitsByDay = new Map<string, number>();
+  for (const o of overrides) {
+    overrideUnitsByDay.set(o.attendance_date.slice(0, 10), Number(o.day_units));
+  }
+  const payrollEligibleSessionsSummary = filterCompletedPayrollEligibleSessions(sessions);
+
+  const workedMinutesByDay = new Map<string, number>();
+  for (const s of payrollEligibleSessionsSummary) {
+    const k = sessionAttendanceDayForPayroll(s);
+    if (!k) continue;
+    const mins =
+      typeof (s as any).duration_minutes === "number" && (s as any).duration_minutes >= 0
+        ? (s as any).duration_minutes
+        : s.check_out
+          ? Math.floor((new Date(s.check_out).getTime() - new Date(s.check_in!).getTime()) / 60000)
+          : 0;
+    workedMinutesByDay.set(k, (workedMinutesByDay.get(k) ?? 0) + Math.max(0, mins));
+  }
+
+  const lateByDaySummary = aggregateLateMinutesByAttendanceDay(payrollEligibleSessionsSummary);
+  const defaultHSummary = Math.max(1, Math.min(24, policy.default_daily_hours ?? 8));
+  const applyLatePayDedSummary = companyPolicy.isLatePayDeductionActiveOnAttendanceDate(
+    policy,
+    todayIso
+  );
+
+  const leaveByDaySummary = await getPayrollDayClassificationsForRange(
+    userId,
+    companyId,
+    startYmd,
+    endYmd
+  );
+
+  let paid_days = 0;
+  let unpaid_days = 0;
+  for (let d = 1; d <= lastDay; d++) {
+    const iso: IsoDate = `${year}-${String(month).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
+    if (iso > todayIso) break;
+    const c = classifyDay(iso, workingWeekdays, hmap);
+    const leaveCtx = leaveByDaySummary.get(iso);
+    if (c.kind === "paid_holiday") {
+      paid_days += 1;
+    } else if (c.kind === "working_day") {
+      if (leaveCtx?.classification === "UNPAID_LEAVE") {
+        unpaid_days += 1;
+        continue;
+      }
+      if (leaveCtx?.classification === "PAID_LEAVE") {
+        paid_days += 1;
+        continue;
+      }
+      const mins = workedMinutesByDay.get(iso) ?? 0;
+      const overrideUnits = overrideUnitsByDay.get(iso);
+      const clsUnits =
+        overrideUnits !== undefined
+          ? overrideUnits
+          : classificationEnabled
+            ? classifyAttendanceDayByWorkedMinutes(mins, thresholds).day_units
+            : mins > 0
+              ? 1
+              : 0;
+      if (clsUnits > 0) paid_days += clsUnits;
+      else unpaid_days += 1;
+    }
+  }
+
+  const records = await payrollRepo.getPayrollByUserMonth(userId, companyId, year, month);
+  let month_earned_salary_daily = 0;
+  let month_earned_hourly = 0;
+  let month_base_before_late = 0;
+  let month_late_deduction_total = 0;
+  const daily_history: EarningsSummaryDto["daily_history"] = [];
+
+  const byDateDetail = new Map<string, DayBreakAgg>();
+
+  for (const r of records) {
+    const rt = r.record_type ?? "session_hourly";
+    if (typeof r.gross_earnings !== "number") continue;
+    const br = payrollRepo.payrollRecordEarningsBreakdown(r);
+    month_base_before_late = round2(month_base_before_late + br.baseBeforeLate);
+    month_late_deduction_total = round2(month_late_deduction_total + br.lateDeduction);
+    if (rt === "salary_daily") {
+      month_earned_salary_daily += r.gross_earnings;
+      mergeBreakIntoDay(byDateDetail, r.earnings_date ?? r.payroll_date, r);
+    } else {
+      month_earned_hourly += r.gross_earnings;
+      const dateKey =
+        rt === "leave_hourly" || rt === "manual_overtime"
+          ? (r.earnings_date ?? r.payroll_date)
+          : r.payroll_date;
+      mergeBreakIntoDay(byDateDetail, dateKey, r);
+    }
+  }
+
+  let today_earned = 0;
+  let today_base_before_late = 0;
+  let today_late_deduction = 0;
+  const todayFromRecords = byDateDetail.get(todayIso);
+
+  if (todayFromRecords !== undefined) {
+    today_earned = todayFromRecords.net;
+    today_base_before_late = todayFromRecords.base;
+    today_late_deduction = todayFromRecords.late;
+  } else if (wage.rate_type === "monthly" && dailyRate !== null) {
+    const c = classifyDay(todayIso, workingWeekdays, hmap);
+    if (c.kind === "paid_holiday") {
+      today_base_before_late = dailyRate;
+      today_earned = dailyRate;
+    } else if (c.kind === "working_day") {
+      const leaveToday = leaveByDaySummary.get(todayIso);
+      if (leaveToday?.classification === "PAID_LEAVE" && dailyRate !== null) {
+        today_base_before_late = dailyRate;
+        today_earned = dailyRate;
+      } else if (leaveToday?.classification !== "UNPAID_LEAVE") {
+      const mins = workedMinutesByDay.get(todayIso) ?? 0;
+      const overrideUnits = overrideUnitsByDay.get(todayIso);
+      const clsUnits =
+        overrideUnits !== undefined
+          ? overrideUnits
+          : classificationEnabled
+            ? classifyAttendanceDayByWorkedMinutes(mins, thresholds).day_units
+            : mins > 0
+              ? 1
+              : 0;
+      if (clsUnits > 0) {
+        today_base_before_late = Math.round((dailyRate * clsUnits) * 100) / 100;
+        today_earned = today_base_before_late;
+      }
+      if (applyLatePayDedSummary) {
+        const lateM = lateByDaySummary.get(todayIso) ?? 0;
+        if (lateM > 0) {
+          const hourlyEq = hourlyEquivalentFromDailyRate(dailyRate, defaultHSummary);
+          const ded = latePayDeductionFromLateMinutes(lateM, hourlyEq);
+          today_late_deduction = ded;
+          today_earned = Math.max(0, round2(today_earned - ded));
+        }
+      }
+      }
+    }
+  }
+
+  for (const [date, agg] of [...byDateDetail.entries()].sort((a, b) => (a[0] < b[0] ? 1 : -1))) {
+    daily_history.push({
+      date,
+      gross: agg.net,
+      record_type: historyRecordTypeFromAgg(agg),
+      earning_source: historyEarningSourceFromAgg(agg),
+      base_before_late: agg.base,
+      late_deduction: agg.late,
+    });
+  }
+
+  const month_earned_total =
+    Math.round((month_earned_salary_daily + month_earned_hourly) * 100) / 100;
+
+  const leaveMeta = await attachPayrollLeaveReadiness(
+    userId,
+    companyId,
+    todayIso,
+    year,
+    month,
+    daily_history.slice(0, 62)
+  );
+
+  return {
+    rate_type: wage.rate_type,
+    monthly_salary: monthlySalary,
+    expected_monthly_salary: monthlySalary,
+    daily_rate: dailyRate,
+    payable_days_in_month: dynamicCount,
+    paid_days,
+    unpaid_days,
+    today_earned: round2(today_earned),
+    today_base_before_late: round2(today_base_before_late),
+    today_late_deduction: round2(today_late_deduction),
+    month_earned_total,
+    month_base_before_late,
+    month_late_deduction_total,
+    month_earned_salary_daily: Math.round(month_earned_salary_daily * 100) / 100,
+    month_earned_hourly: Math.round(month_earned_hourly * 100) / 100,
+    divisor_type: divType,
+    ...leaveMeta,
+    ...earningsCalendarMeta(tz, todayIso),
+    ...earningsThresholdMeta(thresholds),
+    attendance_day_classification_enabled: classificationEnabled,
+  };
+}
+
+async function emptySummary(
+  rate: "hourly" | "monthly" | "none",
+  tz: string,
+  todayIso: IsoDate,
+  userId: string,
+  companyId: string
+): Promise<EarningsSummaryDto> {
+  const payroll_leave_readiness = await getPayrollLeaveReadinessMeta(userId, companyId, todayIso);
+  return {
+    rate_type: rate,
+    monthly_salary: null,
+    expected_monthly_salary: null,
+    daily_rate: null,
+    payable_days_in_month: 0,
+    paid_days: 0,
+    unpaid_days: 0,
+    today_earned: 0,
+    today_base_before_late: 0,
+    today_late_deduction: 0,
+    month_earned_total: 0,
+    month_base_before_late: 0,
+    month_late_deduction_total: 0,
+    month_earned_salary_daily: 0,
+    month_earned_hourly: 0,
+    divisor_type: null,
+    daily_history: [],
+    payroll_leave_readiness,
+    ...earningsCalendarMeta(tz, todayIso),
+    ...earningsThresholdMeta({ min: 60, full: 480 }),
+    attendance_day_classification_enabled: false,
+  };
+}
+
+/** Current calendar month in the company's configured timezone. */
+export async function getCurrentEarningsSummary(
+  userId: string,
+  companyId: string
+): Promise<EarningsSummaryDto> {
+  const pol = await companyPolicy.getPolicy(companyId);
+  const tz = normalizeBusinessTimeZone(
+    (pol as { business_timezone?: string | null }).business_timezone
+  );
+  const { year, month, todayIso } = yearMonthTodayInTimeZone(new Date(), tz);
+  return getEarningsSummary(userId, companyId, year, month, todayIso, tz);
+}

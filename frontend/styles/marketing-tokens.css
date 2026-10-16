@@ -1,0 +1,557 @@
+/**
+ * HADRO Marketing Foundation — public website tokens.
+ * Scoped under `.mkt` so authenticated app chrome is unaffected.
+ * Accent #F4A300 · dark surfaces from the official HADRO palette.
+ */
+
+.mkt {
+  /* Brand — --mkt-royal retained as accent token (now HADRO saffron) */
+  --mkt-royal: #f4a300;
+  --mkt-royal-hover: #d48f00;
+  --mkt-navy: #1c1c1c;
+  --mkt-navy-soft: #2a2a2a;
+  --mkt-sky: #fff8eb;
+  --mkt-mist: #f7f7f6;
+  --mkt-gray: #64748b;
+  --mkt-ink: #0f172a;
+  --mkt-ink-soft: #334155;
+  --mkt-white: #ffffff;
+  --mkt-glass: rgba(255, 255, 255, 0.72);
+  --mkt-glass-border: rgba(255, 255, 255, 0.55);
+  --mkt-overlay: rgba(11, 27, 58, 0.48);
+  --mkt-header-shadow: 0 1px 0 rgba(15, 23, 42, 0.04);
+  --mkt-focus-ring: #1c1c1c;
+
+  /* Surfaces */
+  --mkt-bg: linear-gradient(
+    180deg,
+    color-mix(in srgb, #f4f7fb 68%, transparent) 0%,
+    color-mix(in srgb, #eef2f8 52%, transparent) 42%,
+    color-mix(in srgb, #f8fafc 74%, transparent) 100%
+  );
+  --mkt-surface: var(--mkt-white);
+  --mkt-surface-elevated: color-mix(in srgb, var(--mkt-white) 92%, var(--mkt-sky));
+  --mkt-border: rgba(15, 23, 42, 0.09);
+  --mkt-border-strong: rgba(15, 23, 42, 0.14);
+
+  /* Typography */
+  --mkt-font: var(--ds-font-family, "Inter", ui-sans-serif, system-ui, sans-serif);
+  --mkt-display: clamp(2.25rem, 4.2vw, 3.75rem);
+  --mkt-h1: clamp(1.875rem, 3vw, 2.75rem);
+  --mkt-h2: clamp(1.5rem, 2.4vw, 2.125rem);
+  --mkt-h3: clamp(1.125rem, 1.5vw, 1.375rem);
+  --mkt-body: 1.0625rem;
+  --mkt-body-lg: 1.125rem;
+  --mkt-caption: 0.8125rem;
+  --mkt-eyebrow: 0.75rem;
+  --mkt-leading-tight: 1.1;
+  --mkt-leading-snug: 1.35;
+  --mkt-leading-relaxed: 1.65;
+
+  /* Spacing (section rhythm) */
+  --mkt-space-1: 4px;
+  --mkt-space-2: 8px;
+  --mkt-space-3: 12px;
+  --mkt-space-4: 16px;
+  --mkt-space-5: 20px;
+  --mkt-space-6: 24px;
+  --mkt-space-8: 32px;
+  --mkt-space-10: 40px;
+  --mkt-space-12: 48px;
+  --mkt-space-16: 64px;
+  --mkt-space-20: 80px;
+  --mkt-space-24: 96px;
+  --mkt-space-32: 128px;
+  /* Content sections — premium but intentional (slightly tighter than prior rhythm) */
+  --mkt-section-y: clamp(2.125rem, 3.4vw, 3.25rem);
+  /* Heroes: keep air without a large empty band under the sticky header */
+  --mkt-section-y-hero: clamp(2.5rem, 4vw, 4.25rem);
+  --mkt-gutter: clamp(1rem, 3vw, 1.5rem);
+  --mkt-max: 72rem;
+  --mkt-max-narrow: 42rem;
+  --mkt-max-wide: 80rem;
+
+  /* Radius & shadow */
+  --mkt-radius-md: 12px;
+  --mkt-radius-lg: 16px;
+  --mkt-radius-xl: 24px;
+  --mkt-radius-2xl: 32px;
+  --mkt-radius-full: 9999px;
+  --mkt-shadow-soft: 0 10px 40px rgba(15, 23, 42, 0.06);
+  --mkt-shadow-lift: 0 18px 50px rgba(15, 23, 42, 0.1);
+  --mkt-shadow-glow: 0 0 0 1px rgba(244, 163, 0, 0.1), 0 20px 60px rgba(244, 163, 0, 0.12);
+
+  /* Motion */
+  --mkt-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --mkt-duration-fast: 150ms;
+  --mkt-duration: 280ms;
+  --mkt-duration-slow: 450ms;
+
+  color: var(--mkt-ink);
+  font-family: var(--mkt-font);
+  background: var(--mkt-bg);
+  min-height: 100vh;
+  /* Atmosphere rendering tokens */
+  --mkt-bg-art-dark: none;
+  --mkt-bg-art-opacity: 0.44;
+  --mkt-bg-art-opacity-navy: 0.3;
+  --mkt-main-veil: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--mkt-mist) 34%, transparent) 0%,
+    color-mix(in srgb, var(--mkt-mist) 22%, transparent) 42%,
+    color-mix(in srgb, var(--mkt-mist) 48%, transparent) 100%
+  );
+  transition:
+    color var(--mkt-duration) var(--mkt-ease),
+    background var(--mkt-duration) var(--mkt-ease),
+    border-color var(--mkt-duration) var(--mkt-ease),
+    box-shadow var(--mkt-duration) var(--mkt-ease);
+}
+
+/* Dark mode — official HADRO palette, not leftover navy */
+html.dark .mkt {
+  --mkt-royal: #f4a300;
+  --mkt-royal-hover: #f5b833;
+  --mkt-navy: #0f0f0f;
+  --mkt-navy-soft: #1c1c1c;
+  --mkt-sky: #242424;
+  --mkt-mist: #0f0f0f;
+  --mkt-gray: #a3a3a3;
+  --mkt-ink: #f5f5f5;
+  --mkt-ink-soft: #a3a3a3;
+  --mkt-white: #1c1c1c;
+  --mkt-glass: rgba(28, 28, 28, 0.86);
+  --mkt-glass-border: rgba(42, 42, 42, 0.95);
+  --mkt-overlay: rgba(15, 15, 15, 0.72);
+  --mkt-header-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+  --mkt-focus-ring: #ffffff;
+  --mkt-bg: #0f0f0f;
+  --mkt-surface: #1c1c1c;
+  --mkt-surface-elevated: #242424;
+  --mkt-border: #2a2a2a;
+  --mkt-border-strong: #2a2a2a;
+  --mkt-shadow-soft: 0 12px 40px rgba(0, 0, 0, 0.4);
+  --mkt-shadow-lift: 0 22px 56px rgba(0, 0, 0, 0.5);
+  --mkt-shadow-glow: 0 0 0 1px rgba(244, 163, 0, 0.16), 0 20px 60px rgba(244, 163, 0, 0.18);
+  /* Dark theme uses atmosphere-dark on the main plane */
+  --mkt-bg-art-opacity: 0.4;
+  --mkt-bg-art-opacity-navy: 0.34;
+  --mkt-main-veil: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--mkt-mist) 55%, transparent) 0%,
+    color-mix(in srgb, var(--mkt-mist) 42%, transparent) 50%,
+    color-mix(in srgb, var(--mkt-mist) 62%, transparent) 100%
+  );
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .mkt,
+  .mkt * {
+    transition: none !important;
+  }
+}
+
+/* ── Layout utilities ── */
+.mkt-container {
+  width: 100%;
+  max-width: var(--mkt-max);
+  margin-inline: auto;
+  padding-inline: var(--mkt-gutter);
+}
+
+.mkt-container-wide {
+  width: 100%;
+  max-width: var(--mkt-max-wide);
+  margin-inline: auto;
+  padding-inline: var(--mkt-gutter);
+}
+
+.mkt-container-narrow {
+  width: 100%;
+  max-width: var(--mkt-max-narrow);
+  margin-inline: auto;
+  padding-inline: var(--mkt-gutter);
+}
+
+.mkt-section {
+  padding-block: var(--mkt-section-y);
+}
+
+.mkt-section--hero {
+  padding-block: var(--mkt-section-y-hero);
+  /* Tighter header → eyebrow clearance; still clears sticky nav */
+  padding-top: clamp(2.5rem, 4vw, 3.75rem);
+}
+
+/* ── Atmosphere artwork (main content only; never footer) ── */
+.mkt-main {
+  background: transparent;
+}
+
+.mkt-main::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: var(--mkt-main-veil);
+}
+
+.mkt-art-plane {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.mkt-art-variant {
+  position: absolute;
+  inset: 0;
+  transition: opacity var(--mkt-duration) var(--mkt-ease);
+}
+
+.mkt-art-variant--light {
+  opacity: 1;
+}
+
+.mkt-art-variant--dark {
+  opacity: 0;
+}
+
+html.dark .mkt .mkt-art-variant--light {
+  opacity: 0;
+}
+
+html.dark .mkt .mkt-art-variant--dark {
+  opacity: 1;
+}
+
+.mkt-art-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: contain;
+  object-position: center;
+  opacity: var(--mkt-bg-art-opacity);
+  image-rendering: auto;
+  -ms-interpolation-mode: bicubic;
+  user-select: none;
+}
+
+@media (max-width: 767px) {
+  .mkt-art-image {
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+@media (min-width: 1280px) {
+  .mkt-art-image {
+    object-fit: contain;
+    width: min(100%, 1600px);
+    height: auto;
+    max-height: 100%;
+    left: 50%;
+    top: 0;
+    right: auto;
+    bottom: auto;
+    transform: translateX(-50%);
+  }
+}
+
+/* Hero — visual emphasis for product mockup focal point */
+.mkt-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+}
+
+.mkt-hero-visual {
+  transform: scale(1.1);
+  transform-origin: center center;
+  will-change: transform;
+}
+
+@media (min-width: 1024px) {
+  .mkt-hero-visual {
+    transform: scale(1.18);
+  }
+}
+
+/* Navy CTA — full-bleed atmosphere (edge-to-edge viewport width) */
+.mkt-section--navy {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  width: 100%;
+}
+
+.mkt-section--navy::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background-color: transparent;
+  background-image: var(--mkt-bg-art-dark-fallback, none);
+  background-image: var(--mkt-bg-art-dark);
+  background-repeat: no-repeat;
+  background-position: center;
+  /* Cover the full section band — immersive, not boxed */
+  background-size: cover;
+  opacity: var(--mkt-bg-art-opacity-navy);
+}
+
+.mkt-section--navy > * {
+  position: relative;
+  z-index: 1;
+}
+
+.mkt-glass {
+  background: var(--mkt-glass);
+  border: 1px solid var(--mkt-glass-border);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: var(--mkt-shadow-soft);
+}
+
+/* Premium product showcase — single card; image clips to the same radius */
+.mkt-media-showcase {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: var(--mkt-radius-2xl);
+  border: 1px solid color-mix(in srgb, var(--mkt-royal) 18%, transparent);
+  /* Match the workflow artwork canvas (~#f6fafd) so any residual edge blends in */
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 45%, color-mix(in srgb, var(--mkt-royal) 8%, transparent) 0%, transparent 72%),
+    linear-gradient(180deg, #f6fafd 0%, #ffffff 50%, #f6fafd 100%);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--mkt-royal) 6%, transparent),
+    0 18px 50px rgba(15, 23, 42, 0.1),
+    0 0 60px color-mix(in srgb, var(--mkt-royal) 10%, transparent);
+}
+
+html.dark .mkt .mkt-media-showcase {
+  border-color: color-mix(in srgb, var(--mkt-royal) 28%, transparent);
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 40%, color-mix(in srgb, var(--mkt-royal) 18%, transparent) 0%, transparent 72%),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--mkt-surface-elevated) 88%, #f8fafc) 0%,
+      color-mix(in srgb, var(--mkt-surface) 70%, #ffffff) 45%,
+      color-mix(in srgb, var(--mkt-mist) 75%, var(--mkt-surface-elevated)) 100%
+    );
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--mkt-royal) 12%, transparent),
+    0 22px 56px rgba(0, 0, 0, 0.45),
+    0 0 70px color-mix(in srgb, var(--mkt-royal) 16%, transparent);
+}
+
+.mkt-media-showcase__glow {
+  pointer-events: none;
+  position: absolute;
+  inset: 10% 14%;
+  z-index: 0;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    color-mix(in srgb, var(--mkt-royal) 12%, transparent) 0%,
+    transparent 72%
+  );
+  filter: blur(28px);
+}
+
+@media (max-width: 767px) {
+  .mkt-media-showcase {
+    border-radius: var(--mkt-radius-xl);
+  }
+
+  .mkt-media-showcase__glow {
+    inset: 14% 8%;
+    filter: blur(20px);
+  }
+}
+
+/* Homepage Business Problems — illustration frame (premium polish; scoped only) */
+.mkt .business-problems-visual.mkt-media-showcase {
+  /* Slightly taller than 4:3 (~40–60px at desktop column widths) without stretch */
+  aspect-ratio: 5 / 4;
+  border-radius: var(--mkt-radius-xl);
+  border: 1px solid var(--mkt-border);
+  box-shadow:
+    0 14px 40px rgba(15, 23, 42, 0.08),
+    0 0 48px color-mix(in srgb, var(--mkt-royal) 12%, transparent);
+  transition:
+    transform 300ms var(--mkt-ease),
+    box-shadow 300ms var(--mkt-ease);
+}
+
+.mkt .business-problems-visual.mkt-media-showcase:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 20px 52px rgba(15, 23, 42, 0.12),
+    0 0 64px color-mix(in srgb, var(--mkt-royal) 18%, transparent);
+}
+
+html.dark .mkt .business-problems-visual.mkt-media-showcase {
+  border-color: var(--mkt-border);
+  box-shadow:
+    0 18px 48px rgba(0, 0, 0, 0.42),
+    0 0 56px color-mix(in srgb, var(--mkt-royal) 14%, transparent);
+}
+
+html.dark .mkt .business-problems-visual.mkt-media-showcase:hover {
+  box-shadow:
+    0 24px 56px rgba(0, 0, 0, 0.5),
+    0 0 72px color-mix(in srgb, var(--mkt-royal) 20%, transparent);
+}
+
+/* Crop: nudge toward left so the background coworker reads more clearly */
+.mkt .business-problems-visual__img {
+  object-position: 38% 48%;
+}
+
+/* Extremely subtle warm brand wash — integrates photo without filtering skin */
+.mkt .business-problems-visual__brand {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    155deg,
+    rgba(244, 163, 0, 0.08) 0%,
+    rgba(28, 28, 28, 0.04) 48%,
+    rgba(244, 163, 0, 0.06) 100%
+  );
+}
+
+html.dark .mkt .business-problems-visual__brand {
+  background: linear-gradient(
+    155deg,
+    rgba(244, 163, 0, 0.1) 0%,
+    rgba(28, 28, 28, 0.08) 48%,
+    rgba(244, 163, 0, 0.07) 100%
+  );
+}
+
+/* Caption — elegant, lower-left; dark gradient only behind the text */
+.mkt .business-problems-visual__caption {
+  pointer-events: none;
+  position: absolute;
+  left: var(--mkt-space-4);
+  bottom: var(--mkt-space-4);
+  z-index: 3;
+  max-width: min(17.5rem, calc(100% - var(--mkt-space-8)));
+  padding: var(--mkt-space-5) var(--mkt-space-4) var(--mkt-space-3) var(--mkt-space-3);
+  background: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--mkt-navy) 72%, transparent) 0%,
+    color-mix(in srgb, var(--mkt-navy) 36%, transparent) 55%,
+    transparent 100%
+  );
+  border-radius: var(--mkt-radius-md);
+}
+
+.mkt .business-problems-visual__caption .mkt-caption {
+  margin: 0;
+  /* Literal light text — --mkt-white remaps in dark mode */
+  color: rgba(248, 250, 252, 0.94);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-wrap: balance;
+}
+
+/* Homepage Business Problems — card hover lift (scoped; does not alter MarketingCard globally) */
+.mkt .mkt-problem-card {
+  transition:
+    transform var(--mkt-duration) var(--mkt-ease),
+    box-shadow var(--mkt-duration) var(--mkt-ease);
+}
+
+.mkt .mkt-problem-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--mkt-shadow-lift);
+}
+
+/* ── Typography ── */
+.mkt-eyebrow {
+  font-size: var(--mkt-eyebrow);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mkt-royal);
+}
+
+.mkt-display {
+  font-size: var(--mkt-display);
+  font-weight: 650;
+  line-height: var(--mkt-leading-tight);
+  letter-spacing: -0.03em;
+  color: var(--mkt-ink);
+  text-wrap: balance;
+}
+
+.mkt-h1 {
+  font-size: var(--mkt-h1);
+  font-weight: 650;
+  line-height: var(--mkt-leading-tight);
+  letter-spacing: -0.025em;
+  color: var(--mkt-ink);
+  text-wrap: balance;
+}
+
+.mkt-h2 {
+  font-size: var(--mkt-h2);
+  font-weight: 650;
+  line-height: var(--mkt-leading-snug);
+  letter-spacing: -0.02em;
+  color: var(--mkt-ink);
+  text-wrap: balance;
+}
+
+.mkt-h3 {
+  font-size: var(--mkt-h3);
+  font-weight: 600;
+  line-height: var(--mkt-leading-snug);
+  color: var(--mkt-ink);
+}
+
+.mkt-body {
+  font-size: var(--mkt-body);
+  line-height: var(--mkt-leading-relaxed);
+  color: var(--mkt-ink-soft);
+  text-wrap: pretty;
+}
+
+.mkt-body-lg {
+  font-size: var(--mkt-body-lg);
+  line-height: var(--mkt-leading-relaxed);
+  color: var(--mkt-ink-soft);
+  text-wrap: pretty;
+}
+
+.mkt-caption {
+  font-size: var(--mkt-caption);
+  line-height: 1.5;
+  color: var(--mkt-gray);
+}
+
+/* ── Focus ── */
+.mkt :focus-visible {
+  outline: 2px solid var(--mkt-focus-ring);
+  outline-offset: 3px;
+}

@@ -1,0 +1,8 @@
+{
+  "generic": "Une erreur s'est produite",
+  "unableToLoad": "Impossible de charger",
+  "unableToLoadData": "Impossible de charger ces données.",
+  "unavailableForRole": "Ces informations ne sont pas disponibles pour votre rôle.",
+  "noSectionAccess": "Vous n'avez pas accès à cette section.",
+  "noSectionAccessBody": "Cette fonction n'est pas disponible pour votre rôle. Si vous avez besoin d'un accès, contactez l'administrateur de votre entreprise."
+}

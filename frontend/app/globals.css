@@ -1,0 +1,569 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "../styles/design-tokens.css";
+@import "../styles/shell.css";
+@import "../styles/marketing-tokens.css";
+
+:root {
+  --sidebar-width: 16rem;
+  --header-height: 3.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  @apply antialiased;
+  font-family: var(--ds-font-family);
+  background: var(--app-bg);
+  color: var(--text-primary);
+}
+
+/* Main / platform sidebar frame */
+.sidebar-shell {
+  background: var(--sidebar-surface);
+  border-right: 1px solid var(--sidebar-border);
+}
+html.dark .sidebar-shell {
+  background: var(--sidebar-surface);
+  border-right-color: var(--sidebar-border);
+}
+
+/* Sidebar / platform nav — hover, active, focus */
+.nav-link {
+  transition: background-color 180ms ease, color 180ms ease;
+}
+.nav-link:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--sidebar-surface), 0 0 0 4px var(--ring-focus);
+}
+.nav-link:not(.nav-link-active):hover {
+  color: var(--text-primary);
+}
+.nav-link-active {
+  background: var(--nav-active-bg);
+  color: var(--nav-active-text);
+  font-weight: 600;
+}
+.sidebar-nav-link.nav-link-active {
+  background: var(--sidebar-nav-active-bg);
+  color: var(--ds-color-text-primary);
+  font-weight: 600;
+  border-radius: 12px;
+  box-shadow:
+    0 1px 2px color-mix(in srgb, var(--ds-color-text-primary) 6%, transparent),
+    inset 3px 0 0 var(--sidebar-nav-active-accent);
+}
+html.dark .sidebar-nav-link.nav-link-active {
+  background: color-mix(in srgb, var(--ds-color-surface) 85%, transparent);
+  color: var(--ds-color-text-primary);
+  box-shadow:
+    0 1px 3px color-mix(in srgb, var(--ds-color-overlay) 50%, transparent),
+    inset 3px 0 0 var(--sidebar-nav-active-accent);
+}
+
+/* Primary / secondary / preset buttons — see unified definitions below */
+
+/* Form controls — shared focus ring */
+.input-field {
+  @apply w-full rounded-lg border text-sm;
+  box-sizing: border-box;
+  height: var(--ds-control-height-md);
+  border-color: var(--border-soft);
+  background: var(--surface-muted);
+  color: var(--text-primary);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+:where(.input-field) {
+  padding-inline-start: var(--ds-input-padding-left, 0.75rem);
+  padding-inline-end: var(--ds-input-padding-right, 0.75rem);
+}
+.input-field:is([type="date"], [type="month"], [type="datetime-local"]) {
+  position: relative;
+  min-width: 0;
+  font-variant-numeric: tabular-nums;
+  color-scheme: light;
+}
+/*
+ * Hide the native calendar glyph so DateInput’s Lucide icon is the only visible
+ * indicator. Stretch a transparent hit-target so the native picker still opens.
+ */
+.input-field:is([type="date"], [type="month"], [type="datetime-local"])::-webkit-calendar-picker-indicator {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.input-field[type="search"]::-webkit-search-cancel-button {
+  flex: 0 0 auto;
+  margin-inline-start: 0.5rem;
+  cursor: pointer;
+}
+select.input-field {
+  padding-inline-start: var(--ds-input-padding-left, 0.75rem);
+  padding-inline-end: var(--ds-input-padding-right, 2.5rem);
+}
+textarea.input-field {
+  height: auto;
+  min-height: 5rem;
+}
+html.dark .input-field:is([type="date"], [type="month"], [type="datetime-local"]) {
+  color-scheme: dark;
+}
+.input-field::placeholder {
+  color: var(--text-muted);
+  opacity: 0.75;
+}
+
+.input-field:focus-visible {
+  outline: none;
+  border-color: color-mix(in srgb, var(--ds-color-primary) 45%, transparent);
+  box-shadow: 0 0 0 3px var(--ring-focus);
+}
+html.dark .input-field:focus-visible {
+  border-color: color-mix(in srgb, var(--ds-color-primary) 55%, transparent);
+}
+
+.input-field:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  background: var(--surface-muted);
+  color: var(--text-muted);
+}
+
+/* HADRO form controls — saffron interaction, never generic browser blue */
+input[type="checkbox"]:not(.sr-only):not([role="switch"]),
+.hadro-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1rem;
+  height: 1rem;
+  margin: 0;
+  flex-shrink: 0;
+  border: 1px solid var(--ds-color-border);
+  border-radius: 4px;
+  background: var(--ds-color-surface);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 0.7rem;
+  accent-color: var(--ds-color-primary);
+  cursor: pointer;
+}
+
+input[type="checkbox"]:not(.sr-only):not([role="switch"]):checked,
+.hadro-checkbox:checked {
+  background-color: var(--ds-color-primary);
+  border-color: var(--ds-color-primary);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'><path d='M3.5 8.5 6.5 11.5 12.5 4.5' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+}
+
+input[type="radio"]:not(.sr-only),
+.hadro-radio {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1rem;
+  height: 1rem;
+  margin: 0;
+  flex-shrink: 0;
+  border: 1px solid var(--ds-color-border);
+  border-radius: 999px;
+  background: var(--ds-color-surface);
+  accent-color: var(--ds-color-primary);
+  cursor: pointer;
+}
+
+input[type="radio"]:not(.sr-only):checked,
+.hadro-radio:checked {
+  border-color: var(--ds-color-primary);
+  background: radial-gradient(circle at center, var(--ds-color-primary) 0 0.28rem, var(--ds-color-surface) 0.32rem 100%);
+}
+
+input[type="checkbox"]:not(.sr-only):focus-visible,
+input[type="radio"]:not(.sr-only):focus-visible,
+.hadro-checkbox:focus-visible,
+.hadro-radio:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--ds-ring-focus);
+}
+
+:where(a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])):focus:not(:focus-visible) {
+  outline: none;
+}
+
+:where(a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])):focus-visible {
+  outline: 2px solid var(--ds-color-primary);
+  outline-offset: 2px;
+}
+
+.ds-focus-ring:focus-visible,
+.input-field:focus-visible,
+.hadro-checkbox:focus-visible,
+.hadro-radio:focus-visible {
+  outline: none;
+}
+
+/*
+ * Dashboard welcome illustration — photograph-sized element + diagonal mask.
+ *
+ * Geometry: height: 100%; width: auto; right-aligned so the <img> box matches the
+ * rendered photograph. Mask % apply to the photo width (not the full card).
+ *
+ * Fade: same 108deg mask in light and dark. Full opacity by 30% of the photograph.
+ * No overlay — mask reveals the existing period-gradient background.
+ */
+.ds-welcome-illustration {
+  width: auto;
+}
+
+.ds-welcome-illustration-photo {
+  position: absolute !important;
+  top: 0;
+  right: 0;
+  height: 100% !important;
+  width: auto !important;
+  max-width: none !important;
+  -webkit-mask-image: linear-gradient(
+    108deg,
+    transparent 0%,
+    transparent 10%,
+    rgba(0, 0, 0, 0.4) 18%,
+    #000 30%,
+    #000 100%
+  );
+  mask-image: linear-gradient(
+    108deg,
+    transparent 0%,
+    transparent 10%,
+    rgba(0, 0, 0, 0.4) 18%,
+    #000 30%,
+    #000 100%
+  );
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* Semantic text (prefer over raw gray-* for body copy in themed UI) */
+.text-theme {
+  color: var(--text-primary);
+}
+.text-theme-muted {
+  color: var(--text-muted);
+}
+
+.surface-callout {
+  border: 1px solid var(--border-soft);
+  border-radius: 0.5rem;
+  background: var(--surface-muted);
+  color: var(--text-primary);
+}
+
+.alert-error {
+  border-radius: 0.375rem;
+  border: 1px solid var(--state-error-border);
+  background: var(--state-error-bg);
+  color: var(--state-error-text);
+  font-size: 0.875rem;
+}
+
+.alert-success {
+  border-radius: 0.375rem;
+  border: 1px solid var(--state-success-border);
+  background: var(--state-success-bg);
+  color: var(--state-success-text);
+  font-size: 0.875rem;
+}
+
+/* Warning callout — readable in light & dark via warning tokens */
+.callout-warning {
+  border-radius: 0.5rem;
+  border: 1px solid var(--ds-color-warning-border);
+  background: var(--ds-color-warning-subtle);
+  color: var(--ds-color-warning-text);
+  line-height: 1.45;
+  padding: 0.5rem 0.75rem;
+}
+
+/* QR modules — keep a light pad for reliable scanning */
+.qr-code-pad {
+  background: var(--ds-color-text-inverse);
+}
+
+@keyframes toast-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Login wallpaper — SVG art, subtle; light/dark via html.dark */
+.login-page-shell {
+  position: relative;
+  min-height: 100vh;
+  isolation: isolate;
+  background: var(--app-bg);
+  overflow-x: clip;
+}
+
+.login-art-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.login-art-layer--light {
+  background-image: url(/brand/login-bg-light.svg);
+  opacity: 0.2;
+}
+
+.login-art-layer--dark {
+  background-image: url(/brand/login-bg-dark.svg);
+  opacity: 0.13;
+}
+
+.login-page-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* HADRO workspace transition — full-viewport auth handoff */
+.hadro-workspace-loader__indicator {
+  width: 3.25rem;
+  height: 2px;
+  border-radius: 999px;
+  background: color-mix(in srgb, #f4a300 22%, transparent);
+  overflow: hidden;
+}
+
+.hadro-workspace-loader__bar {
+  display: block;
+  width: 40%;
+  height: 100%;
+  border-radius: inherit;
+  background: #f4a300;
+  animation: hadro-workspace-loader-sweep 1.15s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+@keyframes hadro-workspace-loader-sweep {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(320%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hadro-workspace-loader__bar {
+    width: 100%;
+    animation: none;
+    opacity: 0.85;
+  }
+}
+
+/* Public landing — hero-anchored radials + vertical wash; no patterns, images, or login art */
+.landing-shell {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  overflow-x: clip;
+  color: var(--text-primary);
+  background-color: var(--app-bg);
+  /* First image = top layer. Left = hero column (~max-w-6xl grid), right = preview card; vertical = base atmosphere */
+  background-image:
+    radial-gradient(
+      ellipse 110% 88% at 26% 30%,
+      var(--ds-color-primary-subtle),
+      transparent 64%
+    ),
+    radial-gradient(
+      ellipse 78% 74% at 76% 34%,
+      var(--ds-color-accent-violet-subtle),
+      transparent 60%
+    ),
+    linear-gradient(
+      180deg,
+      var(--surface-muted) 0%,
+      var(--app-bg) 50%,
+      var(--app-bg) 100%
+    );
+}
+html.dark .landing-shell {
+  background-image:
+    radial-gradient(
+      ellipse 118% 92% at 24% 28%,
+      var(--ds-color-primary-subtle),
+      transparent 66%
+    ),
+    radial-gradient(
+      ellipse 82% 76% at 74% 32%,
+      var(--ds-color-accent-violet-subtle),
+      transparent 62%
+    ),
+    linear-gradient(
+      180deg,
+      var(--surface-muted) 0%,
+      var(--app-bg) 48%,
+      var(--app-bg) 100%
+    );
+}
+
+/* Landing chrome — subtle “glass” surfaces for header/footer */
+.landing-chrome {
+  /* Visibly tinted (blue/slate) glass — should not read as plain white */
+  background: color-mix(in srgb, var(--ds-color-primary-muted) 40%, var(--ds-color-surface));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+html.dark .landing-chrome {
+  /* Lifted dark surface with a cool tint (still subtle, but clearly not flat) */
+  background: color-mix(in srgb, var(--ds-color-surface) 88%, transparent);
+}
+
+.landing-footer-surface {
+  /* Slightly deeper tint than header for grounding */
+  background: color-mix(in srgb, var(--ds-color-primary-muted) 50%, var(--ds-color-surface-muted));
+}
+html.dark .landing-footer-surface {
+  background: color-mix(in srgb, var(--ds-color-background) 84%, transparent);
+}
+
+/* Public legal pages — login-family art + soft veil; art stays behind content only */
+.legal-page-shell {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  overflow-x: clip;
+  color: var(--text-primary);
+  background-color: var(--app-bg);
+  background-image: linear-gradient(180deg, var(--surface-muted) 0%, var(--app-bg) 38%, var(--app-bg) 100%);
+}
+html.dark .legal-page-shell {
+  background-image: linear-gradient(180deg, var(--surface-muted) 0%, var(--app-bg) 36%, var(--app-bg) 100%);
+}
+
+.legal-art-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.legal-art-layer--light {
+  background-image: url(/brand/login-bg-light.svg);
+  opacity: 0.11;
+}
+.legal-art-layer--dark {
+  background-image: url(/brand/login-bg-dark.svg);
+  opacity: 0.085;
+}
+
+.legal-page-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Gradient frame (landing-inspired) + solid inner reading surface */
+.legal-card-frame {
+  border-radius: 1.25rem;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, #f4a300 36%, transparent) 0%,
+    color-mix(in srgb, #1c1c1c 14%, transparent) 48%,
+    color-mix(in srgb, var(--ds-color-text-muted) 16%, transparent) 100%
+  );
+  box-shadow: var(--ds-shadow-floating), 0 0 0 1px var(--ds-color-border);
+}
+html.dark .legal-card-frame {
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, #f4a300 28%, transparent) 0%,
+    color-mix(in srgb, #ffffff 10%, transparent) 45%,
+    color-mix(in srgb, var(--ds-color-surface) 55%, transparent) 100%
+  );
+  box-shadow: var(--ds-shadow-modal), 0 0 0 1px var(--ds-color-border);
+}
+
+.legal-card-inner {
+  border-radius: calc(1.25rem - 1px);
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--ds-color-text-inverse) 55%, transparent);
+}
+html.dark .legal-card-inner {
+  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--ds-color-text-inverse) 6%, transparent);
+}
+
+.legal-contact-panel {
+  border-radius: 0.875rem;
+  border: 1px solid var(--border-soft);
+  background: var(--surface-muted);
+  padding: 1rem 1.125rem;
+  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--ds-color-text-inverse) 35%, transparent);
+}
+html.dark .legal-contact-panel {
+  background: color-mix(in srgb, var(--ds-color-surface) 82%, transparent);
+  box-shadow: inset 0 1px 0 color-mix(in srgb, var(--ds-color-text-inverse) 5%, transparent);
+}
+
+/* App scrollbars — thin, token-aligned */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--ds-color-text-muted) 55%, transparent) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--ds-color-text-muted) 45%, transparent);
+  border-radius: var(--ds-radius-full);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--ds-color-text-secondary) 65%, transparent);
+}
+
+html.dark * {
+  scrollbar-color: color-mix(in srgb, var(--ds-color-text-muted) 55%, transparent) transparent;
+}
+
+html.dark *::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--ds-color-text-muted) 45%, transparent);
+}
+
+html.dark *::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--ds-color-text-muted) 55%, transparent);
+}
+

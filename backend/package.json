@@ -1,0 +1,44 @@
+{
+  "name": "hadro-api",
+  "version": "2.5.3",
+  "description": "HADRO V2 API — workforce, attendance, payroll, notifications",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "prebuild": "node ../scripts/release-sync.mjs",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "test": "jest --passWithNoTests",
+    "test:attendance": "jest --testPathPattern=attendance|earlyLeave",
+    "test:scope": "jest --testPathPattern=branchScope.regression"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.98.0",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.3.3",
+    "@types/nodemailer": "^8.0.0",
+    "@types/pdfkit": "^0.17.5",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "exceljs": "^4.4.0",
+    "express": "^5.2.1",
+    "helmet": "^8.2.0",
+    "jsonwebtoken": "^9.0.3",
+    "jwks-rsa": "^4.0.0",
+    "nodemailer": "^8.0.7",
+    "pdfkit": "^0.17.2",
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@types/helmet": "^0.0.48",
+    "@types/jest": "^30.0.0",
+    "jest": "^30.3.0",
+    "ts-jest": "^29.4.6",
+    "ts-node-dev": "^2.0.0"
+  }
+}

@@ -1,0 +1,353 @@
+/**
+ * HADRO Design System — centralized tokens (Phase: Enterprise UI Foundation)
+ *
+ * Official HADRO palette:
+ *   Background        #0F0F0F
+ *   Surface           #1C1C1C
+ *   Elevated Surface  #242424
+ *   Border            #2A2A2A
+ *   Primary Text      #F5F5F5
+ *   Secondary Text    #A3A3A3
+ *   Muted             #737373
+ *   HADRO Accent      #F4A300
+ *
+ * :root is the light counterpart. html.dark uses the official palette above.
+ * All UI components should consume these variables instead of hardcoded values.
+ */
+
+:root {
+  /* ── Color: brand (HADRO saffron accent on charcoal structure) ── */
+  --ds-color-primary: #f4a300;
+  --ds-color-primary-hover: #d48f00;
+  --ds-color-primary-active: #b87a00;
+  --ds-color-primary-subtle: rgba(244, 163, 0, 0.12);
+  --ds-color-primary-muted: rgba(244, 163, 0, 0.06);
+
+  /* ── Color: semantic ── */
+  --ds-color-success: #059669;
+  --ds-color-success-hover: #047857;
+  --ds-color-success-subtle: rgba(16, 185, 129, 0.12);
+  --ds-color-success-border: rgba(16, 185, 129, 0.22);
+  --ds-color-success-text: #047857;
+
+  --ds-color-warning: #d97706;
+  --ds-color-warning-hover: #b45309;
+  --ds-color-warning-subtle: rgba(245, 158, 11, 0.12);
+  --ds-color-warning-border: rgba(245, 158, 11, 0.28);
+  --ds-color-warning-text: #92400e;
+
+  --ds-color-danger: #dc2626;
+  --ds-color-danger-hover: #b91c1c;
+  --ds-color-danger-subtle: rgba(239, 68, 68, 0.1);
+  --ds-color-danger-border: rgba(220, 38, 38, 0.2);
+  --ds-color-danger-text: #b91c1c;
+
+  --ds-color-info: #0284c7;
+  --ds-color-info-hover: #0369a1;
+  --ds-color-info-subtle: rgba(14, 165, 233, 0.12);
+  --ds-color-info-border: rgba(14, 165, 233, 0.22);
+  --ds-color-info-text: #075985;
+
+  /* ── Color: secondary accents (dashboard / status tiles) ── */
+  --ds-color-accent-violet: #7c3aed;
+  --ds-color-accent-violet-subtle: rgba(124, 58, 237, 0.1);
+  --ds-color-accent-violet-border: rgba(124, 58, 237, 0.22);
+  --ds-color-accent-violet-text: #6d28d9;
+
+  --ds-color-accent-pink: #db2777;
+  --ds-color-accent-pink-subtle: rgba(219, 39, 119, 0.1);
+  --ds-color-accent-pink-border: rgba(219, 39, 119, 0.22);
+  --ds-color-accent-pink-text: #be185d;
+
+  --ds-color-accent-orange: #ea580c;
+  --ds-color-accent-orange-subtle: rgba(234, 88, 12, 0.1);
+  --ds-color-accent-orange-border: rgba(234, 88, 12, 0.22);
+  --ds-color-accent-orange-text: #c2410c;
+
+  --ds-color-text-inverse: #ffffff;
+
+  /* Welcome banner period themes (gradients reference other tokens) */
+  --ds-welcome-morning-gradient: linear-gradient(
+    135deg,
+    var(--ds-color-primary-subtle) 0%,
+    var(--ds-color-primary-muted) 36%,
+    var(--ds-color-surface) 100%
+  );
+  --ds-welcome-morning-glow: var(--ds-color-primary-subtle);
+  --ds-welcome-afternoon-gradient: linear-gradient(
+    135deg,
+    var(--ds-color-warning-subtle) 0%,
+    var(--ds-color-accent-orange-subtle) 28%,
+    var(--ds-color-surface-muted) 52%,
+    var(--ds-color-surface) 100%
+  );
+  --ds-welcome-afternoon-glow: var(--ds-color-warning-subtle);
+  --ds-welcome-evening-gradient: linear-gradient(
+    135deg,
+    var(--ds-color-accent-violet-subtle) 0%,
+    var(--ds-color-primary-muted) 32%,
+    var(--ds-color-info-subtle) 55%,
+    var(--ds-color-surface) 100%
+  );
+  --ds-welcome-evening-glow: var(--ds-color-accent-violet-subtle);
+
+  /* ── Color: surfaces & text ── */
+  --ds-color-background: #f3f3f2;
+  --ds-color-surface: #ffffff;
+  --ds-color-surface-muted: #f7f7f6;
+  --ds-color-surface-elevated: #ffffff;
+  --ds-color-card: #ffffff;
+  --ds-color-border: rgba(28, 28, 28, 0.1);
+  --ds-color-border-strong: rgba(28, 28, 28, 0.16);
+  --ds-color-text-primary: #1c1c1c;
+  --ds-color-text-secondary: #3a3a3a;
+  --ds-color-text-muted: #6b6b6b;
+  --ds-color-overlay: rgba(28, 28, 28, 0.4);
+  --ds-color-nav-hover: rgba(28, 28, 28, 0.055);
+  --ds-color-nav-active-bg: rgba(244, 163, 0, 0.12);
+  --ds-color-nav-active-text: #b87a00;
+
+  /* ── Spacing scale (px) ── */
+  --ds-space-1: 4px;
+  --ds-space-2: 8px;
+  --ds-space-3: 12px;
+  --ds-space-4: 16px;
+  --ds-space-5: 20px;
+  --ds-space-6: 24px;
+  --ds-space-8: 32px;
+  --ds-space-10: 40px;
+  --ds-space-12: 48px;
+  --ds-space-16: 64px;
+
+  /* ── Border radius ── */
+  --ds-radius-sm: 6px;
+  --ds-radius-md: 8px;
+  --ds-radius-lg: 12px;
+  --ds-radius-xl: 16px;
+  --ds-radius-2xl: 20px;
+  --ds-radius-full: 9999px;
+
+  /* ── Shadows ── */
+  --ds-shadow-card: 0 1px 2px rgba(15, 23, 42, 0.04), 0 4px 20px rgba(15, 23, 42, 0.07);
+  --ds-shadow-hover: 0 2px 8px rgba(15, 23, 42, 0.08), 0 8px 24px rgba(15, 23, 42, 0.06);
+  --ds-shadow-dropdown: 0 4px 16px rgba(15, 23, 42, 0.1), 0 2px 6px rgba(15, 23, 42, 0.06);
+  --ds-shadow-modal: 0 16px 48px rgba(15, 23, 42, 0.14), 0 4px 16px rgba(15, 23, 42, 0.08);
+  --ds-shadow-floating: 0 8px 32px rgba(15, 23, 42, 0.12);
+
+  /* ── Motion ── */
+  --ds-duration-fast: 120ms;
+  --ds-duration-normal: 180ms;
+  --ds-duration-slow: 280ms;
+  --ds-ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ds-ease-emphasized: cubic-bezier(0.2, 0, 0, 1);
+
+  /* ── Focus ── */
+  --ds-ring-focus: rgba(244, 163, 0, 0.35);
+  --ds-ring-focus-width: 3px;
+  --ds-ring-offset: 2px;
+
+  /* ── Typography ── */
+  --ds-font-family: var(--font-inter, "Inter"), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --ds-font-display: 2rem;
+  --ds-font-h1: 1.5rem;
+  --ds-font-h2: 1.25rem;
+  --ds-font-h3: 1.125rem;
+  --ds-font-body: 0.875rem;
+  --ds-font-body-sm: 0.8125rem;
+  --ds-font-caption: 0.75rem;
+  --ds-font-label: 0.75rem;
+  --ds-font-button: 0.875rem;
+  --ds-line-display: 1.2;
+  --ds-line-heading: 1.3;
+  --ds-line-body: 1.5;
+  --ds-line-caption: 1.4;
+  --ds-weight-regular: 400;
+  --ds-weight-medium: 500;
+  --ds-weight-semibold: 600;
+  --ds-weight-bold: 700;
+
+  /* ── Component sizes ── */
+  --ds-control-height-sm: 32px;
+  --ds-control-height-md: 36px;
+  --ds-control-height-lg: 40px;
+  --ds-control-padding-x: 12px;
+
+  /* ── Legacy aliases (backward compatibility) ── */
+  --app-bg: var(--ds-color-background);
+  --surface: var(--ds-color-surface);
+  --surface-muted: var(--ds-color-surface-muted);
+  --surface-elevated: var(--ds-color-surface-elevated);
+  --text-primary: var(--ds-color-text-primary);
+  --text-muted: var(--ds-color-text-muted);
+  --border-soft: var(--ds-color-border);
+  --nav-hover: var(--ds-color-nav-hover);
+  --nav-active-bg: var(--ds-color-nav-active-bg);
+  --nav-active-text: var(--ds-color-nav-active-text);
+  --shadow-soft: var(--ds-shadow-card);
+  --shadow-drawer: -4px 0 32px rgba(15, 23, 42, 0.09);
+  --ds-shadow-drawer: var(--shadow-drawer);
+  --overlay-scrim: var(--ds-color-overlay);
+  --ring-focus: var(--ds-ring-focus);
+  --state-error-bg: var(--ds-color-danger-subtle);
+  --state-error-border: var(--ds-color-danger-border);
+  --state-error-text: var(--ds-color-danger-text);
+  --state-error-btn-bg: rgba(254, 226, 226, 0.9);
+  --state-success-bg: var(--ds-color-success-subtle);
+  --state-success-border: var(--ds-color-success-border);
+  --state-success-text: var(--ds-color-success-text);
+}
+
+html.dark {
+  --ds-color-primary: #f4a300;
+  --ds-color-primary-hover: #f5b833;
+  --ds-color-primary-active: #d48f00;
+  --ds-color-primary-subtle: rgba(244, 163, 0, 0.16);
+  --ds-color-primary-muted: rgba(244, 163, 0, 0.09);
+
+  --ds-color-success-text: #6ee7b7;
+  --ds-color-success-subtle: rgba(6, 78, 59, 0.48);
+  --ds-color-success-border: rgba(52, 211, 153, 0.28);
+
+  --ds-color-warning-text: #fcd34d;
+  --ds-color-warning-subtle: rgba(245, 158, 11, 0.14);
+  --ds-color-warning-border: rgba(245, 158, 11, 0.3);
+
+  --ds-color-danger-text: #fecaca;
+  --ds-color-danger-subtle: rgba(69, 10, 10, 0.52);
+  --ds-color-danger-border: rgba(248, 113, 113, 0.28);
+
+  --ds-color-info-text: #7dd3fc;
+  --ds-color-info-subtle: rgba(12, 74, 110, 0.45);
+  --ds-color-info-border: rgba(56, 189, 248, 0.28);
+
+  --ds-color-accent-violet-text: #c4b5fd;
+  --ds-color-accent-violet-subtle: rgba(124, 58, 237, 0.22);
+  --ds-color-accent-violet-border: rgba(167, 139, 250, 0.35);
+
+  --ds-color-accent-pink-text: #f9a8d4;
+  --ds-color-accent-pink-subtle: rgba(219, 39, 119, 0.22);
+  --ds-color-accent-pink-border: rgba(244, 114, 182, 0.35);
+
+  --ds-color-accent-orange-text: #fdba74;
+  --ds-color-accent-orange-subtle: rgba(234, 88, 12, 0.2);
+  --ds-color-accent-orange-border: rgba(251, 146, 60, 0.35);
+
+  --ds-color-text-inverse: #ffffff;
+
+  --ds-color-background: #0f0f0f;
+  --ds-color-surface: #1c1c1c;
+  --ds-color-surface-muted: #0f0f0f;
+  --ds-color-surface-elevated: #242424;
+  --ds-color-card: #1c1c1c;
+  --ds-color-border: #2a2a2a;
+  --ds-color-border-strong: #2a2a2a;
+  --ds-color-text-primary: #f5f5f5;
+  --ds-color-text-secondary: #a3a3a3;
+  --ds-color-text-muted: #737373;
+  --ds-color-overlay: rgba(15, 15, 15, 0.72);
+  --ds-color-nav-hover: rgba(245, 245, 245, 0.06);
+  --ds-color-nav-active-bg: rgba(244, 163, 0, 0.16);
+  --ds-color-nav-active-text: #f5b833;
+
+  --ds-shadow-card: 0 1px 2px rgba(0, 0, 0, 0.25), 0 8px 28px rgba(0, 0, 0, 0.4);
+  --ds-shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.35);
+  --ds-shadow-dropdown: 0 8px 28px rgba(0, 0, 0, 0.45);
+  --ds-shadow-modal: 0 24px 64px rgba(0, 0, 0, 0.55);
+  --ds-shadow-floating: 0 12px 40px rgba(0, 0, 0, 0.5);
+
+  --ds-ring-focus: rgba(244, 163, 0, 0.35);
+
+  --shadow-drawer: -6px 0 40px rgba(0, 0, 0, 0.45);
+  --ds-shadow-drawer: var(--shadow-drawer);
+  --state-error-btn-bg: rgba(127, 29, 29, 0.4);
+}
+
+/* ── Typography utilities ── */
+.ds-display {
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-font-display);
+  font-weight: var(--ds-weight-semibold);
+  line-height: var(--ds-line-display);
+  letter-spacing: -0.02em;
+  color: var(--ds-color-text-primary);
+}
+
+.ds-h1 {
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-font-h1);
+  font-weight: var(--ds-weight-semibold);
+  line-height: var(--ds-line-heading);
+  color: var(--ds-color-text-primary);
+}
+
+.ds-h2 {
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-font-h2);
+  font-weight: var(--ds-weight-semibold);
+  line-height: var(--ds-line-heading);
+  color: var(--ds-color-text-primary);
+}
+
+.ds-h3 {
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-font-h3);
+  font-weight: var(--ds-weight-semibold);
+  line-height: var(--ds-line-heading);
+  color: var(--ds-color-text-primary);
+}
+
+.ds-body {
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-font-body);
+  font-weight: var(--ds-weight-regular);
+  line-height: var(--ds-line-body);
+  color: var(--ds-color-text-primary);
+}
+
+.ds-body-sm {
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-font-body-sm);
+  line-height: var(--ds-line-body);
+  color: var(--ds-color-text-secondary);
+}
+
+.ds-caption {
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-font-caption);
+  line-height: var(--ds-line-caption);
+  color: var(--ds-color-text-muted);
+}
+
+.ds-label {
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-font-label);
+  font-weight: var(--ds-weight-medium);
+  line-height: var(--ds-line-caption);
+  color: var(--ds-color-text-secondary);
+  letter-spacing: 0.01em;
+}
+
+/* ── Focus ring utility ── */
+.ds-focus-ring:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 var(--ds-ring-offset) var(--ds-color-surface),
+    0 0 0 calc(var(--ds-ring-offset) + var(--ds-ring-focus-width)) var(--ds-ring-focus);
+}
+
+/* ── Skeleton animation ── */
+@keyframes ds-skeleton-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+
+.ds-skeleton {
+  background: var(--ds-color-surface-muted);
+  border-radius: var(--ds-radius-md);
+  animation: ds-skeleton-pulse 1.6s var(--ds-ease-standard) infinite;
+}
