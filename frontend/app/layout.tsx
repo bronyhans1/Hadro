@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Noto_Sans_Arabic } from "next/font/google";
 import { AuthProvider } from "@/lib/auth/AuthContext";
 import { SupabaseRecoveryRedirect } from "@/components/auth/SupabaseRecoveryRedirect";
 import { ToastProvider } from "@/components/ui/ToastProvider";
@@ -11,11 +11,21 @@ import { MARKETING } from "@/lib/marketing/siteConfig";
 import "./globals.css";
 
 const inter = Inter({
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
   variable: "--font-inter",
   display: "swap",
   preload: true,
   adjustFontFallback: true,
+});
+
+/** Arabic UI/marketing text — loaded beside Inter; applied only when lang=ar. */
+const notoSansArabic = Noto_Sans_Arabic({
+  subsets: ["arabic"],
+  variable: "--font-noto-sans-arabic",
+  display: "swap",
+  preload: false,
+  adjustFontFallback: true,
+  weight: ["400", "600", "700"],
 });
 
 const homeMetadata = createMarketingMetadata(HOME_SEO);
@@ -50,7 +60,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.variable} suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable} ${notoSansArabic.variable}`} suppressHydrationWarning>
       <body className={inter.className}>
         <script
           dangerouslySetInnerHTML={{

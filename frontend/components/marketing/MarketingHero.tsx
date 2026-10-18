@@ -28,15 +28,15 @@ export function MarketingHero({
 }: Props) {
   return (
     <section className={cn("mkt-section mkt-section--hero mkt-hero", className)}>
-      <div className="mkt-container grid items-center gap-8 lg:grid-cols-12 lg:gap-10">
-        <div className="min-w-0 lg:col-span-6">
+      <div className="mkt-container mkt-hero-grid">
+        <div className="mkt-hero-copy min-w-0">
           {eyebrow ? <p className="mkt-eyebrow">{eyebrow}</p> : null}
           <h1 className={cn("mkt-display", eyebrow && "mt-3")}>{title}</h1>
-          <p className="mkt-body-lg mt-4 max-w-xl">{description}</p>
+          <p className="mkt-body-lg max-w-xl">{description}</p>
           {actions ? (
-            <div className="mt-7">{actions}</div>
+            <div className="mkt-hero-actions">{actions}</div>
           ) : primaryCta || secondaryCta ? (
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <div className="mkt-hero-actions flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               {primaryCta ? (
                 <MarketingLinkButton href={primaryCta.href} size="lg" external={primaryCta.external}>
                   {primaryCta.label}
@@ -55,9 +55,7 @@ export function MarketingHero({
             </div>
           ) : null}
         </div>
-        {visual ? (
-          <div className="mkt-hero-visual min-w-0 lg:col-span-6">{visual}</div>
-        ) : null}
+        {visual ? <div className="mkt-hero-visual min-w-0">{visual}</div> : null}
       </div>
     </section>
   );

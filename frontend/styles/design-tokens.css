@@ -148,6 +148,8 @@
 
   /* ── Typography ── */
   --ds-font-family: var(--font-inter, "Inter"), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --ds-font-family-arabic: var(--font-noto-sans-arabic, "Noto Sans Arabic"), var(--font-inter, "Inter"),
+    ui-sans-serif, system-ui, sans-serif;
   --ds-font-display: 2rem;
   --ds-font-h1: 1.5rem;
   --ds-font-h2: 1.25rem;

@@ -28,6 +28,12 @@ body {
   color: var(--text-primary);
 }
 
+/* Arabic: Noto Sans Arabic for readable RTL glyphs; Latin UI still falls back to Inter */
+html[lang="ar"],
+html[lang="ar"] body {
+  font-family: var(--ds-font-family-arabic);
+}
+
 /* Main / platform sidebar frame */
 .sidebar-shell {
   background: var(--sidebar-surface);

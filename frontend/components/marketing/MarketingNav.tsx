@@ -49,10 +49,10 @@ export function MarketingNav({ previewMode = false }: Props) {
           : "border-transparent bg-[var(--mkt-glass)]/80 backdrop-blur-md"
       )}
     >
-      <div className="mkt-container flex h-[4.25rem] items-center justify-between gap-3">
+      <div className="mkt-container flex h-[4.25rem] items-center justify-between gap-2 min-[1400px]:gap-3">
         <Link
           href={MARKETING_ROUTES.home}
-          className="inline-flex min-w-0 shrink-0 items-center overflow-visible py-1 pr-2"
+          className="inline-flex min-w-0 shrink-0 items-center overflow-visible py-1 pr-1.5 min-[1400px]:pr-2"
           aria-label={marketingText("nav.homeLink", { values: { brand: BRAND.appName } })}
         >
           <BrandLockup
@@ -64,8 +64,12 @@ export function MarketingNav({ previewMode = false }: Props) {
           />
         </Link>
 
+        {/*
+          Full horizontal nav from 1400px up — at 1280 French labels + CTA overflowed the
+          container. Below that breakpoint, keep the compact menu control.
+        */}
         <nav
-          className="hidden items-center gap-0.5 xl:flex"
+          className="hidden items-center gap-0 min-[1400px]:flex"
           aria-label={marketingText("nav.marketing")}
         >
           {MARKETING_NAV.map((item) => {
@@ -75,7 +79,7 @@ export function MarketingNav({ previewMode = false }: Props) {
               return (
                 <span
                   key={item.href}
-                  className="whitespace-nowrap rounded-lg px-2.5 py-2 text-[13px] font-medium text-[var(--mkt-gray)]"
+                  className="whitespace-nowrap rounded-lg px-2 py-2 text-[13px] font-medium text-[var(--mkt-gray)] min-[1536px]:px-2.5"
                   title={marketingText("nav.comingSoon")}
                 >
                   {item.label}
@@ -88,7 +92,7 @@ export function MarketingNav({ previewMode = false }: Props) {
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "whitespace-nowrap rounded-lg px-2.5 py-2 text-[13px] font-medium transition-colors",
+                  "whitespace-nowrap rounded-lg px-2 py-2 text-[13px] font-medium transition-colors min-[1536px]:px-2.5",
                   active
                     ? "bg-[var(--mkt-sky)] text-[var(--mkt-royal)]"
                     : "text-[var(--mkt-ink-soft)] hover:bg-[var(--mkt-sky)] hover:text-[var(--mkt-ink)]"
@@ -100,7 +104,7 @@ export function MarketingNav({ previewMode = false }: Props) {
           })}
         </nav>
 
-        <div className="hidden shrink-0 items-center gap-2 xl:flex">
+        <div className="hidden shrink-0 items-center gap-1.5 min-[1400px]:flex min-[1536px]:gap-2">
           <LanguageSelector />
           <MarketingThemeToggle />
           <MarketingLinkButton href={MARKETING_ROUTES.login} variant="ghost" size="md" className="whitespace-nowrap">
@@ -116,7 +120,7 @@ export function MarketingNav({ previewMode = false }: Props) {
           </MarketingLinkButton>
         </div>
 
-        <div className="flex items-center gap-2 xl:hidden">
+        <div className="flex items-center gap-2 min-[1400px]:hidden">
           <MarketingThemeToggle />
           <button
             type="button"
@@ -152,7 +156,7 @@ export function MarketingNav({ previewMode = false }: Props) {
       </div>
 
       {open ? (
-        <div id="mkt-mobile-nav" className="border-t border-[var(--mkt-border)] xl:hidden">
+        <div id="mkt-mobile-nav" className="border-t border-[var(--mkt-border)] min-[1400px]:hidden">
           <div className="mkt-container flex flex-col gap-1 py-4">
             {MARKETING_NAV.map((item) => {
               const disabled = item.comingSoon && !previewMode;
