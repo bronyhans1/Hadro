@@ -17,6 +17,7 @@ import {
   toShiftWindowSource,
 } from "../../lib/shiftWindow";
 import { normalizeBusinessTimeZone } from "../../lib/businessCalendar";
+import { prepareHourlyLeaveCreditAgainstAttendance } from "./hourlyLeaveAttendanceGate";
 
 /** Sync paid-leave hourly credits for a calendar month (no attendance session required). */
 export async function syncHourlyLeavePayrollForMonth(
@@ -66,7 +67,7 @@ export async function syncHourlyLeavePayrollForMonth(
   );
 
   const existingMonth = await payrollRepo.getPayrollByUserMonth(userId, companyId, year, month);
-  const protectedDates = new Set(
+  const protectedLeaveDates = new Set(
     existingMonth
       .filter(
         (r) =>
@@ -74,6 +75,15 @@ export async function syncHourlyLeavePayrollForMonth(
           isPayrollRecordProtected(r.status)
       )
       .map((r) => (r.earnings_date ?? r.payroll_date).slice(0, 10))
+  );
+  const protectedAttendanceDates = new Set(
+    existingMonth
+      .filter(
+        (r) =>
+          (r.record_type ?? "session_hourly") === "session_hourly" &&
+          isPayrollRecordProtected(r.status)
+      )
+      .map((r) => r.payroll_date.slice(0, 10))
   );
 
   await payrollRepo.deleteDraftLeaveHourlyForUserMonth(userId, companyId, year, month);
@@ -86,7 +96,8 @@ export async function syncHourlyLeavePayrollForMonth(
 
   for (let d = 1; d <= lastDay; d++) {
     const iso = `${year}-${String(month).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
-    if (protectedDates.has(iso)) continue;
+    if (protectedLeaveDates.has(iso)) continue;
+    if (protectedAttendanceDates.has(iso)) continue;
 
     const ctx = leaveByDay.get(iso);
     if (ctx?.classification !== "PAID_LEAVE" || !ctx.leaveCoverage) continue;
@@ -114,6 +125,13 @@ export async function syncHourlyLeavePayrollForMonth(
     if (gross <= 0) continue;
 
     const regularMinutes = Math.round(expectedHours * 60);
+
+    const attendanceGate = await prepareHourlyLeaveCreditAgainstAttendance({
+      userId,
+      companyId,
+      attendanceDayYmd: iso,
+    });
+    if (!attendanceGate.ok) continue;
 
     await payrollRepo.insertLeaveHourlyRecord({
       user_id: userId,

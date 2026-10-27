@@ -79,75 +79,91 @@ html.dark .sidebar-nav-link.nav-link-active {
 
 /* Primary / secondary / preset buttons — see unified definitions below */
 
-/* Form controls — shared focus ring */
-.input-field {
-  @apply w-full rounded-lg border text-sm;
-  box-sizing: border-box;
-  height: var(--ds-control-height-md);
-  border-color: var(--border-soft);
-  background: var(--surface-muted);
-  color: var(--text-primary);
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
-}
-:where(.input-field) {
-  padding-inline-start: var(--ds-input-padding-left, 0.75rem);
-  padding-inline-end: var(--ds-input-padding-right, 0.75rem);
-}
-.input-field:is([type="date"], [type="month"], [type="datetime-local"]) {
-  position: relative;
-  min-width: 0;
-  font-variant-numeric: tabular-nums;
-  color-scheme: light;
-}
 /*
- * Hide the native calendar glyph so DateInput’s Lucide icon is the only visible
- * indicator. Stretch a transparent hit-target so the native picker still opens.
+ * Form controls — shared focus ring + text inset.
+ * In @layer components so Tailwind utilities (pr-20, pe-20, pl-10, …) can
+ * override padding for icon/button affixes. Class specificity still beats
+ * preflight `input { padding: 0 }`.
  */
-.input-field:is([type="date"], [type="month"], [type="datetime-local"])::-webkit-calendar-picker-indicator {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  opacity: 0;
-  cursor: pointer;
-}
-.input-field[type="search"]::-webkit-search-cancel-button {
-  flex: 0 0 auto;
-  margin-inline-start: 0.5rem;
-  cursor: pointer;
-}
-select.input-field {
-  padding-inline-start: var(--ds-input-padding-left, 0.75rem);
-  padding-inline-end: var(--ds-input-padding-right, 2.5rem);
-}
-textarea.input-field {
-  height: auto;
-  min-height: 5rem;
-}
-html.dark .input-field:is([type="date"], [type="month"], [type="datetime-local"]) {
-  color-scheme: dark;
-}
-.input-field::placeholder {
-  color: var(--text-muted);
-  opacity: 0.75;
-}
+@layer components {
+  .input-field {
+    @apply w-full rounded-lg border text-sm;
+    box-sizing: border-box;
+    height: var(--ds-control-height-md);
+    padding-inline-start: var(--ds-input-padding-left, var(--ds-input-padding-inline, 0.875rem));
+    padding-inline-end: var(--ds-input-padding-right, var(--ds-input-padding-inline, 0.875rem));
+    border-color: var(--border-soft);
+    background: var(--surface-muted);
+    color: var(--text-primary);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  .input-field:is([type="date"], [type="month"], [type="datetime-local"]) {
+    position: relative;
+    min-width: 0;
+    font-variant-numeric: tabular-nums;
+    color-scheme: light;
+  }
+  /*
+   * Hide the native calendar glyph so DateInput’s Lucide icon is the only visible
+   * indicator. Stretch a transparent hit-target so the native picker still opens.
+   */
+  .input-field:is([type="date"], [type="month"], [type="datetime-local"])::-webkit-calendar-picker-indicator {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .input-field[type="search"]::-webkit-search-cancel-button {
+    flex: 0 0 auto;
+    margin-inline-start: 0.5rem;
+    cursor: pointer;
+  }
+  select.input-field {
+    padding-inline-start: var(--ds-input-padding-left, var(--ds-input-padding-inline, 0.875rem));
+    padding-inline-end: var(--ds-input-padding-right, 2.5rem);
+  }
+  textarea.input-field {
+    height: auto;
+    min-height: 5rem;
+    padding-block: 0.625rem;
+  }
+  html.dark .input-field:is([type="date"], [type="month"], [type="datetime-local"]) {
+    color-scheme: dark;
+  }
+  .input-field::placeholder {
+    color: var(--text-muted);
+    opacity: 0.75;
+  }
 
-.input-field:focus-visible {
-  outline: none;
-  border-color: color-mix(in srgb, var(--ds-color-primary) 45%, transparent);
-  box-shadow: 0 0 0 3px var(--ring-focus);
-}
-html.dark .input-field:focus-visible {
-  border-color: color-mix(in srgb, var(--ds-color-primary) 55%, transparent);
-}
+  .input-field:focus-visible {
+    outline: none;
+    border-color: color-mix(in srgb, var(--ds-color-primary) 45%, transparent);
+    box-shadow: 0 0 0 3px var(--ring-focus);
+  }
+  html.dark .input-field:focus-visible {
+    border-color: color-mix(in srgb, var(--ds-color-primary) 55%, transparent);
+  }
 
-.input-field:disabled {
-  cursor: not-allowed;
-  opacity: 0.6;
-  background: var(--surface-muted);
-  color: var(--text-muted);
+  .input-field:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    background: var(--surface-muted);
+    color: var(--text-muted);
+  }
+
+  /*
+   * Custom Select (SelectField) trigger — same horizontal inset as .input-field.
+   * Extra end padding leaves room for the chevron; gap-2 separates label and icon.
+   */
+  .select-field-trigger {
+    box-sizing: border-box;
+    padding-inline-start: var(--ds-input-padding-left, var(--ds-input-padding-inline, 0.875rem));
+    padding-inline-end: var(--ds-select-padding-end, 0.625rem);
+  }
 }
 
 /* HADRO form controls — saffron interaction, never generic browser blue */

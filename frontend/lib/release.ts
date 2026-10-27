@@ -14,7 +14,7 @@ export const RELEASE = {
   environment: resolveEnvironment(manifest.environment),
 } as const;
 
-/** User-visible version label, e.g. v2.5.3 */
+/** User-visible version label, e.g. v3.0.0 */
 export function versionLabel(version: string = RELEASE.version): string {
   return `v${version}`;
 }

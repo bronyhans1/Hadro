@@ -44,12 +44,34 @@ function baseMonthly(overrides: Partial<EarningsSummary> = {}): EarningsSummary 
 }
 
 describe("toLiveEarnedLeaveView", () => {
-  test("preserves today's paid leave after shift-close credit", () => {
+  test("pass-through after shift-close: preserves backend paid-leave today_earned", () => {
     const input = baseMonthly();
     const view = toLiveEarnedLeaveView(input);
     expect(view).toEqual(input);
     expect(view.today_earned).toBe(200);
     expect(view.daily_history.map((r) => r.date)).toEqual(["2026-06-16", "2026-06-15"]);
+  });
+
+  test("pass-through before closure: keeps backend zero today_earned (no client math)", () => {
+    const input = baseMonthly({
+      today_earned: 0,
+      today_base_before_late: 0,
+      paid_days: 1,
+      month_earned_total: 200,
+      month_earned_salary_daily: 200,
+      daily_history: [
+        {
+          date: "2026-06-15",
+          gross: 200,
+          record_type: "salary_daily",
+          earning_source: "paid_leave",
+          payroll_day_classification: "PAID_LEAVE",
+        },
+      ],
+    });
+    const view = toLiveEarnedLeaveView(input);
+    expect(view.today_earned).toBe(0);
+    expect(view).toEqual(input);
   });
 
   test("leaves non-leave days unchanged", () => {

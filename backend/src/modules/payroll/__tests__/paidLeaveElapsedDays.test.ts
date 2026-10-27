@@ -105,6 +105,10 @@ describe("syncHourlyLeavePayrollForMonth — elapsed paid leave days", () => {
     jest.mocked(payrollWageRepo.getHourlyRate).mockResolvedValue(50);
     jest.mocked(payrollRepo.getPayrollByUserMonth).mockResolvedValue([]);
     jest.mocked(payrollRepo.deleteDraftLeaveHourlyForUserMonth).mockResolvedValue(undefined);
+    jest
+      .mocked(payrollRepo.deleteDraftSessionHourlyForUserAttendanceDay)
+      .mockResolvedValue(undefined);
+    jest.mocked(payrollRepo.findProtectedSessionHourlyForAttendanceDay).mockResolvedValue(null);
     jest.mocked(payrollRepo.insertLeaveHourlyRecord).mockImplementation(async (data) => ({
       id: `lh-${data.earnings_date}`,
       ...data,
@@ -135,6 +139,11 @@ describe("syncHourlyLeavePayrollForMonth — elapsed paid leave days", () => {
     expect(payrollRepo.insertLeaveHourlyRecord).toHaveBeenCalledTimes(1);
     expect(payrollRepo.insertLeaveHourlyRecord).toHaveBeenCalledWith(
       expect.objectContaining({ earnings_date: "2026-06-15" })
+    );
+    expect(payrollRepo.deleteDraftSessionHourlyForUserAttendanceDay).toHaveBeenCalledWith(
+      USER,
+      COMPANY,
+      "2026-06-15"
     );
   });
 

@@ -18,6 +18,15 @@ jest.mock("../wageRates.repository");
 jest.mock("../../sessions/sessions.repository");
 jest.mock("../../companyPolicy/companyPolicy.service");
 jest.mock("../../shifts/shifts.repository");
+jest.mock("../payrollLeaveAwareness.service", () => ({
+  getPayrollDayClassification: jest.fn().mockResolvedValue({
+    date: "2026-06-01",
+    classification: "WORKING",
+    leaveCoverage: null,
+    coveredByPaidLeave: false,
+    coveredByUnpaidLeave: false,
+  }),
+}));
 jest.mock("../../payrollPeriod/payrollPeriod.repository", () => ({
   findByCompanyMonth: jest.fn().mockResolvedValue({
     id: "period-1",
@@ -38,6 +47,7 @@ jest.mock("../../payrollPeriod/payrollPeriod.service", () => ({
 }));
 
 import * as shiftsRepo from "../../shifts/shifts.repository";
+import * as payrollLeaveAwareness from "../payrollLeaveAwareness.service";
 
 const sessionA = {
   id: "sess-a",
@@ -75,11 +85,49 @@ describe("syncDraftHourlyPayrollForAttendanceDay", () => {
     jest.mocked(wageRatesRepo.getHourlyRate).mockResolvedValue(20);
     jest.mocked(payrollRepo.getPayrollBySessionId).mockResolvedValue(null);
     jest.mocked(shiftsRepo.getShiftById).mockResolvedValue(null);
+    jest.mocked(payrollLeaveAwareness.getPayrollDayClassification).mockResolvedValue({
+      date: "2026-06-01",
+      classification: "WORKING",
+      leaveCoverage: null,
+      coveredByPaidLeave: false,
+      coveredByUnpaidLeave: false,
+    });
+    jest
+      .mocked(payrollRepo.deleteDraftSessionHourlyForUserAttendanceDay)
+      .mockResolvedValue(undefined);
     jest.mocked(payrollRepo.createPayrollRecord).mockImplementation(async (data) => ({
       id: `p-${data.session_id}`,
       ...data,
       status: "draft",
     }) as never);
+  });
+
+  test("PAID_LEAVE day: no session_hourly writes; draft attendance cleared", async () => {
+    jest.mocked(payrollLeaveAwareness.getPayrollDayClassification).mockResolvedValue({
+      date: "2026-06-01",
+      classification: "PAID_LEAVE",
+      leaveCoverage: null,
+      coveredByPaidLeave: true,
+      coveredByUnpaidLeave: false,
+    });
+    const map = new Map([
+      ["sess-a", sessionA as never],
+      ["sess-b", sessionB as never],
+    ]);
+    const result = await syncDraftHourlyPayrollForAttendanceDay(
+      "u1",
+      "c1",
+      "2026-06-01",
+      map,
+      [sessionA as never, sessionB as never]
+    );
+    expect(result.wrote).toBe(0);
+    expect(payrollRepo.createPayrollRecord).not.toHaveBeenCalled();
+    expect(payrollRepo.deleteDraftSessionHourlyForUserAttendanceDay).toHaveBeenCalledWith(
+      "u1",
+      "c1",
+      "2026-06-01"
+    );
   });
 
   test("Case 5: approved row is not overwritten", async () => {

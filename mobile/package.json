@@ -1,6 +1,6 @@
 {
   "name": "hadro-mobile",
-  "version": "2.5.3",
+  "version": "3.0.0",
   "main": "expo-router/entry",
   "scripts": {
     "release:sync": "node ../scripts/release-sync.mjs",

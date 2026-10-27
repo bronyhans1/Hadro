@@ -18,6 +18,30 @@ describe("salaryLeavePayroll.engine", () => {
     expect(r.earningSource).toBe("paid_leave");
   });
 
+  test("PAID_LEAVE ignores worked minutes (leave wins over attendance)", () => {
+    const r = resolveMonthlyWorkingDayPayroll({
+      leaveClassification: "PAID_LEAVE",
+      workedMinutes: 480,
+      classificationEnabled: true,
+      thresholds: { min: 60, full: 480 },
+      dailyRate: 150,
+    });
+    expect(r.gross).toBe(150);
+    expect(r.earningSource).toBe("paid_leave");
+  });
+
+  test("monthly salary leave behaviour unchanged by hourly attendance gate", () => {
+    const working = resolveMonthlyWorkingDayPayroll({
+      leaveClassification: "WORKING",
+      workedMinutes: 480,
+      classificationEnabled: false,
+      thresholds: { min: 60, full: 480 },
+      dailyRate: 100,
+    });
+    expect(working.earningSource).toBe("attendance");
+    expect(working.gross).toBe(100);
+  });
+
   test("UNPAID_LEAVE yields zero gross", () => {
     const r = resolveMonthlyWorkingDayPayroll({
       leaveClassification: "UNPAID_LEAVE",

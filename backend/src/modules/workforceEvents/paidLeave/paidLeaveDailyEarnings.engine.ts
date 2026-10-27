@@ -28,6 +28,7 @@ import {
   toShiftWindowSource,
 } from "../../../lib/shiftWindow";
 import { normalizeBusinessTimeZone } from "../../../lib/businessCalendar";
+import { prepareHourlyLeaveCreditAgainstAttendance } from "../../payroll/hourlyLeaveAttendanceGate";
 import type { WorkforceEventContext, WorkforceEventCreditResult } from "../types";
 
 /**
@@ -153,6 +154,15 @@ export async function creditPaidLeaveWorkforceEvent(
       const gross = computeHourlyPaidLeaveGross(expectedHours, hourlyRate);
       if (gross <= 0) {
         return { status: "skipped", reason: "zero_gross" };
+      }
+
+      const attendanceGate = await prepareHourlyLeaveCreditAgainstAttendance({
+        userId,
+        companyId,
+        attendanceDayYmd: ownershipYmd,
+      });
+      if (!attendanceGate.ok) {
+        return { status: "skipped", reason: attendanceGate.reason };
       }
 
       const row = await payrollRepo.insertLeaveHourlyRecord({

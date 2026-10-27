@@ -1,14 +1,14 @@
 {
-  "version": "2.5.3",
-  "build": 3,
-  "releaseDate": "2026-07-20",
+  "version": "3.0.0",
+  "build": 4,
+  "releaseDate": "2026-10-26",
   "codename": "UX Polish",
   "environment": "development",
   "productName": "HADRO",
-  "phase": "V2",
+  "phase": "V3",
   "mobile": {
-    "androidVersionCode": 3,
-    "iosBuildNumber": "3"
+    "androidVersionCode": 4,
+    "iosBuildNumber": "4"
   },
   "notes": "Canonical release manifest. Update version here, then run: npm run release:sync"
 }

@@ -77,10 +77,8 @@ export function Input({
           )}
           style={{
             ...controlStyle,
-            "--ds-input-padding-left": hasLeftIcon ? "2.5rem" : "0.75rem",
-            "--ds-input-padding-right": hasRightIcon ? "2.5rem" : "0.75rem",
-            paddingInlineStart: hasLeftIcon ? "2.5rem" : "0.75rem",
-            paddingInlineEnd: hasRightIcon ? "2.5rem" : "0.75rem",
+            "--ds-input-padding-left": hasLeftIcon ? "2.5rem" : "var(--ds-input-padding-inline)",
+            "--ds-input-padding-right": hasRightIcon ? "2.5rem" : "var(--ds-input-padding-inline)",
             ...style,
           } as React.CSSProperties}
           data-native-picker={isNativePicker ? "true" : undefined}
@@ -144,10 +142,9 @@ export function Textarea({
       <textarea
         id={inputId}
         rows={rows}
-        className={cn(controlBase, "input-field resize-y px-3 py-2", error && "border-[var(--ds-color-danger-border)]", className)}
+        className={cn(controlBase, "input-field resize-y", error && "border-[var(--ds-color-danger-border)]", className)}
         style={{
           ...controlStyle,
-          paddingInline: "0.75rem",
           ...style,
         }}
         aria-invalid={error ? true : ariaInvalid}

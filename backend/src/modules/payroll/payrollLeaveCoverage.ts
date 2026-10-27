@@ -52,6 +52,29 @@ export function isDateWithinLeavePayrollPeriod(
   return dateYmd <= leave.end_date;
 }
 
+/**
+ * Whether self-service attendance should be blocked for this leave on `dateYmd`.
+ * Aligns with payroll coverage for active leave: approved inclusive range, or
+ * terminated `[start, actual_return_date)`. Completed/cancelled/rejected never block.
+ *
+ * Matches monthly payroll policy: a leave-covered day is not an attendance earning day.
+ */
+export function leaveBlocksSelfServiceAttendanceOnDate(
+  leave: Pick<LeaveRequestRecord, "status" | "start_date" | "end_date" | "actual_return_date">,
+  dateYmd: string
+): boolean {
+  const status = normalizeLeaveLifecycleStatus(leave.status);
+  if (status !== "approved" && status !== "terminated") return false;
+  return isDateWithinLeavePayrollPeriod(leave, dateYmd);
+}
+
+/** When true, hourly session payroll must not credit attendance for the day. */
+export function shouldSuppressHourlyAttendanceForLeaveClassification(
+  classification: PayrollDayClassification | undefined | null
+): boolean {
+  return classification === "PAID_LEAVE" || classification === "UNPAID_LEAVE";
+}
+
 export type LeaveCoverageForDate = {
   leaveRequestId: string;
   leaveType: string;

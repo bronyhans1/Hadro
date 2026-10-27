@@ -493,7 +493,7 @@ export async function terminateApprovedLeave(params: {
       return {
         data: null,
         error:
-          "Return date must be the first day back at work, from leave start through the day after approved end.",
+          "Return date must be the first day back at work (exclusive end for leave). Valid range: leave start through the day after approved end. Mid-leave defaults keep the termination calendar day as leave.",
       };
     }
     if (code === "leave_balance_missing") {

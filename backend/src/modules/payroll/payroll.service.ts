@@ -11,6 +11,8 @@ import { isCompletedPayrollEligibleSession } from "../../lib/remoteAttendancePay
 import { isPayrollRecordProtected } from "./payrollRecordProtection";
 import { getPayrollPeriodEditabilityForDate } from "../payrollPeriod/payrollPeriodEditable";
 import { resolveEditablePayrollPeriodId } from "./payrollPeriodOwnership";
+import { getPayrollDayClassification } from "./payrollLeaveAwareness.service";
+import { shouldSuppressHourlyAttendanceForLeaveClassification } from "./payrollLeaveCoverage";
 import {
   allocateDailySessionOvertime,
   computeHourlySessionGrossBeforeLate,
@@ -113,6 +115,17 @@ export async function syncDraftHourlyPayrollForAttendanceDay(
   const payrollPeriodId =
     editability.periodId ??
     (await resolveEditablePayrollPeriodId(companyId, calendarDay));
+
+  // Align with monthly leave-wins policy: leave-covered days do not get session_hourly.
+  const dayCtx = await getPayrollDayClassification(userId, companyId, calendarDay);
+  if (shouldSuppressHourlyAttendanceForLeaveClassification(dayCtx.classification)) {
+    await payrollRepo.deleteDraftSessionHourlyForUserAttendanceDay(
+      userId,
+      companyId,
+      calendarDay
+    );
+    return { wrote: 0, protectedSkipped: 0, rateSkipped: 0 };
+  }
 
   const policy = await companyPolicyService.getPolicy(companyId);
   const mode = policy.overtime_policy_mode ?? "duration";

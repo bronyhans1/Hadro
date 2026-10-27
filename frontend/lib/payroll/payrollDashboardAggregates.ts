@@ -106,6 +106,7 @@ export type EmployeePayrollRollup = {
   userId: string;
   employeeName: string;
   employeeEmail: string | null;
+  profilePhotoUrl: string | null;
   rateType: EmployeeRateType;
   attendanceEarnings: number;
   paidLeave: number;
@@ -172,11 +173,14 @@ export function computeEmployeeRollups(records: PayrollRecord[]): EmployeePayrol
 
     const first = userRecords[0];
     const statuses = statusCounts(userRecords);
+    const profilePhotoUrl =
+      userRecords.map((r) => r.profile_photo_url?.trim()).find((url) => !!url) ?? null;
 
     rollups.push({
       userId,
       employeeName: first.employee_name?.trim() || first.employee_email || userId.slice(0, 8) + "…",
       employeeEmail: first.employee_email ?? null,
+      profilePhotoUrl,
       rateType: inferEmployeeRateType(userRecords),
       attendanceEarnings: round2(attendanceEarnings),
       paidLeave: round2(paidLeave),

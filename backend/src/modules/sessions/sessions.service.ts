@@ -261,14 +261,23 @@ function isValidLongitude(value: number): boolean {
   return value >= -180 && value <= 180;
 }
 
-async function assertEmployeeNotOnApprovedLeave(
+/**
+ * Blocks self-service clock-in while company-local today is inside active leave
+ * coverage (approved, or terminated before first day back). Matches payroll period
+ * semantics so termination-day paid leave is not paired with attendance earnings.
+ */
+async function assertEmployeeNotOnLeaveCoverageForAttendance(
   userId: string,
   companyId: string
 ): Promise<{ ok: true } | { ok: false; error: string }> {
   const businessTz = await getCompanyBusinessTimeZone(companyId);
   const today = calendarYmdInTimeZone(new Date(), businessTz).iso;
-  const active = await leaveRepo.findApprovedLeaveCoveringDate(userId, companyId, today);
-  if (active) {
+  const blocking = await leaveRepo.findLeaveBlockingAttendanceOnDate(
+    userId,
+    companyId,
+    today
+  );
+  if (blocking) {
     return { ok: false, error: CLOCK_IN_BLOCKED_ON_APPROVED_LEAVE };
   }
   return { ok: true };
@@ -398,6 +407,17 @@ export async function clockIn(
       data: null,
       error: "You already have an active clock-in session",
     };
+  }
+
+  // Self-service only — manual/admin attendance may still record a session.
+  if (!options?.manual) {
+    const leaveBlock = await assertEmployeeNotOnLeaveCoverageForAttendance(
+      userId,
+      companyId
+    );
+    if (!leaveBlock.ok) {
+      return { data: null, error: leaveBlock.error };
+    }
   }
 
   const resolved = await resolveClockInBranchAndDepartment(userId, companyId, input);
@@ -886,7 +906,10 @@ export async function remoteClockIn(
     };
   }
 
-  const leaveBlock = await assertEmployeeNotOnApprovedLeave(userId, companyId);
+  const leaveBlock = await assertEmployeeNotOnLeaveCoverageForAttendance(
+    userId,
+    companyId
+  );
   if (!leaveBlock.ok) {
     return { data: null, error: leaveBlock.error };
   }

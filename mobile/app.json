@@ -2,18 +2,18 @@
   "expo": {
     "name": "HADRO",
     "slug": "hadro",
-    "version": "2.5.3",
+    "version": "3.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.hadro.mobile",
-      "buildNumber": "3"
+      "buildNumber": "4"
     },
     "android": {
       "package": "com.hadro.mobile",
-      "versionCode": 3,
+      "versionCode": 4,
       "adaptiveIcon": {
         "backgroundColor": "#1C1C1C",
         "foregroundImage": "./assets/android-icon-foreground.png",

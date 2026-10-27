@@ -4,12 +4,37 @@
  *
  * Valid return dates: [start_date, end_date + 1 calendar day].
  * Used days = count of leave days before return = (actual_return_date - start_date) in whole days.
+ *
+ * Default when terminating mid-leave: next calendar day (asOf + 1), so the
+ * termination calendar day remains inside leave coverage and the first day
+ * back is excluded. Explicit return dates may still choose asOf (today) when
+ * the employee is expected back the same day.
  */
 
-export function maxTerminateReturnDateYmd(endDateYmd: string): string {
-  const [y, m, d] = endDateYmd.split("-").map(Number);
-  const dt = new Date(Date.UTC(y, m - 1, d + 1));
+export function addCalendarDaysYmd(ymd: string, deltaDays: number): string {
+  const [y, m, d] = ymd.split("-").map(Number);
+  const dt = new Date(Date.UTC(y, m - 1, d + deltaDays));
   return dt.toISOString().slice(0, 10);
+}
+
+export function maxTerminateReturnDateYmd(endDateYmd: string): string {
+  return addCalendarDaysYmd(endDateYmd, 1);
+}
+
+/**
+ * Default first-day-back for the terminate UI / clients.
+ * Mid-leave: tomorrow (capped at day after approved end) so asOf stays eligible.
+ */
+export function defaultTerminateReturnDate(
+  leave: { start_date: string; end_date: string },
+  asOfDate: string
+): string {
+  const asOf = asOfDate.slice(0, 10);
+  const maxReturn = maxTerminateReturnDateYmd(leave.end_date);
+  if (asOf < leave.start_date) return leave.start_date;
+  if (asOf > leave.end_date) return maxReturn;
+  const nextDay = addCalendarDaysYmd(asOf, 1);
+  return nextDay > maxReturn ? maxReturn : nextDay;
 }
 
 export function isValidTerminateReturnDate(

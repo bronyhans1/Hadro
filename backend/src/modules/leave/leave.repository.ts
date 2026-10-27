@@ -1,4 +1,5 @@
 import { supabaseAdmin } from "../../config/supabase";
+import { leaveBlocksSelfServiceAttendanceOnDate } from "../payroll/payrollLeaveCoverage";
 
 export interface LeaveRequestRecord {
   id: string;
@@ -535,6 +536,30 @@ export async function findApprovedLeaveCoveringDate(
 
   if (error) throw error;
   return (data ?? null) as LeaveRequestRecord | null;
+}
+
+/**
+ * Leave that blocks self-service clock-in on dateYmd: approved covering the day, or
+ * terminated with date still before actual_return_date (exclusive first day back).
+ */
+export async function findLeaveBlockingAttendanceOnDate(
+  userId: string,
+  companyId: string,
+  dateYmd: string
+): Promise<LeaveRequestRecord | null> {
+  const { data, error } = await supabaseAdmin
+    .from("leave_requests")
+    .select("*")
+    .eq("company_id", companyId)
+    .eq("user_id", userId)
+    .in("status", ["approved", "terminated"])
+    .lte("start_date", dateYmd)
+    .gte("end_date", dateYmd)
+    .order("start_date", { ascending: false });
+
+  if (error) throw error;
+  const rows = (data ?? []) as LeaveRequestRecord[];
+  return rows.find((row) => leaveBlocksSelfServiceAttendanceOnDate(row, dateYmd)) ?? null;
 }
 
 /**

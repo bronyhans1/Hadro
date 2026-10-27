@@ -283,7 +283,7 @@
   "originalDates": "Datas originais:",
   "overrideReasonColon": "Motivo da substituição:",
   "firstDayBack": "Primeiro dia de regresso ao trabalho",
-  "firstDayBackHint": "O primeiro dia civil em que se espera o regresso do colaborador.",
+  "firstDayBackHint": "Primeiro dia de regresso. A cobertura da licença termina no dia anterior; o dia da rescisão permanece como licença, salvo se o regresso for hoje.",
   "auditNotePlaceholder": "Nota opcional para o rasto de auditoria",
   "estimatedRestoredDays": "Dias restaurados estimados:",
   "noDaysRestored": "Nenhum dia de licença será restaurado para a data de regresso selecionada. Considere permitir que a licença conclua normalmente.",

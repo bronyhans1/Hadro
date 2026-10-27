@@ -2,8 +2,10 @@ import type { LeaveRequestRecord } from "../../leave/leave.repository";
 import { computeRestoredDaysFromTermination } from "../../leave/leaveTerminationMath";
 import {
   isDateWithinLeavePayrollPeriod,
+  leaveBlocksSelfServiceAttendanceOnDate,
   payrollDayClassificationFromCoverage,
   resolveLeaveCoverageForDate,
+  shouldSuppressHourlyAttendanceForLeaveClassification,
 } from "../payrollLeaveCoverage";
 
 function leaveRow(
@@ -94,6 +96,43 @@ describe("payrollLeaveCoverage lifecycle", () => {
       actualReturnDateYmd: "2026-06-04",
     });
     expect(r?.usedDays).toBe(3);
+  });
+
+  test("Mon–Tue leave terminated Mon with return Tue: Mon eligible, Tue not", () => {
+    const terminated = leaveRow({
+      status: "terminated",
+      start_date: "2026-06-01",
+      end_date: "2026-06-02",
+      actual_return_date: "2026-06-02",
+      leave_compensation_type: "paid",
+    });
+    expect(isDateWithinLeavePayrollPeriod(terminated, "2026-06-01")).toBe(true);
+    expect(isDateWithinLeavePayrollPeriod(terminated, "2026-06-02")).toBe(false);
+    expect(isDateWithinLeavePayrollPeriod(terminated, "2026-06-03")).toBe(false);
+  });
+
+  test("attendance block: termination day blocked; first day back allowed", () => {
+    const terminated = leaveRow({
+      status: "terminated",
+      start_date: "2026-06-01",
+      end_date: "2026-06-02",
+      actual_return_date: "2026-06-02",
+    });
+    expect(leaveBlocksSelfServiceAttendanceOnDate(terminated, "2026-06-01")).toBe(true);
+    expect(leaveBlocksSelfServiceAttendanceOnDate(terminated, "2026-06-02")).toBe(false);
+    expect(leaveBlocksSelfServiceAttendanceOnDate(approvedPaid, "2026-06-05")).toBe(true);
+    expect(
+      leaveBlocksSelfServiceAttendanceOnDate(
+        leaveRow({ status: "completed", start_date: "2026-06-01", end_date: "2026-06-05" }),
+        "2026-06-03"
+      )
+    ).toBe(false);
+  });
+
+  test("hourly attendance suppressed on leave classifications", () => {
+    expect(shouldSuppressHourlyAttendanceForLeaveClassification("PAID_LEAVE")).toBe(true);
+    expect(shouldSuppressHourlyAttendanceForLeaveClassification("UNPAID_LEAVE")).toBe(true);
+    expect(shouldSuppressHourlyAttendanceForLeaveClassification("WORKING")).toBe(false);
   });
 
   test("completed leave remains historically discoverable", () => {

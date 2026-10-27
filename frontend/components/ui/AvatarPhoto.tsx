@@ -8,6 +8,7 @@ interface AvatarPhotoProps {
   /** Pixel size for width/height (prevents layout shift). */
   size: number;
   className?: string;
+  onError?: () => void;
 }
 
 /**
@@ -15,7 +16,7 @@ interface AvatarPhotoProps {
  * Uses next/image for sizing + lazy loading; unoptimized avoids remote-host config
  * regressions for arbitrary/signed photo URLs.
  */
-export function AvatarPhoto({ src, alt = "", size, className = "" }: AvatarPhotoProps) {
+export function AvatarPhoto({ src, alt = "", size, className = "", onError }: AvatarPhotoProps) {
   return (
     <Image
       src={src}
@@ -25,6 +26,7 @@ export function AvatarPhoto({ src, alt = "", size, className = "" }: AvatarPhoto
       className={className}
       sizes={`${size}px`}
       unoptimized
+      onError={onError}
     />
   );
 }

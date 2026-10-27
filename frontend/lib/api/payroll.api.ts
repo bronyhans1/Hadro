@@ -11,6 +11,8 @@ export interface PayrollRecord {
   session_id?: string;
   employee_name?: string | null;
   employee_email?: string | null;
+  /** Resolved from users when payroll report is enriched. */
+  profile_photo_url?: string | null;
   regular_minutes?: number;
   overtime_minutes?: number;
   hours_worked: number;

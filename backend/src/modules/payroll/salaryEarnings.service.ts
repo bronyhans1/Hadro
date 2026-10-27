@@ -633,6 +633,25 @@ export async function getEarningsSummary(
     endYmd
   );
 
+  // Same shift-close gate as paid-leave writes (sync + workforce engine).
+  const overnightOnSummary =
+    (policy as { overnight_shifts_enabled?: boolean }).overnight_shifts_enabled === true;
+  const scheduledShiftSummary = await resolveScheduledShiftForUser(userId, companyId);
+  const shiftSourceSummary = scheduledShiftSummary
+    ? toShiftWindowSource(scheduledShiftSummary)
+    : null;
+  const todayPaidLeaveShiftClosed = hasScheduledShiftClosed({
+    ownershipYmd: todayIso,
+    businessTimeZone: tz,
+    overnightShiftsEnabled: overnightOnSummary,
+    shift: shiftSourceSummary,
+  });
+  const canEmitTodayPaidLeave = canEmitPaidLeaveWorkforceEarning({
+    earningsDateYmd: todayIso,
+    companyTodayYmd: todayIso,
+    shiftHasClosed: todayPaidLeaveShiftClosed,
+  });
+
   let paid_days = 0;
   let unpaid_days = 0;
   for (let d = 1; d <= lastDay; d++) {
@@ -648,6 +667,8 @@ export async function getEarningsSummary(
         continue;
       }
       if (leaveCtx?.classification === "PAID_LEAVE") {
+        // Pending finalize: do not count today's open paid-leave day in paid_days.
+        if (iso === todayIso && !canEmitTodayPaidLeave) continue;
         paid_days += 1;
         continue;
       }
@@ -705,14 +726,20 @@ export async function getEarningsSummary(
     today_late_deduction = todayFromRecords.late;
   } else if (wage.rate_type === "monthly" && dailyRate !== null) {
     const c = classifyDay(todayIso, workingWeekdays, hmap);
+    // Paid holidays are credited by month sync without a shift-close gate — preview matches that.
     if (c.kind === "paid_holiday") {
       today_base_before_late = dailyRate;
       today_earned = dailyRate;
     } else if (c.kind === "working_day") {
       const leaveToday = leaveByDaySummary.get(todayIso);
       if (leaveToday?.classification === "PAID_LEAVE" && dailyRate !== null) {
-        today_base_before_late = dailyRate;
-        today_earned = dailyRate;
+        // Do not synthesize finalized today_earned before official shift close.
+        // After close, sync/workforce credit persists a row (preferred); this branch
+        // only fills a rare gap when eligibility already allows emit.
+        if (canEmitTodayPaidLeave) {
+          today_base_before_late = dailyRate;
+          today_earned = dailyRate;
+        }
       } else if (leaveToday?.classification !== "UNPAID_LEAVE") {
       const mins = workedMinutesByDay.get(todayIso) ?? 0;
       const overrideUnits = overrideUnitsByDay.get(todayIso);

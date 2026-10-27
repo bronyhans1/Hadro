@@ -1,6 +1,6 @@
 {
   "name": "hadro-api",
-  "version": "2.5.3",
+  "version": "3.0.0",
   "description": "HADRO V2 API — workforce, attendance, payroll, notifications",
   "main": "index.js",
   "scripts": {

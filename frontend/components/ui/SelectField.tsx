@@ -282,7 +282,8 @@ export function Select({
         className
       )
     : cn(
-        "ds-focus-ring flex h-9 w-full items-center justify-between gap-2 rounded-lg border text-left text-sm transition-[border-color,box-shadow,background-color]",
+        /* Default app Select — match .input-field horizontal inset (was missing → flush labels). */
+        "select-field-trigger ds-focus-ring flex h-9 w-full items-center justify-between gap-2 rounded-lg border text-left text-sm transition-[border-color,box-shadow,background-color]",
         "disabled:cursor-not-allowed disabled:opacity-60",
         error && "border-[var(--ds-color-danger-border)]",
         className

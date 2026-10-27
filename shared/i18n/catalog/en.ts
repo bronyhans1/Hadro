@@ -1043,7 +1043,8 @@ export const en = {
     originalDates: "Original dates:",
     overrideReasonColon: "Override reason:",
     firstDayBack: "First day back at work",
-    firstDayBackHint: "The first calendar day the employee is expected back.",
+    firstDayBackHint:
+      "First calendar day the employee is expected back. Leave coverage ends the day before; the termination day remains leave unless you set return to today.",
     auditNotePlaceholder: "Optional note for audit trail",
     estimatedRestoredDays: "Estimated restored days:",
     noDaysRestored:

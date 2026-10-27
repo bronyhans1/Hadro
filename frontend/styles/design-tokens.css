@@ -172,6 +172,12 @@
   --ds-control-height-sm: 32px;
   --ds-control-height-md: 36px;
   --ds-control-height-lg: 40px;
+  /* Horizontal inset for typed text / placeholders (12–16px range). */
+  --ds-input-padding-inline: 0.875rem; /* 14px */
+  --ds-input-padding-left: var(--ds-input-padding-inline);
+  --ds-input-padding-right: var(--ds-input-padding-inline);
+  /* Select trigger: start matches inputs; end keeps chevron clear of label. */
+  --ds-select-padding-end: 0.625rem;
   --ds-control-padding-x: 12px;
 
   /* ── Legacy aliases (backward compatibility) ── */

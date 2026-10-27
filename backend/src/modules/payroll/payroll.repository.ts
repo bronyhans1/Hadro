@@ -9,6 +9,8 @@ export interface PayrollRecord {
   employee_name?: string | null;
   /** Human-friendly employee email (resolved from users table when possible). */
   employee_email?: string | null;
+  /** Profile photo URL (resolved from users table when possible). */
+  profile_photo_url?: string | null;
   session_id: string | null;
   regular_minutes: number;
   overtime_minutes: number;
@@ -326,6 +328,53 @@ export async function getLeaveHourlyRecord(
 
   if (error) throw error;
   return data as PayrollRecord | null;
+}
+
+/**
+ * Protected (approved/locked) session_hourly for an attendance calendar day (`payroll_date`).
+ * Used to block leave_hourly credit that would double-pay alongside finalized attendance.
+ */
+export async function findProtectedSessionHourlyForAttendanceDay(
+  userId: string,
+  companyId: string,
+  attendanceDayYmd: string
+): Promise<PayrollRecord | null> {
+  const day = attendanceDayYmd.slice(0, 10);
+  const { data, error } = await supabaseAdmin
+    .from("payroll_records")
+    .select("*")
+    .eq("user_id", userId)
+    .eq("company_id", companyId)
+    .eq("record_type", "session_hourly")
+    .eq("payroll_date", day)
+    .in("status", ["approved", "locked"])
+    .limit(1);
+
+  if (error) throw error;
+  const rows = (data ?? []) as PayrollRecord[];
+  return rows[0] ?? null;
+}
+
+/**
+ * Removes draft session_hourly rows for an attendance calendar day (payroll_date).
+ * Used when the day is leave-covered so paid-leave credits cannot stack with attendance.
+ * Approved/locked rows are never deleted.
+ */
+export async function deleteDraftSessionHourlyForUserAttendanceDay(
+  userId: string,
+  companyId: string,
+  attendanceDayYmd: string
+): Promise<void> {
+  const day = attendanceDayYmd.slice(0, 10);
+  const { error } = await supabaseAdmin
+    .from("payroll_records")
+    .delete()
+    .eq("user_id", userId)
+    .eq("company_id", companyId)
+    .eq("record_type", "session_hourly")
+    .eq("status", "draft")
+    .eq("payroll_date", day);
+  if (error) throw error;
 }
 
 /** Removes draft leave_hourly rows only; approved/locked rows are preserved. */

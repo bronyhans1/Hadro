@@ -43,6 +43,27 @@ describe("paid leave workforce eligibility", () => {
       })
     ).toBe(false);
   });
+
+  test("summary virtual today_earned uses the same gate (open day → no finalize)", () => {
+    // getEarningsSummary must not synthesize paid-leave today_earned when this is false
+    expect(
+      canEmitPaidLeaveWorkforceEarning({
+        earningsDateYmd: "2026-06-15",
+        companyTodayYmd: "2026-06-15",
+        shiftHasClosed: false,
+      })
+    ).toBe(false);
+  });
+
+  test("after official shift close, today paid-leave emit is allowed once", () => {
+    expect(
+      canEmitPaidLeaveWorkforceEarning({
+        earningsDateYmd: "2026-06-15",
+        companyTodayYmd: "2026-06-15",
+        shiftHasClosed: true,
+      })
+    ).toBe(true);
+  });
 });
 
 describe("resolveScheduledShiftCloseForOwnershipDay", () => {

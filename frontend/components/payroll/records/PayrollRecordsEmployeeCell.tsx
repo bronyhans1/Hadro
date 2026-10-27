@@ -1,6 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import type { EmployeePayrollRollup } from "@/lib/payroll/payrollDashboardAggregates";
+import { AvatarPhoto } from "@/components/ui/AvatarPhoto";
 
 function initialsFromName(name: string): string {
   const parts = name.trim().split(/\s+/).filter(Boolean);
@@ -15,15 +17,28 @@ interface PayrollRecordsEmployeeCellProps {
 
 export function PayrollRecordsEmployeeCell({ row }: PayrollRecordsEmployeeCellProps) {
   const initials = initialsFromName(row.employeeName);
+  const photoUrl = row.profilePhotoUrl?.trim() || null;
+  const [photoFailed, setPhotoFailed] = useState(false);
+  const showPhoto = Boolean(photoUrl) && !photoFailed;
 
   return (
     <div className="flex items-center gap-2.5">
       <div
-        className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-semibold"
+        className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-full text-xs font-semibold"
         style={{ background: "var(--ds-color-primary-muted)", color: "var(--ds-color-primary)" }}
-        aria-hidden
+        aria-hidden={showPhoto ? undefined : true}
       >
-        {initials}
+        {showPhoto && photoUrl ? (
+          <AvatarPhoto
+            src={photoUrl}
+            alt=""
+            size={32}
+            className="h-full w-full object-cover"
+            onError={() => setPhotoFailed(true)}
+          />
+        ) : (
+          initials
+        )}
       </div>
       <div className="min-w-0">
         <span className="block font-medium text-theme">{row.employeeName}</span>

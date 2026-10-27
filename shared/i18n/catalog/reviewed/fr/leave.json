@@ -283,7 +283,7 @@
   "originalDates": "Dates d'origine :",
   "overrideReasonColon": "Motif de dérogation :",
   "firstDayBack": "Premier jour de retour au travail",
-  "firstDayBackHint": "Le premier jour calendaire où l'employé est attendu de retour.",
+  "firstDayBackHint": "Premier jour calendaire de retour. La couverture du congé s'arrête la veille ; le jour de résiliation reste en congé sauf si le retour est fixé à aujourd'hui.",
   "auditNotePlaceholder": "Note optionnelle pour la piste d'audit",
   "estimatedRestoredDays": "Jours restaurés estimés :",
   "noDaysRestored": "Aucun jour de congé ne sera restauré pour la date de retour sélectionnée. Envisagez plutôt de laisser le congé se terminer normalement.",

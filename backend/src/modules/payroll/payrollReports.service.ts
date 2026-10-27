@@ -153,31 +153,50 @@ async function enrichPayrollEmployees(
   );
 
   if (userIds.length === 0) {
-    return records.map((r) => ({ ...r, employee_name: null, employee_email: null }));
+    return records.map((r) => ({
+      ...r,
+      employee_name: null,
+      employee_email: null,
+      profile_photo_url: null,
+    }));
   }
 
   try {
     const { data: users, error } = await supabaseAdmin
       .from("users")
-      .select("id, first_name, last_name, email")
+      .select("id, first_name, last_name, email, profile_photo_url")
       .in("id", userIds);
 
     if (error) {
       console.error("enrichPayrollEmployees users lookup error", error);
-      return records.map((r) => ({ ...r, employee_name: null, employee_email: null }));
+      return records.map((r) => ({
+        ...r,
+        employee_name: null,
+        employee_email: null,
+        profile_photo_url: null,
+      }));
     }
 
     const userById = new Map<
       string,
-      { name: string; email: string | null }
+      { name: string; email: string | null; profile_photo_url: string | null }
     >(
-      (users ?? []).map((u: { id: string; first_name?: string; last_name?: string; email?: string }) => [
-        u.id,
-        {
-          name: `${u.first_name ?? ""} ${u.last_name ?? ""}`.trim(),
-          email: u.email ?? null,
-        },
-      ])
+      (users ?? []).map(
+        (u: {
+          id: string;
+          first_name?: string;
+          last_name?: string;
+          email?: string;
+          profile_photo_url?: string | null;
+        }) => [
+          u.id,
+          {
+            name: `${u.first_name ?? ""} ${u.last_name ?? ""}`.trim(),
+            email: u.email ?? null,
+            profile_photo_url: u.profile_photo_url ?? null,
+          },
+        ]
+      )
     );
 
     return records.map((r) => {
@@ -186,10 +205,16 @@ async function enrichPayrollEmployees(
         ...r,
         employee_name: resolved?.name ?? null,
         employee_email: resolved?.email ?? null,
+        profile_photo_url: resolved?.profile_photo_url ?? null,
       };
     });
   } catch (err) {
     console.error("enrichPayrollEmployees exception", err);
-    return records.map((r) => ({ ...r, employee_name: null, employee_email: null }));
+    return records.map((r) => ({
+      ...r,
+      employee_name: null,
+      employee_email: null,
+      profile_photo_url: null,
+    }));
   }
 }

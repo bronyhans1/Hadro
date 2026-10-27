@@ -283,7 +283,7 @@
   "originalDates": "Fechas originales:",
   "overrideReasonColon": "Motivo de anulación:",
   "firstDayBack": "Primer día de regreso al trabajo",
-  "firstDayBackHint": "El primer día del calendario en que se espera el regreso del empleado.",
+  "firstDayBackHint": "Primer día de regreso. La cobertura del permiso termina el día anterior; el día de terminación sigue siendo permiso salvo que el retorno sea hoy.",
   "auditNotePlaceholder": "Nota opcional para la pista de auditoría",
   "estimatedRestoredDays": "Días restaurados estimados:",
   "noDaysRestored": "No se restaurarán días de ausencia para la fecha de regreso seleccionada. Considere permitir que la ausencia se complete normalmente.",

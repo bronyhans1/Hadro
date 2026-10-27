@@ -33,21 +33,32 @@ export function isApprovedLeaveActive(
   return leave.end_date >= today;
 }
 
+function addCalendarDaysYmd(ymd: string, deltaDays: number): string {
+  const [y, m, d] = ymd.split("-").map(Number);
+  const dt = new Date(Date.UTC(y, m - 1, d + deltaDays));
+  return dt.toISOString().slice(0, 10);
+}
+
+/**
+ * Default first day back (exclusive end for leave coverage).
+ * Mid-leave terminate: tomorrow so the termination calendar day stays eligible.
+ * Explicit override may still set return = today when the employee is back same day.
+ */
 export function defaultTerminateReturnDate(
   leave: { start_date: string; end_date: string },
   asOfDate?: string
 ): string {
   const today = asOfDate ?? todayYmd();
+  const maxReturn = maxTerminateReturnDateYmd(leave.end_date);
   if (today < leave.start_date) return leave.start_date;
-  if (today > leave.end_date) return maxTerminateReturnDateYmd(leave.end_date);
-  return today;
+  if (today > leave.end_date) return maxReturn;
+  const nextDay = addCalendarDaysYmd(today, 1);
+  return nextDay > maxReturn ? maxReturn : nextDay;
 }
 
 /** First day back at work may be the day after approved leave ends. */
 export function maxTerminateReturnDateYmd(endDateYmd: string): string {
-  const [y, m, d] = endDateYmd.split("-").map(Number);
-  const dt = new Date(Date.UTC(y, m - 1, d + 1));
-  return dt.toISOString().slice(0, 10);
+  return addCalendarDaysYmd(endDateYmd, 1);
 }
 
 export function computeLeaveUsedDaysFirstDayBack(
