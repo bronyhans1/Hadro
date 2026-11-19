@@ -5,14 +5,13 @@ import { MainContent } from "@/components/layout/MainContent";
 import { Button, IconButton } from "@/components/ui/Button";
 import { Pencil, Trash2 } from "lucide-react";
 import { PageHeader } from "@/components/ui/PageHeader";
-import { Card, CardBody } from "@/components/ui/Card";
-import { DataTable } from "@/components/ui/DataTable";
 import { LoadingState } from "@/components/ui/LoadingState";
 import { ErrorState } from "@/components/ui/ErrorState";
-import { EmptyState } from "@/components/ui/EmptyState";
 import { AccessDeniedState } from "@/components/ui/AccessDeniedState";
 import { Input, Select } from "@/components/ui/FormControls";
 import { Modal } from "@/components/ui/Modal";
+import { ResponsiveFilterCard } from "@/components/ui/FilterCard";
+import { OrganisationDataTablePanel } from "@/components/organisation/OrganisationDataTablePanel";
 import { useAuth } from "@/lib/auth/AuthContext";
 import { hasRole, ADMIN_MANAGER_ROLES, canAccessAdminFeatures } from "@/lib/auth/roles";
 import * as departmentsApi from "@/lib/api/departments.api";
@@ -284,7 +283,7 @@ export default function DepartmentsPage() {
           title={translate("departments.title")}
           subtitle={translate("departments.subtitle")}
           actions={
-            <Button type="button" onClick={openAdd}>
+            <Button type="button" className="w-full sm:w-auto" onClick={openAdd}>
               {translate("departments.addDepartment")}
             </Button>
           }
@@ -295,62 +294,74 @@ export default function DepartmentsPage() {
           </p>
         ) : null}
         {success.banner}
-        <Card padding={false}>
-        <CardBody className="p-4">
+        <ResponsiveFilterCard mobileId="department-filters-mobile">
           <div className="grid gap-4 sm:grid-cols-2">
-            <Input
-              id="department-search"
-              label={translate("departments.searchDepartments")}
-              placeholder={translate("departments.searchDepartmentsPlaceholder")}
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-            <Select
-              id="department-branch-filter"
-              label={translate("attendance.branch")}
-              value={branchFilter}
-              onChange={(e) => setBranchFilter(e.target.value)}
-            >
-              <option value="">{translate("employees.allBranches")}</option>
-              {branches.map((branch) => (
-                <option key={branch.id} value={branch.id}>
-                  {branch.name}
-                </option>
-              ))}
-            </Select>
+            <div className="min-w-0">
+              <Input
+                id="department-search"
+                label={translate("departments.searchDepartments")}
+                placeholder={translate("departments.searchDepartmentsPlaceholder")}
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+            </div>
+            <div className="min-w-0">
+              <Select
+                id="department-branch-filter"
+                label={translate("attendance.branch")}
+                value={branchFilter}
+                onChange={(e) => setBranchFilter(e.target.value)}
+                className="w-full"
+              >
+                <option value="">{translate("employees.allBranches")}</option>
+                {branches.map((branch) => (
+                  <option key={branch.id} value={branch.id}>
+                    {branch.name}
+                  </option>
+                ))}
+              </Select>
+            </div>
           </div>
-        </CardBody>
-        </Card>
-        <Card title={translate("departments.departmentList")}>
-        {filteredDepartments.length === 0 ? (
-          <EmptyState
-            message={departments.length === 0 ? translate("departments.noDepartmentsYet") : translate("departments.noDepartmentsMatch")}
-            description={
-              departments.length === 0
-                ? translate("departments.createFirst")
-                : undefined
-            }
-          />
-        ) : (
-          <DataTable
-            columns={columns}
-            data={filteredDepartments}
-            keyExtractor={(row) => row.id}
-            emptyMessage={translate("departments.noDepartments")}
-            stickyHeader
-          />
-        )}
-        </Card>
+        </ResponsiveFilterCard>
+        <OrganisationDataTablePanel
+          title={translate("departments.departmentList")}
+          columns={columns}
+          rows={filteredDepartments}
+          keyExtractor={(row) => row.id}
+          isEmpty={filteredDepartments.length === 0}
+          emptyMessage={
+            departments.length === 0
+              ? translate("departments.noDepartmentsYet")
+              : translate("departments.noDepartmentsMatch")
+          }
+          emptyDescription={
+            departments.length === 0 ? translate("departments.createFirst") : undefined
+          }
+        />
       </div>
 
-      <Modal open={addOpen} onClose={() => setAddOpen(false)} title={translate("departments.addDepartmentSentence")}>
-        <form onSubmit={handleAddSubmit} className="space-y-4">
+      <Modal
+        open={addOpen}
+        onClose={() => setAddOpen(false)}
+        title={translate("departments.addDepartmentSentence")}
+        footer={
+          <>
+            <Button type="button" variant="secondary" className="w-full sm:w-auto" onClick={() => setAddOpen(false)}>
+              {translate("common.cancel")}
+            </Button>
+            <Button type="submit" form="add-dept-form" className="w-full sm:w-auto" loading={formSubmitting}>
+              {translate("departments.addDepartmentSentence")}
+            </Button>
+          </>
+        }
+      >
+        <form id="add-dept-form" onSubmit={handleAddSubmit} className="space-y-4">
           {formError && (
             <div className="alert-error px-3 py-2">
               {formError}
             </div>
           )}
-          <div>
+          <div className="min-w-0">
             <label htmlFor="add-dept-name" className="mb-1 block text-sm font-medium text-theme">
               {translate("departments.name")}
             </label>
@@ -364,7 +375,7 @@ export default function DepartmentsPage() {
               placeholder={translate("departments.placeholderAdd")}
             />
           </div>
-          <div>
+          <div className="min-w-0">
             <label htmlFor="add-dept-branch" className="mb-1 block text-sm font-medium text-theme">
               {translate("attendance.branch")}
             </label>
@@ -372,6 +383,7 @@ export default function DepartmentsPage() {
               id="add-dept-branch"
               value={formBranchId}
               onChange={(e) => setFormBranchId(e.target.value)}
+              className="w-full"
             >
               {branches.map((b) => (
                 <option key={b.id} value={b.id}>
@@ -381,14 +393,6 @@ export default function DepartmentsPage() {
               ))}
             </Select>
           </div>
-          <div className="flex justify-end gap-2 pt-2">
-            <Button type="button" variant="secondary" onClick={() => setAddOpen(false)}>
-              {translate("common.cancel")}
-            </Button>
-            <Button type="submit" loading={formSubmitting}>
-              {translate("departments.addDepartmentSentence")}
-            </Button>
-          </div>
         </form>
       </Modal>
 
@@ -396,15 +400,27 @@ export default function DepartmentsPage() {
         open={!!editDepartment}
         onClose={() => setEditDepartment(null)}
         title={translate("departments.editDepartment")}
+        footer={
+          editDepartment ? (
+            <>
+              <Button type="button" variant="secondary" className="w-full sm:w-auto" onClick={() => setEditDepartment(null)}>
+                {translate("common.cancel")}
+              </Button>
+              <Button type="submit" form="edit-dept-form" className="w-full sm:w-auto" loading={formSubmitting}>
+                {translate("common.save")}
+              </Button>
+            </>
+          ) : null
+        }
       >
         {editDepartment && (
-          <form onSubmit={handleEditSubmit} className="space-y-4">
+          <form id="edit-dept-form" onSubmit={handleEditSubmit} className="space-y-4">
             {formError && (
               <div className="alert-error px-3 py-2">
                 {formError}
               </div>
             )}
-            <div>
+            <div className="min-w-0">
               <label htmlFor="edit-dept-name" className="mb-1 block text-sm font-medium text-theme">
                 {translate("departments.name")}
               </label>
@@ -419,7 +435,7 @@ export default function DepartmentsPage() {
               />
             </div>
             {isAdmin ? (
-              <div>
+              <div className="min-w-0">
                 <label htmlFor="edit-dept-branch" className="mb-1 block text-sm font-medium text-theme">
                   {translate("attendance.branch")}
                 </label>
@@ -427,6 +443,7 @@ export default function DepartmentsPage() {
                   id="edit-dept-branch"
                   value={formBranchId}
                   onChange={(e) => setFormBranchId(e.target.value)}
+                  className="w-full"
                 >
                   {branches.map((b) => (
                     <option key={b.id} value={b.id}>
@@ -438,14 +455,6 @@ export default function DepartmentsPage() {
                 <p className="mt-1 text-xs text-theme-muted">{translate("departments.adminMoveHint")}</p>
               </div>
             ) : null}
-            <div className="flex justify-end gap-2 pt-2">
-              <Button type="button" variant="secondary" onClick={() => setEditDepartment(null)}>
-                {translate("common.cancel")}
-              </Button>
-              <Button type="submit" loading={formSubmitting}>
-                {translate("common.save")}
-              </Button>
-            </div>
           </form>
         )}
       </Modal>
@@ -454,26 +463,29 @@ export default function DepartmentsPage() {
         open={!!deleteDepartment}
         onClose={() => setDeleteDepartment(null)}
         title={translate("departments.deleteDepartment")}
-      >
-        {deleteDepartment && (
-          <div className="space-y-4">
-            <p className="text-sm text-theme-muted">
-              {translate("departments.deleteConfirm", { values: { name: deleteDepartment.name } })}
-            </p>
-            <div className="flex justify-end gap-2">
-              <Button type="button" variant="secondary" onClick={() => setDeleteDepartment(null)}>
+        footer={
+          deleteDepartment ? (
+            <>
+              <Button type="button" variant="secondary" className="w-full sm:w-auto" onClick={() => setDeleteDepartment(null)}>
                 {translate("common.cancel")}
               </Button>
               <Button
                 type="button"
                 variant="danger"
+                className="w-full sm:w-auto"
                 onClick={handleDeleteConfirm}
                 loading={actionLoading === deleteDepartment.id}
               >
                 {translate("departments.delete")}
               </Button>
-            </div>
-          </div>
+            </>
+          ) : null
+        }
+      >
+        {deleteDepartment && (
+          <p className="text-sm text-theme-muted">
+            {translate("departments.deleteConfirm", { values: { name: deleteDepartment.name } })}
+          </p>
         )}
       </Modal>
     </MainContent>

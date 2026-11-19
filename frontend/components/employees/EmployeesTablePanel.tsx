@@ -62,6 +62,7 @@ export function EmployeesTablePanel({
             <Button
               variant="primary"
               size="sm"
+              className="w-full sm:w-auto"
               onClick={onAddEmployee}
               leftIcon={<Plus className="h-4 w-4" aria-hidden />}
             >
@@ -97,63 +98,81 @@ export function EmployeesTablePanel({
         </Card>
       </div>
 
-      <ul className="space-y-3 md:hidden" aria-label={translate("employees.title")}>
+      <section className="space-y-3 md:hidden" aria-label={translate("employees.employeeDirectory")}>
+        <h2 className="ds-h3 text-sm" style={{ color: "var(--ds-color-text-primary)" }}>
+          {translate("employees.employeeDirectory")}
+        </h2>
         {loading ? (
-          <li className="list-none">
-            <DataTable
-              columns={[{ key: "loading", header: translate("common.loading") }]}
-              data={[]}
-              loading
-              keyExtractor={() => "loading"}
-            />
-          </li>
+          <DataTable
+            columns={[{ key: "loading", header: translate("common.loading") }]}
+            data={[]}
+            loading
+            keyExtractor={() => "loading"}
+          />
         ) : (
-          filtered.map((row) => (
-            <li key={row.id}>
-            <Card hoverable padding={false}>
-              <CardBody className="space-y-3">
-                <div className="flex items-start gap-3">
-                  <EmployeeAvatar user={row} size="md" />
-                  <div className="min-w-0 flex-1">
-                    <p className="font-semibold" style={{ color: "var(--ds-color-text-primary)" }}>
-                      {employeeFullName(row)}
-                    </p>
-                    <p className="text-xs" style={{ color: "var(--ds-color-text-muted)" }}>
-                      {employeeRoleLabel(row)}
-                    </p>
-                    <p className="mt-1 truncate text-xs" style={{ color: "var(--ds-color-text-secondary)" }}>
-                      {row.email}
-                    </p>
-                    {row.phone_number ? (
-                      <p className="truncate text-xs" style={{ color: "var(--ds-color-text-muted)" }}>
-                        {row.phone_number}
-                      </p>
-                    ) : null}
-                  </div>
-                  <div className="flex flex-col items-end gap-1">
-                    {accountStatusBadge(row.status)}
-                    {remoteBadge(row.remote_attendance_allowed)}
-                  </div>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {row.department?.name ? <Badge variant="neutral">{row.department.name}</Badge> : null}
-                  {row.branch?.name ? <Badge variant="neutral">{row.branch.name}</Badge> : null}
-                </div>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="w-full"
-                  onClick={() => onOpenDetails(row.id)}
-                  leftIcon={<Eye className="h-4 w-4" aria-hidden />}
-                >
-                  {translate("employees.viewDetails")}
-                </Button>
-              </CardBody>
-            </Card>
-            </li>
-          ))
+          <ul className="space-y-3">
+            {filtered.map((row) => (
+              <li key={row.id} className="min-w-0">
+                <Card hoverable padding={false} className="overflow-hidden">
+                  <CardBody className="space-y-3">
+                    <button
+                      type="button"
+                      className="flex w-full min-w-0 items-start gap-3 rounded-lg text-left ds-focus-ring"
+                      onClick={() => onOpenDetails(row.id)}
+                      aria-label={translate("employees.viewDetailsFor", {
+                        values: { name: employeeFullName(row) },
+                      })}
+                    >
+                      <EmployeeAvatar user={row} size="md" />
+                      <div className="min-w-0 flex-1">
+                        <p
+                          className="truncate font-semibold"
+                          style={{ color: "var(--ds-color-text-primary)" }}
+                        >
+                          {employeeFullName(row)}
+                        </p>
+                        <p className="truncate text-xs" style={{ color: "var(--ds-color-text-muted)" }}>
+                          {employeeRoleLabel(row)}
+                        </p>
+                        <p
+                          className="mt-1 break-all text-xs"
+                          style={{ color: "var(--ds-color-text-secondary)" }}
+                        >
+                          {row.email}
+                        </p>
+                        {row.phone_number ? (
+                          <p className="truncate text-xs" style={{ color: "var(--ds-color-text-muted)" }}>
+                            {row.phone_number}
+                          </p>
+                        ) : null}
+                      </div>
+                      <div className="flex shrink-0 flex-col items-end gap-1">
+                        {accountStatusBadge(row.status)}
+                        {remoteBadge(row.remote_attendance_allowed)}
+                      </div>
+                    </button>
+                    <div className="flex flex-wrap gap-2">
+                      {row.department?.name ? (
+                        <Badge variant="neutral">{row.department.name}</Badge>
+                      ) : null}
+                      {row.branch?.name ? <Badge variant="neutral">{row.branch.name}</Badge> : null}
+                    </div>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="w-full"
+                      onClick={() => onOpenDetails(row.id)}
+                      leftIcon={<Eye className="h-4 w-4" aria-hidden />}
+                    >
+                      {translate("employees.viewDetails")}
+                    </Button>
+                  </CardBody>
+                </Card>
+              </li>
+            ))}
+          </ul>
         )}
-      </ul>
+      </section>
     </>
   );
 }

@@ -20,7 +20,7 @@ export function AttendanceInsightSummaryGrid({
       ariaLabel={ariaLabel}
       loading={loading}
       loadingCount={5}
-      className="xl:grid-cols-5"
+      className="grid-cols-2 xl:grid-cols-5"
       items={stats.map((stat) => ({
         key: stat.title,
         title: stat.title,

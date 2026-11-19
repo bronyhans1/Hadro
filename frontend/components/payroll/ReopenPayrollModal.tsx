@@ -43,18 +43,48 @@ export function ReopenPayrollModal({
   );
 
   return (
-    <Modal open={open} onClose={onClose} title={translate("payroll.reopenPayroll")}>
-      <p className="text-sm text-theme-muted">
+    <Modal
+      open={open}
+      onClose={onClose}
+      title={translate("payroll.reopenPayroll")}
+      footer={
+        <>
+          <Button
+            type="button"
+            variant="secondary"
+            className="w-full sm:w-auto"
+            onClick={onClose}
+            disabled={loading}
+          >
+            {translate("common.cancel")}
+          </Button>
+          <Button
+            type="button"
+            className="w-full sm:w-auto"
+            disabled={!canSubmit}
+            loading={loading}
+            onClick={() => {
+              if (!reasonCode) return;
+              onSubmit({ reason_code: reasonCode, explanation: trimmedExplanation });
+            }}
+          >
+            {translate("payroll.confirmReopen")}
+          </Button>
+        </>
+      }
+    >
+      <p className="text-sm" style={{ color: "var(--ds-color-text-muted)" }}>
         {translate("payroll.reopenIntro")}
       </p>
 
       <div className="mt-4 space-y-4">
-        <div>
+        <div className="min-w-0">
           <Select
             id="reopen-reason"
             label={translate("leave.reason")}
             value={reasonCode}
             onChange={(e) => setReasonCode(e.target.value as PayrollReopenReasonCode)}
+            className="w-full"
           >
             <option value="">{translate("payroll.selectAReason")}</option>
             {PAYROLL_REOPEN_REASON_CODES.map((value) => (
@@ -65,7 +95,7 @@ export function ReopenPayrollModal({
           </Select>
         </div>
 
-        <div>
+        <div className="min-w-0">
           <Textarea
             id="reopen-explanation"
             label={translate("payroll.explanation")}
@@ -73,11 +103,12 @@ export function ReopenPayrollModal({
             onChange={(e) => setExplanation(e.target.value)}
             rows={4}
             maxLength={1000}
+            className="w-full"
             placeholder={translate("payroll.minimumCharacters", {
               values: { count: PAYROLL_REOPEN_EXPLANATION_MIN_LENGTH },
             })}
           />
-          <p className="mt-1 text-xs text-theme-muted">
+          <p className="mt-1 text-xs" style={{ color: "var(--ds-color-text-muted)" }}>
             {translate("payroll.explanationProgress", {
               values: {
                 current: trimmedExplanation.length,
@@ -86,28 +117,6 @@ export function ReopenPayrollModal({
             })}
           </p>
         </div>
-      </div>
-
-      <div className="mt-6 flex justify-end gap-2">
-        <Button
-          type="button"
-          variant="secondary"
-          onClick={onClose}
-          disabled={loading}
-        >
-          {translate("common.cancel")}
-        </Button>
-        <Button
-          type="button"
-          disabled={!canSubmit}
-          loading={loading}
-          onClick={() => {
-            if (!reasonCode) return;
-            onSubmit({ reason_code: reasonCode, explanation: trimmedExplanation });
-          }}
-        >
-          {translate("payroll.confirmReopen")}
-        </Button>
       </div>
     </Modal>
   );

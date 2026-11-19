@@ -1,6 +1,7 @@
 "use client";
 
 import type { SessionHistoryItem } from "@/lib/api/attendance.api";
+import { AttendanceSessionMobileCard } from "@/components/attendance/AttendanceSessionMobileCard";
 import { SessionTypeBadge } from "@/components/attendance/SessionTypeBadge";
 import { Badge } from "@/components/ui/Badge";
 import { TablePagination } from "@/components/ui/TablePagination";
@@ -15,9 +16,14 @@ import {
   manualSummary,
   sessionStatusVariant,
 } from "@/lib/attendance/attendanceHistoryUtils";
+import {
+  attendanceDesktopTableClass,
+  attendanceMobileCardsClass,
+} from "@/lib/attendance/attendanceMobileLayout";
 import { formatDurationMinutes } from "@/lib/dashboard/formatters";
 import { formatBusinessDateOnly, formatBusinessDateTime } from "@/lib/utils/businessDateTime";
 import { translate } from "@/lib/i18n";
+import { cn } from "@/lib/design-system/cn";
 
 interface AttendanceHistoryTableProps {
   canViewCompany: boolean;
@@ -102,151 +108,201 @@ export function AttendanceHistoryTable({
     ? translate("attendance.tryAdjustFilters")
     : translate("attendance.sessionsWillAppear");
 
-  return (
-    <Card padding={false}>
-      <CardHeader title={translate("attendance.sessionHistory")} />
-      <CardBody className="!p-0">
-        {!loading && rows.length === 0 ? (
-          <EmptyState title={emptyTitle} description={emptyDescription} className="m-4 border-0" />
-        ) : (
-          <DataTable
-            loading={loading && rows.length === 0}
-            emptyMessage={emptyDescription}
-            keyExtractor={(row) => row.id}
-            data={rows}
-            stickyHeader
-            columns={[
-              ...(canViewCompany
-                ? [
-                    {
-                      key: "avatar",
-                      header: "",
-                      render: (row: SessionHistoryItem) => {
-                        const meta = employeePhotos?.get(row.user_id);
-                        const name = row.employee_name ?? meta?.name ?? "?";
-                        return <AvatarCell name={name} photoUrl={meta?.photoUrl} />;
-                      },
-                    },
-                    {
-                      key: "employee",
-                      header: translate("attendance.employee"),
-                      render: (row: SessionHistoryItem) => {
-                        const meta = employeePhotos?.get(row.user_id);
-                        const name = row.employee_name ?? meta?.name ?? "—";
-                        return (
-                          <div className="min-w-[140px]">
-                            <span className="font-medium">{name}</span>
-                            {row.employee_email ? (
-                              <span
-                                className="mt-0.5 block text-xs"
-                                style={{ color: "var(--ds-color-text-muted)" }}
-                              >
-                                {row.employee_email}
-                              </span>
-                            ) : null}
-                          </div>
-                        );
-                      },
-                    },
-                  ]
-                : []),
-              {
-                key: "day",
-                header: translate("attendance.attendanceDayColumn"),
-                render: (row) => (
-                  <span className="whitespace-nowrap text-xs">
-                    {row.attendance_date
-                      ? row.attendance_date.slice(0, 10)
-                      : formatBusinessDateOnly(row.check_in, businessTimeZone)}
-                    {row.overnight_session ? (
-                      <Badge variant="warning" className="ml-1">
-                        Overnight
-                      </Badge>
-                    ) : null}
-                  </span>
-                ),
-              },
-              {
-                key: "check_in",
-                header: translate("attendance.clockIn"),
-                render: (row) => (
-                  <span className="whitespace-nowrap text-xs tabular-nums">
-                    {formatBusinessDateTime(row.check_in, businessTimeZone)}
-                  </span>
-                ),
-              },
-              {
-                key: "check_out",
-                header: translate("attendance.clockOut"),
-                render: (row) => (
-                  <span className="whitespace-nowrap text-xs tabular-nums">
-                    {formatBusinessDateTime(row.check_out, businessTimeZone)}
-                  </span>
-                ),
-              },
-              {
-                key: "duration",
-                header: translate("attendance.duration"),
-                render: (row) => formatDurationMinutes(row.duration_minutes),
-              },
-              {
-                key: "branch",
-                header: canViewCompany ? translate("attendance.branch") : translate("attendance.office"),
-                render: (row) => row.branch_name ?? "—",
-              },
-              {
-                key: "department",
-                header: translate("attendance.department"),
-                render: (row) => row.department_name ?? "—",
-              },
-              {
-                key: "type",
-                header: translate("attendance.sessionType"),
-                render: (row) => (
-                  <SessionTypeBadge
-                    attendanceMode={row.attendance_mode}
-                    remoteApprovalStatus={row.remote_approval_status}
-                  />
-                ),
-              },
-              {
-                key: "manual",
-                header: translate("attendance.manual"),
-                render: (row) => <ManualBadge row={row} />,
-              },
-              {
-                key: "status",
-                header: translate("attendance.status"),
-                render: (row) => (
-                  <Badge variant={sessionStatusVariant(row.status)}>
-                    {row.status?.toUpperCase() === "ACTIVE"
-                      ? translate("attendance.active")
-                      : row.status?.toUpperCase() === "COMPLETED"
-                        ? translate("attendance.completed")
-                        : row.status?.toUpperCase() === "CANCELLED"
-                          ? translate("leave.cancelled")
-                          : row.status}
-                  </Badge>
-                ),
-              },
-            ]}
-          />
-        )}
-      </CardBody>
-
-      {rows.length > 0 ? (
-        <TablePagination
-          className="border-t border-[var(--ds-color-border)] px-4 py-4"
-          page={page}
-          pageSize={limit}
-          total={total}
-          currentCount={rows.length}
-          loading={loading}
-          itemLabel={translate("attendance.sessionNoun", { count: total })}
-          onPrevious={onPreviousPage}
-          onNext={onNextPage}
+  const columns = [
+    ...(canViewCompany
+      ? [
+          {
+            key: "avatar",
+            header: "",
+            render: (row: SessionHistoryItem) => {
+              const meta = employeePhotos?.get(row.user_id);
+              const name = row.employee_name ?? meta?.name ?? "?";
+              return <AvatarCell name={name} photoUrl={meta?.photoUrl} />;
+            },
+          },
+          {
+            key: "employee",
+            header: translate("attendance.employee"),
+            render: (row: SessionHistoryItem) => {
+              const meta = employeePhotos?.get(row.user_id);
+              const name = row.employee_name ?? meta?.name ?? "—";
+              return (
+                <div className="min-w-[140px]">
+                  <span className="font-medium">{name}</span>
+                  {row.employee_email ? (
+                    <span
+                      className="mt-0.5 block text-xs"
+                      style={{ color: "var(--ds-color-text-muted)" }}
+                    >
+                      {row.employee_email}
+                    </span>
+                  ) : null}
+                </div>
+              );
+            },
+          },
+        ]
+      : []),
+    {
+      key: "day",
+      header: translate("attendance.attendanceDayColumn"),
+      render: (row: SessionHistoryItem) => (
+        <span className="whitespace-nowrap text-xs">
+          {row.attendance_date
+            ? row.attendance_date.slice(0, 10)
+            : formatBusinessDateOnly(row.check_in, businessTimeZone)}
+          {row.overnight_session ? (
+            <Badge variant="warning" className="ml-1">
+              Overnight
+            </Badge>
+          ) : null}
+        </span>
+      ),
+    },
+    {
+      key: "check_in",
+      header: translate("attendance.clockIn"),
+      render: (row: SessionHistoryItem) => (
+        <span className="whitespace-nowrap text-xs tabular-nums">
+          {formatBusinessDateTime(row.check_in, businessTimeZone)}
+        </span>
+      ),
+    },
+    {
+      key: "check_out",
+      header: translate("attendance.clockOut"),
+      render: (row: SessionHistoryItem) => (
+        <span className="whitespace-nowrap text-xs tabular-nums">
+          {formatBusinessDateTime(row.check_out, businessTimeZone)}
+        </span>
+      ),
+    },
+    {
+      key: "duration",
+      header: translate("attendance.duration"),
+      render: (row: SessionHistoryItem) => formatDurationMinutes(row.duration_minutes),
+    },
+    {
+      key: "branch",
+      header: canViewCompany ? translate("attendance.branch") : translate("attendance.office"),
+      render: (row: SessionHistoryItem) => row.branch_name ?? "—",
+    },
+    {
+      key: "department",
+      header: translate("attendance.department"),
+      render: (row: SessionHistoryItem) => row.department_name ?? "—",
+    },
+    {
+      key: "type",
+      header: translate("attendance.sessionType"),
+      render: (row: SessionHistoryItem) => (
+        <SessionTypeBadge
+          attendanceMode={row.attendance_mode}
+          remoteApprovalStatus={row.remote_approval_status}
         />
-      ) : null}
-    </Card>
+      ),
+    },
+    {
+      key: "manual",
+      header: translate("attendance.manual"),
+      render: (row: SessionHistoryItem) => <ManualBadge row={row} />,
+    },
+    {
+      key: "status",
+      header: translate("attendance.status"),
+      render: (row: SessionHistoryItem) => (
+        <Badge variant={sessionStatusVariant(row.status)}>
+          {row.status?.toUpperCase() === "ACTIVE"
+            ? translate("attendance.active")
+            : row.status?.toUpperCase() === "COMPLETED"
+              ? translate("attendance.completed")
+              : row.status?.toUpperCase() === "CANCELLED"
+                ? translate("leave.cancelled")
+                : row.status}
+        </Badge>
+      ),
+    },
+  ];
+
+  return (
+    <>
+      <div className={cn(attendanceDesktopTableClass())}>
+        <Card padding={false}>
+          <CardHeader title={translate("attendance.sessionHistory")} />
+          <CardBody className="!p-0">
+            {!loading && rows.length === 0 ? (
+              <EmptyState title={emptyTitle} description={emptyDescription} className="m-4 border-0" />
+            ) : (
+              <DataTable
+                loading={loading && rows.length === 0}
+                emptyMessage={emptyDescription}
+                keyExtractor={(row) => row.id}
+                data={rows}
+                stickyHeader
+                columns={columns}
+              />
+            )}
+          </CardBody>
+
+          {rows.length > 0 ? (
+            <TablePagination
+              className="border-t border-[var(--ds-color-border)] px-4 py-4"
+              page={page}
+              pageSize={limit}
+              total={total}
+              currentCount={rows.length}
+              loading={loading}
+              itemLabel={translate("attendance.sessionNoun", { count: total })}
+              onPrevious={onPreviousPage}
+              onNext={onNextPage}
+            />
+          ) : null}
+        </Card>
+      </div>
+
+      <section
+        className={cn(attendanceMobileCardsClass())}
+        aria-label={translate("attendance.sessionHistory")}
+      >
+        <h2 className="ds-h3 text-sm" style={{ color: "var(--ds-color-text-primary)" }}>
+          {translate("attendance.sessionHistory")}
+        </h2>
+        {!loading && rows.length === 0 ? (
+          <EmptyState title={emptyTitle} description={emptyDescription} />
+        ) : loading && rows.length === 0 ? (
+          <DataTable
+            columns={[{ key: "loading", header: translate("common.loading") }]}
+            data={[]}
+            loading
+            keyExtractor={() => "loading"}
+          />
+        ) : (
+          <ul className="space-y-3">
+            {rows.map((row) => (
+              <li key={row.id} className="min-w-0">
+                <AttendanceSessionMobileCard
+                  row={row}
+                  canViewCompany={canViewCompany}
+                  businessTimeZone={businessTimeZone}
+                  employeePhotos={employeePhotos}
+                />
+              </li>
+            ))}
+          </ul>
+        )}
+        {rows.length > 0 ? (
+          <TablePagination
+            page={page}
+            pageSize={limit}
+            total={total}
+            currentCount={rows.length}
+            loading={loading}
+            itemLabel={translate("attendance.sessionNoun", { count: total })}
+            onPrevious={onPreviousPage}
+            onNext={onNextPage}
+          />
+        ) : null}
+      </section>
+    </>
   );
 }

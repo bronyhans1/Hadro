@@ -26,6 +26,8 @@ export interface RequestLeaveModalProps {
   onFormReasonChange: (value: string) => void;
 }
 
+const FORM_ID = "request-leave-form";
+
 export function RequestLeaveModal({
   open,
   formStart,
@@ -47,10 +49,30 @@ export function RequestLeaveModal({
     compensationByType?.[formType] ?? selectedDefault;
 
   return (
-    <Modal open={open} onClose={onClose} title={translate("leave.requestLeave")}>
-      <form onSubmit={onSubmit} className="space-y-4">
+    <Modal
+      open={open}
+      onClose={onClose}
+      title={translate("leave.requestLeave")}
+      footer={
+        <>
+          <Button
+            type="button"
+            variant="ghost"
+            className="w-full sm:w-auto"
+            onClick={onClose}
+            disabled={formSubmitting}
+          >
+            {translate("common.cancel")}
+          </Button>
+          <Button type="submit" form={FORM_ID} loading={formSubmitting} className="w-full sm:w-auto">
+            {translate("leave.submitRequest")}
+          </Button>
+        </>
+      }
+    >
+      <form id={FORM_ID} onSubmit={onSubmit} className="space-y-4">
         {formError ? <Alert variant="error">{formError}</Alert> : null}
-        <div>
+        <div className="min-w-0">
           <DateInput
             id="leave-start"
             label={translate("leave.startDate")}
@@ -59,7 +81,7 @@ export function RequestLeaveModal({
             required
           />
         </div>
-        <div>
+        <div className="min-w-0">
           <DateInput
             id="leave-end"
             label={translate("leave.endDate")}
@@ -68,13 +90,13 @@ export function RequestLeaveModal({
             required
           />
         </div>
-        <div>
+        <div className="min-w-0">
           <Label htmlFor="leave-type">{translate("leave.leaveType")}</Label>
           <Select
             id="leave-type"
             value={formType}
             onChange={(e) => onFormTypeChange(e.target.value)}
-            className="mt-1"
+            className="mt-1 w-full"
           >
             {LEAVE_TYPES.map((t) => {
               const compensation = compensationByType?.[t.value] ?? t.compensation;
@@ -85,29 +107,21 @@ export function RequestLeaveModal({
               );
             })}
           </Select>
-          <p className="mt-1 text-xs text-theme-muted">
+          <p className="mt-1 text-xs" style={{ color: "var(--ds-color-text-muted)" }}>
             {translate("leave.companyDefaultHint", {
               values: { compensation: compensationLabel(selectedCompensation) },
             })}
           </p>
         </div>
-        <div>
+        <div className="min-w-0">
           <Label htmlFor="leave-reason">{translate("leave.reasonOptional")}</Label>
           <Textarea
             id="leave-reason"
             value={formReason}
             onChange={(e) => onFormReasonChange(e.target.value)}
-            className="mt-1"
+            className="mt-1 w-full"
             rows={3}
           />
-        </div>
-        <div className="flex justify-end gap-2 pt-2">
-          <Button type="button" variant="ghost" onClick={onClose} disabled={formSubmitting}>
-            {translate("common.cancel")}
-          </Button>
-          <Button type="submit" loading={formSubmitting}>
-            {translate("leave.submitRequest")}
-          </Button>
         </div>
       </form>
     </Modal>

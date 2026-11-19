@@ -724,7 +724,7 @@ export default function EmployeesPage() {
 
   return (
     <MainContent>
-      <div className="space-y-8">
+      <div className="space-y-5 md:space-y-8">
         <EmployeesPageHeader
           branchScoped={branchScoped}
           branchName={authUser?.branch?.name}
@@ -757,8 +757,27 @@ export default function EmployeesPage() {
         />
       </div>
 
-      <Modal open={modalOpen} onClose={closeAddModal} title={translate("employees.addEmployee")}>
-        <form onSubmit={handleAddSubmit} className="space-y-4">
+      <Modal
+        open={modalOpen}
+        onClose={closeAddModal}
+        title={translate("employees.addEmployee")}
+        footer={
+          <>
+            <Button type="button" variant="secondary" className="w-full sm:w-auto" onClick={closeAddModal}>
+              {translate("common.cancel")}
+            </Button>
+            <Button
+              type="submit"
+              form="add-employee-form"
+              loading={formSubmitting}
+              className="w-full sm:w-auto"
+            >
+              {translate("employees.addEmployee")}
+            </Button>
+          </>
+        }
+      >
+        <form id="add-employee-form" onSubmit={handleAddSubmit} className="space-y-4">
           {formError && (
             <div className="alert-error px-3 py-2">{formError}</div>
           )}
@@ -876,14 +895,6 @@ export default function EmployeesPage() {
               placeholder={translate("employees.passwordMinHint")}
             />
           </div>
-          <div className="flex justify-end gap-2 pt-2">
-            <Button type="button" variant="secondary" onClick={closeAddModal}>
-              {translate("common.cancel")}
-            </Button>
-            <Button type="submit" loading={formSubmitting}>
-              {translate("employees.addEmployee")}
-            </Button>
-          </div>
         </form>
       </Modal>
 
@@ -901,9 +912,9 @@ export default function EmployeesPage() {
             ) : selectedUser ? (
               <div className="space-y-5">
                 <div className="rounded-xl border p-4" style={{ borderColor: "var(--ds-color-border)", background: "var(--ds-color-surface-muted)" }}>
-                  <div className="flex items-center gap-3">
+                  <div className="flex flex-wrap items-start gap-3">
                     <EmployeeAvatar user={selectedUser} size="lg" />
-                    <div>
+                    <div className="min-w-0 flex-1">
                       <div className="text-base font-semibold" style={{ color: "var(--text-primary)" }}>
                         {selectedName || "—"}
                       </div>
@@ -911,7 +922,7 @@ export default function EmployeesPage() {
                         {selectedRoleLabel}
                       </div>
                     </div>
-                    <div className="ml-auto">{accountStatusBadge(selectedUser.status)}</div>
+                    <div className="shrink-0">{accountStatusBadge(selectedUser.status)}</div>
                   </div>
                 </div>
 

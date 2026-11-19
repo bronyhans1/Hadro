@@ -15,6 +15,7 @@ export function LeaveRequestsSnapshotGrid({ stats, loading }: LeaveRequestsSnaps
     <StatGrid
       ariaLabel={translate("leave.requestSnapshotAria")}
       loading={loading}
+      className="grid-cols-2"
       items={stats.map((stat) => ({
         key: stat.title,
         title: stat.title,

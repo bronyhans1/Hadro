@@ -13,6 +13,12 @@ import {
   categorizeAuditEvent,
   getAuditCategoryMeta,
 } from "@/lib/audit/auditCategories";
+import {
+  auditFilterActionClass,
+  auditFilterActionsRowClass,
+  auditFiltersPanelClass,
+} from "@/lib/audit/auditMobileLayout";
+import { cn } from "@/lib/design-system/cn";
 import { translate } from "@/lib/i18n";
 
 type Props = {
@@ -27,6 +33,7 @@ export function CompanyScopedAuditPanel({ companyName, logs, businessTz }: Props
   const [actionType, setActionType] = useState("");
   const [dateFrom, setDateFrom] = useState("");
   const [dateTo, setDateTo] = useState("");
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const actionOptions = useMemo(() => {
     const map = new Map<string, string>();
@@ -86,61 +93,86 @@ export function CompanyScopedAuditPanel({ companyName, logs, businessTz }: Props
   return (
     <Card title={translate("audit.companyAudit")} padding={false}>
       <CardBody className="space-y-4 p-4">
-        <p className="text-sm" style={{ color: "var(--text-muted)" }}>
+        <p className="break-words text-sm" style={{ color: "var(--text-muted)" }}>
           {translate("audit.companyAuditPrefix")}
           <span className="font-medium">{companyName}</span>
           {translate("audit.companyAuditSuffix")}
         </p>
 
-        <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-4">
-          <Input
-            label={translate("common.search")}
-            placeholder={translate("audit.searchPlaceholder")}
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            leftIcon={<Search className="h-4 w-4" aria-hidden />}
-          />
-          <Select
-            label={translate("audit.category")}
-            value={categoryId}
-            onChange={(e) => setCategoryId(e.target.value)}
+        <div className="md:hidden">
+          <Button
+            type="button"
+            variant="outline"
+            className="w-full"
+            onClick={() => setMobileOpen((open) => !open)}
+            aria-expanded={mobileOpen}
+            aria-controls="company-audit-filters"
           >
-            <option value="">{translate("audit.allCategories")}</option>
-            {AUDIT_CATEGORIES.map((c) => (
-              <option key={c.id} value={c.id}>
-                {getAuditCategoryMeta(c.id).label}
-              </option>
-            ))}
-          </Select>
-          <Select label={translate("audit.action")} value={actionType} onChange={(e) => setActionType(e.target.value)}>
-            <option value="">{translate("audit.allActions")}</option>
-            {actionOptions.map((a) => (
-              <option key={a.value} value={a.value}>
-                {a.label}
-              </option>
-            ))}
-          </Select>
-          <div className="space-y-2">
-            <p className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>
-              {translate("audit.dateFilter")}
-            </p>
-            <div className="grid grid-cols-2 gap-2">
-              <DateInput
-                aria-label={translate("audit.fromDate")}
-                value={dateFrom}
-                onChange={(e) => setDateFrom(e.target.value)}
-              />
-              <DateInput
-                aria-label={translate("audit.toDate")}
-                value={dateTo}
-                onChange={(e) => setDateTo(e.target.value)}
-              />
+            {mobileOpen ? translate("common.hideFilters") : translate("common.showFilters")}
+          </Button>
+        </div>
+
+        <div
+          id="company-audit-filters"
+          className={cn(auditFiltersPanelClass(mobileOpen))}
+        >
+          <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-4">
+            <Input
+              label={translate("common.search")}
+              placeholder={translate("audit.searchPlaceholder")}
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              leftIcon={<Search className="h-4 w-4" aria-hidden />}
+            />
+            <Select
+              label={translate("audit.category")}
+              value={categoryId}
+              onChange={(e) => setCategoryId(e.target.value)}
+            >
+              <option value="">{translate("audit.allCategories")}</option>
+              {AUDIT_CATEGORIES.map((c) => (
+                <option key={c.id} value={c.id}>
+                  {getAuditCategoryMeta(c.id).label}
+                </option>
+              ))}
+            </Select>
+            <Select label={translate("audit.action")} value={actionType} onChange={(e) => setActionType(e.target.value)}>
+              <option value="">{translate("audit.allActions")}</option>
+              {actionOptions.map((a) => (
+                <option key={a.value} value={a.value}>
+                  {a.label}
+                </option>
+              ))}
+            </Select>
+            <div className="space-y-2">
+              <p className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>
+                {translate("audit.dateFilter")}
+              </p>
+              <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+                <DateInput
+                  aria-label={translate("audit.fromDate")}
+                  value={dateFrom}
+                  onChange={(e) => setDateFrom(e.target.value)}
+                />
+                <DateInput
+                  aria-label={translate("audit.toDate")}
+                  value={dateTo}
+                  onChange={(e) => setDateTo(e.target.value)}
+                />
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center gap-3">
-          <Button type="button" variant="secondary" size="sm" onClick={clearFilters} disabled={!hasFilters}>
+        <div className={auditFilterActionsRowClass()}>
+          <Button
+            type="button"
+            variant="secondary"
+            size="sm"
+            className={auditFilterActionClass()}
+            onClick={clearFilters}
+            disabled={!hasFilters}
+          >
             {translate("audit.clearFilters")}
           </Button>
           <span className="text-sm" style={{ color: "var(--text-muted)" }}>

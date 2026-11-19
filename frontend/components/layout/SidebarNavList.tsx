@@ -125,7 +125,7 @@ function CollapsedGroupFlyout({
 
 function SidebarNavGroup({ group }: { group: NavGroupEntry }) {
   const pathname = usePathname();
-  const { collapsed } = useSidebarCollapse();
+  const { railCollapsed } = useSidebarCollapse();
   const { isExpanded, toggle, ensureExpanded } = useNavGroupsExpanded();
   const panelId = useId();
   const triggerRef = useRef<HTMLButtonElement>(null);
@@ -141,7 +141,7 @@ function SidebarNavGroup({ group }: { group: NavGroupEntry }) {
   }, [hasActiveChild, group.id, ensureExpanded]);
 
   function handleTriggerClick() {
-    if (collapsed) {
+    if (railCollapsed) {
       setFlyoutOpen((v) => !v);
       return;
     }
@@ -165,19 +165,19 @@ function SidebarNavGroup({ group }: { group: NavGroupEntry }) {
         className={`nav-link sidebar-nav-link sidebar-nav-group-trigger w-full ${
           hasActiveChild ? "sidebar-nav-group-trigger--within" : "text-[var(--text-muted)]"
         }`}
-        aria-expanded={collapsed ? flyoutOpen : expanded}
+        aria-expanded={railCollapsed ? flyoutOpen : expanded}
         aria-controls={`${panelId}-panel`}
-        aria-label={collapsed ? navText(group.labelKey, group.label) : undefined}
-        title={collapsed ? navText(group.labelKey, group.label) : undefined}
+        aria-label={railCollapsed ? navText(group.labelKey, group.label) : undefined}
+        title={railCollapsed ? navText(group.labelKey, group.label) : undefined}
         onClick={handleTriggerClick}
         onKeyDown={handleTriggerKeyDown}
       >
         <NavIcon href={group.iconHref} />
         <span className="sidebar-nav-label min-w-0 flex-1 truncate text-left">{navText(group.labelKey, group.label)}</span>
-        <ChevronIcon expanded={collapsed ? flyoutOpen : expanded} />
+        <ChevronIcon expanded={railCollapsed ? flyoutOpen : expanded} />
       </button>
 
-      {collapsed ? (
+      {railCollapsed ? (
         <CollapsedGroupFlyout
           group={group}
           open={flyoutOpen}
@@ -209,7 +209,7 @@ function SidebarNavGroup({ group }: { group: NavGroupEntry }) {
 
 export function SidebarNavList({ items }: SidebarNavListProps) {
   const pathname = usePathname();
-  const { collapsed } = useSidebarCollapse();
+  const { railCollapsed } = useSidebarCollapse();
   const { ensureExpanded } = useNavGroupsExpanded();
 
   useEffect(() => {
@@ -224,7 +224,7 @@ export function SidebarNavList({ items }: SidebarNavListProps) {
       {items.map((entry) => {
         const section = entry.section;
         const sectionLabel = navText(entry.sectionKey, section ?? "");
-        const showSection = !collapsed && section && section !== lastSection;
+        const showSection = !railCollapsed && section && section !== lastSection;
         if (section) lastSection = section;
 
         if (entry.type === "group") {
@@ -253,7 +253,7 @@ export function SidebarNavList({ items }: SidebarNavListProps) {
             ) : null}
             <Link
               href={entry.href}
-              title={collapsed ? navText(entry.labelKey, entry.label) : undefined}
+              title={railCollapsed ? navText(entry.labelKey, entry.label) : undefined}
               className={`nav-link sidebar-nav-link ${
                 isActive ? "nav-link-active" : "text-[var(--text-muted)]"
               }`}

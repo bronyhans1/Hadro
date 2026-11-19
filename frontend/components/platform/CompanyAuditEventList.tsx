@@ -7,10 +7,16 @@ import {
   getAuditCategoryMeta,
 } from "@/lib/audit/auditCategories";
 import { presentAuditLog } from "@/lib/audit/auditPresentation";
+import {
+  auditDesktopTableClass,
+  auditMobileCardsClass,
+} from "@/lib/audit/auditMobileLayout";
 import type { PlatformAuditLog } from "@/lib/api/platform.api";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { Badge } from "@/components/ui/Badge";
+import { Card, CardBody } from "@/components/ui/Card";
 import { Tooltip } from "@/components/ui/Tooltip";
+import { cn } from "@/lib/design-system/cn";
 import {
   formatBusinessDateTime,
   formatRelativeTimeAgo,
@@ -24,6 +30,71 @@ type Props = {
   emptyTitle?: string;
   emptyDescription?: string;
 };
+
+function CompactAuditList({
+  logs,
+  businessTz,
+}: {
+  logs: PlatformAuditLog[];
+  businessTz: string;
+}) {
+  return (
+    <ul className="space-y-2">
+      {logs.map((log) => {
+        const presented = presentAuditLog({
+          id: log.id,
+          company_id: log.company_id,
+          actor_id: log.actor_id,
+          actor_name: log.actor_name,
+          actor_email: log.actor_email,
+          action: log.action,
+          entity_type: log.entity_type,
+          entity_id: log.entity_id,
+          metadata: log.metadata,
+          created_at: log.created_at,
+        });
+        const category = getAuditCategoryMeta(
+          categorizeAuditEvent(log.action, log.entity_type)
+        );
+        const Icon = category.icon;
+        const exact = formatBusinessDateTime(log.created_at, businessTz);
+        return (
+          <li
+            key={log.id}
+            className="flex items-start gap-3 rounded-lg border p-3"
+            style={{ borderColor: "var(--border-soft)" }}
+          >
+            <span
+              className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg"
+              style={{ background: "var(--surface-muted)", color: "var(--text-muted)" }}
+            >
+              <Icon className="h-4 w-4" aria-hidden />
+              <span className="sr-only">{category.label}</span>
+            </span>
+            <div className="min-w-0 flex-1">
+              <p className="break-words text-sm font-medium" style={{ color: "var(--text-primary)" }}>
+                {getAuditActionLabel(log.action)}
+              </p>
+              <p className="mt-0.5 break-words text-xs" style={{ color: "var(--text-muted)" }}>
+                {log.actor_name?.trim() || log.actor_email?.trim() || translate("audit.unknownActor")}
+                {presented.detail ? ` · ${presented.detail}` : ""}
+              </p>
+            </div>
+            <Tooltip content={exact}>
+              <span
+                className="shrink-0 whitespace-nowrap text-xs"
+                style={{ color: "var(--text-muted)" }}
+                tabIndex={0}
+              >
+                {formatRelativeTimeAgo(log.created_at)}
+              </span>
+            </Tooltip>
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
 
 export function CompanyAuditEventList({
   logs,
@@ -42,64 +113,13 @@ export function CompanyAuditEventList({
     );
   }
 
+  if (compact) {
+    return <div className="space-y-2"><CompactAuditList logs={logs} businessTz={businessTz} /></div>;
+  }
+
   return (
-    <div className={compact ? "space-y-2" : "overflow-x-auto"}>
-      {compact ? (
-        <ul className="space-y-2">
-          {logs.map((log) => {
-            const presented = presentAuditLog({
-              id: log.id,
-              company_id: log.company_id,
-              actor_id: log.actor_id,
-              actor_name: log.actor_name,
-              actor_email: log.actor_email,
-              action: log.action,
-              entity_type: log.entity_type,
-              entity_id: log.entity_id,
-              metadata: log.metadata,
-              created_at: log.created_at,
-            });
-            const category = getAuditCategoryMeta(
-              categorizeAuditEvent(log.action, log.entity_type)
-            );
-            const Icon = category.icon;
-            const exact = formatBusinessDateTime(log.created_at, businessTz);
-            return (
-              <li
-                key={log.id}
-                className="flex items-start gap-3 rounded-lg border p-3"
-                style={{ borderColor: "var(--border-soft)" }}
-              >
-                <span
-                  className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg"
-                  style={{ background: "var(--surface-muted)", color: "var(--text-muted)" }}
-                >
-                  <Icon className="h-4 w-4" aria-hidden />
-                  <span className="sr-only">{category.label}</span>
-                </span>
-                <div className="min-w-0 flex-1">
-                  <p className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>
-                    {getAuditActionLabel(log.action)}
-                  </p>
-                  <p className="mt-0.5 text-xs" style={{ color: "var(--text-muted)" }}>
-                    {log.actor_name?.trim() || log.actor_email?.trim() || translate("audit.unknownActor")}
-                    {presented.detail ? ` · ${presented.detail}` : ""}
-                  </p>
-                </div>
-                <Tooltip content={exact}>
-                  <span
-                    className="shrink-0 whitespace-nowrap text-xs"
-                    style={{ color: "var(--text-muted)" }}
-                    tabIndex={0}
-                  >
-                    {formatRelativeTimeAgo(log.created_at)}
-                  </span>
-                </Tooltip>
-              </li>
-            );
-          })}
-        </ul>
-      ) : (
+    <div className="min-w-0">
+      <div className={cn(auditDesktopTableClass(), "overflow-x-auto")}>
         <table className="w-full min-w-[720px] border-collapse text-left text-sm">
           <thead>
             <tr
@@ -168,9 +188,83 @@ export function CompanyAuditEventList({
             })}
           </tbody>
         </table>
-      )}
-      {!compact && logs.length > 0 ? (
-        <p className="mt-3 text-xs" style={{ color: "var(--text-muted)" }}>
+      </div>
+
+      <section
+        className={cn(auditMobileCardsClass())}
+        aria-label={translate("audit.companyAudit")}
+      >
+        <ul className="space-y-3">
+          {logs.map((log) => {
+            const presented = presentAuditLog({
+              id: log.id,
+              company_id: log.company_id,
+              actor_id: log.actor_id,
+              actor_name: log.actor_name,
+              actor_email: log.actor_email,
+              action: log.action,
+              entity_type: log.entity_type,
+              entity_id: log.entity_id,
+              metadata: log.metadata,
+              created_at: log.created_at,
+            });
+            const category = getAuditCategoryMeta(
+              categorizeAuditEvent(log.action, log.entity_type)
+            );
+            const Icon = category.icon;
+            return (
+              <li key={log.id} className="min-w-0">
+                <Card padding={false} className="overflow-hidden">
+                  <CardBody className="space-y-3">
+                    <div className="flex min-w-0 items-start justify-between gap-2">
+                      <div className="min-w-0">
+                        <p className="break-words text-sm font-semibold" style={{ color: "var(--ds-color-text-primary)" }}>
+                          {getAuditActionLabel(log.action)}
+                        </p>
+                        <p className="mt-0.5 text-xs" style={{ color: "var(--ds-color-text-muted)" }}>
+                          <Tooltip content={formatBusinessDateTime(log.created_at, businessTz)}>
+                            <span tabIndex={0}>{formatRelativeTimeAgo(log.created_at)}</span>
+                          </Tooltip>
+                        </p>
+                      </div>
+                      <span
+                        className="inline-flex shrink-0 items-center gap-1 rounded-md px-2 py-1 text-xs"
+                        style={{ background: "var(--ds-color-surface-muted)", color: "var(--ds-color-text-muted)" }}
+                      >
+                        <Icon className="h-3.5 w-3.5" aria-hidden />
+                        {category.label}
+                      </span>
+                    </div>
+                    <dl className="grid grid-cols-1 gap-y-2 text-xs sm:grid-cols-2 sm:gap-x-3">
+                      <div className="min-w-0">
+                        <dt style={{ color: "var(--ds-color-text-muted)" }}>{translate("platform.actor")}</dt>
+                        <dd className="mt-0.5 break-words" style={{ color: "var(--ds-color-text-primary)" }}>
+                          {log.actor_name?.trim() || log.actor_email?.trim() || translate("audit.unknown")}
+                        </dd>
+                      </div>
+                      <div className="min-w-0">
+                        <dt style={{ color: "var(--ds-color-text-muted)" }}>{translate("attendance.status")}</dt>
+                        <dd className="mt-0.5">
+                          <Badge variant="info">{translate("platform.logged")}</Badge>
+                        </dd>
+                      </div>
+                      <div className="min-w-0 sm:col-span-2">
+                        <dt style={{ color: "var(--ds-color-text-muted)" }}>{translate("platform.resource")}</dt>
+                        <dd className="mt-0.5 break-words" style={{ color: "var(--ds-color-text-primary)" }}>
+                          {presented.targetLabel}
+                        </dd>
+                      </div>
+                    </dl>
+                  </CardBody>
+                </Card>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+
+      {logs.length > 0 ? (
+        <p className="mt-3 break-words text-xs" style={{ color: "var(--text-muted)" }}>
           Showing company-scoped events.{" "}
           <Link
             href="/platform/audit"

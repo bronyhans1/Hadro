@@ -90,12 +90,19 @@ export function LeaveApprovalModals({
         footer={
           reviewModal ? (
             <>
-              <Button type="button" variant="outline" onClick={onCloseReview} disabled={actionLoading !== null}>
+              <Button
+                type="button"
+                variant="outline"
+                className="w-full sm:w-auto"
+                onClick={onCloseReview}
+                disabled={actionLoading !== null}
+              >
                 {translate("common.cancel")}
               </Button>
               <Button
                 type="button"
                 variant={reviewModal.action === "approve" ? "success" : "danger"}
+                className="w-full sm:w-auto"
                 loading={actionLoading !== null}
                 disabled={overrideReasonMissing}
                 onClick={onConfirmReview}
@@ -154,7 +161,7 @@ export function LeaveApprovalModals({
                       values: { compensation: compensationLabel(companyDefault) },
                     })}
                   </p>
-                  <div className="mt-2 flex gap-4 text-sm text-theme">
+                  <div className="mt-2 flex flex-wrap gap-4 text-sm text-theme">
                     <label className="flex items-center gap-2">
                       <input
                         type="radio"
@@ -220,12 +227,19 @@ export function LeaveApprovalModals({
         footer={
           cancelModal ? (
             <>
-              <Button type="button" variant="outline" onClick={onCloseCancel} disabled={actionLoading !== null}>
+              <Button
+                type="button"
+                variant="outline"
+                className="w-full sm:w-auto"
+                onClick={onCloseCancel}
+                disabled={actionLoading !== null}
+              >
                 {translate("leave.keepRequest")}
               </Button>
               <Button
                 type="button"
                 variant="secondary"
+                className="w-full sm:w-auto"
                 loading={actionLoading !== null}
                 onClick={onConfirmCancel}
               >
@@ -270,12 +284,19 @@ export function LeaveApprovalModals({
         footer={
           terminateModal ? (
             <>
-              <Button type="button" variant="outline" onClick={onCloseTerminate} disabled={actionLoading !== null}>
+              <Button
+                type="button"
+                variant="outline"
+                className="w-full sm:w-auto"
+                onClick={onCloseTerminate}
+                disabled={actionLoading !== null}
+              >
                 {translate("common.cancel")}
               </Button>
               <Button
                 type="button"
                 variant="secondary"
+                className="w-full sm:w-auto"
                 loading={actionLoading !== null}
                 onClick={onConfirmTerminate}
               >

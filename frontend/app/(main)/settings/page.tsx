@@ -776,8 +776,8 @@ export default function SettingsPage() {
             <p className="text-xs text-theme-muted">
               {translate("settings.holidaysHelp")}
             </p>
-            <div className="flex flex-wrap items-end gap-3">
-              <div>
+            <div className="flex w-full min-w-0 flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:items-end">
+              <div className="min-w-0 w-full sm:w-auto">
                 <label className="mb-1 block text-xs font-medium text-theme-muted" htmlFor="holiday-year">
                   {translate("leave.year")}
                 </label>
@@ -788,16 +788,17 @@ export default function SettingsPage() {
                   max={2100}
                   value={holidayYear}
                   onChange={(e) => setHolidayYear(Number(e.target.value) || holidayYear)}
-                  className="input-field w-24 py-1.5"
+                  className="input-field w-full py-1.5 sm:w-24"
                 />
               </div>
-              <div>
+              <div className="min-w-0 w-full sm:w-auto">
                 <label className="mb-1 block text-xs font-medium text-theme-muted" htmlFor="holiday-month">
                   {translate("leave.month")}
                 </label>
                 <Select
                   id="holiday-month"
                   value={String(holidayMonth)}
+                  className="w-full"
                   onChange={(e) => setHolidayMonth(Number(e.target.value))}
                 >
                   {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((m) => (
@@ -853,6 +854,7 @@ export default function SettingsPage() {
                   <Button
                     type="button"
                     size="sm"
+                    className="w-full sm:w-auto"
                     disabled={holidayBusy}
                     loading={holidayBusy}
                     onClick={() => void handleAddHoliday()}

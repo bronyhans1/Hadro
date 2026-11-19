@@ -24,6 +24,7 @@ export function EmployeesPageHeader({
         <Button
           type="button"
           variant="primary"
+          className="w-full sm:w-auto"
           onClick={onAddEmployee}
           leftIcon={<Plus className="h-4 w-4" aria-hidden />}
         >

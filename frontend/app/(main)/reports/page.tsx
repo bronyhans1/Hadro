@@ -8,7 +8,6 @@ import { Card } from "@/components/ui/Card";
 import { DateRangeFilter } from "@/components/ui/DateRangeFilter";
 import { Select } from "@/components/ui/FormControls";
 import { ErrorState } from "@/components/ui/ErrorState";
-import { EmptyState } from "@/components/ui/EmptyState";
 import { AccessDeniedState } from "@/components/ui/AccessDeniedState";
 import { useAuth } from "@/lib/auth/AuthContext";
 import { canAccessManagerFeatures } from "@/lib/auth/roles";
@@ -21,7 +20,10 @@ import { PayrollSection } from "@/components/payroll/PayrollSection";
 import { ReportsPageHeader } from "@/components/reports/ReportsPageHeader";
 import { ReportsOperationalCards } from "@/components/reports/ReportsOperationalCards";
 import { ReportsFilterSubsection } from "@/components/reports/ReportsFilterSubsection";
-import { safeApi } from "@/lib/api/safeApi";
+import {
+  reportsExportActionClass,
+  reportsExportActionsRowClass,
+} from "@/lib/reports/reportsMobileLayout";
 import { translate } from "@/lib/i18n";
 
 function currentYearMonth(): { year: number; month: number } {
@@ -53,6 +55,7 @@ export default function ReportsPage() {
 
   async function runAttendanceExport(kind: "lateness" | "flags" | "absence") {
     setAttendanceError(null);
+    setAttendanceExportOk(null);
     if (!start || !end) {
       setAttendanceError(translate("reports.datesRequired"));
       return;
@@ -68,6 +71,8 @@ export default function ReportsPage() {
       const result = await fn(start, end);
       if (!result.ok) {
         setAttendanceError(result.error ?? translate("payroll.downloadFailed"));
+      } else {
+        setAttendanceExportOk(translate("reports.downloadStarted"));
       }
     } finally {
       setAttendanceLoading(null);
@@ -148,10 +153,11 @@ export default function ReportsPage() {
                   </ReportsFilterSubsection>
 
                   <ReportsFilterSubsection title={translate("reports.exportActions")}>
-                    <div className="flex flex-wrap gap-2">
+                    <div className={reportsExportActionsRowClass()}>
                       <Button
                         type="button"
                         size="sm"
+                        className={reportsExportActionClass()}
                         onClick={() => runAttendanceExport("lateness")}
                         disabled={attendanceLoading !== null}
                         loading={attendanceLoading === "lateness"}
@@ -162,6 +168,7 @@ export default function ReportsPage() {
                         type="button"
                         variant="secondary"
                         size="sm"
+                        className={reportsExportActionClass()}
                         onClick={() => runAttendanceExport("flags")}
                         disabled={attendanceLoading !== null}
                         loading={attendanceLoading === "flags"}
@@ -172,6 +179,7 @@ export default function ReportsPage() {
                         type="button"
                         variant="secondary"
                         size="sm"
+                        className={reportsExportActionClass()}
                         onClick={() => runAttendanceExport("absence")}
                         disabled={attendanceLoading !== null}
                         loading={attendanceLoading === "absence"}
@@ -222,8 +230,8 @@ export default function ReportsPage() {
                       </div>
                     </ReportsFilterSubsection>
 
-                    <div className="flex flex-wrap items-end gap-4">
-                      <div>
+                    <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-end">
+                      <div className="min-w-0">
                         <label htmlFor="reports-year" className="mb-1 block text-xs font-medium text-theme-muted">
                           {translate("leave.year")}
                         </label>
@@ -234,10 +242,10 @@ export default function ReportsPage() {
                           max={2100}
                           value={year}
                           onChange={(e) => setYear(Number(e.target.value) || defaultYear)}
-                          className="input-field w-24 py-1.5"
+                          className="input-field w-full py-1.5 sm:w-24"
                         />
                       </div>
-                      <div>
+                      <div className="min-w-0">
                         <label htmlFor="reports-month" className="mb-1 block text-xs font-medium text-theme-muted">
                           {translate("leave.month")}
                         </label>
@@ -245,6 +253,7 @@ export default function ReportsPage() {
                           id="reports-month"
                           value={String(month)}
                           onChange={(e) => setMonth(Number(e.target.value))}
+                          className="w-full sm:w-auto"
                         >
                           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((m) => (
                             <option key={m} value={m}>
@@ -253,11 +262,12 @@ export default function ReportsPage() {
                           ))}
                         </Select>
                       </div>
-                      <div className="flex flex-wrap gap-2">
+                      <div className={reportsExportActionsRowClass()}>
                         <Button
                           type="button"
                           variant="secondary"
                           size="sm"
+                          className={reportsExportActionClass()}
                           onClick={() => runPayrollExport("csv")}
                           disabled={payrollLoading !== null}
                           loading={payrollLoading === "csv"}
@@ -267,6 +277,7 @@ export default function ReportsPage() {
                         <Button
                           type="button"
                           size="sm"
+                          className={reportsExportActionClass()}
                           onClick={() => runPayrollExport("excel")}
                           disabled={payrollLoading !== null}
                           loading={payrollLoading === "excel"}

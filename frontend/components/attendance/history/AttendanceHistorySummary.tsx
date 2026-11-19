@@ -16,7 +16,7 @@ export function AttendanceHistorySummary({ metrics, loading }: AttendanceHistory
   if (loading) {
     return (
       <div
-        className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6"
+        className="grid grid-cols-2 gap-3 lg:grid-cols-3 xl:grid-cols-6"
         aria-busy
         aria-label={translate("attendance.loadingSummary")}
       >
@@ -36,7 +36,7 @@ export function AttendanceHistorySummary({ metrics, loading }: AttendanceHistory
 
   return (
     <MotionStagger
-      className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6"
+      className="grid grid-cols-2 gap-3 lg:grid-cols-3 xl:grid-cols-6"
       aria-label={translate("attendance.summaryForResults")}
     >
       <StatCard title={translate("attendance.sessions")} value={metrics.sessions} subtitle={translate("attendance.matchingFilters")} icon={<FileClock />} tone="working" />

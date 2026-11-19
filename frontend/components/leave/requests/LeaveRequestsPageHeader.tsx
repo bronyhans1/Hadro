@@ -23,6 +23,7 @@ export function LeaveRequestsPageHeader({
           <Button
             type="button"
             variant="primary"
+            className="w-full sm:w-auto"
             onClick={onRequestLeave}
             leftIcon={<CalendarPlus className="h-4 w-4" aria-hidden />}
           >

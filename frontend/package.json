@@ -9,7 +9,15 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test:shell": "node --experimental-strip-types --test lib/layout/__tests__/shellLayout.test.ts",
+    "test:employees-mobile": "node --experimental-strip-types --test lib/employees/__tests__/employeesMobileLayout.test.ts",
+    "test:attendance-mobile": "node --experimental-strip-types --test lib/attendance/__tests__/attendanceMobileLayout.test.ts",
+    "test:leave-mobile": "node --experimental-strip-types --test lib/leave/__tests__/leaveMobileLayout.test.ts",
+    "test:payroll-mobile": "node --experimental-strip-types --test lib/payroll/__tests__/payrollMobileLayout.test.ts",
+    "test:organisation-mobile": "node --experimental-strip-types --test lib/organisation/__tests__/organisationMobileLayout.test.ts",
+    "test:reports-mobile": "node --experimental-strip-types --test lib/reports/__tests__/reportsMobileLayout.test.ts",
+    "test:audit-mobile": "node --experimental-strip-types --test lib/audit/__tests__/auditMobileLayout.test.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.99.1",

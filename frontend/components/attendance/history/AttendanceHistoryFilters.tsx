@@ -58,7 +58,7 @@ function FilterFields({
             id="hist-emp"
             value={employeeFilter}
             onChange={(e) => onEmployeeChange(e.target.value)}
-            className="mt-1"
+            className="mt-1 w-full"
           >
             <option value="">{translate("attendance.allEmployees")}</option>
             {employees.map((u) => (

@@ -4,7 +4,12 @@ import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { MainContent } from "@/components/layout/MainContent";
-import { Card } from "@/components/ui/Card";
+import { Card, CardBody } from "@/components/ui/Card";
+import {
+  organisationDesktopTableClass,
+  organisationMobileCardsClass,
+} from "@/lib/organisation/organisationMobileLayout";
+import { cn } from "@/lib/design-system/cn";
 import { Button } from "@/components/ui/Button";
 import { Input, Select, Textarea } from "@/components/ui/FormControls";
 import { EmptyState } from "@/components/ui/EmptyState";
@@ -122,7 +127,7 @@ export default function PlatformOnboardingPage() {
               </option>
             ))}
           </Select>
-          <Button type="button" variant="secondary" onClick={() => void load()}>
+          <Button type="button" variant="secondary" className="w-full sm:w-auto" onClick={() => void load()}>
             Refresh
           </Button>
         </div>
@@ -138,8 +143,9 @@ export default function PlatformOnboardingPage() {
             description={translate("platform.onboardingWillAppear")}
           />
         ) : (
-          <div className="mt-6 overflow-x-auto">
+          <div className="mt-6">
             <p className="mb-3 text-sm text-theme-muted">{total} request{total === 1 ? "" : "s"}</p>
+            <div className={cn(organisationDesktopTableClass(), "overflow-x-auto")}>
             <table className="w-full min-w-[720px] text-left text-sm">
               <thead>
                 <tr className="border-b text-xs uppercase tracking-wide text-theme-muted" style={{ borderColor: "var(--border-soft)" }}>
@@ -175,13 +181,58 @@ export default function PlatformOnboardingPage() {
                 ))}
               </tbody>
             </table>
+            </div>
+            <section className={cn(organisationMobileCardsClass())} aria-label={translate("navigation.onboardingRequests")}>
+              <ul className="space-y-3">
+                {rows.map((row) => (
+                  <li key={row.id} className="min-w-0">
+                    <Card padding={false} className="overflow-hidden">
+                      <CardBody className="space-y-3">
+                        <div className="flex min-w-0 items-start justify-between gap-2">
+                          <p className="min-w-0 break-words text-sm font-semibold" style={{ color: "var(--ds-color-text-primary)" }}>
+                            {row.company_name}
+                          </p>
+                          <Badge variant={statusVariant(row.status)}>{formatOnboardingStatusLabel(row.status)}</Badge>
+                        </div>
+                        <dl className="grid grid-cols-1 gap-y-2 text-xs">
+                          <div className="min-w-0">
+                            <dt style={{ color: "var(--ds-color-text-muted)" }}>{translate("support.contact")}</dt>
+                            <dd className="mt-0.5 break-words" style={{ color: "var(--ds-color-text-primary)" }}>
+                              {row.full_name}
+                              <span className="mt-0.5 block break-all text-xs" style={{ color: "var(--ds-color-text-muted)" }}>
+                                {row.work_email}
+                              </span>
+                            </dd>
+                          </div>
+                          <div className="min-w-0">
+                            <dt style={{ color: "var(--ds-color-text-muted)" }}>{translate("platform.industry")}</dt>
+                            <dd className="mt-0.5 break-words" style={{ color: "var(--ds-color-text-primary)" }}>
+                              {row.industry ?? "—"}
+                            </dd>
+                          </div>
+                          <div className="min-w-0">
+                            <dt style={{ color: "var(--ds-color-text-muted)" }}>{translate("attendance.submitted")}</dt>
+                            <dd className="mt-0.5" style={{ color: "var(--ds-color-text-primary)" }}>
+                              {new Date(row.created_at).toLocaleDateString()}
+                            </dd>
+                          </div>
+                        </dl>
+                        <Button type="button" variant="secondary" size="sm" className="w-full" onClick={() => openRow(row)}>
+                          Review
+                        </Button>
+                      </CardBody>
+                    </Card>
+                  </li>
+                ))}
+              </ul>
+            </section>
           </div>
         )}
       </Card>
 
       {selected ? (
         <Card className="mt-6" title={`${selected.company_name} — review`}>
-          <div className="grid gap-3 sm:grid-cols-2 text-sm">
+          <div className="grid gap-3 text-sm sm:grid-cols-2 [&>p]:min-w-0 [&>p]:break-words">
             <p>
               <span className="font-semibold">{translate("support.contact")}:</span> {selected.full_name} · {selected.work_email}
             </p>

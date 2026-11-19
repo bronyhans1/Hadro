@@ -3,6 +3,8 @@
 :root {
   --sidebar-width-expanded: 16rem;
   --sidebar-width-collapsed: 4.5rem;
+  /* Desktop: mirrors --sidebar-width from JS. Mobile override below. */
+  --shell-content-inset: var(--sidebar-width, 16rem);
   --content-max-width: 1440px;
   --shell-header-height: 3.75rem;
   --header-height: var(--shell-header-height);
@@ -64,8 +66,128 @@ html.dark .sidebar-nav-scroll::-webkit-scrollbar-thumb:hover {
 }
 
 .sidebar-shell {
-  transition: width var(--ds-duration-normal) var(--ds-ease-standard);
+  width: var(--sidebar-width, 16rem);
+  transition:
+    width var(--ds-duration-normal) var(--ds-ease-standard),
+    transform var(--ds-duration-normal) var(--ds-ease-standard);
   box-shadow: inset -1px 0 0 var(--ds-color-border);
+}
+
+/*
+ * Mobile / tablet (< lg): off-canvas nav. Desktop collapse preference is preserved
+ * in localStorage but does not affect layout inset or drawer label visibility.
+ */
+@media (max-width: 1023px) {
+  :root {
+    --shell-content-inset: 0px;
+  }
+
+  .app-header {
+    z-index: 50;
+    left: 0 !important;
+    padding-left: max(0.75rem, env(safe-area-inset-left));
+    padding-right: max(0.75rem, env(safe-area-inset-right));
+  }
+
+  .app-main-content {
+    margin-left: 0 !important;
+  }
+
+  .sidebar-shell {
+    width: min(16rem, calc(100vw - 2.5rem));
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    transform: translateX(-105%);
+    box-shadow: var(--ds-shadow-drawer);
+    pointer-events: none;
+    visibility: hidden;
+  }
+
+  /*
+   * Open drawer must stack above .shell-mobile-nav-backdrop (z-40).
+   * !important guards against utility-class z-index winning in the cascade
+   * (which previously left the full-screen backdrop intercepting nav Link clicks).
+   */
+  .sidebar-shell[data-mobile-open="true"] {
+    z-index: 45 !important;
+    transform: translateX(0);
+    pointer-events: auto;
+    visibility: visible;
+  }
+
+  .shell-mobile-nav-backdrop {
+    z-index: 40;
+    pointer-events: auto;
+  }
+
+  /* Force expanded labels/groups inside the drawer regardless of desktop collapse. */
+  html[data-sidebar-collapsed="true"] .sidebar-shell .sidebar-brand-text,
+  html[data-sidebar-collapsed="true"] .sidebar-shell .sidebar-nav-label,
+  html[data-sidebar-collapsed="true"] .sidebar-shell .sidebar-section-heading,
+  html[data-sidebar-collapsed="true"] .sidebar-shell .sidebar-collapse-label {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+    position: static;
+    width: auto;
+    overflow: visible;
+  }
+
+  html[data-sidebar-collapsed="true"] .sidebar-shell .sidebar-nav-link,
+  html[data-sidebar-collapsed="true"] .sidebar-shell .sidebar-brand-link {
+    justify-content: flex-start;
+    padding-left: var(--ds-space-3);
+    padding-right: var(--ds-space-3);
+  }
+
+  html[data-sidebar-collapsed="true"] .sidebar-shell .sidebar-nav-group-children {
+    display: grid;
+  }
+
+  html[data-sidebar-collapsed="true"] .sidebar-shell .sidebar-nav-chevron {
+    display: block;
+  }
+
+  .sidebar-desktop-collapse {
+    display: none;
+  }
+
+  .sidebar-nav-flyout {
+    display: none !important;
+  }
+
+  .app-header-search-trigger {
+    max-width: 12rem;
+    flex: 1 1 auto;
+  }
+}
+
+@media (max-width: 639px) {
+  .app-header-search-trigger {
+    max-width: 2.75rem;
+    flex: 0 0 auto;
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .app-header-search-trigger > span.truncate {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .shell-mobile-nav-backdrop,
+  .shell-mobile-nav-trigger {
+    display: none !important;
+  }
+
+  .sidebar-shell {
+    transform: none !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
 }
 
 .sidebar-brand-text,

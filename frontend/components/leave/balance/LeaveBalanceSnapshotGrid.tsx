@@ -15,6 +15,7 @@ export function LeaveBalanceSnapshotGrid({ stats, loading }: LeaveBalanceSnapsho
     <StatGrid
       ariaLabel={translate("leave.balanceSummaryAria")}
       loading={loading}
+      className="grid-cols-2"
       items={stats.map((stat) => ({
         key: stat.title,
         title: stat.title,

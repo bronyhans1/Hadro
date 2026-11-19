@@ -17,6 +17,7 @@ import { NotificationBell } from "@/components/notifications/NotificationBell";
 import { PlatformNotificationBell } from "@/components/platform/PlatformNotificationBell";
 import { CompanyBranchContext } from "./CompanyBranchContext";
 import { GlobalSearchTrigger, useGlobalSearchShortcut } from "./GlobalSearch";
+import { MobileNavTrigger } from "./MobileNavTrigger";
 import { ProfileMenu } from "./ProfileMenu";
 import { TENANT_NAV_ITEMS } from "@/lib/navigation/tenantNav";
 import { PLATFORM_NAV_ITEMS } from "@/lib/navigation/platformNav";
@@ -77,10 +78,11 @@ export function Header() {
   return (
     <>
       <header
-        className="app-header fixed right-0 top-0 z-20 flex min-w-0 items-center gap-3 px-3 sm:gap-4 sm:px-5"
-        style={{ left: "var(--sidebar-width)" }}
+        className="app-header fixed right-0 top-0 z-20 flex min-w-0 items-center gap-2 px-3 sm:gap-4 sm:px-5"
+        style={{ left: "var(--shell-content-inset, var(--sidebar-width))" }}
       >
-        <div className="flex min-w-0 flex-1 items-center gap-3 sm:gap-4">
+        <MobileNavTrigger />
+        <div className="flex min-w-0 flex-1 items-center gap-2 sm:gap-4">
           <GlobalSearchTrigger onClick={() => setSearchOpen(true)} />
 
           {user?.profileCompletion &&

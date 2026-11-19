@@ -6,13 +6,14 @@ import { Search } from "lucide-react";
 import { MainContent } from "@/components/layout/MainContent";
 import { Card, CardBody } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
-import { Badge } from "@/components/ui/Badge";
 import { Drawer } from "@/components/ui/Drawer";
+import { ResponsiveFilterCard } from "@/components/ui/FilterCard";
 import { Input, Select, DateInput } from "@/components/ui/FormControls";
 import { ErrorState } from "@/components/ui/ErrorState";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { Skeleton, SkeletonCard, SkeletonTable } from "@/components/ui/Skeleton";
 import { Tooltip } from "@/components/ui/Tooltip";
+import { PlatformAuditTimelineGroup } from "@/components/audit/PlatformAuditTimelineGroup";
 import { useAuth } from "@/lib/auth/AuthContext";
 import * as platformApi from "@/lib/api/platform.api";
 import type { PlatformAuditLog } from "@/lib/api/platform.api";
@@ -24,13 +25,16 @@ import {
   presentAuditLog,
 } from "@/lib/audit/auditPresentation";
 import { getAuditActionLabel } from "@/lib/audit/auditActionLabels";
-import { highlightSearchMatch } from "@/lib/audit/highlightSearchMatch";
 import {
   AUDIT_CATEGORIES,
   categorizeAuditEvent,
   getAuditCategoryMeta,
   type AuditCategoryId,
 } from "@/lib/audit/auditCategories";
+import {
+  auditFilterActionClass,
+  auditFilterActionsRowClass,
+} from "@/lib/audit/auditMobileLayout";
 import {
   formatBusinessDateTime,
   formatRelativeTimeAgo,
@@ -493,7 +497,10 @@ export default function PlatformAuditCenterPage() {
           ))}
         </div>
 
-        <Card title={translate("audit.searchAndFilters")}>
+        <ResponsiveFilterCard
+          mobileId="platform-audit-filters"
+          title={translate("audit.searchAndFilters")}
+        >
           <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
             <Input
               label={translate("common.search")}
@@ -534,7 +541,7 @@ export default function PlatformAuditCenterPage() {
               <p className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>
                 {translate("attendance.dateRange")}
               </p>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
                 <DateInput
                   aria-label={translate("audit.dateRangeStart")}
                   value={dateFrom}
@@ -564,24 +571,31 @@ export default function PlatformAuditCenterPage() {
               <option value="oldest">{translate("audit.oldestFirst")}</option>
             </Select>
           </div>
-          <div className="mt-4 flex flex-wrap items-center gap-3">
-            <Button type="button" variant="secondary" onClick={clearFilters} disabled={!hasActiveFilters}>
-              {translate("audit.clearFilters")}
-            </Button>
-            <span className="text-sm" style={{ color: "var(--text-muted)" }}>
-              {translate("audit.showingEvents", {
-                values: { shown: String(filteredRows.length), total: String(presentedRows.length) },
-              })}
-            </span>
-          </div>
-        </Card>
+        </ResponsiveFilterCard>
+
+        <div className={auditFilterActionsRowClass()}>
+          <Button
+            type="button"
+            variant="secondary"
+            className={auditFilterActionClass()}
+            onClick={clearFilters}
+            disabled={!hasActiveFilters}
+          >
+            {translate("audit.clearFilters")}
+          </Button>
+          <span className="text-sm" style={{ color: "var(--text-muted)" }}>
+            {translate("audit.showingEvents", {
+              values: { shown: String(filteredRows.length), total: String(presentedRows.length) },
+            })}
+          </span>
+        </div>
 
         {filteredRows.length === 0 ? (
           <EmptyState
             title={translate("audit.noRecordsMatch")}
             description={translate("audit.tryClearingFilters")}
             action={
-              <Button type="button" variant="secondary" onClick={clearFilters}>
+              <Button type="button" variant="secondary" className={auditFilterActionClass()} onClick={clearFilters}>
                 {translate("audit.clearFilters")}
               </Button>
             }
@@ -589,96 +603,16 @@ export default function PlatformAuditCenterPage() {
         ) : (
           <div className="space-y-6">
             {groupedRows.map((group) => (
-              <Card key={group.id} title={group.label} padding={false}>
-                <div className="overflow-x-auto">
-                  <table className="w-full min-w-[960px] border-collapse text-left text-sm">
-                    <thead>
-                      <tr
-                        className="border-b text-xs uppercase tracking-wide"
-                        style={{ borderColor: "var(--ds-color-border)", color: "var(--text-muted)" }}
-                      >
-                        <th className="px-4 py-3 font-medium">{translate("audit.time")}</th>
-                        <th className="px-4 py-3 font-medium">{translate("common.company")}</th>
-                        <th className="px-4 py-3 font-medium">{translate("audit.actor")}</th>
-                        <th className="px-4 py-3 font-medium">{translate("audit.category")}</th>
-                        <th className="px-4 py-3 font-medium">{translate("audit.action")}</th>
-                        <th className="px-4 py-3 font-medium">{translate("audit.resource")}</th>
-                        <th className="px-4 py-3 font-medium">{translate("attendance.status")}</th>
-                        <th className="px-4 py-3 font-medium">{translate("audit.details")}</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {group.rows.map((row) => {
-                        const Icon = getAuditCategoryMeta(row.categoryId).icon;
-                        const actorName = row.actor_name?.trim() || row.actor_email?.trim() || translate("audit.unknown");
-                        return (
-                          <tr
-                            key={row.id}
-                            role="button"
-                            tabIndex={0}
-                            onClick={() => setSelectedId(row.id)}
-                            onKeyDown={(e) => {
-                              if (e.key === "Enter" || e.key === " ") {
-                                e.preventDefault();
-                                setSelectedId(row.id);
-                              }
-                            }}
-                            className="cursor-pointer border-b transition-colors hover:bg-[var(--ds-color-surface-muted)]"
-                            style={{ borderColor: "var(--ds-color-border)" }}
-                          >
-                            <td className="px-4 py-3">
-                              <RelativeTimestamp iso={row.created_at} businessTz={businessTz} />
-                            </td>
-                            <td className="px-4 py-3" style={{ color: "var(--text-primary)" }}>
-                              {highlightSearchMatch(row.company_name?.trim() || "—", searchQuery)}
-                            </td>
-                            <td className="px-4 py-3">
-                              <div className="font-medium" style={{ color: "var(--text-primary)" }}>
-                                {highlightSearchMatch(actorName, searchQuery)}
-                              </div>
-                              {row.actor_name?.trim() && row.actor_email?.trim() ? (
-                                <div className="text-xs" style={{ color: "var(--text-muted)" }}>
-                                  {highlightSearchMatch(row.actor_email, searchQuery)}
-                                </div>
-                              ) : null}
-                            </td>
-                            <td className="px-4 py-3">
-                              <span
-                                className="inline-flex items-center gap-1.5"
-                                style={{ color: "var(--text-primary)" }}
-                              >
-                                <Icon className="h-3.5 w-3.5 shrink-0" aria-hidden />
-                                <span className="sr-only">{row.categoryLabel}</span>
-                                {row.categoryLabel}
-                              </span>
-                            </td>
-                            <td className="px-4 py-3" style={{ color: "var(--text-primary)" }}>
-                              {highlightSearchMatch(row.actionLabel, searchQuery)}
-                            </td>
-                            <td
-                              className="max-w-[200px] truncate px-4 py-3"
-                              style={{ color: "var(--text-primary)" }}
-                            >
-                              {highlightSearchMatch(row.resourceLabel, searchQuery)}
-                            </td>
-                            <td className="px-4 py-3">
-                              <Badge variant="info">{translate("platform.logged")}</Badge>
-                            </td>
-                            <td
-                              className="max-w-[260px] truncate px-4 py-3"
-                              style={{ color: "var(--text-muted)" }}
-                            >
-                              {row.detail
-                                ? highlightSearchMatch(row.detail, searchQuery)
-                                : "—"}
-                            </td>
-                          </tr>
-                        );
-                      })}
-                    </tbody>
-                  </table>
-                </div>
-              </Card>
+              <PlatformAuditTimelineGroup
+                key={group.id}
+                title={group.label}
+                rows={group.rows}
+                searchQuery={searchQuery}
+                renderTimestamp={(iso) => (
+                  <RelativeTimestamp iso={iso} businessTz={businessTz} />
+                )}
+                onSelect={setSelectedId}
+              />
             ))}
           </div>
         )}
@@ -738,7 +672,7 @@ export default function PlatformAuditCenterPage() {
                     label={translate("audit.additionalDetails")}
                     value={
                       <pre
-                        className="overflow-x-auto rounded-lg border p-3 text-xs"
+                        className="max-w-full overflow-x-auto whitespace-pre-wrap break-words rounded-lg border p-3 text-xs"
                         style={{
                           borderColor: "var(--ds-color-border)",
                           background: "var(--ds-color-surface-muted)",

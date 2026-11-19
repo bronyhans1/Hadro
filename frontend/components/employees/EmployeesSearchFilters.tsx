@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import type { BranchDto } from "@/lib/api/branches.api";
 import type { Department } from "@/lib/api/departments.api";
 import type { EmployeeFilterState } from "@/lib/employees/employeeUtils";
@@ -7,6 +8,8 @@ import { FilterCard, FilterGrid } from "@/components/ui/FilterCard";
 import { SearchInput, Select } from "@/components/ui/FormControls";
 import { Label } from "@/components/ui/Label";
 import { Button } from "@/components/ui/Button";
+import { cn } from "@/lib/design-system/cn";
+import { employeeFiltersPanelClass } from "@/lib/employees/employeesMobileLayout";
 import { formatAccountStatusLabel } from "@/lib/format/displayLabels";
 import { translate } from "@/lib/i18n";
 import { formatRoleLabel } from "@/lib/navigation/formatRoleLabel";
@@ -26,6 +29,8 @@ const STATUS_FILTER_VALUES = ["", "active", "inactive", "suspended"] as const;
 
 const ROLE_FILTER_VALUES = ["employee", "manager", "HR", "admin"] as const;
 
+const FILTERS_PANEL_ID = "employees-filters-panel";
+
 export function EmployeesSearchFilters({
   filters,
   onChange,
@@ -36,6 +41,7 @@ export function EmployeesSearchFilters({
   resultCount,
   totalCount,
 }: EmployeesSearchFiltersProps) {
+  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const hasFilters =
     filters.search.trim() ||
     filters.branchId ||
@@ -54,26 +60,43 @@ export function EmployeesSearchFilters({
         </p>
       }
     >
-        <div className="min-w-0">
-            <SearchInput
-              id="employees-search"
-              label={translate("common.search")}
-              placeholder={translate("employees.searchPlaceholder")}
-              value={filters.search}
-              onChange={(e) => onChange({ search: e.target.value })}
-              aria-label={translate("employees.searchEmployees")}
-            />
-        </div>
+      <div className="min-w-0">
+        <SearchInput
+          id="employees-search"
+          label={translate("common.search")}
+          placeholder={translate("employees.searchPlaceholder")}
+          value={filters.search}
+          onChange={(e) => onChange({ search: e.target.value })}
+          aria-label={translate("employees.searchEmployees")}
+        />
+      </div>
 
+      <div className="md:hidden">
+        <Button
+          type="button"
+          variant="outline"
+          className="w-full"
+          onClick={() => setMobileFiltersOpen((open) => !open)}
+          aria-expanded={mobileFiltersOpen}
+          aria-controls={FILTERS_PANEL_ID}
+        >
+          {mobileFiltersOpen ? translate("common.hideFilters") : translate("common.showFilters")}
+        </Button>
+      </div>
+
+      <div
+        id={FILTERS_PANEL_ID}
+        className={cn(employeeFiltersPanelClass(mobileFiltersOpen))}
+      >
         <FilterGrid>
           {showBranchFilter ? (
-            <div>
+            <div className="min-w-0">
               <Label htmlFor="filter-branch">{translate("attendance.branch")}</Label>
               <Select
                 id="filter-branch"
                 value={filters.branchId}
                 onChange={(e) => onChange({ branchId: e.target.value })}
-                className="mt-1"
+                className="mt-1 w-full"
               >
                 <option value="">{translate("employees.allBranches")}</option>
                 {branches.map((b) => (
@@ -85,13 +108,13 @@ export function EmployeesSearchFilters({
             </div>
           ) : null}
 
-          <div>
+          <div className="min-w-0">
             <Label htmlFor="filter-department">{translate("attendance.department")}</Label>
             <Select
               id="filter-department"
               value={filters.departmentId}
               onChange={(e) => onChange({ departmentId: e.target.value })}
-              className="mt-1"
+              className="mt-1 w-full"
             >
               <option value="">{translate("employees.allDepartments")}</option>
               {departments.map((d) => (
@@ -102,13 +125,13 @@ export function EmployeesSearchFilters({
             </Select>
           </div>
 
-          <div>
+          <div className="min-w-0">
             <Label htmlFor="filter-status">{translate("attendance.status")}</Label>
             <Select
               id="filter-status"
               value={filters.status}
               onChange={(e) => onChange({ status: e.target.value })}
-              className="mt-1"
+              className="mt-1 w-full"
             >
               {STATUS_FILTER_VALUES.map((value) => (
                 <option key={value || "all"} value={value}>
@@ -118,13 +141,13 @@ export function EmployeesSearchFilters({
             </Select>
           </div>
 
-          <div>
+          <div className="min-w-0">
             <Label htmlFor="filter-role">{translate("employees.role")}</Label>
             <Select
               id="filter-role"
               value={filters.role}
               onChange={(e) => onChange({ role: e.target.value })}
-              className="mt-1"
+              className="mt-1 w-full"
             >
               <option value="">{translate("employees.allRoles")}</option>
               {ROLE_FILTER_VALUES.map((value) => (
@@ -137,12 +160,13 @@ export function EmployeesSearchFilters({
         </FilterGrid>
 
         {hasFilters ? (
-          <div className="flex justify-end">
+          <div className="mt-3 flex justify-end">
             <Button type="button" variant="ghost" size="sm" onClick={onClear}>
               {translate("employees.clearFilters")}
             </Button>
           </div>
         ) : null}
+      </div>
     </FilterCard>
   );
 }

@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { MainContent } from "@/components/layout/MainContent";
-import { Card } from "@/components/ui/Card";
+import { Card, CardBody } from "@/components/ui/Card";
 import { ErrorState } from "@/components/ui/ErrorState";
 import { useAuth } from "@/lib/auth/AuthContext";
 import { isPlatformAdmin } from "@/lib/auth/roles";
@@ -29,6 +29,11 @@ import {
   companyStatusLabel,
 } from "@/lib/platform/companyWorkspace";
 import { CompanyLogoMark } from "@/components/company/CompanyLogoMark";
+import {
+  organisationDesktopTableClass,
+  organisationMobileCardsClass,
+} from "@/lib/organisation/organisationMobileLayout";
+import { cn } from "@/lib/design-system/cn";
 
 type StatusFilter = "all" | "active" | "inactive" | "suspended";
 
@@ -242,7 +247,8 @@ export default function PlatformCompaniesPage() {
             }
           />
         ) : (
-          <div className="overflow-x-auto">
+          <>
+          <div className={cn(organisationDesktopTableClass(), "overflow-x-auto")}>
             <table className="min-w-full text-sm">
               <thead>
                 <tr
@@ -404,6 +410,142 @@ export default function PlatformCompaniesPage() {
               </tbody>
             </table>
           </div>
+          <section
+            className={cn(organisationMobileCardsClass(), "mt-4")}
+            aria-label={translate("navigation.companies")}
+          >
+            <ul className="space-y-3">
+              {filteredCompanies.map((c) => {
+                const adminEmail =
+                  c.administrator_email?.trim() || c.admin_emails?.[0]?.trim() || "";
+                const adminName = c.administrator_name?.trim() || "";
+                const joined = c.joined_at ?? c.created_at;
+                const lastActivity = c.last_activity_at ?? joined;
+                const employees = c.employees_count ?? 0;
+                return (
+                  <li key={c.company_id} className="min-w-0">
+                    <Card padding={false} className="overflow-hidden">
+                      <CardBody className="space-y-3">
+                        <div className="flex min-w-0 items-start justify-between gap-2">
+                          <div className="flex min-w-0 items-center gap-2.5">
+                            <CompanyLogoMark
+                              name={c.company_name}
+                              logoUrl={c.logo_url}
+                              initials={c.initials}
+                              size="sm"
+                            />
+                            <div className="min-w-0">
+                              <Link
+                                href={`/platform/companies/${c.company_id}`}
+                                className="break-words font-medium underline-offset-2 hover:underline"
+                                style={{ color: "var(--ds-color-primary)" }}
+                              >
+                                {c.company_name}
+                              </Link>
+                              <div className="mt-0.5 break-all font-mono text-xs" style={{ color: "var(--text-muted)" }}>
+                                {c.company_code}
+                              </div>
+                            </div>
+                          </div>
+                          <Badge variant={companyStatusBadgeVariant(c.status)}>
+                            {companyStatusLabel(c.status)}
+                          </Badge>
+                        </div>
+                        <dl className="grid grid-cols-2 gap-x-3 gap-y-2 text-xs">
+                          <div className="min-w-0">
+                            <dt style={{ color: "var(--text-muted)" }}>{translate("platform.industry")}</dt>
+                            <dd className="mt-0.5 break-words" style={{ color: "var(--text-primary)" }}>
+                              {c.industry?.trim() || "—"}
+                            </dd>
+                          </div>
+                          <div className="min-w-0">
+                            <dt style={{ color: "var(--text-muted)" }}>{translate("platform.plan")}</dt>
+                            <dd className="mt-0.5 break-words" style={{ color: "var(--text-primary)" }}>
+                              {c.plan?.trim() || translate("platform.standardPlan")}
+                            </dd>
+                          </div>
+                          <div className="min-w-0 col-span-2">
+                            <dt style={{ color: "var(--text-muted)" }}>{translate("platform.location")}</dt>
+                            <dd className="mt-0.5 break-words" style={{ color: "var(--text-primary)" }}>
+                              {c.location_label?.trim() || "—"}
+                            </dd>
+                          </div>
+                          <div className="min-w-0">
+                            <dt style={{ color: "var(--text-muted)" }}>{translate("navigation.employees")}</dt>
+                            <dd className="mt-0.5" style={{ color: "var(--text-primary)" }}>
+                              {employees}
+                            </dd>
+                          </div>
+                          <div className="min-w-0">
+                            <dt style={{ color: "var(--text-muted)" }}>{translate("navigation.branches")}</dt>
+                            <dd className="mt-0.5" style={{ color: "var(--text-primary)" }}>
+                              {translate("branches.count", { count: c.branches_count })}
+                            </dd>
+                          </div>
+                          <div className="min-w-0">
+                            <dt style={{ color: "var(--text-muted)" }}>{translate("platform.joined")}</dt>
+                            <dd className="mt-0.5" style={{ color: "var(--text-primary)" }}>
+                              {joined ? formatRelativeTimeAgo(joined) : "—"}
+                            </dd>
+                          </div>
+                          <div className="min-w-0">
+                            <dt style={{ color: "var(--text-muted)" }}>{translate("platform.lastActivity")}</dt>
+                            <dd className="mt-0.5" style={{ color: "var(--text-primary)" }}>
+                              {lastActivity ? formatRelativeTimeAgo(lastActivity) : "—"}
+                            </dd>
+                          </div>
+                          <div className="min-w-0 col-span-2">
+                            <dt style={{ color: "var(--text-muted)" }}>{translate("platform.administrator")}</dt>
+                            <dd className="mt-0.5 break-words" style={{ color: "var(--text-primary)" }}>
+                              {adminName || adminEmail || "—"}
+                              {adminName && adminEmail ? (
+                                <span className="mt-0.5 block break-all text-xs" style={{ color: "var(--text-muted)" }}>
+                                  {adminEmail}
+                                </span>
+                              ) : null}
+                            </dd>
+                          </div>
+                        </dl>
+                        <div className="flex flex-col gap-2">
+                          <Link href={`/platform/companies/${c.company_id}`} className="w-full">
+                            <Button type="button" variant="outline" size="sm" className="w-full" leftIcon={<Eye className="h-3.5 w-3.5" aria-hidden />}>
+                              {translate("platform.openWorkspace")}
+                            </Button>
+                          </Link>
+                          <Button
+                            type="button"
+                            variant="secondary"
+                            size="sm"
+                            className="w-full"
+                            onClick={() => {
+                              setStatusTarget(c);
+                              setStatusNext(c.status === "active" ? "suspended" : "active");
+                            }}
+                          >
+                            {c.status === "active" ? translate("platform.suspend") : translate("platform.activate")}
+                          </Button>
+                          <Button
+                            type="button"
+                            variant="danger"
+                            size="sm"
+                            className="w-full"
+                            leftIcon={<Trash2 className="h-3.5 w-3.5" aria-hidden />}
+                            onClick={() => {
+                              setDeleteTarget(c);
+                              setDeleteConfirmName("");
+                            }}
+                          >
+                            {translate("common.delete")}
+                          </Button>
+                        </div>
+                      </CardBody>
+                    </Card>
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+          </>
         )}
       </Card>
 
@@ -422,7 +564,7 @@ export default function PlatformCompaniesPage() {
               onChange={(e) => setDeleteConfirmName(e.target.value)}
               placeholder={translate("platform.companyNamePlaceholder")}
             />
-            <div className="flex justify-end gap-2 border-t pt-3" style={{ borderColor: "var(--border-soft)" }}>
+            <div className="flex flex-col-reverse gap-2 border-t pt-3 sm:flex-row sm:justify-end" style={{ borderColor: "var(--border-soft)" }}>
               <Button
                 type="button"
                 variant="secondary"
@@ -462,7 +604,7 @@ export default function PlatformCompaniesPage() {
                 },
               })}
             </p>
-            <div className="flex justify-end gap-2 border-t pt-3" style={{ borderColor: "var(--border-soft)" }}>
+            <div className="flex flex-col-reverse gap-2 border-t pt-3 sm:flex-row sm:justify-end" style={{ borderColor: "var(--border-soft)" }}>
               <Button
                 type="button"
                 variant="secondary"

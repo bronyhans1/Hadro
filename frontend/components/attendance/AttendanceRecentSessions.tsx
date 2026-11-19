@@ -2,11 +2,17 @@
 
 import Link from "next/link";
 import type { SessionHistoryItem } from "@/lib/api/attendance.api";
+import { AttendanceSessionMobileCard } from "@/components/attendance/AttendanceSessionMobileCard";
 import { SessionTypeBadge } from "@/components/attendance/SessionTypeBadge";
 import { Badge } from "@/components/ui/Badge";
 import { Card, CardBody, CardFooter, CardHeader } from "@/components/ui/Card";
 import { DataTable } from "@/components/ui/DataTable";
 import { AvatarPhoto } from "@/components/ui/AvatarPhoto";
+import {
+  attendanceDesktopTableClass,
+  attendanceMobileCardsClass,
+} from "@/lib/attendance/attendanceMobileLayout";
+import { cn } from "@/lib/design-system/cn";
 import { formatDurationMinutes } from "@/lib/dashboard/formatters";
 import { formatBusinessDateOnly, formatBusinessDateTime } from "@/lib/utils/businessDateTime";
 import { translate } from "@/lib/i18n";
@@ -73,115 +79,157 @@ export function AttendanceRecentSessions({
   loading,
   employeePhotos,
 }: AttendanceRecentSessionsProps) {
+  const title = canViewCompany
+    ? translate("dashboard.recentAttendance")
+    : translate("dashboard.myRecentAttendance");
+
   return (
-    <Card padding={false}>
-      <CardHeader title={canViewCompany ? translate("dashboard.recentAttendance") : translate("dashboard.myRecentAttendance")} />
-      <CardBody className="!p-0">
-        <DataTable
-          loading={loading}
-          emptyMessage={translate("attendance.noRecentSessions")}
-          keyExtractor={(row) => row.id}
-          data={rows}
-          stickyHeader
-          columns={[
-            ...(canViewCompany
-              ? [
-                  {
-                    key: "employee",
-                    header: translate("attendance.employee"),
-                    render: (row: SessionHistoryItem) => {
-                      const meta = employeePhotos?.get(row.user_id);
-                      const name = row.employee_name ?? meta?.name ?? `${row.user_id.slice(0, 8)}…`;
-                      return <RowAvatar name={name} photoUrl={meta?.photoUrl} />;
-                    },
+    <>
+      <div className={cn(attendanceDesktopTableClass())}>
+        <Card padding={false}>
+          <CardHeader title={title} />
+          <CardBody className="!p-0">
+            <DataTable
+              loading={loading}
+              emptyMessage={translate("attendance.noRecentSessions")}
+              keyExtractor={(row) => row.id}
+              data={rows}
+              stickyHeader
+              columns={[
+                ...(canViewCompany
+                  ? [
+                      {
+                        key: "employee",
+                        header: translate("attendance.employee"),
+                        render: (row: SessionHistoryItem) => {
+                          const meta = employeePhotos?.get(row.user_id);
+                          const name = row.employee_name ?? meta?.name ?? `${row.user_id.slice(0, 8)}…`;
+                          return <RowAvatar name={name} photoUrl={meta?.photoUrl} />;
+                        },
+                      },
+                    ]
+                  : []),
+                {
+                  key: "day",
+                  header: translate("attendance.day"),
+                  render: (row: SessionHistoryItem) => (
+                    <span className="whitespace-nowrap text-xs">
+                      {row.attendance_date
+                        ? row.attendance_date.slice(0, 10)
+                        : formatBusinessDateOnly(row.check_in, businessTimeZone)}
+                      {row.overnight_session ? (
+                        <Badge variant="warning" className="ml-1">
+                          {translate("attendance.overnight")}
+                        </Badge>
+                      ) : null}
+                    </span>
+                  ),
+                },
+                {
+                  key: "check_in",
+                  header: translate("attendance.clockIn"),
+                  render: (row: SessionHistoryItem) => (
+                    <span className="text-xs tabular-nums">
+                      {formatBusinessDateTime(row.check_in, businessTimeZone)}
+                    </span>
+                  ),
+                },
+                {
+                  key: "check_out",
+                  header: translate("attendance.clockOut"),
+                  render: (row: SessionHistoryItem) => (
+                    <span className="text-xs tabular-nums">
+                      {formatBusinessDateTime(row.check_out, businessTimeZone)}
+                    </span>
+                  ),
+                },
+                {
+                  key: "duration",
+                  header: translate("attendance.duration"),
+                  render: (row: SessionHistoryItem) => formatDurationMinutes(row.duration_minutes),
+                },
+                {
+                  key: "type",
+                  header: translate("attendance.session"),
+                  render: (row: SessionHistoryItem) => (
+                    <SessionTypeBadge
+                      attendanceMode={row.attendance_mode}
+                      remoteApprovalStatus={row.remote_approval_status}
+                    />
+                  ),
+                },
+                {
+                  key: "manual",
+                  header: translate("attendance.manual"),
+                  render: (row: SessionHistoryItem) => {
+                    const label = manualColumnLabel(row);
+                    if (!label) return <span style={{ color: "var(--ds-color-text-muted)" }}>—</span>;
+                    if (label === "Manual") return <Badge variant="warning">{translate("attendance.manual")}</Badge>;
+                    const tip = reasonLabel(row.manual_check_in_reason) || reasonLabel(row.manual_check_out_reason);
+                    return (
+                      <span title={tip || undefined}>
+                        <Badge variant="default">{translate("attendance.partial")}</Badge>
+                      </span>
+                    );
                   },
-                ]
-              : []),
-            {
-              key: "day",
-              header: translate("attendance.day"),
-              render: (row) => (
-                <span className="whitespace-nowrap text-xs">
-                  {row.attendance_date
-                    ? row.attendance_date.slice(0, 10)
-                    : formatBusinessDateOnly(row.check_in, businessTimeZone)}
-                  {row.overnight_session ? (
-                    <Badge variant="warning" className="ml-1">
-                      {translate("attendance.overnight")}
+                },
+                {
+                  key: "status",
+                  header: translate("attendance.status"),
+                  render: (row: SessionHistoryItem) => (
+                    <Badge variant={sessionStatusVariant(row.status)}>
+                      {row.status?.toLowerCase() === "active"
+                        ? translate("attendance.active")
+                        : row.status?.toLowerCase() === "completed"
+                          ? translate("attendance.completed")
+                          : row.status}
                     </Badge>
-                  ) : null}
-                </span>
-              ),
-            },
-            {
-              key: "check_in",
-              header: translate("attendance.clockIn"),
-              render: (row) => (
-                <span className="text-xs tabular-nums">
-                  {formatBusinessDateTime(row.check_in, businessTimeZone)}
-                </span>
-              ),
-            },
-            {
-              key: "check_out",
-              header: translate("attendance.clockOut"),
-              render: (row) => (
-                <span className="text-xs tabular-nums">
-                  {formatBusinessDateTime(row.check_out, businessTimeZone)}
-                </span>
-              ),
-            },
-            {
-              key: "duration",
-              header: translate("attendance.duration"),
-              render: (row) => formatDurationMinutes(row.duration_minutes),
-            },
-            {
-              key: "type",
-              header: translate("attendance.session"),
-              render: (row) => (
-                <SessionTypeBadge
-                  attendanceMode={row.attendance_mode}
-                  remoteApprovalStatus={row.remote_approval_status}
+                  ),
+                },
+              ]}
+            />
+          </CardBody>
+          <CardFooter>
+            <Link href="/attendance/history" className="text-sm font-medium" style={{ color: "var(--ds-color-primary)" }}>
+              {translate("dashboard.viewFullHistory")}
+            </Link>
+          </CardFooter>
+        </Card>
+      </div>
+
+      <section className={cn(attendanceMobileCardsClass())} aria-label={title}>
+        <h2 className="ds-h3 text-sm" style={{ color: "var(--ds-color-text-primary)" }}>
+          {title}
+        </h2>
+        {loading && rows.length === 0 ? (
+          <DataTable
+            columns={[{ key: "loading", header: translate("common.loading") }]}
+            data={[]}
+            loading
+            keyExtractor={() => "loading"}
+          />
+        ) : rows.length === 0 ? (
+          <p className="text-sm" style={{ color: "var(--ds-color-text-muted)" }}>
+            {translate("attendance.noRecentSessions")}
+          </p>
+        ) : (
+          <ul className="space-y-3">
+            {rows.map((row) => (
+              <li key={row.id} className="min-w-0">
+                <AttendanceSessionMobileCard
+                  row={row}
+                  canViewCompany={canViewCompany}
+                  businessTimeZone={businessTimeZone}
+                  employeePhotos={employeePhotos}
                 />
-              ),
-            },
-            {
-              key: "manual",
-              header: translate("attendance.manual"),
-              render: (row) => {
-                const label = manualColumnLabel(row);
-                if (!label) return <span style={{ color: "var(--ds-color-text-muted)" }}>—</span>;
-                if (label === "Manual") return <Badge variant="warning">{translate("attendance.manual")}</Badge>;
-                const tip = reasonLabel(row.manual_check_in_reason) || reasonLabel(row.manual_check_out_reason);
-                return (
-                  <span title={tip || undefined}>
-                    <Badge variant="default">{translate("attendance.partial")}</Badge>
-                  </span>
-                );
-              },
-            },
-            {
-              key: "status",
-              header: translate("attendance.status"),
-              render: (row) => (
-                <Badge variant={sessionStatusVariant(row.status)}>
-                  {row.status?.toLowerCase() === "active"
-                    ? translate("attendance.active")
-                    : row.status?.toLowerCase() === "completed"
-                      ? translate("attendance.completed")
-                      : row.status}
-                </Badge>
-              ),
-            },
-          ]}
-        />
-      </CardBody>
-      <CardFooter>
-        <Link href="/attendance/history" className="text-sm font-medium" style={{ color: "var(--ds-color-primary)" }}>
+              </li>
+            ))}
+          </ul>
+        )}
+        <Link href="/attendance/history" className="inline-block text-sm font-medium" style={{ color: "var(--ds-color-primary)" }}>
           {translate("dashboard.viewFullHistory")}
         </Link>
-      </CardFooter>
-    </Card>
+      </section>
+    </>
   );
 }

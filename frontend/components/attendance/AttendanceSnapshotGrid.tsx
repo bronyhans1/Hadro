@@ -38,7 +38,7 @@ export function AttendanceSnapshotGrid({
 
   if (loading && !overview) {
     return (
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" aria-busy aria-label={translate("attendance.loadingSnapshot")}>
+      <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3 xl:grid-cols-4" aria-busy aria-label={translate("attendance.loadingSnapshot")}>
         {Array.from({ length: 7 }).map((_, i) => (
           <div
             key={i}
@@ -57,7 +57,7 @@ export function AttendanceSnapshotGrid({
   const workingNow = activeCount ?? overview?.active ?? 0;
 
   return (
-    <MotionStagger className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    <MotionStagger className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3 xl:grid-cols-4">
       <StatCard
         title={translate("attendance.presentToday")}
         value={overview?.present ?? 0}

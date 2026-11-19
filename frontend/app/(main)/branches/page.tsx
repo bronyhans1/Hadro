@@ -6,14 +6,13 @@ import { MainContent } from "@/components/layout/MainContent";
 import { Button, IconButton, PageHeader } from "@/components/ui";
 import { Pencil, Trash2 } from "lucide-react";
 import { Card, CardBody } from "@/components/ui/Card";
-import { DataTable } from "@/components/ui/DataTable";
 import { LoadingState } from "@/components/ui/LoadingState";
 import { ErrorState } from "@/components/ui/ErrorState";
-import { EmptyState } from "@/components/ui/EmptyState";
 import { AccessDeniedState } from "@/components/ui/AccessDeniedState";
 import { Badge } from "@/components/ui/Badge";
 import { Input } from "@/components/ui/FormControls";
 import { Modal } from "@/components/ui/Modal";
+import { OrganisationDataTablePanel } from "@/components/organisation/OrganisationDataTablePanel";
 import { useAuth } from "@/lib/auth/AuthContext";
 import { canAccessAdminFeatures } from "@/lib/auth/roles";
 import * as branchesApi from "@/lib/api/branches.api";
@@ -260,7 +259,7 @@ export default function BranchesPage() {
       header: translate("branches.qr"),
       render: (row: BranchDto) =>
         row.qr_code ? (
-          <Button type="button" variant="outline" size="sm" onClick={() => setQrBranch(row)}>
+          <Button type="button" variant="outline" size="sm" className="w-full sm:w-auto" onClick={() => setQrBranch(row)}>
             {translate("branches.viewQr")}
           </Button>
         ) : (
@@ -518,7 +517,7 @@ export default function BranchesPage() {
           title={translate("branches.title")}
           subtitle={translate("branches.subtitle")}
           actions={
-            <Button type="button" onClick={openAdd}>
+            <Button type="button" className="w-full sm:w-auto" onClick={openAdd}>
               {translate("branches.addBranch")}
             </Button>
           }
@@ -540,38 +539,44 @@ export default function BranchesPage() {
             />
           </CardBody>
         </Card>
-        <Card title={translate("branches.branchList")}>
-          {filteredBranches.length === 0 ? (
-            <EmptyState
-              title={
-                branches.length === 0
-                  ? translate("branches.noBranchesYet")
-                  : translate("branches.noBranchesMatch")
-              }
-              description={
-                branches.length === 0
-                  ? translate("branches.createFirst")
-                  : undefined
-              }
-            />
-          ) : (
-            <DataTable
-              columns={columns}
-              data={filteredBranches}
-              keyExtractor={(row) => row.id}
-              emptyMessage={translate("branches.noBranches")}
-              stickyHeader
-            />
-          )}
-        </Card>
+        <OrganisationDataTablePanel
+          title={translate("branches.branchList")}
+          columns={columns}
+          rows={filteredBranches}
+          keyExtractor={(row) => row.id}
+          isEmpty={filteredBranches.length === 0}
+          emptyTitle={
+            branches.length === 0
+              ? translate("branches.noBranchesYet")
+              : translate("branches.noBranchesMatch")
+          }
+          emptyDescription={
+            branches.length === 0 ? translate("branches.createFirst") : undefined
+          }
+          emptyMessage={translate("branches.noBranches")}
+        />
       </div>
 
-      <Modal open={addOpen} onClose={() => setAddOpen(false)} title={translate("branches.addBranchSentence")}>
-        <form onSubmit={handleAddSubmit} className="space-y-4">
+      <Modal
+        open={addOpen}
+        onClose={() => setAddOpen(false)}
+        title={translate("branches.addBranchSentence")}
+        footer={
+          <>
+            <Button type="button" variant="secondary" className="w-full sm:w-auto" onClick={() => setAddOpen(false)}>
+              {translate("common.cancel")}
+            </Button>
+            <Button type="submit" form="add-branch-form" variant="primary" className="w-full sm:w-auto" loading={formSubmitting}>
+              {translate("branches.addBranchSentence")}
+            </Button>
+          </>
+        }
+      >
+        <form id="add-branch-form" onSubmit={handleAddSubmit} className="space-y-4">
           {formError && (
             <div className="alert-error px-3 py-2">{formError}</div>
           )}
-          <div>
+          <div className="min-w-0">
             <label htmlFor="add-branch-name" className="mb-1.5 block text-sm font-medium text-theme">
               {translate("departments.name")}
             </label>
@@ -585,20 +590,28 @@ export default function BranchesPage() {
               placeholder={translate("branches.placeholderAdd")}
             />
           </div>
-          <div className="flex justify-end gap-2 pt-2">
-            <Button type="button" variant="secondary" onClick={() => setAddOpen(false)}>
-              {translate("common.cancel")}
-            </Button>
-            <Button type="submit" variant="primary" loading={formSubmitting}>
-              {translate("branches.addBranchSentence")}
-            </Button>
-          </div>
         </form>
       </Modal>
 
-      <Modal open={!!editBranch} onClose={() => setEditBranch(null)} title={translate("branches.editBranch")}>
+      <Modal
+        open={!!editBranch}
+        onClose={() => setEditBranch(null)}
+        title={translate("branches.editBranch")}
+        footer={
+          editBranch ? (
+            <>
+              <Button type="button" variant="secondary" className="w-full sm:w-auto" onClick={() => setEditBranch(null)}>
+                {translate("common.cancel")}
+              </Button>
+              <Button type="submit" form="edit-branch-form" className="w-full sm:w-auto" loading={formSubmitting}>
+                {translate("common.save")}
+              </Button>
+            </>
+          ) : null
+        }
+      >
         {editBranch && (
-          <form onSubmit={handleEditSubmit} className="space-y-4">
+          <form id="edit-branch-form" onSubmit={handleEditSubmit} className="space-y-4">
             {formError && (
               <div className="alert-error px-3 py-2">{formError}</div>
             )}
@@ -614,7 +627,7 @@ export default function BranchesPage() {
                 {editBranch.qr_code ? translate("branches.qrGenerated") : translate("branches.notAvailable")}
               </p>
             </div>
-            <div>
+            <div className="min-w-0">
               <label htmlFor="edit-branch-name" className="mb-1 block text-sm font-medium text-theme">
                 {translate("departments.name")}
               </label>
@@ -627,8 +640,8 @@ export default function BranchesPage() {
                 className="input-field w-full"
               />
             </div>
-            <div className="grid gap-3 sm:grid-cols-3">
-              <div>
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+              <div className="min-w-0">
                 <label htmlFor="edit-branch-lat" className="mb-1 block text-sm font-medium text-theme">
                   {translate("branches.latitude")}
                 </label>
@@ -642,7 +655,7 @@ export default function BranchesPage() {
                   className="input-field w-full"
                 />
               </div>
-              <div>
+              <div className="min-w-0">
                 <label htmlFor="edit-branch-lng" className="mb-1 block text-sm font-medium text-theme">
                   {translate("branches.longitude")}
                 </label>
@@ -656,7 +669,7 @@ export default function BranchesPage() {
                   className="input-field w-full"
                 />
               </div>
-              <div>
+              <div className="min-w-0">
                 <label htmlFor="edit-branch-rad" className="mb-1 block text-sm font-medium text-theme">
                   {translate("branches.radiusLabel")}
                 </label>
@@ -671,42 +684,57 @@ export default function BranchesPage() {
                 />
               </div>
             </div>
-            <div className="flex justify-end gap-2 pt-2">
-              <Button type="button" variant="secondary" onClick={() => setEditBranch(null)}>
-                {translate("common.cancel")}
-              </Button>
-              <Button type="submit" loading={formSubmitting}>
-                {translate("common.save")}
-              </Button>
-            </div>
           </form>
         )}
       </Modal>
 
-      <Modal open={!!deleteBranch} onClose={() => setDeleteBranch(null)} title={translate("branches.deleteBranch")}>
-        {deleteBranch && (
-          <div className="space-y-4">
-            <p className="text-sm text-theme-muted">
-              {translate("branches.deleteConfirm", { values: { name: deleteBranch.name } })}
-            </p>
-            <div className="flex justify-end gap-2">
-              <Button type="button" variant="secondary" onClick={() => setDeleteBranch(null)}>
+      <Modal
+        open={!!deleteBranch}
+        onClose={() => setDeleteBranch(null)}
+        title={translate("branches.deleteBranch")}
+        footer={
+          deleteBranch ? (
+            <>
+              <Button type="button" variant="secondary" className="w-full sm:w-auto" onClick={() => setDeleteBranch(null)}>
                 {translate("common.cancel")}
               </Button>
               <Button
                 type="button"
                 variant="danger"
+                className="w-full sm:w-auto"
                 onClick={handleDeleteConfirm}
                 loading={actionLoading === deleteBranch.id}
               >
                 {translate("departments.delete")}
               </Button>
-            </div>
-          </div>
+            </>
+          ) : null
+        }
+      >
+        {deleteBranch && (
+          <p className="text-sm text-theme-muted">
+            {translate("branches.deleteConfirm", { values: { name: deleteBranch.name } })}
+          </p>
         )}
       </Modal>
 
-      <Modal open={!!qrBranch} onClose={() => setQrBranch(null)} title={translate("branches.printProductLabel")}>
+      <Modal
+        open={!!qrBranch}
+        onClose={() => setQrBranch(null)}
+        title={translate("branches.printProductLabel")}
+        footer={
+          qrMeta ? (
+            <>
+              <Button type="button" variant="secondary" className="w-full sm:w-auto" onClick={handleDownloadQrSvg}>
+                {translate("branches.downloadSvg")}
+              </Button>
+              <Button type="button" className="w-full sm:w-auto" onClick={handlePrintQr}>
+                {translate("branches.print")}
+              </Button>
+            </>
+          ) : null
+        }
+      >
         {qrMeta ? (
           <div className="space-y-4">
             <div className="rounded-lg border p-3" style={{ borderColor: "var(--border-soft)", background: "var(--surface-muted)" }}>
@@ -727,14 +755,6 @@ export default function BranchesPage() {
             <p className="text-xs" style={{ color: "var(--text-muted)" }}>
               {translate("branches.qrHint")}
             </p>
-            <div className="flex justify-end gap-2">
-              <Button type="button" variant="secondary" onClick={handleDownloadQrSvg}>
-                {translate("branches.downloadSvg")}
-              </Button>
-              <Button type="button" onClick={handlePrintQr}>
-                {translate("branches.print")}
-              </Button>
-            </div>
           </div>
         ) : null}
       </Modal>

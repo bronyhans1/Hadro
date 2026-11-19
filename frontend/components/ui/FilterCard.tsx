@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { SlidersHorizontal } from "lucide-react";
 import { Card, CardBody, CardHeader } from "./Card";
 import { cn } from "@/lib/design-system/cn";
+import { responsiveFiltersPanelClass } from "@/lib/layout/responsiveFilters";
 import { Button } from "./Button";
 import { translate } from "@/lib/i18n";
 
@@ -99,7 +100,7 @@ export function ResponsiveFilterCard({
       </div>
       <div
         id={mobileId}
-        className={cn("md:block", mobileOpen ? "mt-3 block md:mt-0" : "hidden")}
+        className={cn(responsiveFiltersPanelClass(mobileOpen))}
       >
         {children}
       </div>

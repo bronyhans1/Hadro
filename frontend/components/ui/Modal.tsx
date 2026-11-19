@@ -51,7 +51,7 @@ export function Modal({ open, onClose, title, children, footer, size = "md" }: M
       {open ? (
         <m.div
           ref={rootRef}
-          className="fixed inset-0 z-[55] flex items-center justify-center p-4"
+          className="fixed inset-0 z-[55] flex items-end justify-center p-3 sm:items-center sm:p-4"
           role="dialog"
           aria-modal="true"
           aria-labelledby={titleId}
@@ -72,7 +72,8 @@ export function Modal({ open, onClose, title, children, footer, size = "md" }: M
           />
           <m.div
             className={cn(
-              "relative flex max-h-[min(90vh,880px)] w-full flex-col overflow-hidden rounded-xl border",
+              "relative flex max-h-[min(92dvh,880px)] w-full flex-col overflow-hidden rounded-xl border",
+              "pb-[env(safe-area-inset-bottom)]",
               sizeClasses[size]
             )}
             style={{
@@ -86,16 +87,16 @@ export function Modal({ open, onClose, title, children, footer, size = "md" }: M
             exit="exit"
           >
             <div
-              className="flex shrink-0 items-center justify-between gap-3 border-b px-5 py-4"
+              className="flex shrink-0 items-center justify-between gap-3 border-b px-4 py-3.5 sm:px-5 sm:py-4"
               style={{ borderColor: "var(--ds-color-border)" }}
             >
-              <h2 id={titleId} className="ds-h2 text-lg">
+              <h2 id={titleId} className="ds-h2 min-w-0 truncate text-lg">
                 {title}
               </h2>
               <button
                 type="button"
                 onClick={onClose}
-                className="ds-focus-ring rounded-lg p-1.5 transition-colors hover:bg-[var(--ds-color-nav-hover)]"
+                className="ds-focus-ring shrink-0 rounded-lg p-1.5 transition-colors hover:bg-[var(--ds-color-nav-hover)]"
                 style={{
                   color: "var(--ds-color-text-muted)",
                   transitionDuration: "var(--ds-duration-fast)",
@@ -105,10 +106,12 @@ export function Modal({ open, onClose, title, children, footer, size = "md" }: M
                 <X className="h-4 w-4" aria-hidden />
               </button>
             </div>
-            <div className="min-h-0 flex-1 overflow-y-auto px-5 py-4">{children}</div>
+            <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-4 sm:px-5">
+              {children}
+            </div>
             {footer ? (
               <div
-                className="flex shrink-0 items-center justify-end gap-2 border-t px-5 py-3.5"
+                className="flex shrink-0 flex-col-reverse gap-2 border-t px-4 py-3.5 sm:flex-row sm:items-center sm:justify-end sm:px-5"
                 style={{ borderColor: "var(--ds-color-border)" }}
               >
                 {footer}

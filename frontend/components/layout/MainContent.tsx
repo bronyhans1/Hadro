@@ -20,7 +20,7 @@ export function MainContent({
   return (
     <main
       className={cn("app-main-content min-h-screen pt-[var(--header-height)]", className)}
-      style={{ marginLeft: "var(--sidebar-width)" }}
+      style={{ marginLeft: "var(--shell-content-inset, var(--sidebar-width))" }}
     >
       <div className="app-main-inner" style={{ background: "var(--app-bg)", color: "var(--text-primary)" }}>
         {title ? (
@@ -33,7 +33,11 @@ export function MainContent({
                 </p>
               ) : null}
             </div>
-            {actions ? <div className="flex shrink-0 flex-wrap items-center gap-2">{actions}</div> : null}
+            {actions ? (
+              <div className="flex w-full min-w-0 max-w-full flex-wrap items-center gap-2 sm:w-auto sm:justify-end [&>a]:max-w-full [&>button]:max-w-full">
+                {actions}
+              </div>
+            ) : null}
           </div>
         ) : null}
         {children}

@@ -12,7 +12,6 @@ import { useToast } from "@/components/ui/ToastProvider";
 import * as leaveApi from "@/lib/api/leave.api";
 import type { CurrentlyOnLeaveRow } from "@/lib/api/leave.api";
 import { safeApi } from "@/lib/api/safeApi";
-import { toUserFacingApiError } from "@/lib/api/userFacingError";
 import { translate } from "@/lib/i18n";
 
 type Action = "check_in" | "check_out";
@@ -25,6 +24,8 @@ export interface ManualAttendanceModalProps {
   initialUserId?: string | null;
   onSuccess?: () => void;
 }
+
+const FORM_ID = "manual-attendance-form";
 
 function fullName(u: UserListItem): string {
   const first = u.first_name?.trim() ?? "";
@@ -124,9 +125,23 @@ export function ManualAttendanceModal({
   }
 
   return (
-    <Modal open={open} onClose={onClose} title={translate("attendance.manualClockInOut")}>
-      <form onSubmit={submit} className="space-y-4 p-4">
-        <p className="text-sm text-theme-muted">
+    <Modal
+      open={open}
+      onClose={onClose}
+      title={translate("attendance.manualClockInOut")}
+      footer={
+        <>
+          <Button type="button" variant="secondary" className="w-full sm:w-auto" onClick={onClose}>
+            Cancel
+          </Button>
+          <Button type="submit" form={FORM_ID} loading={submitting} className="w-full sm:w-auto">
+            Confirm
+          </Button>
+        </>
+      }
+    >
+      <form id={FORM_ID} onSubmit={submit} className="space-y-4">
+        <p className="text-sm" style={{ color: "var(--ds-color-text-muted)" }}>
           {translate("attendance.manualHelp")}
         </p>
         {selectedOnLeave ? (
@@ -134,14 +149,15 @@ export function ManualAttendanceModal({
             {translate("attendance.onLeaveBlocked", { values: { date: selectedOnLeave.end_date } })}
           </div>
         ) : null}
-        <div>
-          <label htmlFor="manual-emp" className="mb-1 block text-xs font-medium text-theme">
+        <div className="min-w-0">
+          <label htmlFor="manual-emp" className="mb-1 block text-xs font-medium" style={{ color: "var(--ds-color-text-primary)" }}>
             {translate("attendance.employee")}
           </label>
           <Select
             id="manual-emp"
             value={userId}
             onChange={(e) => setUserId(e.target.value)}
+            className="w-full"
             required
           >
             <option value="">{translate("attendance.selectEllipsis")}</option>
@@ -153,8 +169,10 @@ export function ManualAttendanceModal({
           </Select>
         </div>
         <fieldset>
-          <legend className="mb-2 text-xs font-medium text-theme">{translate("attendance.action")}</legend>
-          <div className="flex gap-4 text-sm">
+          <legend className="mb-2 text-xs font-medium" style={{ color: "var(--ds-color-text-primary)" }}>
+            {translate("attendance.action")}
+          </legend>
+          <div className="flex flex-wrap gap-4 text-sm">
             <label className="flex cursor-pointer items-center gap-2">
               <input
                 type="radio"
@@ -175,14 +193,15 @@ export function ManualAttendanceModal({
             </label>
           </div>
         </fieldset>
-        <div>
-          <label htmlFor="manual-reason" className="mb-1 block text-xs font-medium text-theme">
+        <div className="min-w-0">
+          <label htmlFor="manual-reason" className="mb-1 block text-xs font-medium" style={{ color: "var(--ds-color-text-primary)" }}>
             {translate("attendance.reason")}
           </label>
           <Select
             id="manual-reason"
             value={reason}
             onChange={(e) => setReason(e.target.value)}
+            className="w-full"
           >
             {MANUAL_ATTENDANCE_REASONS.map((r) => (
               <option key={r.code} value={r.code}>
@@ -203,8 +222,8 @@ export function ManualAttendanceModal({
             ))}
           </Select>
         </div>
-        <div>
-          <label htmlFor="manual-note" className="mb-1 block text-xs font-medium text-theme">
+        <div className="min-w-0">
+          <label htmlFor="manual-note" className="mb-1 block text-xs font-medium" style={{ color: "var(--ds-color-text-primary)" }}>
             {translate("attendance.note")} {reason === "other" ? translate("attendance.requiredParen") : translate("attendance.optionalParen")}
           </label>
           <textarea
@@ -215,14 +234,6 @@ export function ManualAttendanceModal({
             className="input-field w-full"
             placeholder={reason === "other" ? translate("attendance.describeSituation") : translate("attendance.optionalContext")}
           />
-        </div>
-        <div className="flex justify-end gap-2 border-t pt-4" style={{ borderColor: "var(--border-soft)" }}>
-          <Button type="button" variant="secondary" onClick={onClose}>
-            Cancel
-          </Button>
-          <Button type="submit" loading={submitting}>
-            Confirm
-          </Button>
         </div>
       </form>
     </Modal>

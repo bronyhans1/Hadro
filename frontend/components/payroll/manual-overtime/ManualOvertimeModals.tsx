@@ -53,9 +53,42 @@ export function ManualOvertimeModals({
   onFormReasonChange,
   onCloseOverlap,
 }: ManualOvertimeModalsProps) {
+  const canCreate = !employeesLoading && hourlyEligibleEmployees.length > 0;
+
   return (
     <>
-      <Modal open={createOpen} onClose={onCloseCreate} title={translate("payroll.addManualOvertime")}>
+      <Modal
+        open={createOpen}
+        onClose={onCloseCreate}
+        title={translate("payroll.addManualOvertime")}
+        footer={
+          canCreate ? (
+            <>
+              <Button
+                type="button"
+                variant="secondary"
+                size="sm"
+                className="w-full sm:w-auto"
+                disabled={formSubmitting}
+                onClick={onCloseCreate}
+              >
+                {translate("common.cancel")}
+              </Button>
+              <Button
+                type="button"
+                variant="primary"
+                size="sm"
+                className="w-full sm:w-auto"
+                loading={formSubmitting}
+                disabled={hourlyEligibleEmployees.length === 0}
+                onClick={() => onSubmitCreate(false)}
+              >
+                {translate("payroll.create")}
+              </Button>
+            </>
+          ) : null
+        }
+      >
         <div className="space-y-3">
           <p className="text-sm" style={{ color: "var(--ds-color-text-muted)" }}>
             {translate("payroll.manualOtHoursHelp")}
@@ -67,66 +100,92 @@ export function ManualOvertimeModals({
             <EmptyState message={translate("payroll.noHourlyEmployees")} />
           ) : (
             <>
-              <Select
-                label={translate("attendance.employee")}
-                value={formUserId}
-                onChange={(e) => onFormUserIdChange(e.target.value)}
-              >
+              <div className="min-w-0">
+                <Select
+                  label={translate("attendance.employee")}
+                  value={formUserId}
+                  onChange={(e) => onFormUserIdChange(e.target.value)}
+                  className="w-full"
+                >
                   <option value="">{translate("payroll.selectEmployee")}</option>
                   {hourlyEligibleEmployees.map((emp) => (
                     <option key={emp.id} value={emp.id}>
                       {emp.first_name} {emp.last_name}
                     </option>
                   ))}
-              </Select>
-              <DateInput
-                label={translate("payroll.date")}
-                value={formDate}
-                onChange={(e) => onFormDateChange(e.target.value)}
-              />
-              <Input
-                label={translate("payroll.hours")}
-                type="number"
-                min={0.01}
-                step={0.25}
-                value={formHours}
-                onChange={(e) => onFormHoursChange(e.target.value)}
-              />
-              <Input
-                label={translate("payroll.reasonCodeOptional")}
-                value={formReasonCode}
-                onChange={(e) => onFormReasonCodeChange(e.target.value)}
-                placeholder={translate("payroll.reasonCodeExample")}
-              />
-              <Textarea
-                label={translate("payroll.reasonRequiredLabel")}
-                rows={3}
-                value={formReason}
-                onChange={(e) => onFormReasonChange(e.target.value)}
-                placeholder={translate("payroll.manualOtReasonPlaceholder")}
-              />
-              {formError ? <Alert variant="error">{formError}</Alert> : null}
-              <div className="flex justify-end gap-2 pt-2">
-                <Button type="button" variant="secondary" size="sm" disabled={formSubmitting} onClick={onCloseCreate}>
-                  {translate("common.cancel")}
-                </Button>
-                <Button
-                  type="button"
-                  variant="primary"
-                  size="sm"
-                  loading={formSubmitting}
-                  disabled={hourlyEligibleEmployees.length === 0}
-                  onClick={() => onSubmitCreate(false)}
-                >
-                  {translate("payroll.create")}
-                </Button>
+                </Select>
               </div>
+              <div className="min-w-0">
+                <DateInput
+                  label={translate("payroll.date")}
+                  value={formDate}
+                  onChange={(e) => onFormDateChange(e.target.value)}
+                />
+              </div>
+              <div className="min-w-0">
+                <Input
+                  label={translate("payroll.hours")}
+                  type="number"
+                  min={0.01}
+                  step={0.25}
+                  value={formHours}
+                  onChange={(e) => onFormHoursChange(e.target.value)}
+                />
+              </div>
+              <div className="min-w-0">
+                <Input
+                  label={translate("payroll.reasonCodeOptional")}
+                  value={formReasonCode}
+                  onChange={(e) => onFormReasonCodeChange(e.target.value)}
+                  placeholder={translate("payroll.reasonCodeExample")}
+                />
+              </div>
+              <div className="min-w-0">
+                <Textarea
+                  label={translate("payroll.reasonRequiredLabel")}
+                  rows={3}
+                  value={formReason}
+                  onChange={(e) => onFormReasonChange(e.target.value)}
+                  placeholder={translate("payroll.manualOtReasonPlaceholder")}
+                  className="w-full"
+                />
+              </div>
+              {formError ? <Alert variant="error">{formError}</Alert> : null}
             </>
           )}
         </div>
       </Modal>
 
-      <Modal open={!!overlapModal} onClose={onCloseOverlap} title={translate("payroll.overlapDetected")}>
+      <Modal
+        open={!!overlapModal}
+        onClose={onCloseOverlap}
+        title={translate("payroll.overlapDetected")}
+        footer={
+          overlapModal ? (
+            <>
+              <Button
+                type="button"
+                variant="secondary"
+                size="sm"
+                className="w-full sm:w-auto"
+                onClick={onCloseOverlap}
+              >
+                {translate("payroll.goBack")}
+              </Button>
+              <Button
+                type="button"
+                variant="primary"
+                size="sm"
+                className="w-full sm:w-auto"
+                disabled={formSubmitting}
+                onClick={() => onSubmitCreate(true)}
+              >
+                {translate("payroll.acknowledgeCreate")}
+              </Button>
+            </>
+          ) : null
+        }
+      >
         {overlapModal ? (
           <div className="space-y-3 text-sm">
             <p>
@@ -160,20 +219,6 @@ export function ManualOvertimeModals({
             <p style={{ color: "var(--ds-color-text-muted)" }}>
               {translate("payroll.overlapConfirm")}
             </p>
-            <div className="flex justify-end gap-2 pt-2">
-              <Button type="button" variant="secondary" size="sm" onClick={onCloseOverlap}>
-                {translate("payroll.goBack")}
-              </Button>
-              <Button
-                type="button"
-                variant="primary"
-                size="sm"
-                disabled={formSubmitting}
-                onClick={() => onSubmitCreate(true)}
-              >
-                {translate("payroll.acknowledgeCreate")}
-              </Button>
-            </div>
           </div>
         ) : null}
       </Modal>

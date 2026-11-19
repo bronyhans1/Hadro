@@ -16,7 +16,7 @@ export function RemoteReviewSummary({ metrics, loading }: RemoteReviewSummaryPro
   if (loading) {
     return (
       <div
-        className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
+        className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4"
         aria-busy
         aria-label={translate("attendance.loadingReviewSummary")}
       >
@@ -36,7 +36,7 @@ export function RemoteReviewSummary({ metrics, loading }: RemoteReviewSummaryPro
 
   return (
     <MotionStagger
-      className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
+      className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4"
       aria-label={translate("attendance.remoteReviewSummary")}
     >
       <StatCard

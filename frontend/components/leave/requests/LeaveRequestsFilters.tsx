@@ -46,13 +46,13 @@ function FilterFields({
   }
 
   return (
-    <div className="max-w-xs">
+    <div className="w-full min-w-0 max-w-full sm:max-w-xs">
       <Label htmlFor="leave-req-status">{translate("attendance.status")}</Label>
       <Select
         id="leave-req-status"
         value={status}
         onChange={(e) => onStatusChange(e.target.value as LeaveStatusFilter)}
-        className="mt-1"
+        className="mt-1 w-full"
       >
         {STATUS_FILTER_VALUES.map((value) => (
           <option key={value || "all"} value={value}>

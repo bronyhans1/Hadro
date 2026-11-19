@@ -626,58 +626,102 @@ export default function PayrollPage() {
               </p>
             ) : null}
             {earnings.daily_history.length > 0 ? (
-              <div
-                className="mt-4 max-h-48 overflow-auto rounded-md border"
-                style={{ borderColor: "var(--border-soft)" }}
-              >
-                <table className="min-w-full text-sm text-theme">
-                  <thead
-                    className="sticky top-0 text-left text-xs font-semibold"
-                    style={{ background: "var(--surface-muted)", color: "var(--text-muted)" }}
-                  >
-                    <tr>
-                      <th className="px-3 py-2">{translate("payroll.date")}</th>
-                      {showLateColumns ? (
-                        <>
-                          <th className="px-3 py-2 text-right">{translate("payroll.base")}</th>
-                          <th className="px-3 py-2 text-right">{translate("payroll.late")}</th>
-                          <th className="px-3 py-2 text-right">{translate("payroll.payable")}</th>
-                        </>
-                      ) : (
-                        <th className="px-3 py-2 text-right">{translate("payroll.gross")}</th>
-                      )}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {earnings.daily_history.map((row) => {
-                      const late = row.late_deduction ?? 0;
-                      const base = row.base_before_late ?? row.gross;
-                      return (
-                        <tr key={row.date} className="border-t" style={{ borderColor: "var(--border-soft)" }}>
-                          <td className="px-3 py-1.5">{row.date}</td>
-                          {showLateColumns ? (
-                            <>
-                              <td className="px-3 py-1.5 text-right tabular-nums">
-                                {formatCurrency(base, currencyCode)}
-                              </td>
-                              <td className="px-3 py-1.5 text-right tabular-nums">
-                                {late > 0 ? `−${formatCurrency(late, currencyCode)}` : "—"}
-                              </td>
+              <>
+                <div
+                  className="mt-4 hidden max-h-48 overflow-auto rounded-md border md:block"
+                  style={{ borderColor: "var(--border-soft)" }}
+                >
+                  <table className="min-w-full text-sm text-theme">
+                    <thead
+                      className="sticky top-0 text-left text-xs font-semibold"
+                      style={{ background: "var(--surface-muted)", color: "var(--text-muted)" }}
+                    >
+                      <tr>
+                        <th className="px-3 py-2">{translate("payroll.date")}</th>
+                        {showLateColumns ? (
+                          <>
+                            <th className="px-3 py-2 text-right">{translate("payroll.base")}</th>
+                            <th className="px-3 py-2 text-right">{translate("payroll.late")}</th>
+                            <th className="px-3 py-2 text-right">{translate("payroll.payable")}</th>
+                          </>
+                        ) : (
+                          <th className="px-3 py-2 text-right">{translate("payroll.gross")}</th>
+                        )}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {earnings.daily_history.map((row) => {
+                        const late = row.late_deduction ?? 0;
+                        const base = row.base_before_late ?? row.gross;
+                        return (
+                          <tr key={row.date} className="border-t" style={{ borderColor: "var(--border-soft)" }}>
+                            <td className="px-3 py-1.5">{row.date}</td>
+                            {showLateColumns ? (
+                              <>
+                                <td className="px-3 py-1.5 text-right tabular-nums">
+                                  {formatCurrency(base, currencyCode)}
+                                </td>
+                                <td className="px-3 py-1.5 text-right tabular-nums">
+                                  {late > 0 ? `−${formatCurrency(late, currencyCode)}` : "—"}
+                                </td>
+                                <td className="px-3 py-1.5 text-right tabular-nums">
+                                  {formatCurrency(row.gross, currencyCode)}
+                                </td>
+                              </>
+                            ) : (
                               <td className="px-3 py-1.5 text-right tabular-nums">
                                 {formatCurrency(row.gross, currencyCode)}
                               </td>
+                            )}
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+                <ul className="mt-4 max-h-64 space-y-2 overflow-auto md:hidden" aria-label={translate("payroll.date")}>
+                  {earnings.daily_history.map((row) => {
+                    const late = row.late_deduction ?? 0;
+                    const base = row.base_before_late ?? row.gross;
+                    return (
+                      <li
+                        key={row.date}
+                        className="rounded-lg border px-3 py-2"
+                        style={{ borderColor: "var(--border-soft)" }}
+                      >
+                        <p className="text-sm font-medium" style={{ color: "var(--ds-color-text-primary)" }}>
+                          {row.date}
+                        </p>
+                        <dl className="mt-1 grid grid-cols-2 gap-x-3 gap-y-1 text-xs">
+                          {showLateColumns ? (
+                            <>
+                              <div>
+                                <dt style={{ color: "var(--ds-color-text-muted)" }}>{translate("payroll.base")}</dt>
+                                <dd className="tabular-nums">{formatCurrency(base, currencyCode)}</dd>
+                              </div>
+                              <div>
+                                <dt style={{ color: "var(--ds-color-text-muted)" }}>{translate("payroll.late")}</dt>
+                                <dd className="tabular-nums">
+                                  {late > 0 ? `−${formatCurrency(late, currencyCode)}` : "—"}
+                                </dd>
+                              </div>
+                              <div className="col-span-2">
+                                <dt style={{ color: "var(--ds-color-text-muted)" }}>{translate("payroll.payable")}</dt>
+                                <dd className="font-medium tabular-nums">{formatCurrency(row.gross, currencyCode)}</dd>
+                              </div>
                             </>
                           ) : (
-                            <td className="px-3 py-1.5 text-right tabular-nums">
-                              {formatCurrency(row.gross, currencyCode)}
-                            </td>
+                            <div className="col-span-2">
+                              <dt style={{ color: "var(--ds-color-text-muted)" }}>{translate("payroll.gross")}</dt>
+                              <dd className="font-medium tabular-nums">{formatCurrency(row.gross, currencyCode)}</dd>
+                            </div>
                           )}
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </div>
+                        </dl>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </>
             ) : null}
           </>
         )}

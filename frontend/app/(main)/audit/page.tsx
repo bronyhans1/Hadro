@@ -4,15 +4,15 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { MainContent } from "@/components/layout/MainContent";
 import { Card } from "@/components/ui/Card";
 import { DateRangeFilter } from "@/components/ui/DateRangeFilter";
-import { DataTable } from "@/components/ui/DataTable";
 import { LoadingState } from "@/components/ui/LoadingState";
 import { ErrorState } from "@/components/ui/ErrorState";
 import { AccessDeniedState } from "@/components/ui/AccessDeniedState";
-import { EmptyState } from "@/components/ui/EmptyState";
+import { ResponsiveFilterCard } from "@/components/ui/FilterCard";
 import { ReportDatePresetButtons } from "@/components/ui/ReportDatePresetButtons";
 import { PayrollSection } from "@/components/payroll/PayrollSection";
 import { ReportsPageHeader } from "@/components/reports/ReportsPageHeader";
 import { ReportsFilterSubsection } from "@/components/reports/ReportsFilterSubsection";
+import { AuditActivityResults } from "@/components/audit/AuditActivityResults";
 import { useAuth } from "@/lib/auth/AuthContext";
 import { hasRole, AUDIT_VIEW_ROLES } from "@/lib/auth/roles";
 import * as auditApi from "@/lib/api/audit.api";
@@ -35,14 +35,14 @@ function ActorCell({ name, email }: { name?: string | null; email?: string | nul
 
   if (displayName && displayEmail) {
     return (
-      <div>
-        <div className="font-medium text-theme">{displayName}</div>
-        <div className="text-xs text-theme-muted">{displayEmail}</div>
+      <div className="min-w-0">
+        <div className="break-words font-medium text-theme">{displayName}</div>
+        <div className="break-all text-xs text-theme-muted">{displayEmail}</div>
       </div>
     );
   }
 
-  return <div className="font-medium text-theme">{displayName ?? displayEmail}</div>;
+  return <div className="break-words font-medium text-theme">{displayName ?? displayEmail}</div>;
 }
 
 export default function AuditActivityPage() {
@@ -163,14 +163,16 @@ export default function AuditActivityPage() {
       {
         key: "entity_type",
         header: translate("audit.target"),
-        render: (row) => <span className="max-w-[280px] text-sm text-theme">{row.presentedTargetLabel}</span>,
+        render: (row) => (
+          <span className="max-w-[280px] break-words text-sm text-theme">{row.presentedTargetLabel}</span>
+        ),
       },
       {
         key: "metadata",
         header: translate("audit.details"),
         render: (row) =>
           row.presentedDetail ? (
-            <span className="max-w-[520px] text-sm text-theme">{row.presentedDetail}</span>
+            <span className="max-w-[520px] break-words text-sm text-theme">{row.presentedDetail}</span>
           ) : (
             <span className="text-sm text-theme-muted">—</span>
           ),
@@ -211,80 +213,73 @@ export default function AuditActivityPage() {
           subtitle={translate("audit.auditSubtitle")}
         />
 
-        <PayrollSection title={translate("reports.filters")}>
-          <Card>
-            <div className="space-y-5">
-              <ReportsFilterSubsection title={translate("reports.quickRange")}>
-                <ReportDatePresetButtons
-                  hideLabel
-                  start={start}
-                  end={end}
-                  onSelect={(s, e) => {
-                    setStart(s);
-                    setEnd(e);
-                  }}
-                />
-              </ReportsFilterSubsection>
+        <ResponsiveFilterCard mobileId="audit-activity-filters">
+          <div className="space-y-5">
+            <ReportsFilterSubsection title={translate("reports.quickRange")}>
+              <ReportDatePresetButtons
+                hideLabel
+                start={start}
+                end={end}
+                onSelect={(s, e) => {
+                  setStart(s);
+                  setEnd(e);
+                }}
+              />
+            </ReportsFilterSubsection>
 
-              <ReportsFilterSubsection title={translate("attendance.dateRange")}>
-                <DateRangeFilter
-                  start={start}
-                  end={end}
-                  onStartChange={setStart}
-                  onEndChange={setEnd}
-                  onApply={() => undefined}
-                  showApply={false}
-                />
-              </ReportsFilterSubsection>
+            <ReportsFilterSubsection title={translate("attendance.dateRange")}>
+              <DateRangeFilter
+                start={start}
+                end={end}
+                onStartChange={setStart}
+                onEndChange={setEnd}
+                onApply={() => undefined}
+                showApply={false}
+              />
+            </ReportsFilterSubsection>
 
-              <div className="flex flex-wrap items-end gap-4">
-                <div className="min-w-[12rem] flex-1">
-                  <label htmlFor="audit-actor" className="mb-1 block text-xs font-medium text-theme-muted">
-                    {translate("audit.actor")}
-                  </label>
-                  <input
-                    id="audit-actor"
-                    type="text"
-                    value={actorId}
-                    onChange={(e) => setActorId(e.target.value)}
-                    placeholder={translate("audit.searchByNameOrEmail")}
-                    className="input-field w-full max-w-md"
-                  />
-                </div>
-                <div className="min-w-[12rem] flex-1">
-                  <label htmlFor="audit-action" className="mb-1 block text-xs font-medium text-theme-muted">
-                    {translate("audit.action")}
-                  </label>
-                  <input
-                    id="audit-action"
-                    type="text"
-                    value={actionType}
-                    onChange={(e) => setActionType(e.target.value)}
-                    placeholder={translate("audit.searchActions")}
-                    className="input-field w-full max-w-md"
-                  />
-                </div>
+            <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-end">
+              <div className="min-w-0 w-full sm:min-w-[12rem] sm:flex-1">
+                <label htmlFor="audit-actor" className="mb-1 block text-xs font-medium text-theme-muted">
+                  {translate("audit.actor")}
+                </label>
+                <input
+                  id="audit-actor"
+                  type="text"
+                  value={actorId}
+                  onChange={(e) => setActorId(e.target.value)}
+                  placeholder={translate("audit.searchByNameOrEmail")}
+                  className="input-field w-full max-w-full sm:max-w-md"
+                />
+              </div>
+              <div className="min-w-0 w-full sm:min-w-[12rem] sm:flex-1">
+                <label htmlFor="audit-action" className="mb-1 block text-xs font-medium text-theme-muted">
+                  {translate("audit.action")}
+                </label>
+                <input
+                  id="audit-action"
+                  type="text"
+                  value={actionType}
+                  onChange={(e) => setActionType(e.target.value)}
+                  placeholder={translate("audit.searchActions")}
+                  className="input-field w-full max-w-full sm:max-w-md"
+                />
               </div>
             </div>
-          </Card>
-        </PayrollSection>
+          </div>
+        </ResponsiveFilterCard>
 
         <PayrollSection title={translate("audit.activityLog")}>
-          {logs.length === 0 ? (
-            <EmptyState
-              title={translate("audit.noActivityYet")}
-              description={translate("audit.activityWillAppear")}
-            />
-          ) : filteredLogs.length === 0 ? (
-            <EmptyState message={translate("audit.noEventsMatchFilters")} />
-          ) : (
-            <DataTable
+          <Card>
+            <AuditActivityResults
               columns={columns}
-              data={presentedLogs}
+              rows={presentedLogs}
               keyExtractor={(row) => row.id}
+              isEmpty={logs.length === 0}
+              filteredEmpty={logs.length > 0 && filteredLogs.length === 0}
               emptyMessage={translate("common.noData")}
             />
-          )}
+          </Card>
         </PayrollSection>
       </div>
     </MainContent>

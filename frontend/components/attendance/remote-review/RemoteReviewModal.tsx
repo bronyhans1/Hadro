@@ -40,12 +40,19 @@ export function RemoteReviewModal({
       size="md"
       footer={
         <>
-          <Button type="button" variant="outline" onClick={onClose} disabled={actionLoading}>
+          <Button
+            type="button"
+            variant="outline"
+            className="w-full sm:w-auto"
+            onClick={onClose}
+            disabled={actionLoading}
+          >
             {translate("common.cancel")}
           </Button>
           <Button
             type="button"
             variant={isApprove ? "success" : "danger"}
+            className="w-full sm:w-auto"
             loading={actionLoading}
             onClick={onSubmit}
           >

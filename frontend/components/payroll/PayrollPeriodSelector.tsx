@@ -19,8 +19,8 @@ export function PayrollPeriodSelector({
   disabled,
 }: PayrollPeriodSelectorProps) {
   return (
-    <div className="flex flex-wrap items-end gap-3">
-      <div>
+    <div className="flex w-full min-w-0 flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:items-end">
+      <div className="min-w-0 w-full sm:w-auto">
         <label htmlFor="payroll-period-year" className="mb-1 block text-xs font-medium" style={{ color: "var(--ds-color-text-muted)" }}>
           {translate("payroll.year")}
         </label>
@@ -32,15 +32,16 @@ export function PayrollPeriodSelector({
           value={year}
           disabled={disabled}
           onChange={(e) => onYearChange(Number(e.target.value) || year)}
-          className="input-field w-24 py-1.5"
+          className="input-field w-full py-1.5 sm:w-24"
         />
       </div>
-      <div className="min-w-[6rem]">
+      <div className="min-w-0 w-full sm:min-w-[6rem] sm:w-auto">
         <Select
           id="payroll-period-month"
           label={translate("leave.month")}
           value={String(month)}
           disabled={disabled}
+          className="w-full"
           onChange={(e) => onMonthChange(Number(e.target.value))}
         >
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((m) => (

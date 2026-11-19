@@ -24,7 +24,7 @@ function FilterFields({
 }: AttendanceInsightFiltersProps) {
   return (
     <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-end">
-      <div className="min-w-[160px] flex-1 sm:max-w-[200px]">
+      <div className="min-w-0 w-full flex-1 sm:min-w-[160px] sm:max-w-[200px]">
         <DateInput
           id="insight-date-start"
           label={translate("attendance.from")}
@@ -32,7 +32,7 @@ function FilterFields({
           onChange={(e) => onStartChange(e.target.value)}
         />
       </div>
-      <div className="min-w-[160px] flex-1 sm:max-w-[200px]">
+      <div className="min-w-0 w-full flex-1 sm:min-w-[160px] sm:max-w-[200px]">
         <DateInput
           id="insight-date-end"
           label={translate("attendance.to")}

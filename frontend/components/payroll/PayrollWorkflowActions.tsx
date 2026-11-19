@@ -59,11 +59,12 @@ export function PayrollWorkflowActions({
   const busy = workflowLoading !== null;
 
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap">
       <Button
         type="button"
         variant="secondary"
         size="sm"
+        className="w-full sm:w-auto"
         disabled={!canSubmit || busy || !onSubmitForReview}
         onClick={onSubmitForReview}
       >
@@ -73,6 +74,7 @@ export function PayrollWorkflowActions({
         type="button"
         variant="primary"
         size="sm"
+        className="w-full sm:w-auto"
         disabled={!canApprove || busy || !onApprove}
         onClick={onApprove}
       >
@@ -84,6 +86,7 @@ export function PayrollWorkflowActions({
             type="button"
             variant="secondary"
             size="sm"
+            className="w-full sm:w-auto"
             disabled={!canLock || busy || !onLock}
             onClick={onLock}
           >
@@ -93,6 +96,7 @@ export function PayrollWorkflowActions({
             type="button"
             variant="secondary"
             size="sm"
+            className="w-full sm:w-auto"
             disabled={!canUnlock || busy || !onUnlock}
             onClick={onUnlock}
           >
@@ -102,6 +106,7 @@ export function PayrollWorkflowActions({
             type="button"
             variant="secondary"
             size="sm"
+            className="w-full sm:w-auto"
             disabled={!canArchive || busy || !onClose}
             onClick={onClose}
           >
@@ -111,6 +116,7 @@ export function PayrollWorkflowActions({
             type="button"
             variant="secondary"
             size="sm"
+            className="w-full sm:w-auto"
             disabled={!canReopen || busy || !onReopen}
             onClick={onReopen}
           >
@@ -120,6 +126,7 @@ export function PayrollWorkflowActions({
             type="button"
             variant="secondary"
             size="sm"
+            className="w-full sm:w-auto"
             disabled={!canRegenerate || busy || !onRegenerate}
             onClick={onRegenerate}
           >

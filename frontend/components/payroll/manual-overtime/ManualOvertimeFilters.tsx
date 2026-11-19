@@ -51,13 +51,13 @@ function FilterFields({
           }}
         />
       </div>
-      <div>
+      <div className="min-w-0">
         <Label htmlFor="mot-employee">{translate("attendance.employee")}</Label>
         <Select
           id="mot-employee"
           value={employeeFilter}
           onChange={(e) => onEmployeeFilterChange(e.target.value)}
-          className="mt-1"
+          className="mt-1 w-full"
         >
           <option value="">{translate("attendance.allEmployees")}</option>
           {employees.map((emp) => (
@@ -67,13 +67,13 @@ function FilterFields({
           ))}
         </Select>
       </div>
-      <div>
+      <div className="min-w-0">
         <Label htmlFor="mot-status">{translate("attendance.status")}</Label>
         <Select
           id="mot-status"
           value={statusFilter}
           onChange={(e) => onStatusFilterChange(e.target.value as "" | ManualOvertimeEntryStatus)}
-          className="mt-1"
+          className="mt-1 w-full"
         >
           {STATUS_FILTER_VALUES.map((value) => (
             <option key={value || "all"} value={value}>

@@ -15,6 +15,7 @@ export function PayrollSnapshotGrid({ stats, loading }: PayrollSnapshotGridProps
     <StatGrid
       ariaLabel={translate("payroll.payrollSnapshotAria")}
       loading={loading}
+      className="grid-cols-2"
       items={stats.map((stat) => ({
         key: stat.title,
         title: stat.title,

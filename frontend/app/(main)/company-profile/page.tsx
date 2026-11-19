@@ -142,7 +142,7 @@ export default function CompanyProfilePage() {
       subtitle={translate("profile.manageOrganization")}
       actions={
         canEdit ? (
-          <Button type="button" loading={saving} onClick={() => void save()}>
+          <Button type="button" className="w-full sm:w-auto" loading={saving} onClick={() => void save()}>
             {translate("settings.saveChanges")}
           </Button>
         ) : null
@@ -164,7 +164,7 @@ export default function CompanyProfilePage() {
                 />
               ) : null}
             </div>
-            <div className="shrink-0 text-right">
+            <div className="shrink-0 text-left sm:text-right">
               <p className="text-xs text-theme-muted">{translate("profile.profileCompletion")}</p>
               <p className="text-lg font-semibold text-theme">
                 {profile?.completion_percent ?? 0}%
